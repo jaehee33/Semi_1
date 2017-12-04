@@ -26,6 +26,10 @@ public class StoreViewService implements Action {
 			request.setAttribute("path", "../index.jsp");
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/common/result.jsp");
+		}else {
+			request.setAttribute("store", storeDTO);
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/store/storeView.jsp");
 		}
 		
 		
