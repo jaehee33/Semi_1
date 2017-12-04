@@ -47,7 +47,7 @@ public class StoreDAO extends MemberDAO{
 			
 			//수정
 			public int update(MemberDTO memberDTO) throws Exception{
-				
+				Connection con=DBConnector.getConnect();
 				return 0;
 			}
 			
