@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.store.StoreJoinService;
 
 public class MemberJoinService implements Action {
 
@@ -19,9 +18,6 @@ public class MemberJoinService implements Action {
 			if(job.equals("C")) {
 				MemberJoinService memberJoinService = new MemberJoinService();
 				actionForward=memberJoinService.doProcess(request, response);
-			}else {
-				StoreJoinService storeJoinService = new StoreJoinService();
-				actionForward=storeJoinService.doProcess(request, response);
 			}
 		}else {
 			actionForward = new ActionForward();
