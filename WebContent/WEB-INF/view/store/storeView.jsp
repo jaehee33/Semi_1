@@ -12,6 +12,6 @@
 <p>${store.holiday}</p>
 <p>${store.area}</p>
 <p>${store.storetel}</p>
-
+<a href="../index.jsp">index</a>
 </body>
 </html>
