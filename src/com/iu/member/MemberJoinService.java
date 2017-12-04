@@ -16,6 +16,7 @@ public class MemberJoinService implements Action {
 		if(method.equals("POST")) {
 			
 			String job = request.getParameter("job");
+			
 			if(job.equals("C")) {
 				MemberJoinService memberJoinService = new MemberJoinService();
 				actionForward=memberJoinService.doProcess(request, response);
