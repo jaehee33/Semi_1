@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iu.board.BoardDTO;
-import com.iu.member.MemberDTO;
-import com.iu.notice.NoticeDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
@@ -20,7 +17,7 @@ public class UseListDAO {
 		PreparedStatement pre = con.prepareStatement(sql);
 		pre.setString(1, useListDTO.getId());
 		pre.setDate(2, useListDTO.getUl_date());
-		pre.setString(3, useListDTO.getUl_stroe());
+		pre.setString(3, useListDTO.getUl_store());
 		pre.setString(4, useListDTO.getUl_style());
 		pre.setInt(5, useListDTO.getUl_price());
 		pre.setString(6, useListDTO.getUl_coupon());
@@ -29,8 +26,8 @@ public class UseListDAO {
 		return result;
 	}
 	
-	public List<MemberDTO> selectList(MakeRow makeRow) throws Exception {
-		List<MemberDTO> ar = new ArrayList<MemberDTO>();
+	public List<UseListDTO> selectList(MakeRow makeRow) throws Exception {
+		List<UseListDTO> ar = new ArrayList<UseListDTO>();
 		Connection con = DBConnector.getConnect();
 		String sql = "select * from (select rownum R, N.* from (select * from useList where "+makeRow.getKind()+" like ? order by num desc) N) where R between ? and ? ";
 		PreparedStatement pre= con.prepareStatement(sql);
@@ -46,7 +43,6 @@ public class UseListDAO {
 			useListDTO.setUl_style(rs.getString("style"));
 			useListDTO.setUl_price(rs.getInt("ul_price"));
 			useListDTO.setUl_coupon(rs.getString("ul_coupon"));
-
 			ar.add(useListDTO);
 		}
 		
