@@ -11,7 +11,8 @@
 <h3>ID: ${sessionScope.member.id}</h3>
 <h3>Name: ${sessionScope.member.name}</h3>
 <c:if test="${sessionScope.member.job eq 'S'}">
-<a href="./store/storeWrite.store">storeWrite</a>
+<a href="../store/storeWrite.store">storeWrite</a>
+<a href="../store/storeView.store">storeView</a>
 </c:if>
 
 </body>

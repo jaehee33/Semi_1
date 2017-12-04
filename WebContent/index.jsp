@@ -15,7 +15,6 @@
 </c:if>
 
 <c:if test="${not empty member}">
-
 <a href="./member/memberLogout.member">Logout</a>
 <a href="./member/memberMyPage.member">MyPage</a>
 </c:if>
