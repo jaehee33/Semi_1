@@ -49,15 +49,29 @@ public class StoreDAO extends MemberDAO{
 			}
 			
 			//수정
-			public int update(MemberDTO memberDTO) throws Exception{
+			public int update(StoreDTO storeDTO) throws Exception{
 				Connection con=DBConnector.getConnect();
-				return 0;
+				String sql="update store set store=?,area=?,storetel=?,holiday=? where id=?";
+				PreparedStatement st=con.prepareStatement(sql);
+				st.setString(1, storeDTO.getStore());
+				st.setString(2, storeDTO.getArea());
+				st.setString(3, storeDTO.getStoretel());
+				st.setString(4, storeDTO.getHoliday());
+				st.setString(5, storeDTO.getId());
+				int result=st.executeUpdate();
+				DBConnector.disConnect(st, con);
+				return result;
 			}
 			
 			//탈퇴
 			public int delete(String id) throws Exception{
-				
-				return 0;
+				Connection con=DBConnector.getConnect();
+				String sql="delete store where id=?";
+				PreparedStatement st=con.prepareStatement(sql);
+				st.setString(1, id);
+				int result=st.executeUpdate();
+				DBConnector.disConnect(st, con);
+				return result;
 			}
 			
 			public ArrayList<StoreDTO> selectList(MakeRow makeRow) throws Exception{
