@@ -16,9 +16,6 @@ public class MemberJoinService implements Action {
 		String method=request.getMethod();
 		if(method.equals("POST")) {
 
-			String job = request.getParameter("job");
-			if(job.equals("C")) {
-
 				MemberDTO memberDTO = new MemberDTO();
 				memberDTO.setId(request.getParameter("id"));
 				memberDTO.setPw(request.getParameter("pw"));
@@ -41,12 +38,10 @@ public class MemberJoinService implements Action {
 					actionForward.setPath("../index.jsp");		
 				}else {
 					request.setAttribute("message", "fail");
-					request.setAttribute("path", "./memberJoin.member");
+					request.setAttribute("path", "../index.jsp");
 					actionForward.setCheck(true);
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}
-
-			}
 			
 		}else {
 			actionForward = new ActionForward();

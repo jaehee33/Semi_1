@@ -17,8 +17,8 @@
 <p>BIRTH: <input type="date" name="birth"></p>
 <p>PHONE: <input type="text" name="phone"></p>
 <p>
-Customer<input type="radio" name=job id="j1" value="C">
-Store<input type="radio" name=job id="j2" value="S" checked="checked"></p>
+Customer<input type="radio" name=job id="j1" value="B" checked="checked">
+Store<input type="radio" name=job id="j2" value="S"></p>
 <button>Join</button>
 </form>
 </body>
