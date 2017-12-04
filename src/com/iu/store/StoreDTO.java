@@ -4,10 +4,20 @@ import com.iu.member.MemberDTO;
 
 public class StoreDTO extends MemberDTO {
 	
+	private String id;
 	private String store;
 	private String area;
 	private String storetel;
 	private String holiday;
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getStore() {
 		return store;
 	}
