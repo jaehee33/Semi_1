@@ -1,5 +1,7 @@
 package com.iu.member;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,8 +19,28 @@ public class MemberJoinService implements Action {
 			
 			String job = request.getParameter("job");
 			if(job.equals("C")) {
-				MemberJoinService memberJoinService = new MemberJoinService();
-				actionForward=memberJoinService.doProcess(request, response);
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO.setId(request.getParameter("id"));
+				memberDTO.setPw(request.getParameter("pw"));
+				memberDTO.setName(request.getParameter("name"));
+				memberDTO.setBirth(Date.valueOf(request.getParameter("birth")));
+				memberDTO.setPhone(request.getParameter("phone"));
+				memberDTO.setJob(request.getParameter("job"));
+				
+				MemberDAO memberDAO = new MemberDAO();
+		
+				int result=0;
+				try {
+					result=memberDAO.join(memberDTO);
+	
+				} catch (Exception e) {
+				}
+				actionForward.setCheck(true);
+				if(result>0) {
+					actionForward.setCheck(false);
+					actionForward.setPath("../index.jsp");		
+				}
+				
 			}else {
 				StoreJoinService storeJoinService = new StoreJoinService();
 				actionForward=storeJoinService.doProcess(request, response);
