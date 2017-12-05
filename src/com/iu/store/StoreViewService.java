@@ -16,7 +16,7 @@ public class StoreViewService implements Action {
 		MemberDTO memberDTO=((MemberDTO)request.getSession().getAttribute("member"));
 		StoreDTO storeDTO=null;
 		try {
-			storeDTO=storeDAO.selectOne(memberDTO);
+			storeDTO=storeDAO.selectOne(memberDTO.getId());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
