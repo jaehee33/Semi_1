@@ -35,17 +35,14 @@ public class MemberUpdateService implements Action {
 			} catch (Exception e) {
 			}
 			if(result>0) {
-				actionForward.setCheck(false);
+				actionForward.setCheck(true);
 				actionForward.setPath("./memberMyPage.member");		
-			}else 
+			}else {
 				request.setAttribute("message", "fail");
 				request.setAttribute("path", "./memberMyPage.member");
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
-				{
-					
-				}
-
+			}
 		}else {
 			//폼 부분
 			String id="";
