@@ -60,11 +60,11 @@ public class MemberDAO {
 		}
 		
 		//탈퇴
-		public int delete(String id) throws Exception{
+		public int delete(MemberDTO memberDTO) throws Exception{
 			Connection con = DBConnector.getConnect();
 			String sql="delete member where id=?";
 			PreparedStatement pre = con.prepareStatement(sql);
-			pre.setString(1, id);
+			pre.setString(1, memberDTO.getId());
 			int result=pre.executeUpdate();
 			DBConnector.disConnect(pre, con);
 			return result;
