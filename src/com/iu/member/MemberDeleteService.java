@@ -23,7 +23,7 @@ public class MemberDeleteService implements Action {
 			int result2=0;
 			try {
 				result = memberDAO.delete(memberDTO);
-				result2 = storeDAO.delete(memberDTO);
+				result2 = storeDAO.delete(memberDTO.getId());
 			} catch (Exception e) {
 			}
 			
