@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
+import com.iu.action.ActionForward;
 import com.iu.action.ActionFoward;
 
 /**
@@ -80,17 +81,17 @@ public class FaqController extends HttpServlet {
 	
 		String path = request.getServletPath();
 		Action action=null;
-		ActionFoward actionFoward=null;
+		ActionForward actionForward=null;
 		
 		action = (Action)command.get(path);
 		
-		actionFoward = action.doProcess(request, response);
+		actionForward = action.doProcess(request, response);
 		
-		if(actionFoward.isCheck()) {
-			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+		if(actionForward.isCheck()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);
 		}else {
-			response.sendRedirect(actionFoward.getPath());
+			response.sendRedirect(actionForward.getPath());
 		}
 	}
 	

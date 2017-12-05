@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
+import com.iu.action.ActionForward;
 import com.iu.action.ActionFoward;
 
 /**
@@ -73,7 +74,7 @@ public class ScoreController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String uri = request.getServletPath();
-		ActionFoward actionFoward=null;
+		ActionForward actionFoward=null;
 		Action action=null;
 		
 		action= (Action)command.get(uri);
