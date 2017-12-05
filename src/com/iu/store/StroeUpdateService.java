@@ -37,6 +37,7 @@ public class StroeUpdateService implements Action {
 			storeDTO.setHoliday(request.getParameter("holiday"));
 			storeDTO.setStore(request.getParameter("store"));
 			storeDTO.setStoretel(request.getParameter("storetel"));
+			storeDTO.setId(request.getParameter("id"));
 			try {
 				result=storeDAO.update(storeDTO);
 			} catch (Exception e) {
