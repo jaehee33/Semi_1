@@ -17,14 +17,14 @@ public class MemberMyPageService implements Action {
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
 		
 		MemberDAO memberDAO = new MemberDAO();
-		MemberDTO memberDTO2 = null;
+		MemberDTO m2 = null;
 		try {
-			memberDTO2 = memberDAO.login(memberDTO);
+			m2 = memberDAO.login(memberDTO);
 		} catch (Exception e) {
 		}
 		
-		if(memberDTO2 != null) {
-			request.setAttribute("m", memberDTO2);
+		if(m2 != null) {
+			request.setAttribute("m2", m2);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/member/memberMyPage.jsp");
 		}
