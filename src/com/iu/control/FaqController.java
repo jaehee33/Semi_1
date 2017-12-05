@@ -18,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+<<<<<<< HEAD
 import com.iu.action.ActionFoward;
+=======
+>>>>>>> euny_1
 
 /**
  * Servlet implementation class FaqController
@@ -81,7 +84,11 @@ public class FaqController extends HttpServlet {
 	
 		String path = request.getServletPath();
 		Action action=null;
+<<<<<<< HEAD
 		ActionForward actionForward=null;
+=======
+		ActionForward actionFoward=null;
+>>>>>>> euny_1
 		
 		action = (Action)command.get(path);
 		

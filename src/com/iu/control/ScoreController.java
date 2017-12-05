@@ -18,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+<<<<<<< HEAD
 import com.iu.action.ActionFoward;
+=======
+>>>>>>> euny_1
 
 /**
  * Servlet implementation class ScoreController

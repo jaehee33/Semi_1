@@ -23,7 +23,6 @@ public class ScoreDAO {
 		st.setString(4, boardDTO.getContents());
 		
 		int result = st.executeUpdate();
-		
 		DBConnector.disConnect(st, con);
 		
 		return result;
@@ -52,17 +51,17 @@ public class ScoreDAO {
 		return boardDTO;
 	}
 	
-	public ArrayList<ScoreDTO> selectList(int startRow, int lastRow,String kind, String search) throws Exception{
+	public ArrayList<ScoreDTO> selectList(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from faq where "+kind+" like ? order by ref desc, step asc) N) "
+				+ "(select * from faq where "+makeRow.getKind()+" like ? order by ref desc, step asc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
-		st.setInt(2, startRow);
-		st.setInt(3, lastRow);
+		st.setString(1, "%"+makeRow.getSearch()+"%");
+		st.setInt(2, makeRow.getStartRow());
+		st.setInt(3, makeRow.getLastRow());
 		
 		ResultSet rs = st.executeQuery();
 		ArrayList<ScoreDTO> ar = new ArrayList<>();
@@ -73,7 +72,6 @@ public class ScoreDAO {
 			scoreDTO.setPoint(rs.getInt("point"));
 			ar.add(scoreDTO);
 		}
-		
 		DBConnector.disConnect(rs, st, con);
 		return ar;
 	}
@@ -101,11 +99,11 @@ public class ScoreDAO {
 	}
 
 	
-	public int getTotalCount(String kind, String search) throws Exception {
+	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql ="select nvl(count(num), 0) from score where "+ kind+ " like ?";
+		String sql ="select nvl(count(num), 0) from score where "+makeRow.getKind()+ " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
+		st.setString(1, "%"+makeRow.getSearch()+"%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int totalCount=rs.getInt(1);
@@ -132,13 +130,12 @@ public class ScoreDAO {
 	
 	public int point(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql = "update score set point= ? where num= ?";
+		String sql = "insert into score value(?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		
 		int result= st.executeUpdate();
-		
 		DBConnector.disConnect(st, con);
 		
 		return result;

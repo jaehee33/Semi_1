@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.iu.util.DBConnector;
+import com.iu.util.MakeRow;
 
 public class NoticeDAO {
 
@@ -53,17 +54,17 @@ public class NoticeDAO {
 	}
 
 	//selectList
-	public ArrayList<NoticeDTO> selectList(int startRow, int lastRow,String kind, String search) throws Exception{
+	public ArrayList<NoticeDTO> selectList(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
 
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from notice where "+kind+" like ? order by num desc) N) "
+				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
-		st.setInt(2, startRow);
-		st.setInt(3, lastRow);
+		st.setString(1, "%"+makeRow.getSearch()+"%");
+		st.setInt(2, makeRow.getStartRow());
+		st.setInt(3, makeRow.getLastRow());
 
 		ResultSet rs = st.executeQuery();
 		ArrayList<NoticeDTO> ar = new ArrayList<>();
@@ -123,11 +124,11 @@ public class NoticeDAO {
 
 
 	//getTotalCount
-	public int getTotalCount(String kind,String search) throws Exception{
+	public int getTotalCount(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql ="select nvl(count(num), 0) from notice where "+ kind+ " like ?";
+		String sql ="select nvl(count(num), 0) from notice where "+ makeRow.getKind()+ " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
+		st.setString(1, "%"+makeRow.getSearch()+"%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int totalCount=rs.getInt(1);

@@ -7,9 +7,11 @@ import java.util.ArrayList;
 
 import com.iu.notice.NoticeDTO;
 import com.iu.util.DBConnector;
+import com.iu.util.MakeRow;
 
 public class FaqDAO {
 
+	
 	//insert
 	public int insert(FaqDTO faqDTO)throws Exception {
 		Connection con = DBConnector.getConnect();
@@ -21,13 +23,11 @@ public class FaqDAO {
 		st.setString(2, faqDTO.getId());
 		st.setString(3, faqDTO.getTitle());
 		st.setString(4, faqDTO.getContents());
-		/*sdf*/
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
 
 		return result;
-
 	}
 
 
@@ -56,17 +56,17 @@ public class FaqDAO {
 
 
 	//selectList
-	public ArrayList<FaqDTO> selectList(int startRow, int lastRow,String kind, String search) throws Exception{
+	public ArrayList<FaqDTO> selectList(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
 
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from notice where "+kind+" like ? order by num desc) N) "
+				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
-		st.setInt(2, startRow);
-		st.setInt(3, lastRow);
+		st.setString(1, "%"+makeRow.getSearch()+"%");
+		st.setInt(2, makeRow.getStartRow());
+		st.setInt(3, makeRow.getLastRow());
 
 		ResultSet rs = st.executeQuery();
 		ArrayList<FaqDTO> ar = new ArrayList<>();
@@ -87,6 +87,7 @@ public class FaqDAO {
 		return ar;
 	}
 
+	
 	//delete
 	public int delete(int num)throws Exception{
 		Connection con = DBConnector.getConnect();
@@ -98,7 +99,6 @@ public class FaqDAO {
 		st.setInt(1, num);
 
 		int result = st.executeUpdate();
-
 		DBConnector.disConnect(st, con);
 
 		return result;
@@ -123,11 +123,11 @@ public class FaqDAO {
 
 
 	//getTotalCount
-	public int getTotalCount(String kind,String search) throws Exception{
+	public int getTotalCount(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql ="select nvl(count(num), 0) from faq where "+ kind+ " like ?";
+		String sql ="select nvl(count(num), 0) from faq where "+ makeRow.getKind()+ " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+search+"%");
+		st.setString(1, "%"+makeRow.getSearch()+"%");
 		ResultSet rs = st.executeQuery();
 		rs.next();
 		int totalCount=rs.getInt(1);
@@ -136,6 +136,7 @@ public class FaqDAO {
 		return totalCount;
 	}
 
+	
 	//hitUpdate
 	public int hitUpdate(int num)throws Exception{
 		Connection con = DBConnector.getConnect();
@@ -151,4 +152,5 @@ public class FaqDAO {
 		return result;
 	}
 
+	
 }
