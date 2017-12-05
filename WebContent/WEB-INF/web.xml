@@ -9,6 +9,11 @@
       <param-value>store.properties</param-value>
     </init-param>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>store</servlet-name>
+    <url-pattern>*.store</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   <servlet-name>pos</servlet-name>
   <servlet-class>com.iu.control.PosController</servlet-class>
@@ -18,9 +23,10 @@
   </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>store</servlet-name>
-    <url-pattern>*.store</url-pattern>
+  <servlet-name>pos</servlet-name>
+  <url-pattern>*.pos</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>faq</servlet-name>
     <servlet-class>com.iu.control.FaqController</servlet-class>
@@ -45,6 +51,9 @@
     <servlet-name>score</servlet-name>
     <url-pattern>*.score</url-pattern>
   </servlet-mapping>
+  
+  
+  
   <servlet>
     <servlet-name>member</servlet-name>
     <servlet-class>com.iu.control.MemberController</servlet-class>
@@ -57,6 +66,7 @@
     <servlet-name>member</servlet-name>
     <url-pattern>*.member</url-pattern>
   </servlet-mapping>
+  
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>com.iu.filter.EncodingFilter</filter-class>
@@ -77,7 +87,20 @@
     <exception-type>java.lang.Throwable</exception-type>
     <location>/WEB-INF/view/common/error_server.jsp</location>
   </error-page>
- 
+  
+ <servlet>
+    <servlet-name>json</servlet-name>
+    <servlet-class>com.iu.control.JsonController</servlet-class>
+    <init-param>
+      <param-name>property</param-name>
+      <param-value>json.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>json</servlet-name>
+    <url-pattern>*.json</url-pattern>
+  </servlet-mapping>
+  
   <resource-ref>
     <res-ref-name>jdbc/hair01</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>

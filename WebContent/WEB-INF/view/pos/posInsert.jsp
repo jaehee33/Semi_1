@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="posInsert.pos" method="post">
+<input type="text" name="store" value="${sname}" readonly="readonly">
+<input type="number" name="total">
+<button>버튼</button>
+</form>
 </body>
 </html>

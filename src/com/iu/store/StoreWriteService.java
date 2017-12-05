@@ -16,6 +16,7 @@ public class StoreWriteService implements Action {
 		
 		if(method.equals("GET")) {
 			actionForward.setCheck(true);
+			System.out.println("djksdfhkdfdkfsdkfskjs");
 			actionForward.setPath("../WEB-INF/view/store/storeWrite.jsp");
 		}else {
 			String id=((MemberDTO)request.getSession().getAttribute("member")).getId();

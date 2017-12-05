@@ -14,15 +14,11 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (?,?,?,?,?,?,?)";
+		String sql="insert into pos values (sysdate,0,0,null,?,?,null)";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setDate(1, posDTO.getPos_date());
-		st.setInt(2, posDTO.getPos_import());
-		st.setInt(3, posDTO.getExpend());
-		st.setString(4, posDTO.getKind());
-		st.setString(5, posDTO.getStore());
-		st.setInt(6, posDTO.getTotal());
-		st.setBoolean(7, posDTO.isPos_coupon());
+		st.setInt(1, posDTO.getTotal());
+		st.setString(2, posDTO.getStore());
+	
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
 		
