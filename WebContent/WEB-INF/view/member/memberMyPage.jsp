@@ -11,14 +11,14 @@
 </head>
 <body>
 
-<h3>ID: ${m.id}</h3>
-<h3>Name: ${m.name}</h3>
-<h3>Birth: ${m.birth}</h3>
-<h3>Phone: ${m.phone}</h3>
-<h3>Job: ${m.job}</h3>
+<h3>ID: ${m2.id}</h3>
+<h3>Name: ${m2.name}</h3>
+<h3>Birth: ${m2.birth}</h3>
+<h3>Phone: ${m2.phone}</h3>
+<h3>Job: ${m2.job}</h3>
 
 <a href="../index.jsp">index</a>
-<a href="./memberUpdate.member">memberUpdate</a>
+<a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 
 <c:if test="${sessionScope.member.job eq 'S'}">
