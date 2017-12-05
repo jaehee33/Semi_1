@@ -3,6 +3,38 @@
   <display-name>Semi_1</display-name>
   
   <servlet>
+  	<servlet-name>faq</servlet-name>
+  	<servlet-class>com.iu.control.FaqController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>faq</servlet-name>
+  	<url-pattern>*.faq</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>notice</servlet-name>
+  	<servlet-class>com.iu.control.NoticeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice</servlet-name>
+  	<url-pattern>*.notice</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>score</servlet-name>
+  	<servlet-class>com.iu.control.ScoreController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>score</servlet-name>
+  	<url-pattern>*.score</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  <servlet>
     <servlet-name>member</servlet-name>
     <servlet-class>com.iu.control.MemberController</servlet-class>
     <init-param>
