@@ -5,14 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import org.apache.catalina.Store;
-
 import com.iu.member.MemberDAO;
 import com.iu.member.MemberDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
-public class StoreDAO extends MemberDAO{
+public class StoreDAO{
 	
 	//회원가입
 			public int insert(StoreDTO storeDTO) throws Exception{
@@ -30,11 +28,11 @@ public class StoreDAO extends MemberDAO{
 			}
 			
 			//로그인
-			public StoreDTO selectOne(MemberDTO memberDTO) throws Exception{
+			public StoreDTO selectOne(String id) throws Exception{
 				Connection con=DBConnector.getConnect();
 				String sql="select * from store where id=?";
 				PreparedStatement st=con.prepareStatement(sql);
-				st.setString(1, memberDTO.getId());
+				st.setString(1, id);
 				ResultSet rs=st.executeQuery();
 				StoreDTO storeDTO=null;
 				if(rs.next()) {
