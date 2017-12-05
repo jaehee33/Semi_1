@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
-import com.iu.action.ActionFoward;
+import com.iu.action.ActionForward;
 
 /**
  * Servlet implementation class FaqController
@@ -80,7 +80,7 @@ public class FaqController extends HttpServlet {
 	
 		String path = request.getServletPath();
 		Action action=null;
-		ActionFoward actionFoward=null;
+		ActionForward actionFoward=null;
 		
 		action = (Action)command.get(path);
 		

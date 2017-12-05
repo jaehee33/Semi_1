@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
-import com.iu.action.ActionFoward;
+import com.iu.action.ActionForward;
 
 /**
  * Servlet implementation class NoticeController
@@ -82,7 +82,7 @@ public class NoticeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String path = request.getServletPath();
 		Action action=null;
-		ActionFoward actionFoward=null;
+		ActionForward actionFoward=null;
 		
 		action = (Action)command.get(path);
 		
