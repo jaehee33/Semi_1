@@ -16,6 +16,7 @@
 <h3>Name: ${m.name}</h3>
 <h3>Birth: ${m.birth}</h3>
 <h3>Phone: ${m.phone}</h3>
+<h3>Job: ${m.job}</h3>
 <a href="../index.jsp">index</a>
 <a href="./memberUpdate.member">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>

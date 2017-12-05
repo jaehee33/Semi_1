@@ -2,11 +2,11 @@ package com.iu.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.store.StoreDAO;
+import com.iu.store.StoreDTO;
 
 public class MemberDeleteService implements Action {
 
@@ -15,6 +15,7 @@ public class MemberDeleteService implements Action {
 		ActionForward actionForward = new ActionForward();
 		
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
+		StoreDTO storeDTO = (StoreDTO)request.getSession().getAttribute("store");
 		
 			MemberDAO memberDAO = new MemberDAO();
 			StoreDAO storeDAO = new StoreDAO();
@@ -35,7 +36,10 @@ public class MemberDeleteService implements Action {
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			}
-		
+			request.getSession().invalidate();
+			actionForward.setCheck(false);
+			actionForward.setPath("../index.jsp");
+			
 		return actionForward;
 
 	}

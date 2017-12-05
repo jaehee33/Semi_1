@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.store.StoreDAO;
 
 
 public class MemberMyPageService implements Action {
