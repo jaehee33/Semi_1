@@ -15,6 +15,6 @@
 <a href="../index.jsp">index</a>
 <a href='./storeDelete.store?id=${store.id}'>delete</a>
 <a href='./storeUpdate.store?id=${store.id}'>update</a>
-<a href="./"></a>
+<a href="../pos/posIndex.pos">pos</a>
 </body>
 </html>
