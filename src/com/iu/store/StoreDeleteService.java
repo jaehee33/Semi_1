@@ -22,7 +22,7 @@ public class StoreDeleteService implements Action {
 		}
 		if(result>0) {
 			actionForward.setCheck(false);
-			actionForward.setPath("./storeView.store");
+			actionForward.setPath("../member/memberMyPage.member");
 		}else {
 			request.setAttribute("message", "delete fail");
 			request.setAttribute("path", "../index.jsp");

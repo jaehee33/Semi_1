@@ -39,6 +39,7 @@ public class StoreDAO extends MemberDAO{
 				StoreDTO storeDTO=null;
 				if(rs.next()) {
 					storeDTO=new StoreDTO();
+					storeDTO.setId(rs.getString("id"));
 					storeDTO.setArea(rs.getString("area"));
 					storeDTO.setHoliday(rs.getString("holiday"));
 					storeDTO.setStoretel(rs.getString("storetel"));
