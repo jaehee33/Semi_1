@@ -29,7 +29,7 @@ public class StroeUpdateService implements Action {
 			}
 			request.setAttribute("store", storeDTO);
 			actionForward.setCheck(true);
-			actionForward.setPath("./storeUpdate.store");
+			actionForward.setPath("../WEB-INF/view/store/storeUpdate.jsp");
 		}else {
 			int result=0;
 			StoreDTO storeDTO=new StoreDTO();
