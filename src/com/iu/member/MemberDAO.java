@@ -7,23 +7,7 @@ import java.sql.ResultSet;
 import com.iu.util.DBConnector;
 
 public class MemberDAO {
-	
-		//idCheck
-		public boolean idCheck(String id) throws Exception{
-			boolean check=true;
-			Connection con=DBConnector.getConnect();
-			String sql="select * from member where id=?";
-			PreparedStatement pre=con.prepareStatement(sql);
-			pre.setString(1, id);
-			ResultSet rs=pre.executeQuery();
-			if(rs.next()) {
-				check=false;
-			}
-			DBConnector.disConnect(rs, pre, con);
-			return check;
-			
-		}
-	
+
 		//회원가입
 		public int join(MemberDTO memberDTO) throws Exception{
 			Connection con = DBConnector.getConnect();
