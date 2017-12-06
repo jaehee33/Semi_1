@@ -90,7 +90,7 @@ public class NoticeController extends HttpServlet {
 		actionForward = action.doProcess(request, response);
 		
 		if(actionForward.isCheck()) {
-			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);
 		}else {
 			response.sendRedirect(actionForward.getPath());
