@@ -25,6 +25,21 @@ public class MemberJoinService implements Action {
 				memberDTO.setJob(request.getParameter("job"));
 
 				MemberDAO memberDAO = new MemberDAO();
+				
+				String id = request.getParameter("id");
+				boolean checkResult;
+				try {
+					checkResult = memberDAO.idCheck(id);
+				} catch (Exception e1) {
+				}
+				checkResult = false;
+				if(!checkResult) {
+					checkResult = true;
+				}
+				request.setAttribute("checkResult", checkResult);
+				actionForward.setCheck(false);
+				actionForward.setPath("../index.jsp");
+				
 
 				int result=0;
 				try {

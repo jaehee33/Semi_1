@@ -58,7 +58,7 @@ if (ServletFileUpload.isMultipartContent(request)){
                 os.flush();
                 os.close();
                 ///////////////// 서버에 파일쓰기 /////////////////
-                return3 += "&bNewLine=true&sFileName="+name+"&sFileURL=/Servlet_mvc_3/upload/"+realname;
+                return3 += "&bNewLine=true&sFileName="+name+"&sFileURL=/Semi_1/upload/"+realname;
             }else {
                 return3 += "&errstr=error";
             }

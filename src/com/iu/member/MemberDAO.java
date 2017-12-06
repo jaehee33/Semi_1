@@ -90,5 +90,21 @@ public class MemberDAO {
 			DBConnector.disConnect(rs, pre, con);
 			return memberDTO;
 		}
+		
+		//idCheck
+		public boolean idCheck(String id) throws Exception{
+			boolean check=true;
+			Connection con=DBConnector.getConnect();
+			String sql="select * from member where id=?";
+			PreparedStatement pre=con.prepareStatement(sql);
+			pre.setString(1, id);
+			ResultSet rs=pre.executeQuery();
+			if(rs.next()) {
+				check=false;
+			}
+			DBConnector.disConnect(rs, pre, con);
+			return check;
+			
+		}
 
 }
