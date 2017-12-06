@@ -16,8 +16,10 @@
 <h3>Birth: ${m2.birth}</h3>
 <h3>Phone: ${m2.phone}</h3>
 <h3>Job: ${m2.job}</h3>
+<p><a href="../upload/${filef.fileName()}">${fileo.oriName()}</a>
 
 <a href="../index.jsp">index</a>
+<a href="./memberStyle.member">StyleUpload</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 
