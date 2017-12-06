@@ -14,7 +14,7 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (sysdate,0,0,null,?,?,null)";
+		String sql="insert into pos values (sysdate,0,0,null,?,?,null,)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, posDTO.getTotal());
 		st.setString(2, posDTO.getStore());
@@ -23,6 +23,10 @@ public class PosDAO {
 		DBConnector.disConnect(st, con);
 		
 		return result;
+	}
+	
+	public int moneyinsert(PosDTO posDTO) throws Exception{
+		
 	}
 	
 	public ArrayList<PosDTO> selectList(MakeRow makeRow, String store) throws Exception{
