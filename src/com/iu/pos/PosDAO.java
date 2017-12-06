@@ -43,10 +43,10 @@ public class PosDAO {
 	public ArrayList<PosDTO> selectList(PosMakeRow posMakeRow, String store) throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select * from (select rownum R,P.* from "
-				+ "(select pos_date,"+posMakeRow.getType()+",total,pos_date,pos_coupon from pos where store=?) P)"
+				+ "(select pos_date,"+posMakeRow.getType()+",total,pos_coupon,store,kind from pos where store=?) P)"
 						+ " where R between ? and ? order by R desc";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setString(1, store);
+		st.setString(1,store);
 		st.setInt(2, posMakeRow.getStartRow());
 		st.setInt(3, posMakeRow.getLastRow());
 		ResultSet rs=st.executeQuery();

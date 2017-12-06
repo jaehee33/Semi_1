@@ -42,6 +42,7 @@ public class PosIndexService implements Action {
 					request.setAttribute("list", ar);
 					request.setAttribute("page", pageing);
 					request.setAttribute("make", posMakeRow);
+					request.setAttribute("store", store);
 					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -50,7 +51,7 @@ public class PosIndexService implements Action {
 				
 				//전송
 				actionForward.setCheck(true);
-				actionForward.setPath("../WEB-INF/view/pos/PosIndex.jsp");
+				actionForward.setPath("../WEB-INF/view/pos/posIndex.jsp");
 		
 		return actionForward;
 	}
