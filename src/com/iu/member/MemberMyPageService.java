@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.store.StoreDAO;
+import com.iu.store.StoreDTO;
 
 
 public class MemberMyPageService implements Action {
@@ -24,6 +26,15 @@ public class MemberMyPageService implements Action {
 		}
 		
 		if(m2 != null) {
+			StoreDAO storeDAO=new StoreDAO();
+			StoreDTO storeDTO=null;
+			try {
+				storeDTO=storeDAO.selectOne(m2.getId());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.setAttribute("store", storeDTO);
 			request.setAttribute("m2", m2);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/member/memberMyPage.jsp");

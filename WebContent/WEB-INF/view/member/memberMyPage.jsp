@@ -22,8 +22,12 @@
 <a href="./memberDelete.member">memberDelete</a>
 
 <c:if test="${sessionScope.member.job eq 'S'}">
+<c:if test="${empty store}">
 <a href="../store/storeWrite.store">storeWrite</a>
+</c:if>
+<c:if test="${not empty store}">
 <a href="../store/storeView.store">storeView</a>
+</c:if>
 </c:if>
 
 
