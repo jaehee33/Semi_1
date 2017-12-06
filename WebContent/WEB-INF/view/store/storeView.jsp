@@ -17,6 +17,6 @@
 <a href='./storeUpdate.store?id=${store.id}'>update</a>
 
 <a href="../pos/posInsert.pos?store=${store.store}">posInsert</a>
-<a href="../pos/posIndex.pos">pos</a>
+<a href="../pos/posIndex.pos?store=${store.store}">pos</a>
 </body>
 </html>
