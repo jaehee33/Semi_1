@@ -5,6 +5,13 @@ public class KindDTO {
 	private String kind;
 	private int price;
 	private String store;
+	private int num;
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getKind() {
 		return kind;
 	}

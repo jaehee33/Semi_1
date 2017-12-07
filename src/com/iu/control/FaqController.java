@@ -81,7 +81,7 @@ public class FaqController extends HttpServlet {
 		String path = request.getServletPath();
 		Action action=null;
 
-		ActionForward actionFoward=null;
+		ActionForward actionForward=null;
 		
 		action = (Action)command.get(path);
 		
