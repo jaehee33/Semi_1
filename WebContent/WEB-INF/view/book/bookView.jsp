@@ -23,7 +23,6 @@
 	</c:choose>
 	</h3>
 	<h3>시술여부 : ${view.bk_use}</h3>
-	
-	<a href="../member/memberMyPage.member">마이페이지로 돌아가기</a>
+	<a href="./bookList.book">나의 예약으로 돌아가기</a>
 	</body>
 </html>
