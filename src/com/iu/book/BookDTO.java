@@ -5,6 +5,7 @@ import java.sql.Date;
 import com.iu.member.MemberDTO;
 
 public class BookDTO{
+	private int num;
 	private String id;
 	private String name;
 	private String phone;
@@ -16,6 +17,12 @@ public class BookDTO{
 	private String bk_time;
 	private boolean bk_use;	
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public boolean isBk_use() {
 		return bk_use;
 	}
