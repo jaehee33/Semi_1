@@ -4,7 +4,7 @@
    
   <servlet>
   	<servlet-name>book</servlet-name>
-  	<servlet-class>com.iu.control.BookConrtoller</servlet-class>
+  	<servlet-class>com.iu.control.BookController</servlet-class>
   	<init-param>
   		<param-name>property</param-name>
   		<param-value>book.properties</param-value>

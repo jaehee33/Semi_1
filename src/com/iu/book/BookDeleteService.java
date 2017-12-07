@@ -25,10 +25,10 @@ public class BookDeleteService implements Action {
 		
 		if(result>0) {
 			actionForward.setCheck(false);
-			actionForward.setPath("./book");
+			actionForward.setPath("../index.jsp");
 		}else {
 			request.setAttribute("message", "Fail");
-			request.setAttribute("path", "./bookList.book");
+			request.setAttribute("path", "../memberMyPage.member");
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		}

@@ -20,6 +20,9 @@
 <a href="../index.jsp">index</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
+<c:if test="${sessionScope.member.job eq 'B'}">
+<a href="../book/bookView.book">bookView(예약확인)</a>
+</c:if>
 
 <c:if test="${sessionScope.member.job eq 'S'}">
 <a href="../store/storeWrite.store">storeWrite</a>
