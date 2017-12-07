@@ -24,7 +24,7 @@ public class KindDAO {
 		return result;
 	}
 	
-	public ArrayList<KindDTO> selectList(MakeRow makeRow,String store) throws Exception{
+	public ArrayList<KindDTO> selectList(String store) throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select * from kind where store=?";
 		PreparedStatement st=con.prepareStatement(sql);

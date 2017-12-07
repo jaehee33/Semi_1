@@ -9,17 +9,13 @@
 <script type="text/javascript">
 $(function(){
 	$("#btn").click(function(){
-		var xhttp=new XMLHttpRequest();
+		$.get("kindList.kind", function(data){
+			$("#main").prepend(data);
+		});
 		
-		xhttp.onreadystatechange=function(){
-			if(this.readyState==4 && this.status==200){
-				$("#main").html("<div>"+this.responseText+"</div>");
-			}
-		}
-		
-		xhttp.open("get", "kindListajax.jsp?store="+${store});
-		xhttp.send();
-		
+	});
+	$("#plus").click(function(){
+		$("#main").append('<div><form action="kindinsert.kind">KIND : <input type="text" placeholder="종류를 입력해주세요">PRICE : <input type="number" placeholder="가격을 입력해주세요"><button id="btn">insert</button></form></div>');
 	});
 });
 
@@ -27,11 +23,13 @@ $(function(){
 </head>
 <body>
 <section id="main">
+<button id="plus">+</button>
+<button id="btn">List</button>
 <div>
-<form action="kindinsert.kind">
-KIND : <input type="text" placeholder="종류를 입력해주세요">
-PRICE : <input type="number" placeholder="가격을 입력해주세요">
-<button id="btn">insert</button>
+<form action="kindInsert.kind" method="post">
+KIND : <input type="text" name="kind" placeholder="종류를 입력해주세요">
+PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요">
+<button>insert</button>
 </form>
 </div>
 </section>
