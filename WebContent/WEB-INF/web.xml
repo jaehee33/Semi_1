@@ -16,6 +16,19 @@
   </servlet-mapping>
   
   <servlet>
+  <servlet-name>kind</servlet-name>
+  <servlet-class>com.iu.control.KindController</servlet-class>
+  <init-param>
+  <param-name>property</param-name>
+  <param-value>kind.properties</param-value>
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>kind</servlet-name>
+  <url-pattern>*.kind</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>store</servlet-name>
     <servlet-class>com.iu.control.StoreController</servlet-class>
     <init-param>
