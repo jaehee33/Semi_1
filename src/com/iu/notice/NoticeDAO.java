@@ -4,34 +4,38 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
+import com.iu.board.BoardDAO;
+import com.iu.board.BoardDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
-public class NoticeDAO {
+public class NoticeDAO implements BoardDAO {
 
-	//insert
-	public int insert(NoticeDTO noticeDTO)throws Exception {
+	@Override
+	public int insert(BoardDTO boardDTO) throws Exception {
+
 		Connection con = DBConnector.getConnect();
 
 		String sql="insert into notice values(?,?,?,?,sysdate,0)";
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, noticeDTO.getNum());
-		st.setString(2, noticeDTO.getId());
-		st.setString(3, noticeDTO.getTitle());
-		st.setString(4, noticeDTO.getContents());
+		st.setInt(1, boardDTO.getNum());
+		st.setString(2, boardDTO.getId());
+		st.setString(3, boardDTO.getTitle());
+		st.setString(4, boardDTO.getContents());
 
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
 
 		return result;
-		
+
 	}
 
-	//selectOne
-	public NoticeDTO selectOne(int num) throws Exception{
+	@Override
+	public BoardDTO selectOne(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="select * from notice where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -51,12 +55,13 @@ public class NoticeDAO {
 		DBConnector.disConnect(rs, st, con);
 
 		return noticeDTO;
+	
 	}
 
-	//selectList
-	public ArrayList<NoticeDTO> selectList(MakeRow makeRow) throws Exception{
+	@Override
+	public List<BoardDTO> selectList(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
-
+		List<BoardDTO> ar = new ArrayList<BoardDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
 				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
@@ -65,9 +70,7 @@ public class NoticeDAO {
 		st.setString(1, "%"+makeRow.getSearch()+"%");
 		st.setInt(2, makeRow.getStartRow());
 		st.setInt(3, makeRow.getLastRow());
-
 		ResultSet rs = st.executeQuery();
-		ArrayList<NoticeDTO> ar = new ArrayList<>();
 
 		while(rs.next()) {
 			NoticeDTO noticeDTO = new NoticeDTO();
@@ -81,14 +84,11 @@ public class NoticeDAO {
 		}
 
 		DBConnector.disConnect(rs, st, con);
-
 		return ar;
 	}
 
-
-
-	//delete
-	public int delete(int num)throws Exception{
+	@Override
+	public int delete(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 
 		String sql ="delete notice where num=?";
@@ -102,42 +102,45 @@ public class NoticeDAO {
 		DBConnector.disConnect(st, con);
 
 		return result;
+
 	}
 
-
-	//update
-	public int update(NoticeDTO noticeDTO)throws Exception{
+	@Override
+	public int update(BoardDTO boardDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql = "update notice set title=?, contents=? where num=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, noticeDTO.getTitle());
-		st.setString(2, noticeDTO.getContents());
-		st.setInt(3, noticeDTO.getNum());
+		st.setString(1, boardDTO.getTitle());
+		st.setString(2, boardDTO.getContents());
+		st.setInt(3, boardDTO.getNum());
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
 
 		return result;
+
 	}
 
-
-
-	//getTotalCount
-	public int getTotalCount(MakeRow makeRow) throws Exception{
+	@Override
+	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="select nvl(count(num), 0) from notice where "+ makeRow.getKind()+ " like ?";
+		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+makeRow.getSearch()+"%");
+	
 		ResultSet rs = st.executeQuery();
 		rs.next();
+		
 		int totalCount=rs.getInt(1);
 		DBConnector.disConnect(rs, st, con);
+	
 		return totalCount;
 	}
 
-	//hitUpdate
-	public int hitUpdate(int num)throws Exception{
+	@Override
+	public int hit(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="update notice set hit=hit+1 where num=?";
 
@@ -150,6 +153,5 @@ public class NoticeDAO {
 
 		return result;
 	}
-
 
 }

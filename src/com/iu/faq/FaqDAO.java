@@ -4,35 +4,36 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
-import com.iu.notice.NoticeDTO;
+import com.iu.board.BoardDAO;
+import com.iu.board.BoardDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
-public class FaqDAO {
+public class FaqDAO implements BoardDAO {
 
-	
-	//insert
-	public int insert(FaqDTO faqDTO)throws Exception {
+	@Override
+	public int insert(BoardDTO boardDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
 
 		String sql="insert into faq values(?,?,?,?,sysdate,0)";
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, faqDTO.getNum());
-		st.setString(2, faqDTO.getId());
-		st.setString(3, faqDTO.getTitle());
-		st.setString(4, faqDTO.getContents());
+		st.setInt(1, boardDTO.getNum());
+		st.setString(2, boardDTO.getId());
+		st.setString(3, boardDTO.getTitle());
+		st.setString(4, boardDTO.getContents());
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
 
 		return result;
+
 	}
 
-
-	//selectOne
-	public FaqDTO selectOne(int num) throws Exception{
+	@Override
+	public BoardDTO selectOne(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="select * from faq where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -54,11 +55,10 @@ public class FaqDAO {
 		return faqDTO;
 	}
 
-
-	//selectList
-	public ArrayList<FaqDTO> selectList(MakeRow makeRow) throws Exception{
+	@Override
+	public List<BoardDTO> selectList(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
-
+		List<BoardDTO> ar = new ArrayList<BoardDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
 				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
@@ -69,7 +69,6 @@ public class FaqDAO {
 		st.setInt(3, makeRow.getLastRow());
 
 		ResultSet rs = st.executeQuery();
-		ArrayList<FaqDTO> ar = new ArrayList<>();
 
 		while(rs.next()) {
 			FaqDTO faqDTO = new FaqDTO();
@@ -83,13 +82,12 @@ public class FaqDAO {
 		}
 
 		DBConnector.disConnect(rs, st, con);
-
 		return ar;
+		
 	}
 
-	
-	//delete
-	public int delete(int num)throws Exception{
+	@Override
+	public int delete(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 
 		String sql ="delete faq where num=?";
@@ -102,18 +100,18 @@ public class FaqDAO {
 		DBConnector.disConnect(st, con);
 
 		return result;
+
 	}
 
-
-	//update
-	public int update(FaqDTO faqDTO)throws Exception{
+	@Override
+	public int update(BoardDTO boardDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql = "update faq set title=?, contents=? where num=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, faqDTO.getTitle());
-		st.setString(2, faqDTO.getContents());
-		st.setInt(3, faqDTO.getNum());
+		st.setString(1, boardDTO.getTitle());
+		st.setString(2, boardDTO.getContents());
+		st.setInt(3, boardDTO.getNum());
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
@@ -121,9 +119,8 @@ public class FaqDAO {
 		return result;
 	}
 
-
-	//getTotalCount
-	public int getTotalCount(MakeRow makeRow) throws Exception{
+	@Override
+	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="select nvl(count(num), 0) from faq where "+ makeRow.getKind()+ " like ?";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -133,12 +130,10 @@ public class FaqDAO {
 		int totalCount=rs.getInt(1);
 		DBConnector.disConnect(rs, st, con);
 
-		return totalCount;
-	}
+		return totalCount;	}
 
-	
-	//hitUpdate
-	public int hitUpdate(int num)throws Exception{
+	@Override
+	public int hit(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="update faq set hit=hit+1 where num=?";
 
@@ -150,7 +145,7 @@ public class FaqDAO {
 		DBConnector.disConnect(st, con);
 
 		return result;
+
 	}
 
-	
 }
