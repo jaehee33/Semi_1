@@ -2,21 +2,52 @@ package com.iu.book;
 
 import java.sql.Date;
 
-public class BookDTO {
+import com.iu.member.MemberDTO;
+
+public class BookDTO{
+	private int num;
 	private String id;
+	private String name;
+	private String phone;
 	private Date bk_date;
 	private String bk_store;
 	private String bk_style;
 	private int bk_price;
 	private String bk_coupon;
 	private String bk_time;
+	private boolean bk_use;	
 	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public boolean isBk_use() {
+		return bk_use;
+	}
+	public void setBk_use(boolean bk_use) {
+		this.bk_use = bk_use;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public Date getBk_date() {
 		return bk_date;
 	}

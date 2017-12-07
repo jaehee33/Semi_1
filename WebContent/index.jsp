@@ -10,13 +10,18 @@
 <body>
 
 <c:if test="${empty member}">
-<a href="./member/memberJoin.member">Join</a>
-<a href="./member/memberLogin.member">Login</a>
+	<a href="./member/memberJoin.member">Join</a>
+	<a href="./member/memberLogin.member">Login</a>
 </c:if>
 
 <c:if test="${not empty member}">
-<a href="./member/memberLogout.member">Logout</a>
-<a href="./member/memberMyPage.member">MyPage</a>
+	<a href="./member/memberLogout.member">Logout</a>
+	<a href="./member/memberMyPage.member">MyPage</a>
+	<c:if test="${member.job eq 'B'}">
+		<a href="./search/locationSearch.search">내 주변</a>
+		<a href="./search/styleSearch.search">스타일</a>
+		<a href="./book/bookList.book">나의 예약</a>
+	</c:if>
 </c:if>
 
 </body>
