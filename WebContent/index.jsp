@@ -17,7 +17,9 @@
 <c:if test="${not empty member}">
 <a href="./member/memberLogout.member">Logout</a>
 <a href="./member/memberMyPage.member">MyPage</a>
-<a href="./book/bookView.book">나의 예약</a>
+<c:if test="${member.job eq 'B'}">
+	<a href="./book/bookView.book">나의 예약</a>
+</c:if>
 </c:if>
 
 </body>
