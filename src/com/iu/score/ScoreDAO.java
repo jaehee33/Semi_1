@@ -72,6 +72,7 @@ public class ScoreDAO {
 			scoreDTO.setPoint(rs.getInt("point"));
 			ar.add(scoreDTO);
 		}
+		
 		DBConnector.disConnect(rs, st, con);
 		return ar;
 	}
@@ -97,7 +98,7 @@ public class ScoreDAO {
 		int result = st.executeUpdate();
 		return result;
 	}
-
+	
 	
 	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
@@ -140,6 +141,18 @@ public class ScoreDAO {
 		
 		return result;
 	}
+	
+	public int getTotalPoint(ScoreDTO scoreDTO) throws Exception {
+		Connection con = DBConnector.getConnect();
+		String sql="select nvl(count(num)) from score ";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		int result= st.executeUpdate();
+		
+		return result;
+		
+	}
+
 	
 	
 }
