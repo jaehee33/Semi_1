@@ -11,14 +11,16 @@ public class BookDeleteService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-
+		
 		int num=0;
 		int result=0;
-
+		
 		try {
-			num=Integer.parseInt(request.getParameter("num"));		
+			num=Integer.parseInt(request.getParameter("num"));
+			System.out.println(num);
 			BookDAO bookDAO=new BookDAO();
-			result=bookDAO.delete(num);
+			BookDTO bookDTO = bookDAO.selectOne(num);
+			result=bookDAO.delete(bookDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,7 +28,7 @@ public class BookDeleteService implements Action {
 		
 		if(result>0) {
 			actionForward.setCheck(false);
-			actionForward.setPath("../index.jsp");
+			actionForward.setPath("./bookList.book");
 		}else {
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../memberMyPage.member");
