@@ -1,13 +1,21 @@
 package com.iu.kind;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.files.FilesDAO;
+import com.iu.files.FilesDTO;
 import com.iu.member.MemberDTO;
 import com.iu.store.StoreDAO;
 import com.iu.store.StoreDTO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class KindInsertService implements Action {
 
@@ -26,26 +34,58 @@ public class KindInsertService implements Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			String[] kind=request.getParameterValues("kind");
-			String[] price=request.getParameterValues("price");
-			int result=0;
-			for(int i=0;i<kind.length;i++) {
-				KindDTO kindDTO=new KindDTO();
-				kindDTO.setKind(kind[i]);
-				kindDTO.setPrice(Integer.parseInt(price[i]));
-				kindDTO.setStore(storeDTO.getStore());
-				KindDAO kindDAO=new KindDAO();
-				result=0;
-				try {
-					result=kindDAO.insert(kindDTO);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if(result<0) {
-					break;
-				}
+			String filePath=request.getServletContext().getRealPath("upload");
+			File file=new File(filePath);
+			if(!file.exists()) {
+				file.mkdirs();
 			}
+			
+			KindDAO kindDAO=new KindDAO();
+			FilesDAO filesDAO=new FilesDAO();
+			
+			int maxSize=1024*1024*10;
+			int result=0;
+			int result2=0;
+			try {
+				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+				String[] kind=multi.getParameterValues("kind");
+				String[] price=multi.getParameterValues("price");
+				
+				for(int i=0;i<kind.length;i++) {
+					KindDTO kindDTO=new KindDTO();
+					int num=0;
+					try {
+						num=kindDAO.getNum();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					kindDTO.setNum(num);
+					kindDTO.setKind(kind[i]);
+					kindDTO.setPrice(Integer.parseInt(price[i]));
+					kindDTO.setStore(storeDTO.getStore());
+					FilesDTO filesDTO=new FilesDTO();
+					filesDTO.setFname(multi.getFilesystemName("f"+i));
+					filesDTO.setOname(multi.getOriginalFileName("f"+i));
+					filesDTO.setNum(num);
+					result=0;
+					result2=0;
+					try {
+						result=kindDAO.insert(kindDTO);
+						result2=filesDAO.insert(filesDTO);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					if(result<0) {
+						break;
+					}
+				}
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			if(result>0) {
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/kind/kindIndex.jsp");

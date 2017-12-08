@@ -24,7 +24,7 @@
 		});
 		
 		$("#formplus").click(function(){
-			$("#frm").prepend('<p id="o'+i+'"> '+i+' KIND : <input type="text" placeholder="종류를 입력해주세요" name="kind">PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요"></p>');
+			$("#frm").prepend('<p id="o'+i+'"> '+i+' KIND : <input type="text" placeholder="종류를 입력해주세요" name="kind">PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요"><input type="file" name="f'+i+'"></p>');
 		i++;
 		});
 		
