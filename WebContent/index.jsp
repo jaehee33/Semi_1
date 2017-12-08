@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
 <c:if test="${empty member}">
 	<a href="./member/memberJoin.member">Join</a>
 	<a href="./member/memberLogin.member">Login</a>
