@@ -33,6 +33,7 @@ public class MemberJoinService implements Action {
 				}
 				
 				if(result>0) {
+					request.setAttribute("m2", memberDTO);
 					actionForward.setCheck(false);
 					actionForward.setPath("../index.jsp");		
 				}else {

@@ -12,7 +12,7 @@
 <script type="text/javascript">
 window.onload=function(){
 	var btn=document.getElementById("btn");
-/* 	var id=document.frm.id.value; */
+var id=document.frm.id.value;
 	btn.addEventListener("click", function() {
 		window.opener.document.frm.id.value=${m2.id};
 		window.opener.document.frm.idCheck.value="1";
@@ -31,7 +31,7 @@ window.onload=function(){
 		
 	</form>
 	
-	<c:if test="${check}">
+	<c:if test="${check eq true}">
 	<button id="btn"  class="btn btn-link" >사용하기</button>
 	</c:if>
 
