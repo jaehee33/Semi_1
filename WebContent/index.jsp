@@ -16,10 +16,15 @@
 	<a href="./search/locationSearch.search">내 주변</a>
 	<a href="./search/styleSearch.search">스타일 찾기</a>
 </c:if>
+<a href="./notice/noticeList.notice">공지사항</a>
+<a href="./faq/faqList.faq">자주 묻는 질문</a>
+<a href="">평점 후기</a>
+
 
 <c:if test="${not empty member}">
 	<a href="./member/memberLogout.member">Logout</a>
 	<a href="./member/memberMyPage.member">MyPage</a>
+
 	<c:if test="${member.job eq 'B'}">
 		<a href="./book/bookList.book">나의 예약</a>
 	</c:if>
@@ -27,6 +32,7 @@
 	<a href="./search/locationSearch.search">내 주변</a>
 	<a href="./search/styleSearch.search">스타일 찾기</a>
 </c:if>
+
 
 </body>
 </html>
