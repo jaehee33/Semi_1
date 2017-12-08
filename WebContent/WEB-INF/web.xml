@@ -2,6 +2,18 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Semi_1</display-name>
   <servlet>
+    <servlet-name>useList</servlet-name>
+    <servlet-class>com.iu.control.UseListController</servlet-class>
+    <init-param>
+      <param-name>property</param-name>
+      <param-value>useList.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>useList</servlet-name>
+    <url-pattern>*.useList</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>search</servlet-name>
     <servlet-class>com.iu.control.SearchController</servlet-class>
     <init-param>
@@ -26,18 +38,17 @@
     <url-pattern>*.book</url-pattern>
   </servlet-mapping>
   <servlet>
-  <servlet-name>kind</servlet-name>
-  <servlet-class>com.iu.control.KindController</servlet-class>
-  <init-param>
-  <param-name>property</param-name>
-  <param-value>kind.properties</param-value>
-  </init-param>
+    <servlet-name>kind</servlet-name>
+    <servlet-class>com.iu.control.KindController</servlet-class>
+    <init-param>
+      <param-name>property</param-name>
+      <param-value>kind.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
-  <servlet-name>kind</servlet-name>
-  <url-pattern>*.kind</url-pattern>
+    <servlet-name>kind</servlet-name>
+    <url-pattern>*.kind</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>store</servlet-name>
     <servlet-class>com.iu.control.StoreController</servlet-class>

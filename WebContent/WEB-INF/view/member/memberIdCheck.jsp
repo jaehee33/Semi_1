@@ -12,9 +12,8 @@
 <script type="text/javascript">
 window.onload=function(){
 	var btn=document.getElementById("btn");
-var id=document.frm.id.value;
 	btn.addEventListener("click", function() {
-		window.opener.document.frm.id.value=${m2.id};
+		window.opener.document.frm.id.value='<%=request.getParameter("id")%>';
 		window.opener.document.frm.idCheck.value="1";
 		window.self.close();
 	});
@@ -25,7 +24,7 @@ var id=document.frm.id.value;
 <body>
 	<h1>ID Check</h1>
 	<form action="memberIdCheck.member" method="post" name="frm">
-		<input type="text" name="id" value="<%=request.getParameter("id") %>">
+		<input type="text" name="id" value="<%=request.getParameter("id")%>">
 		<button>중복확인</button>
 		<h3>${check}</h3>
 		

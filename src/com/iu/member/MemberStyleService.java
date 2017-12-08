@@ -24,6 +24,7 @@ public class MemberStyleService implements Action {
 			MemberDAO memberDAO = new MemberDAO();
 			int maxSize=1024*1024*10;  //10MB
 			String filePath=request.getServletContext().getRealPath("upload");
+			
 			File file = new File(filePath);
 			if(!file.exists()) {
 				file.mkdirs();
@@ -49,6 +50,7 @@ public class MemberStyleService implements Action {
 			try {
 				id=request.getParameter("id");
 				memberDTO=memberDAO.selectOne(id);
+				System.out.println(id);
 			} catch (Exception e1) {
 			}
 			memberDTO.setId(id);
@@ -63,7 +65,7 @@ public class MemberStyleService implements Action {
 			if(result>0) {
 				request.setAttribute("filef", fileName);
 				request.setAttribute("fileo", oriName);
-				actionForward.setCheck(true); //forward방식
+				actionForward.setCheck(false); //true가 forward방식
 				actionForward.setPath("./memberMyPage.member");
 			}else {
 				request.setAttribute("message", "style fail");
