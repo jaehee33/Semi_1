@@ -10,7 +10,6 @@
 
 </head>
 <body>
-
 <h3>ID: ${m2.id}</h3>
 <h3>Name: ${m2.name}</h3>
 <h3>Birth: ${m2.birth}</h3>
@@ -37,7 +36,5 @@
 <a href="../store/storeView.store">storeView</a>
 </c:if>
 </c:if>
-
-
 </body>
 </html>
