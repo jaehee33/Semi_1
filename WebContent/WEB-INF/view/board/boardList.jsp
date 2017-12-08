@@ -33,8 +33,8 @@
 			<input type="hidden" name="curPage">
 			<select name="kind">
 				<option class="kind" value="title">TITLE</option>
-				<option class="kind" value="writer">WRITER</option>
 				<option class="kind" value="contents">CONTENTS</option>
+				<option class="kind" value="id">ID</option>
 			</select>
 			<input type="text" name="search" value="${make.search}">
 			<button>Search</button>
@@ -44,8 +44,9 @@
 	<table>
 		<tr>
 			<td>NUM</td>
+			<td>ID</td>
 			<td>TITLE</td>
-			<td>WRITER</td>
+			<td>CONTENTS</td>
 			<td>DATE</td>
 			<td>HIT</td>
 		</tr>

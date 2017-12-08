@@ -40,14 +40,14 @@
 </head>
 <body>
 <form id="frm" action="./${board}Write.${board}" method="post" enctype="multipart/form-data">
-		<p><input type="text" name="writer"></p>
-		<p><input type="text" name="title"></p>
+		<p>ID: <input type="text" name="id"></p>
+		<p>TITLE: <input type="text" name="title"></p>
 		<p><textarea rows="" cols="" name="contents" id="contents"></textarea></p>
 		<div id="files">
 			<input type="file" name="f1">
 		</div>
 		<input type="button" id="btn" value="Add File">
-		<p><input type="button" value="Write" id="savebutton"></p>
+		<p><input type="button" value="글쓰기" id="savebutton"></p>
 	</form>
 </body>
 </html>
