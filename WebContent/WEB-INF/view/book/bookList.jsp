@@ -11,37 +11,32 @@
 	<h1>나의 예약</h1>
 	<table>
 		<tr>
-			<th><h3>이름</h3></th>
-			<th><h3>전화번호</h3></th>
-			<th><h3>가게명</h3></th>
-			<th><h3>예약날짜</h3></th>
-			<th><h3>예약시간</h3></th>
-			<th><h3>스타일</h3></th>
-			<th><h3>가격</h3></th>
-			<th><h3>쿠폰</h3></th>
-			<th><h3>시술여부</h3></th>
+			<th>예약번호</th>
+			<th>가게명</th>
+			<th>예약날짜</th>
+			<th>예약시간</th>
+			<th>스타일</th>
+			<th>가격</th>
+			<th>쿠폰</th>
 		</tr>
 		<c:forEach items="${list}" var="b">
 			<tr>
-				<td><h3>${b.name}</h3><td>
-				<td><h3>${b.phone}</h3></td>
-				<td><h3>${b.bk_store}</h3></td>
-				<td><h3>${b.bk_date}</h3></td>
-				<td><h3>${b.bk_time}</h3></td>
-				<td><h3>${b.bk_style}</h3></td>
-				<td><h3>${b.bk_price}</h3></td>
+				<td><a href="./bookView.book?num=${b.num}">${b.num}</a></td>
+				<td>${b.bk_store}</td>
+				<td>${b.bk_date}</td>
+				<td>${b.bk_time}</td>
+				<td>${b.bk_style}</td>
+				<td>${b.bk_price}</td>
 				<td>
-					<h3>
-						<c:choose>
-							<c:when test="${b.bk_coupon eq 'null'}">사용안함</c:when>
-							<c:otherwise>${b.bk_coupon}</c:otherwise>
-						</c:choose>
-					</h3>
+					<c:choose>
+						<c:when test="${b.bk_coupon eq null}">사용안함</c:when>
+						<c:otherwise>${b.bk_coupon}</c:otherwise>
+					</c:choose>
 				</td>
-				<td><h3>${b.bk_use}</h3></td>
 			</tr>
 		</c:forEach>
 	</table>	
+	
 	<a href="../member/memberMyPage.member">마이페이지로 돌아가기</a>
 </body>
 </html>
