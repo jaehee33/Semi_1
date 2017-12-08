@@ -19,27 +19,36 @@ public class KindInsertService implements Action {
 		if(method.equals("POST")) {
 			StoreDAO storeDAO=new StoreDAO();
 			StoreDTO storeDTO=null;
+
 			try {
 				storeDTO = storeDAO.selectOne(memberDTO.getId());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			KindDTO kindDTO=new KindDTO();
-			kindDTO.setKind(request.getParameter("kind"));
-			kindDTO.setPrice(Integer.parseInt(request.getParameter("price")));
-			kindDTO.setStore(storeDTO.getStore());
-			KindDAO kindDAO=new KindDAO();
+			String[] kind=request.getParameterValues("kind");
+			String[] price=request.getParameterValues("price");
 			int result=0;
-			try {
-				result=kindDAO.insert(kindDTO);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			for(int i=0;i<kind.length;i++) {
+				KindDTO kindDTO=new KindDTO();
+				kindDTO.setKind(kind[i]);
+				kindDTO.setPrice(Integer.parseInt(price[i]));
+				kindDTO.setStore(storeDTO.getStore());
+				KindDAO kindDAO=new KindDAO();
+				result=0;
+				try {
+					result=kindDAO.insert(kindDTO);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(result<0) {
+					break;
+				}
 			}
 			if(result>0) {
 				actionForward.setCheck(true);
-				actionForward.setPath("../WEB-INF/view/kind/kindInsertForm.jsp");
+				actionForward.setPath("../WEB-INF/view/kind/kindIndex.jsp");
 			}else {
 				request.setAttribute("message", "kind fail");
 				request.setAttribute("path", "../index.jsp");
@@ -47,7 +56,7 @@ public class KindInsertService implements Action {
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			}
 		}else {
-			
+
 			StoreDAO storeDAO=new StoreDAO();
 			StoreDTO storeDTO=null;
 			try {
@@ -60,7 +69,7 @@ public class KindInsertService implements Action {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/kind/kindInsertForm.jsp");
 		}
-		
+
 		return actionForward;
 	}
 

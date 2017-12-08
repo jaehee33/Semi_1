@@ -18,6 +18,6 @@
 
 <a href="../pos/posInsert.pos?store=${store.store}">posInsert</a>
 <a href="../pos/posIndex.pos?store=${store.store}">pos</a>
-<a href="../kind/kindInsert.kind">kind</a>
+<a href="../kind/kindIndex.kind">kind</a>
 </body>
 </html>
