@@ -76,6 +76,10 @@
   <servlet>
     <servlet-name>faq</servlet-name>
     <servlet-class>com.iu.control.FaqController</servlet-class>
+     <init-param>
+      <param-name>property</param-name>
+      <param-value>faq.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>faq</servlet-name>
@@ -84,6 +88,10 @@
   <servlet>
     <servlet-name>notice</servlet-name>
     <servlet-class>com.iu.control.NoticeController</servlet-class>
+     <init-param>
+      <param-name>property</param-name>
+      <param-value>notice.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>notice</servlet-name>
