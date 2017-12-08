@@ -20,8 +20,10 @@
 
 <a href="../index.jsp">index</a>
 <a href="./memberStyle.member">StyleUpload</a>
+<a href="./useListView.useList">이용기록</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
+
 <c:if test="${sessionScope.member.job eq 'B'}">
 <a href="../book/bookList.book">나의 예약</a>
 <a href="../book/bookDeleteList.book">취소/환불</a>

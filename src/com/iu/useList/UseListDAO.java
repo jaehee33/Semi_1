@@ -6,26 +6,30 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.iu.board.BoardDTO;
+import com.iu.notice.NoticeDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class UseListDAO {
 	
-	public int insert(UseListDTO useListDTO) throws Exception{
+	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql="insert into useList values(?,?,?,?,?)";
+		String sql = "select nvl(count(num),0) from notice where "+makeRow.getKind()+" like ? ";
 		PreparedStatement pre = con.prepareStatement(sql);
-		pre.setString(1, useListDTO.getId());
-		pre.setDate(2, useListDTO.getUl_date());
-		pre.setString(3, useListDTO.getUl_store());
-		pre.setString(4, useListDTO.getUl_style());
-		pre.setInt(5, useListDTO.getUl_price());
-		pre.setString(6, useListDTO.getUl_coupon());
-		int result=pre.executeUpdate();
-		DBConnector.disConnect(pre, con);
-		return result;
+		pre.setString(1, "%"+makeRow.getSearch()+"%");
+		ResultSet rs = pre.executeQuery();
+		rs.next();
+		int totalCount = rs.getInt(1); //nvl(count(num),0) 대신에 1로 쓰면 간단함
+		DBConnector.disConnect(rs, pre, con);
+		return totalCount;
 	}
 	
+	public int insert(UseListDTO useListDTO) throws Exception{
+
+		return 0;
+	}
+	//useList전체보기
 	public List<UseListDTO> selectList(MakeRow makeRow) throws Exception {
 		List<UseListDTO> ar = new ArrayList<UseListDTO>();
 		Connection con = DBConnector.getConnect();
@@ -37,12 +41,17 @@ public class UseListDAO {
 		ResultSet rs = pre.executeQuery();
 		while(rs.next()) {
 			UseListDTO useListDTO = new UseListDTO();
+			useListDTO.setNum(rs.getInt("num"));
 			useListDTO.setId(rs.getString("id"));
-			useListDTO.setUl_date(rs.getDate("ul_date"));
-			useListDTO.setUl_store(rs.getString("store"));
-			useListDTO.setUl_style(rs.getString("style"));
-			useListDTO.setUl_price(rs.getInt("ul_price"));
-			useListDTO.setUl_coupon(rs.getString("ul_coupon"));
+			useListDTO.setName(rs.getString("name"));
+			useListDTO.setPhone(rs.getString("phone"));
+			useListDTO.setBk_date(rs.getDate("bk_date"));
+			useListDTO.setStore(rs.getString("store"));
+			useListDTO.setStyle(rs.getString("style"));
+			useListDTO.setPrice(rs.getInt("price"));
+			useListDTO.setCoupon(rs.getString("coupon"));
+			useListDTO.setTime(rs.getString("time"));
+			useListDTO.setState(rs.getString("state"));
 			ar.add(useListDTO);
 		}
 		

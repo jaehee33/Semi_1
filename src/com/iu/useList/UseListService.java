@@ -26,18 +26,17 @@ public class UseListService implements Action {
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
 		
-		NoticeDAO noticeDAO = new NoticeDAO();
+		UseListDAO useListDAO = new UseListDAO();
 		int totalCount;
 		try {
-			totalCount = noticeDAO.getTotalCount(makeRow);
+			totalCount = useListDAO.getTotalCount(makeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
 			makeRow = makePage.getMakeRow(makeRow);
-			List<BoardDTO> ar = noticeDAO.selectList(makeRow); //db조회
+			List<UseListDTO> ar = useListDAO.selectList(makeRow); //db조회
 			
 			//pageing
 			Pageing pageing = makePage.pageing();
 			
-			request.setAttribute("board", "notice");
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
 			request.setAttribute("make", makeRow);
@@ -49,7 +48,7 @@ public class UseListService implements Action {
 		
 		//전송
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/view/board/boardList.jsp");
+		actionForward.setPath("../WEB-INF/view/useList/useList.jsp");
 			
 		return actionForward;
 	}

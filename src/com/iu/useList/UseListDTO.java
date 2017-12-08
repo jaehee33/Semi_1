@@ -4,50 +4,83 @@ import java.sql.Date;
 
 public class UseListDTO {
 	
+	private int num;
 	private String id;
-	private Date ul_date;
-	private String ul_store;
-	private String ul_style;
-	private int ul_price;
-	private String ul_coupon;
+	private String name;
+	private String phone;
+	private Date bk_date;
+	private String store;
+	private String style;
+	private int price;
+	private String coupon;
+	private String time;
+	private String state;
 	
-	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Date getUl_date() {
-		return ul_date;
+	public String getName() {
+		return name;
 	}
-	public void setUl_date(Date ul_date) {
-		this.ul_date = ul_date;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getUl_store() {
-		return ul_store;
+	public String getPhone() {
+		return phone;
 	}
-	public void setUl_store(String ul_store) {
-		this.ul_store = ul_store;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getUl_style() {
-		return ul_style;
+	public Date getBk_date() {
+		return bk_date;
 	}
-	public void setUl_style(String ul_style) {
-		this.ul_style = ul_style;
+	public void setBk_date(Date bk_date) {
+		this.bk_date = bk_date;
 	}
-	public int getUl_price() {
-		return ul_price;
+	public String getStore() {
+		return store;
 	}
-	public void setUl_price(int ul_price) {
-		this.ul_price = ul_price;
+	public void setStore(String store) {
+		this.store = store;
 	}
-	public String getUl_coupon() {
-		return ul_coupon;
+	public String getStyle() {
+		return style;
 	}
-	public void setUl_coupon(String ul_coupon) {
-		this.ul_coupon = ul_coupon;
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(String coupon) {
+		this.coupon = coupon;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
-
 }
