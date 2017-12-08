@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.board.BoardDTO;
 import com.iu.book.BookDAO;
 import com.iu.book.BookDTO;
 
@@ -31,12 +30,12 @@ public class UseListViewService implements Action {
 			e.printStackTrace();
 		}
 		if(bookDTO != null) {
-			request.setAttribute("book", "useList");
+			
 			request.setAttribute("view", bookDTO);
 			actionForward.setPath("../WEB-INF/view/useList/useListView.jsp");
 		}else {
 			request.setAttribute("message", "fail");
-			request.setAttribute("path", "./useList.useList");
+			request.setAttribute("path", "../member/memberMyPage.member");
 			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		}
 		actionForward.setCheck(true);

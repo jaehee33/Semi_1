@@ -6,8 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+table,th,td{
+border: 1px lightgray solid;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
 $(function(){
 	var kind='${make.kind}';
 	$(".kind").each(function(){
@@ -33,16 +39,16 @@ $(function(){
 		<form name="frm" action="./useList.useList">
 			<input type="hidden" name="curPage"> 
 			<select name="kind" value="${make.kind }">
-				<option class="kind" value="store">ul_store</option>
-				<option class="kind" value="style">ul_style</option>
-				<option class="kind" value="price">ul_price</option>
+				<option class="kind" value="store">store</option>
+				<option class="kind" value="style">style</option>
+				<option class="kind" value="price">price</option>
 			</select> 
 			<input type="text" name="search" value="${make.search }">
 
 			<button>search</button>
 		</form>
 	</div>
-	<table>
+	<table id=table>
 		<tr>
 			<td>번호</td>
 			<td>가게명</td>
@@ -52,19 +58,24 @@ $(function(){
 			<td>가격</td>
 			<td>쿠폰</td>
 		</tr>
-		<c:forEach begin="0" end="${list.size()}" var="i">
 
+		<c:forEach items="${list}" var="b">
 			<tr>
-				<td>${list[i].store}</td>
-
-				<td><c:catch>
-						<c:forEach begin="1" end="${list[i].depth }">--</c:forEach>
-					</c:catch>
-				<td><a href="./useListView.useList?num=${list[i].num }">${list[i].store }</a></td>
-				<td>${list[i].ul_style }</td>
-
+				<td>${b.num}</td>
+				<td><a href="./useList.useList?num=${b.num}">${b.store}</a></td>
+				<td>${b.bk_date}</td>
+				<td>${b.time}</td>
+				<td>${b.style}</td>
+				<td>${b.price}</td>
+				<td>
+					<c:choose>
+						<c:when test="${b.coupon eq null}">사용안함</c:when>
+						<c:otherwise>${b.coupon}</c:otherwise>
+					</c:choose>
+				</td>
 			</tr>
 		</c:forEach>
+		
 	</table>
 
 	<c:if test="${page.curBlock > 1 }">
@@ -77,6 +88,9 @@ $(function(){
 	<c:if test="${page.curBlock < page.totalBlock}">
 		<input type="button" class="list" title="${page.lastNum+1}" value="[다음]">
 	</c:if>
-
+	
+	<a href="../index.jsp">index</a>
 </body>
 </html>
+
+

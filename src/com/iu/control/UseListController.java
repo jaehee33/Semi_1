@@ -79,13 +79,12 @@ public class UseListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getServletPath();
-		Action action=null;
-
+		
+		String uri = request.getServletPath();
 		ActionForward actionForward=null;
+		Action action=null;
 		
-		action = (Action)command.get(path);
-		
+		action = (Action)command.get(uri);
 		actionForward = action.doProcess(request, response);
 		
 		if(actionForward.isCheck()) {
