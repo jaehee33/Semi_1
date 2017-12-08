@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import com.iu.member.MemberDTO;
 import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
-import com.iu.util.MakeRow;
 
 public class BookDAO {
 
@@ -22,19 +21,34 @@ public class BookDAO {
 		
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
-		
 		return result;
 	}
 	
 	//예약 취소
-	public int delete(int num) throws Exception{
+	public int delete(BookDTO bookDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 
-		String sql="delete book where num=?";
+		String sql="insert into uselist values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, num);
+		st.setInt(1, bookDTO.getNum());
+		st.setString(2, bookDTO.getId());
+		st.setString(3, bookDTO.getName());
+		st.setString(4, bookDTO.getPhone());
+		st.setDate(5, bookDTO.getBk_date());
+		st.setString(6, bookDTO.getStore());
+		st.setString(7, bookDTO.getStyle());
+		st.setInt(8, bookDTO.getPrice());
+		st.setString(9, bookDTO.getCoupon());
+		st.setString(10, bookDTO.getTime());
+		st.setString(11, "취소");
 
+		st.executeUpdate();
+		
+		sql="delete book where num=?";
+		st=con.prepareStatement(sql);
+		st.setInt(1, bookDTO.getNum());
 		int result=st.executeUpdate();
+		
 		DBConnector.disConnect(st, con);
 
 		return result;
@@ -56,17 +70,15 @@ public class BookDAO {
 			bookDTO.setName(rs.getString("name"));
 			bookDTO.setPhone(rs.getString("phone"));
 			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setBk_store(rs.getString("bk_store"));
-			bookDTO.setBk_style(rs.getString("bk_style"));
-			bookDTO.setBk_price(rs.getInt("bk_price"));
-			bookDTO.setBk_coupon(rs.getString("bk_coupon"));
-			bookDTO.setBk_time(rs.getString("bk_time"));	
-			bookDTO.setBk_use(Boolean.parseBoolean(rs.getString("bk_use")));
-			
+			bookDTO.setStore(rs.getString("store"));
+			bookDTO.setStyle(rs.getString("style"));
+			bookDTO.setPrice(rs.getInt("price"));
+			bookDTO.setCoupon(rs.getString("coupon"));
+			bookDTO.setTime(rs.getString("time"));	
+			bookDTO.setState(rs.getString("state"));
 		}
 		
 		DBConnector.disConnect(rs, st, con);
-		
 		return bookDTO;
 	}
 	
@@ -77,7 +89,7 @@ public class BookDAO {
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where id=?) B)"
-				+ "order by bk_date,bk_time asc";
+				+ "order by bk_date,time asc";
 		PreparedStatement st = con.prepareStatement(sql);	
 		st.setString(1, memberDTO.getId());
 		ResultSet rs = st.executeQuery();
@@ -86,16 +98,16 @@ public class BookDAO {
 			BookDTO bookDTO = new BookDTO();
 			bookDTO=new BookDTO();
 			bookDTO.setNum(rs.getInt("num"));
-			bookDTO.setId(memberDTO.getId());
-			bookDTO.setName(memberDTO.getName());
-			bookDTO.setPhone(memberDTO.getPhone());
+			bookDTO.setId(rs.getString("id"));
+			bookDTO.setName(rs.getString("name"));
+			bookDTO.setPhone(rs.getString("phone"));
 			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setBk_store(rs.getString("bk_store"));
-			bookDTO.setBk_style(rs.getString("bk_style"));
-			bookDTO.setBk_price(rs.getInt("bk_price"));
-			bookDTO.setBk_coupon(rs.getString("bk_coupon"));
-			bookDTO.setBk_time(rs.getString("bk_time"));	
-			bookDTO.setBk_use(Boolean.parseBoolean(rs.getString("bk_use")));
+			bookDTO.setStore(rs.getString("store"));
+			bookDTO.setStyle(rs.getString("style"));
+			bookDTO.setPrice(rs.getInt("price"));
+			bookDTO.setCoupon(rs.getString("coupon"));
+			bookDTO.setTime(rs.getString("time"));	
+			bookDTO.setState(rs.getString("state"));
 			
 			list.add(bookDTO);
 		}
@@ -110,7 +122,7 @@ public class BookDAO {
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where bk_store='"+storeDTO.getStore()+"') B)"
-				+ "order by bk_date,bk_time asc;";
+				+ "order by bk_date,time asc;";
 		PreparedStatement st = con.prepareStatement(sql);	
 		ResultSet rs = st.executeQuery();
 		
@@ -121,12 +133,12 @@ public class BookDAO {
 			bookDTO.setName(rs.getString("name"));
 			bookDTO.setPhone(rs.getString("phone"));
 			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setBk_store(rs.getString("bk_store"));
-			bookDTO.setBk_style(rs.getString("bk_style"));
-			bookDTO.setBk_price(rs.getInt("bk_price"));
-			bookDTO.setBk_coupon(rs.getString("bk_coupon"));
-			bookDTO.setBk_time(rs.getString("bk_time"));	
-			bookDTO.setBk_use(Boolean.parseBoolean(rs.getString("bk_use")));
+			bookDTO.setStore(rs.getString("store"));
+			bookDTO.setStyle(rs.getString("style"));
+			bookDTO.setPrice(rs.getInt("price"));
+			bookDTO.setCoupon(rs.getString("coupon"));
+			bookDTO.setTime(rs.getString("time"));	
+			bookDTO.setState(rs.getString("state"));
 			
 			list.add(bookDTO);
 		}

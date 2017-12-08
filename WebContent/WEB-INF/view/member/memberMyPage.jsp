@@ -21,7 +21,8 @@
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 <c:if test="${sessionScope.member.job eq 'B'}">
-<a href="../book/bookList.book">bookList(나의예약)</a>
+<a href="../book/bookList.book">나의 예약</a>
+<a href="../book/bookDeleteList.book">취소/환불</a>
 </c:if>
 
 <c:if test="${sessionScope.member.job eq 'S'}">

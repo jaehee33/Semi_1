@@ -8,29 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>나의 예약</h1>
+	<h3>==나의 예약==</h3>
 	<table>
 		<tr>
 			<th>예약번호</th>
 			<th>가게명</th>
-			<th>예약날짜</th>
-			<th>예약시간</th>
+			<th>이용일</th>
+			<th>이용시간</th>
 			<th>스타일</th>
 			<th>가격</th>
 			<th>쿠폰</th>
 		</tr>
 		<c:forEach items="${list}" var="b">
 			<tr>
-				<td><a href="./bookView.book?num=${b.num}">${b.num}</a></td>
-				<td>${b.bk_store}</td>
+				<td>${b.num}</td>
+				<td><a href="./bookView.book?num=${b.num}">${b.store}</a></td>
 				<td>${b.bk_date}</td>
-				<td>${b.bk_time}</td>
-				<td>${b.bk_style}</td>
-				<td>${b.bk_price}</td>
+				<td>${b.time}</td>
+				<td>${b.style}</td>
+				<td>${b.price}</td>
 				<td>
 					<c:choose>
-						<c:when test="${b.bk_coupon eq null}">사용안함</c:when>
-						<c:otherwise>${b.bk_coupon}</c:otherwise>
+						<c:when test="${b.coupon eq null}">사용안함</c:when>
+						<c:otherwise>${b.coupon}</c:otherwise>
 					</c:choose>
 				</td>
 			</tr>
