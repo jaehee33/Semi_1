@@ -75,7 +75,6 @@ public class StoreController extends HttpServlet {
 		String uri = request.getServletPath();
 		ActionForward actionForward=null;
 		Action action=null;
-		
 		action= (Action)command.get(uri);
 		actionForward = action.doProcess(request, response);
 		

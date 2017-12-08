@@ -10,15 +10,28 @@ import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class KindDAO {
-
+	
+	public int getNum() throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select kind_seq.nextval from dual";
+		PreparedStatement st=con.prepareStatement(sql);
+		ResultSet rs=st.executeQuery();
+		int result=0;
+		if(rs.next()) {
+			result=rs.getInt(1);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return result;
+	}
 	
 	public int insert(KindDTO kindDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into kind values (?,?,?,kind_seq.nextval)";
+		String sql="insert into kind values (?,?,?,?)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setString(1, kindDTO.getKind());
 		st.setInt(2, kindDTO.getPrice());
 		st.setString(3, kindDTO.getStore());
+		st.setInt(4, kindDTO.getNum());
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
 		return result;
