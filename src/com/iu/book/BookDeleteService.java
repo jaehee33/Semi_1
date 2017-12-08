@@ -17,7 +17,6 @@ public class BookDeleteService implements Action {
 		
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
-			System.out.println(num);
 			BookDAO bookDAO=new BookDAO();
 			BookDTO bookDTO = bookDAO.selectOne(num);
 			result=bookDAO.delete(bookDTO);
