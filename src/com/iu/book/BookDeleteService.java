@@ -12,12 +12,13 @@ public class BookDeleteService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 
+		int num=0;
 		int result=0;
 
 		try {
-			String id=request.getParameter("id");		
+			num=Integer.parseInt(request.getParameter("num"));		
 			BookDAO bookDAO=new BookDAO();
-			result=bookDAO.delete(id);
+			result=bookDAO.delete(num);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

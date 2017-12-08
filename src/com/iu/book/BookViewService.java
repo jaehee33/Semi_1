@@ -15,12 +15,19 @@ public class BookViewService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		
-		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
+		int num=0;
+		
+		try {
+			num=Integer.parseInt(request.getParameter("num"));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}		
+		
 		BookDAO bookDAO = new BookDAO();
 		BookDTO bookDTO=null;
 		
 		try {
-			bookDTO=bookDAO.selectOne(memberDTO);
+			bookDTO=bookDAO.selectOne(num);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

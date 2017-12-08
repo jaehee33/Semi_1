@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>나의 예약</h1>
-	<h3>이름 : ${view.name}</h3>
+	<h3>예약자명 : ${view.name}</h3>
 	<h3>전화번호 : ${view.phone}</h3>
 	<h3>가게명 : ${view.bk_store}</h3>
 	<h3>예약날짜 : ${view.bk_date}</h3>
@@ -18,7 +18,7 @@
 	<h3>가격 : ${view.bk_price}</h3>
 	<h3>쿠폰 : 
 	<c:choose>
-		<c:when test="${view.bk_coupon eq 'null'}">사용안함</c:when>
+		<c:when test="${view.bk_coupon eq null}">사용안함</c:when>
 		<c:otherwise>${view.bk_coupon}</c:otherwise>
 	</c:choose>
 	</h3>
