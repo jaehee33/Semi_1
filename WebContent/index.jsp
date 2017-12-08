@@ -11,12 +11,12 @@
 
 
 <c:if test="${empty member}">
-	<a href="./member/
-	memberJoin.member">Join</a>
+	<a href="./member/memberJoin.member">Join</a>
 	<a href="./member/memberLogin.member">Login</a>
 </c:if>
-<a href="./notice/noticeList.notice">Notice List</a>
-<a href="./faq/faqList.faq">Faq List</a>
+<a href="./notice/noticeList.notice">공지사항</a>
+<a href="./faq/faqList.faq">자주 묻는 질문</a>
+<a href="">평점 후기</a>
 
 
 <c:if test="${not empty member}">

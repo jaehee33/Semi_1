@@ -24,6 +24,7 @@
 		});
 	});
 </script>
+
 </head>
 <body>
 <h1>${board}</h1>
