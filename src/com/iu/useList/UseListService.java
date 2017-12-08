@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.board.BoardDTO;
+import com.iu.notice.NoticeDAO;
 import com.iu.util.MakePage;
 import com.iu.util.MakeRow;
 import com.iu.util.Pageing;
