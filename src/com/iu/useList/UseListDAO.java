@@ -13,9 +13,13 @@ import com.iu.util.MakeRow;
 
 public class UseListDAO {
 	
+	public int insert(UseListDTO useListDTO) throws Exception{
+		
+		return 0;
+	}
 	public int getTotalCount(MakeRow makeRow) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql = "select nvl(count(num),0) from notice where "+makeRow.getKind()+" like ? ";
+		String sql = "select nvl(count(num),0) from useList where "+makeRow.getKind()+" like ? ";
 		PreparedStatement pre = con.prepareStatement(sql);
 		pre.setString(1, "%"+makeRow.getSearch()+"%");
 		ResultSet rs = pre.executeQuery();
@@ -25,10 +29,6 @@ public class UseListDAO {
 		return totalCount;
 	}
 	
-	public int insert(UseListDTO useListDTO) throws Exception{
-
-		return 0;
-	}
 	//useList전체보기
 	public List<UseListDTO> selectList(MakeRow makeRow) throws Exception {
 		List<UseListDTO> ar = new ArrayList<UseListDTO>();

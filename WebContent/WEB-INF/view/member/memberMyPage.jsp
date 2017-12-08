@@ -20,7 +20,7 @@
 
 <a href="../index.jsp">index</a>
 <a href="./memberStyle.member">StyleUpload</a>
-<a href="./useListView.useList">이용기록</a>
+<a href="../useList/useList.useList">이용기록</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 
