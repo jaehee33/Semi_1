@@ -38,6 +38,17 @@ public class KindListService implements Action {
 			e.printStackTrace();
 		}
 		
+		if(ar!=null) {
+			request.setAttribute("kindlist", ar);
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/kind/kindListajax.jsp");
+		}else {
+			request.setAttribute("message", "kind Fail");
+			request.setAttribute("path", "../index.jsp");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
+		}
+		
 		return actionForward;
 	}
 
