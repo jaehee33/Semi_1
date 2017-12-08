@@ -10,26 +10,23 @@
 
 </head>
 <body>
+	<h3>ID: ${m2.id}</h3>
+	<h3>Name: ${m2.name}</h3>
+	<h3>Birth: ${m2.birth}</h3>
+	<h3>Phone: ${m2.phone}</h3>
+	<h3>Job: ${m2.job}</h3>
 
-<h3>ID: ${m2.id}</h3>
-<h3>Name: ${m2.name}</h3>
-<h3>Birth: ${m2.birth}</h3>
-<h3>Phone: ${m2.phone}</h3>
-<h3>Job: ${m2.job}</h3>
+	<a href="../index.jsp">index</a>
+	<a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
+	<a href="./memberDelete.member">memberDelete</a>
+	<c:if test="${sessionScope.member.job eq 'B'}">
+		<a href="../book/bookList.book">나의 예약</a>
+		<a href="../book/bookDeleteList.book">취소/환불</a>
+	</c:if>
 
-<a href="../index.jsp">index</a>
-<a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
-<a href="./memberDelete.member">memberDelete</a>
-<c:if test="${sessionScope.member.job eq 'B'}">
-<a href="../book/bookList.book">나의 예약</a>
-<a href="../book/bookDeleteList.book">취소/환불</a>
-</c:if>
-
-<c:if test="${sessionScope.member.job eq 'S'}">
-<a href="../store/storeWrite.store">storeWrite</a>
-<a href="../store/storeView.store">storeView</a>
-</c:if>
-
-
+	<c:if test="${sessionScope.member.job eq 'S'}">
+		<a href="../store/storeWrite.store">storeWrite</a>
+		<a href="../store/storeView.store">storeView</a>
+	</c:if>
 </body>
 </html>
