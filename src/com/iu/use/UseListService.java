@@ -1,4 +1,4 @@
-package com.iu.book;
+package com.iu.use;
 
 import java.util.List;
 
@@ -9,16 +9,16 @@ import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.member.MemberDTO;
 
-public class BookListService implements Action {
+public class UseListService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
-		BookDAO bookDAO = new BookDAO();
+		UseDAO bookDAO = new UseDAO();
 		try {
-			List<BookDTO> ar = bookDAO.selectList(memberDTO);
+			List<UseDTO> ar = bookDAO.selectList(memberDTO);
 			request.setAttribute("list", ar);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -25,7 +25,6 @@
 <c:if test="${sessionScope.member.job eq 'B'}">
 <a href="../useList/useList.useList">이용기록</a>
 <a href="../book/bookList.book">나의 예약</a>
-<a href="../book/bookDeleteList.book">취소/환불</a>
 </c:if>
 
 <c:if test="${sessionScope.member.job eq 'S'}">

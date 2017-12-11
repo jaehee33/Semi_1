@@ -9,6 +9,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var kind='${make.kind}';
+		$(".kind").each(function(){
+			if($(this).val()==kind){
+				$(this).attr("selected", true);
+			}		
+		});
+	
+		$(".list").click(function(){
+			var cur = $(this).attr("store");
+			document.frm.curPage.value=cur;
+			document.frm.submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="container">

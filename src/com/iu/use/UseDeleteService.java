@@ -1,48 +1,39 @@
-package com.iu.book;
+package com.iu.use;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.board.BoardDTO;
-import com.iu.member.MemberDTO;
-import com.iu.notice.NoticeDAO;
 
-public class BookViewService implements Action {
+public class UseDeleteService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		
 		int num=0;
+		int result=0;
 		
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
+			UseDAO bookDAO=new UseDAO();
+			UseDTO bookDTO = bookDAO.selectOne(num);
+			result=bookDAO.delete(bookDTO);
 		} catch (Exception e) {
-			// TODO: handle exception
-		}		
-		
-		BookDAO bookDAO = new BookDAO();
-		BookDTO bookDTO=null;
-		
-		try {
-			bookDTO=bookDAO.selectOne(num);
-		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(bookDTO != null) {
-			request.setAttribute("view", bookDTO);
-			actionForward.setPath("../WEB-INF/view/book/bookView.jsp");
+		if(result>0) {
+			actionForward.setCheck(false);
+			actionForward.setPath("./bookList.book");
 		}else {
 			request.setAttribute("message", "Fail");
-			request.setAttribute("path", "../member/memberMyPage.member");
+			request.setAttribute("path", "../memberMyPage.member");
+			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		}
-		
-		actionForward.setCheck(true);
 		
 		return actionForward;
 	}

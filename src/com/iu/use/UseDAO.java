@@ -1,4 +1,4 @@
-package com.iu.book;
+package com.iu.use;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,10 @@ import com.iu.member.MemberDTO;
 import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
 
-public class BookDAO {
+public class UseDAO {
 
 	//예약하기
-	public int insert(BookDTO bookDTO) throws Exception{
+	public int insert(UseDTO bookDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
 		String sql="insert into book values(book_seq,?,?,?,?,?,?,?,?,?,?)";
@@ -26,7 +26,7 @@ public class BookDAO {
 	}
 	
 	//예약 취소
-	public int delete(BookDTO bookDTO) throws Exception{
+	public int delete(UseDTO bookDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 
 		String sql="insert into uselist values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -56,16 +56,16 @@ public class BookDAO {
 	}
 	
 	//나의예약 보기
-	public BookDTO selectOne(int num) throws Exception{
+	public UseDTO selectOne(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
-		BookDTO bookDTO = null;
+		UseDTO bookDTO = null;
 		String sql="select * from book where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
-			bookDTO=new BookDTO();
+			bookDTO=new UseDTO();
 			bookDTO.setNum(rs.getInt("num"));
 			bookDTO.setId(rs.getString("id"));
 			bookDTO.setName(rs.getString("name"));
@@ -84,9 +84,9 @@ public class BookDAO {
 	}
 	
 	//나의 예약 가져오기
-	public List<BookDTO> selectList(MemberDTO memberDTO) throws Exception{
+	public List<UseDTO> selectList(MemberDTO memberDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		List<BookDTO> list = new ArrayList<>();
+		List<UseDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where id=?) B)"
@@ -96,7 +96,7 @@ public class BookDAO {
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			BookDTO bookDTO = new BookDTO();
+			UseDTO bookDTO = new UseDTO();
 			bookDTO.setNum(rs.getInt("num"));
 			bookDTO.setId(rs.getString("id"));
 			bookDTO.setName(rs.getString("name"));
@@ -116,9 +116,9 @@ public class BookDAO {
 	}
 	
 	//손님 예약 가져오기
-	public List<BookDTO> selectList(StoreDTO storeDTO) throws Exception{
+	public List<UseDTO> selectList(StoreDTO storeDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		List<BookDTO> list = new ArrayList<>();
+		List<UseDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where bk_store='"+storeDTO.getStore()+"') B)"
@@ -127,7 +127,7 @@ public class BookDAO {
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			BookDTO bookDTO = new BookDTO();
+			UseDTO bookDTO = new UseDTO();
 			bookDTO.setNum(rs.getInt("num"));
 			bookDTO.setId(rs.getString("id"));
 			bookDTO.setName(rs.getString("name"));
