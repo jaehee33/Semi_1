@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,30 +9,30 @@
 </head>
 <body>
 
-<c:if test="${empty member}">
-	<a href="./member/memberJoin.member">Join</a>
-	<a href="./member/memberLogin.member">Login</a>
-	<hr>
-	<a href="./search/locationSearch.search">내 주변</a>
-	<a href="./search/styleSearch.search">스타일 찾기</a>
-</c:if>
+	<c:if test="${empty member}">
+		<a href="./member/memberJoin.member">Join</a>
+		<a href="./member/memberLogin.member">Login</a>
+		<hr>
+		<a href="./search/locationSearch.search">내 주변</a>
+		<a href="./search/styleSearch.search">스타일 찾기</a>
+	</c:if>
 
 
-<c:if test="${not empty member}">
-	<a href="./member/memberLogout.member">Logout</a>
-	<a href="./member/memberMyPage.member">MyPage</a>
+	<c:if test="${not empty member}">
+		<a href="./member/memberLogout.member">Logout</a>
+		<a href="./member/memberMyPage.member">MyPage</a>
 
-	<c:if test="${member.job eq 'B'}">
-		<a href="./book/bookList.book">나의 예약</a>
+		<c:if test="${member.job eq 'B'}">
+			<a href="./book/bookList.book">나의 예약</a>
+		</c:if>
+		<hr>
+		<a href="./search/locationSearch.search">내 주변</a>
+		<a href="./search/styleSearch.search">스타일 찾기</a>
 	</c:if>
 	<hr>
-	<a href="./search/locationSearch.search">내 주변</a>
-	<a href="./search/styleSearch.search">스타일 찾기</a>
-</c:if>
-<hr>
-<a href="./notice/noticeList.notice">공지사항</a>
-<a href="./faq/faqList.faq">자주 묻는 질문</a>
-<a href="">평점 후기</a>
+	<a href="./notice/noticeList.notice">공지사항</a>
+	<a href="./faq/faqList.faq">자주 묻는 질문</a>
+	<a href="">평점 후기</a>
 
 </body>
 </html>
