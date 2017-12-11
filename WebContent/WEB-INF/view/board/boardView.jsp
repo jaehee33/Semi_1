@@ -4,6 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $(function(){
+	$("#delete").click(function(){
+		window.location.href="${board}Delete.${board}?num=${view.num}";
+	}); 
+	$("#update").click(function(){
+		window.location.href="${board}Update.${board}?num=${view.num}"
+	});
+	$("#backpage").click(function(){
+		window.location.href="${board}List.${board}?num=${View.num}"
+	});		
+	 
+ });
+ 
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,8 +28,8 @@
 	<h3>TITLE : ${view.title}</h3>
 	<h3>CONTENTS: ${view.contents}</h4>
 	
-	<button type="button" onclick="${board}Delete.${board}?num=${view.num}">Delete</button>
-	<button type="button" onclick="${board}Update.${board}?num=${view.num}">Update</button>
-	<button><a href="${board}List.${board}?num=${view.num}">BackPage</a></button>
+	<button id="delete" type="button" >Delete</button>
+	<button id="update"type="button">Update</button>
+	<button id="backpage">BackPage</button>
 </body>
 </html>

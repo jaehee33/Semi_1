@@ -10,7 +10,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		
 		var kind='${make.kind}';
 		$(".kind").each(function(){
 			if($(this).val()==kind){
@@ -24,6 +23,7 @@
 			document.frm.submit();
 		});
 	});
+	
 </script>
 </head>
 <body>
@@ -65,7 +65,10 @@
 				<td>${i.hit}</td>
 			</tr>
 		</c:forEach>
+		
 	</table>
+	
+	
 	<c:if test="${page.curBlock gt 1}">
 		 <input type="button" class="list" title="${page.startNum-1}" value="[이전]">
 	</c:if>
@@ -78,7 +81,10 @@
 		<input type="button" class="list" title="${page.lastNum+1}" value="[다음]">  
 	</c:if>
 	
+	<c:if test="${member.id eq 'admin'}">
 	<a href="./${board}Write.${board}">Write</a>
+	</c:if>
+	
 	
 </body>
 </html>
