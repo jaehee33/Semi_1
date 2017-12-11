@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.book.BookDAO;
+import com.iu.book.BookDTO;
 
-public class UseListViewService implements Action {
+public class UseListViewService2 implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
@@ -18,18 +20,18 @@ public class UseListViewService implements Action {
 		}catch (Exception e) {
 		}
 		
-		UseListDAO useListDAO = new UseListDAO();
-		UseListDTO useListDTO = null;
+		BookDAO bookDAO = new BookDAO();
+		BookDTO bookDTO = null;
 		
 		try {
-			useListDTO = useListDAO.selectOne(num);
+			bookDTO = bookDAO.selectOne(num);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(useListDTO != null) {
+		if(bookDTO != null) {
 			
-			request.setAttribute("view", useListDTO);
+			request.setAttribute("view", bookDTO);
 			actionForward.setPath("../WEB-INF/view/useList/useListView.jsp");
 		}else {
 			request.setAttribute("message", "fail");

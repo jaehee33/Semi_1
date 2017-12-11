@@ -18,7 +18,7 @@ public class KindListService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
-		
+
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
 		StoreDAO storeDAO=new StoreDAO();
 		StoreDTO storeDTO=null;

@@ -57,12 +57,11 @@ public class KindDAO {
 	}
 	
 	
-	public int delete(StoreDTO storeDTO,int num) throws Exception{
+	public int delete(int num) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="delete kind where num=? and store=?";
+		String sql="delete kind where num=?";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, num);
-		st.setString(2, storeDTO.getStore());
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
 		

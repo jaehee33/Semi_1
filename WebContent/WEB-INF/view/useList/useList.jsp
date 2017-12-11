@@ -62,7 +62,7 @@ $(function(){
 		<c:forEach items="${list}" var="b">
 			<tr>
 				<td>${b.num}</td>
-				<td><a href="./useList.useList?num=${b.num}">${b.store}</a></td>
+				<td><a href="./useListView.useList?num=${b.num}">${b.store}</a></td>
 				<td>${b.bk_date}</td>
 				<td>${b.time}</td>
 				<td>${b.style}</td>
