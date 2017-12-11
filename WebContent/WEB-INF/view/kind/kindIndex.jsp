@@ -9,9 +9,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$.get("./kindList.kind", function(data) {
+			$("#kindlist").html(data);
+		});
 		$("#btn").click(function() {
 			$.get("./kindList.kind", function(data) {
-				$("#kindlist").append($("#kindlist").html(data));
+				$("#kindlist").html(data);
 			});
 		});
 		
@@ -37,11 +40,16 @@
 		
 	});
 </script>
+<style type="text/css">
+#X{
+color: red;
+}
+</style>
 </head>
 <body>
 	<section id="main">
 		<button id="plus">+</button>
-		<button id="btn">List</button>
+		<button id="btn">List 새로고침</button>
 		<input type="hidden" class="form" id="formplus" value="item +">
 		<input type="hidden" class="form" value="item -" id="formdelete">
 		<div id="kindlist">

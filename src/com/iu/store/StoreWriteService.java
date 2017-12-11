@@ -19,12 +19,17 @@ public class StoreWriteService implements Action {
 			actionForward.setPath("../WEB-INF/view/store/storeWrite.jsp");
 		}else {
 			String id=((MemberDTO)request.getSession().getAttribute("member")).getId();
-			StoreDTO storeDTO=new StoreDTO();
+			StoreDTO storeDTO=null;
+			try {
+			storeDTO=new StoreDTO();
 			storeDTO.setArea(request.getParameter("area"));
 			storeDTO.setHoliday(request.getParameter("holiday"));
 			storeDTO.setStoretel(request.getParameter("storetel"));
 			storeDTO.setStore(request.getParameter("store"));
 			storeDTO.setId(id);
+			}catch(Exception e) {
+				
+			}
 			StoreDAO storeDAO=new StoreDAO();
 			int result=0;
 			try {

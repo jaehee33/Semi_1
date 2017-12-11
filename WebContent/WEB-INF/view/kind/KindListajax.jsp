@@ -10,6 +10,7 @@
 		<tr>
 			<td>${k.kind}</td>
 			<td>${k.price}</td>
+			<td id="X"><a href="kindDelete.kind?num=${k.num}">X</a></td>
 		</tr>
 	</c:forEach>
 </table>
