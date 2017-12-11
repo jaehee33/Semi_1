@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 	<c:if test="${empty member}">
 		<a href="./member/memberJoin.member">Join</a>
 		<a href="./member/memberLogin.member">Login</a>
@@ -16,6 +17,16 @@
 		<a href="./search/locationSearch.search">내 주변</a>
 		<a href="./search/styleSearch.search">스타일 찾기</a>
 	</c:if>
+=======
+<c:if test="${empty member}">
+	<a href="./member/memberJoin.member">Join</a>
+	<a href="./member/kakaoJoin.member"></a>
+	<a href="./member/memberLogin.member">Login</a>
+	<hr>
+	<a href="./search/locationSearch.search">내 주변</a>
+	<a href="./search/styleSearch.search">스타일 찾기</a>
+</c:if>
+>>>>>>> jae
 
 
 	<c:if test="${not empty member}">
