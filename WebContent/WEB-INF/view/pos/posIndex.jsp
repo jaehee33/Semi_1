@@ -11,12 +11,17 @@ $(function(){
 	$.get("./posList.pos?store=${store}", function(data) {
 		$("#list").html(data);
 	});
+	$("#import").click(function(){
+		$.get("./posInsert.pos?store=${store}", function(data) {
+			$("#insert").html(data);
+		});
+	});
 });
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 <div id="list"></div>
-<a href="posInsert.pos?store=${store}">posInsert</a>
+<div id="insert"></div><input type="button" id="import" value="import">
 </body>
 </html>

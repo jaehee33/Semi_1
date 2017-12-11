@@ -3,11 +3,9 @@ package com.iu.pos;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.Store;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.store.StoreDAO;
 
 public class PosInsertService implements Action {
 
