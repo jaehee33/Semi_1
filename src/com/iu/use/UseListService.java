@@ -25,24 +25,24 @@ public class UseListService implements Action {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		MakeRow makeRow = new MakeRow();
-		makeRow.setKind(request.getParameter("kind"));
-		makeRow.setSearch(request.getParameter("search"));
+		UseMakeRow useMakeRow = new UseMakeRow();
+		useMakeRow.setKind(request.getParameter("kind"));
+		useMakeRow.setSearch(request.getParameter("search"));
 		
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
 		UseDAO useDAO = new UseDAO();
 		
 		int totalCount;
 		try {
-			totalCount=useDAO.getTotalCount(makeRow);
+			totalCount=useDAO.getTotalCount(useMakeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
-			makeRow = makePage.getMakeRow(makeRow);
-			List<UseDTO> ar = useDAO.selectList(makeRow,memberDTO.getId());
+			useMakeRow = (UseMakeRow) makePage.getMakeRow(useMakeRow);
+			List<UseDTO> ar = useDAO.selectList(useMakeRow,memberDTO.getId());
 			Pageing pageing = makePage.pageing();
 			
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
-			request.setAttribute("make", makeRow);
+			request.setAttribute("make", useMakeRow);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

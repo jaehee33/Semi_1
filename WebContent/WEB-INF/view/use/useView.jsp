@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<h3>예약</h3>
+		<h3>상세내역</h3>
 		<table class="table table-hover">
 			<tbody>
 				<tr>
@@ -56,10 +56,14 @@
 							<c:otherwise>${view.coupon}% 할인쿠폰</c:otherwise>
 						</c:choose></td>
 				</tr>
+				<tr>
+					<th>현재상태</th>
+					<td>${view.state}</td>
+				</tr>
 			</tbody>
 		</table>
-		<a href="./bookDelete.book?num=${view.num}">예약 취소하기</a>
-		<a href="./bookList.book">나의 예약으로 돌아가기</a>
+		<a href="./useDelete.use?num=${view.num}">예약 취소하기</a>
+		<a href="./useList.use">나의 예약으로 돌아가기</a>
 	</div>
 </body>
 </html>

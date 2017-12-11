@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.iu.member.MemberDTO;
 import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
@@ -114,19 +113,19 @@ public class UseDAO {
 	}
 	
 	//이용기록 목록 가져오기
-	public List<UseDTO> selectList(MakeRow makeRow, String id) throws Exception{
+	public List<UseDTO> selectList(UseMakeRow useMakeRow, String id) throws Exception{
 		Connection con = DBConnector.getConnect();
 		List<UseDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
 				+ "(select rownum R,U.* from "
-				+ "(select * from use where id=? and "+makeRow.getKind()+" like ? order by bk_date,time asc) U)"
+				+ "(select * from use where id=? and "+useMakeRow.getKind()+" like ? order by bk_date,time asc) U)"
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);	
 		st.setString(1, id);
-		st.setString(2, "%"+makeRow.getSearch()+"%");
-		st.setInt(3, makeRow.getStartRow());
-		st.setInt(4, makeRow.getLastRow());
+		st.setString(2, "%"+useMakeRow.getSearch()+"%");
+		st.setInt(3, useMakeRow.getStartRow());
+		st.setInt(4, useMakeRow.getLastRow());
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
@@ -140,7 +139,7 @@ public class UseDAO {
 			useDTO.setStyle(rs.getString("style"));
 			useDTO.setPrice(rs.getInt("price"));
 			useDTO.setCoupon(rs.getString("coupon"));
-			useDTO.setTime(rs.getString("time"));	
+			useDTO.setTime(rs.getString("time"));
 			useDTO.setState(rs.getString("state"));
 			
 			list.add(useDTO);

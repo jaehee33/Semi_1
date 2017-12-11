@@ -28,13 +28,15 @@
 </head>
 <body>
 	<div class="container">
-		<h3>나의 예약</h3>
+		<h3>예약/취소내역</h3>
 		<div>
 			<form name="frm" action="./useList.use">
 				<input type="hidden" name="curPage">
-				<input type="radio" value="store" id="kind">
-				<input type="radio" value="style" id="kind">
-				<input type="radio" value="price" id="kind">
+				<select name="kind">
+					<option class="kind" value="store">store</option>
+					<option class="kind" value="style">style</option>
+					<option class="kind" value="price">price</option>
+				</select> 
 				<input type="text" name="search" value="${make.search }">
 				<button>search</button>
 			</form>
@@ -48,6 +50,7 @@
 					<th>예약시간</th>
 					<th>예약메뉴</th>
 					<th>가격</th>
+					<th>현재상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -59,6 +62,7 @@
 						<td>${b.time}</td>
 						<td>${b.style}</td>
 						<td>${b.price}</td>
+						<td>${b.state}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
