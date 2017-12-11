@@ -9,15 +9,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-	<c:if test="${empty member}">
-		<a href="./member/memberJoin.member">Join</a>
-		<a href="./member/memberLogin.member">Login</a>
-		<hr>
-		<a href="./search/locationSearch.search">내 주변</a>
-		<a href="./search/styleSearch.search">스타일 찾기</a>
-	</c:if>
-=======
 <c:if test="${empty member}">
 	<a href="./member/memberJoin.member">Join</a>
 	<a href="./member/kakaoJoin.member"></a>
@@ -26,24 +17,17 @@
 	<a href="./search/locationSearch.search">내 주변</a>
 	<a href="./search/styleSearch.search">스타일 찾기</a>
 </c:if>
->>>>>>> jae
 
 
-	<c:if test="${not empty member}">
+<c:if test="${not empty member}">
 		<a href="./member/memberLogout.member">Logout</a>
 		<a href="./member/memberMyPage.member">MyPage</a>
-
-<<<<<<< HEAD
-		<c:if test="${member.job eq 'B'}">
-			<a href="./book/bookList.book">나의 예약</a>
-		</c:if>
 		<hr>
 		<a href="./search/locationSearch.search">내 주변</a>
 		<a href="./search/styleSearch.search">스타일 찾기</a>
-=======
+</c:if>
 	<c:if test="${member.job eq 'B'}">
 		<a href="./use/useList.use">예약/취소</a>
->>>>>>> sj_book
 	</c:if>
 	<hr>
 	<a href="./notice/noticeList.notice">공지사항</a>
