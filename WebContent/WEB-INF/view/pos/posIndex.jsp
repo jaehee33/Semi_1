@@ -17,7 +17,11 @@ $(function(){
 			$("#insert").html(data);
 		});
 	});
-	
+	$("#expend").click(function(){
+		$.get("./posExpend.pos?store=${store}", function(data) {
+			$("#expend2").html(data);
+		});
+	});
 });
 </script>
 <title>Insert title here</title>
@@ -25,5 +29,6 @@ $(function(){
 <body>
 <div id="list"></div>
 <div id="insert"></div><input type="button" id="import" value="import">
+<div id="expend2"></div><input type="button" id="expend" value="expend">
 </body>
 </html>
