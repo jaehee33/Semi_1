@@ -7,7 +7,6 @@
 			<td>import</td>
 			<td>expend</td>
 			<td>kind</td>
-			<td>total</td>
 			<td>store</td>
 			<td>coupon</td>
 		</tr>
@@ -19,9 +18,9 @@
 			<td>${a.expend}</td>
 			</c:catch>
 			<td>${a.kind}</td>
-			<td>${a.total}</td>
 			<td>${a.store}</td>
 			<td>${a.pos_coupon}</td>
+			<td><a href="posDelete.pos?num=?${a.num}">X</a></td>
 		<td></td>
 		</tr>
 		</c:forEach>

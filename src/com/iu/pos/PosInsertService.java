@@ -41,7 +41,6 @@ public class PosInsertService implements Action {
 				posDTO.setStore(request.getParameter("store"));
 				posDTO.setPos_import(pos_import);
 				posDTO.setKind(request.getParameter("kind"));
-				posDTO.setTotal(totalMoney+pos_import);
 			
 			}catch (Exception e) {
 				// TODO: handle exception

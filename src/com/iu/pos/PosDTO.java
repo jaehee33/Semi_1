@@ -11,6 +11,13 @@ public class PosDTO {
 	private int total;
 	private String store;
 	private boolean pos_coupon;
+	private int num;
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public Date getPos_date() {
 		return pos_date;
 	}
