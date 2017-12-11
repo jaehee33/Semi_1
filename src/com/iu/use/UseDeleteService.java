@@ -18,8 +18,7 @@ public class UseDeleteService implements Action {
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
 			UseDAO bookDAO=new UseDAO();
-			UseDTO bookDTO = bookDAO.selectOne(num);
-			result=bookDAO.delete(bookDTO);
+			result=bookDAO.delete(num);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,7 +26,7 @@ public class UseDeleteService implements Action {
 		
 		if(result>0) {
 			actionForward.setCheck(false);
-			actionForward.setPath("./bookList.book");
+			actionForward.setPath("./useList.use");
 		}else {
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../memberMyPage.member");

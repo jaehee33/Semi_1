@@ -23,7 +23,7 @@
 	<a href="./member/memberMyPage.member">MyPage</a>
 
 	<c:if test="${member.job eq 'B'}">
-		<a href="./book/bookList.book">나의 예약</a>
+		<a href="./use/useList.use">나의 예약</a>
 	</c:if>
 	<hr>
 	<a href="./search/locationSearch.search">내 주변</a>

@@ -23,19 +23,19 @@ public class UseViewService implements Action {
 			// TODO: handle exception
 		}		
 		
-		UseDAO bookDAO = new UseDAO();
-		UseDTO bookDTO=null;
+		UseDAO useDAO = new UseDAO();
+		UseDTO useDTO=null;
 		
 		try {
-			bookDTO=bookDAO.selectOne(num);
+			useDTO=useDAO.selectOne(num);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
-		if(bookDTO != null) {
-			request.setAttribute("view", bookDTO);
-			actionForward.setPath("../WEB-INF/view/book/bookView.jsp");
+		if(useDTO != null) {
+			request.setAttribute("view", useDTO);
+			actionForward.setPath("../WEB-INF/view/use/useView.jsp");
 		}else {
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../member/memberMyPage.member");

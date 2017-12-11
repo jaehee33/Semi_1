@@ -29,13 +29,23 @@
 <body>
 	<div class="container">
 		<h3>나의 예약</h3>
+		<div>
+			<form name="frm" action="./useList.use">
+				<input type="hidden" name="curPage">
+				<input type="radio" value="store" id="kind">
+				<input type="radio" value="style" id="kind">
+				<input type="radio" value="price" id="kind">
+				<input type="text" name="search" value="${make.search }">
+				<button>search</button>
+			</form>
+		</div>
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>예약번호</th>
 					<th>가게명</th>
-					<th>이용일</th>
-					<th>이용시간</th>
+					<th>예약일</th>
+					<th>예약시간</th>
 					<th>예약메뉴</th>
 					<th>가격</th>
 				</tr>
@@ -44,7 +54,7 @@
 				<c:forEach items="${list}" var="b">
 					<tr>
 						<td>${b.num}</td>
-						<td><a href="./bookView.book?num=${b.num}">${b.store}</a></td>
+						<td><a href="./useView.use?num=${b.num}">${b.store}</a></td>
 						<td>${b.bk_date}</td>
 						<td>${b.time}</td>
 						<td>${b.style}</td>
@@ -53,7 +63,16 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	<a href="../member/memberMyPage.member">마이페이지로 돌아가기</a>
+		<c:if test="${page.curBlock > 1 }">
+			<input type="button" class="list" title="${page.startNum-1}" value="<<">
+		</c:if>
+		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
+			<input type="button" class="list" title="${i}" value="${i }">
+		</c:forEach>
+		<c:if test="${page.curBlock < page.totalBlock}">
+			<input type="button" class="list" title="${page.lastNum+1}" value=">>">
+		</c:if>
+		<a href="../member/memberMyPage.member">마이페이지로 돌아가기</a>
 	</div>
 </body>
 </html>

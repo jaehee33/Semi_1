@@ -9,45 +9,75 @@ import java.util.List;
 import com.iu.member.MemberDTO;
 import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
+import com.iu.util.MakeRow;
 
 public class UseDAO {
-
-	//예약하기
-	public int insert(UseDTO bookDTO) throws Exception{
+	//글 갯수 가져오기
+	public int getTotalCount(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
-		String sql="insert into book values(book_seq,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "select nvl(count(num),0) from use where "+makeRow.getKind()+" like? ";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, bookDTO.getId());
+		st.setString(1, "%"+makeRow.getSearch()+"%");
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int totalCount = rs.getInt(1);
 		
+		DBConnector.disConnect(rs, st, con);
+		return totalCount;
+	}
+
+	//예약하기
+	public int insert(UseDTO useDTO) throws Exception{
+		Connection con = DBConnector.getConnect();
+		
+		String sql="insert into use values(use_seq,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, useDTO.getNum());
+		st.setString(2, useDTO.getId());
+		st.setString(3, useDTO.getName());
+		st.setString(4, useDTO.getPhone());
+		st.setDate(5, useDTO.getBk_date());
+		st.setString(6, useDTO.getStore());
+		st.setString(7, useDTO.getStyle());
+		st.setInt(8, useDTO.getPrice());
+		st.setString(9, useDTO.getCoupon());
+		st.setString(10, useDTO.getTime());
+		st.setString(11, useDTO.getState());
+		st.executeUpdate();
+		
+		sql="insert into posbook values(use_seq,?,?,?,?,?,?,?,?,?,?)";
+		st = con.prepareStatement(sql);
+		st.setInt(1, useDTO.getNum());
+		st.setString(2, useDTO.getId());
+		st.setString(3, useDTO.getName());
+		st.setString(4, useDTO.getPhone());
+		st.setDate(5, useDTO.getBk_date());
+		st.setString(6, useDTO.getStore());
+		st.setString(7, useDTO.getStyle());
+		st.setInt(8, useDTO.getPrice());
+		st.setString(9, useDTO.getCoupon());
+		st.setString(10, useDTO.getTime());
+		st.setString(11, useDTO.getState());
 		int result=st.executeUpdate();
+		
 		DBConnector.disConnect(st, con);
 		return result;
 	}
 	
 	//예약 취소
-	public int delete(UseDTO bookDTO) throws Exception{
+	public int delete(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
 
-		String sql="insert into uselist values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql="update use set state=? where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, bookDTO.getNum());
-		st.setString(2, bookDTO.getId());
-		st.setString(3, bookDTO.getName());
-		st.setString(4, bookDTO.getPhone());
-		st.setDate(5, bookDTO.getBk_date());
-		st.setString(6, bookDTO.getStore());
-		st.setString(7, bookDTO.getStyle());
-		st.setInt(8, bookDTO.getPrice());
-		st.setString(9, bookDTO.getCoupon());
-		st.setString(10, bookDTO.getTime());
-		st.setString(11, "취소");
-
+		st.setString(1, "취소");
+		st.setInt(2, num);
 		st.executeUpdate();
 		
-		sql="delete book where num=?";
+		sql="delete posbook where num=?";
 		st=con.prepareStatement(sql);
-		st.setInt(1, bookDTO.getNum());
+		st.setInt(1, num);
 		int result=st.executeUpdate();
 		
 		DBConnector.disConnect(st, con);
@@ -55,61 +85,65 @@ public class UseDAO {
 		return result;
 	}
 	
-	//나의예약 보기
+	//이용기록 자세히보기
 	public UseDTO selectOne(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
-		UseDTO bookDTO = null;
-		String sql="select * from book where num=?";
+		UseDTO useDTO = null;
+		String sql="select * from use where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
-			bookDTO=new UseDTO();
-			bookDTO.setNum(rs.getInt("num"));
-			bookDTO.setId(rs.getString("id"));
-			bookDTO.setName(rs.getString("name"));
-			bookDTO.setPhone(rs.getString("phone"));
-			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setStore(rs.getString("store"));
-			bookDTO.setStyle(rs.getString("style"));
-			bookDTO.setPrice(rs.getInt("price"));
-			bookDTO.setCoupon(rs.getString("coupon"));
-			bookDTO.setTime(rs.getString("time"));	
-			bookDTO.setState(rs.getString("state"));
+			useDTO=new UseDTO();
+			useDTO.setNum(rs.getInt("num"));
+			useDTO.setId(rs.getString("id"));
+			useDTO.setName(rs.getString("name"));
+			useDTO.setPhone(rs.getString("phone"));
+			useDTO.setBk_date(rs.getDate("bk_date"));
+			useDTO.setStore(rs.getString("store"));
+			useDTO.setStyle(rs.getString("style"));
+			useDTO.setPrice(rs.getInt("price"));
+			useDTO.setCoupon(rs.getString("coupon"));
+			useDTO.setTime(rs.getString("time"));	
+			useDTO.setState(rs.getString("state"));
 		}
 		
 		DBConnector.disConnect(rs, st, con);
-		return bookDTO;
+		return useDTO;
 	}
 	
-	//나의 예약 가져오기
-	public List<UseDTO> selectList(MemberDTO memberDTO) throws Exception{
+	//이용기록 목록 가져오기
+	public List<UseDTO> selectList(MakeRow makeRow, String id) throws Exception{
 		Connection con = DBConnector.getConnect();
 		List<UseDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
-				+ "(select rownum R,B.* from (select * from book where id=?) B)"
-				+ "order by bk_date,time asc";
+				+ "(select rownum R,U.* from "
+				+ "(select * from use where id=? and "+makeRow.getKind()+" like ? order by bk_date,time asc) U)"
+				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);	
-		st.setString(1, memberDTO.getId());
+		st.setString(1, id);
+		st.setString(2, "%"+makeRow.getSearch()+"%");
+		st.setInt(3, makeRow.getStartRow());
+		st.setInt(4, makeRow.getLastRow());
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			UseDTO bookDTO = new UseDTO();
-			bookDTO.setNum(rs.getInt("num"));
-			bookDTO.setId(rs.getString("id"));
-			bookDTO.setName(rs.getString("name"));
-			bookDTO.setPhone(rs.getString("phone"));
-			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setStore(rs.getString("store"));
-			bookDTO.setStyle(rs.getString("style"));
-			bookDTO.setPrice(rs.getInt("price"));
-			bookDTO.setCoupon(rs.getString("coupon"));
-			bookDTO.setTime(rs.getString("time"));	
-			bookDTO.setState(rs.getString("state"));
+			UseDTO useDTO = new UseDTO();
+			useDTO.setNum(rs.getInt("num"));
+			useDTO.setId(rs.getString("id"));
+			useDTO.setName(rs.getString("name"));
+			useDTO.setPhone(rs.getString("phone"));
+			useDTO.setBk_date(rs.getDate("bk_date"));
+			useDTO.setStore(rs.getString("store"));
+			useDTO.setStyle(rs.getString("style"));
+			useDTO.setPrice(rs.getInt("price"));
+			useDTO.setCoupon(rs.getString("coupon"));
+			useDTO.setTime(rs.getString("time"));	
+			useDTO.setState(rs.getString("state"));
 			
-			list.add(bookDTO);
+			list.add(useDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
 		return list;
@@ -121,26 +155,26 @@ public class UseDAO {
 		List<UseDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
-				+ "(select rownum R,B.* from (select * from book where bk_store='"+storeDTO.getStore()+"') B)"
+				+ "(select rownum R,U.* from (select * from use where bk_store='"+storeDTO.getStore()+"') U)"
 				+ "order by bk_date,time asc;";
 		PreparedStatement st = con.prepareStatement(sql);	
 		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
-			UseDTO bookDTO = new UseDTO();
-			bookDTO.setNum(rs.getInt("num"));
-			bookDTO.setId(rs.getString("id"));
-			bookDTO.setName(rs.getString("name"));
-			bookDTO.setPhone(rs.getString("phone"));
-			bookDTO.setBk_date(rs.getDate("bk_date"));
-			bookDTO.setStore(rs.getString("store"));
-			bookDTO.setStyle(rs.getString("style"));
-			bookDTO.setPrice(rs.getInt("price"));
-			bookDTO.setCoupon(rs.getString("coupon"));
-			bookDTO.setTime(rs.getString("time"));	
-			bookDTO.setState(rs.getString("state"));
+			UseDTO useDTO = new UseDTO();
+			useDTO.setNum(rs.getInt("num"));
+			useDTO.setId(rs.getString("id"));
+			useDTO.setName(rs.getString("name"));
+			useDTO.setPhone(rs.getString("phone"));
+			useDTO.setBk_date(rs.getDate("bk_date"));
+			useDTO.setStore(rs.getString("store"));
+			useDTO.setStyle(rs.getString("style"));
+			useDTO.setPrice(rs.getInt("price"));
+			useDTO.setCoupon(rs.getString("coupon"));
+			useDTO.setTime(rs.getString("time"));	
+			useDTO.setState(rs.getString("state"));
 			
-			list.add(bookDTO);
+			list.add(useDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
 		return list;
