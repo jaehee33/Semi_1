@@ -13,7 +13,7 @@
 window.onload=function(){
 	var btn=document.getElementById("btn");
 	btn.addEventListener("click", function() {
-		window.opener.document.frm.id.value='<%=request.getParameter("id")%>';
+		window.opener.document.frm.id.value='${id}';
 		window.opener.document.frm.idCheck.value="1";
 		window.self.close();
 	});
@@ -23,15 +23,18 @@ window.onload=function(){
 </head>
 <body>
 	<h1>ID Check</h1>
-	<form action="memberIdCheck.member" method="post" name="frm">
-		<input type="text" name="id" value="<%=request.getParameter("id")%>">
+	<form action="memberIdCheck.member" name="frm">
+		<input type="text" name="id" value="${id}">
 		<button>중복확인</button>
-		<h3>${check}</h3>
 		
 	</form>
 	
 	<c:if test="${check eq true}">
+		<h3>${message}</h3>
 	<button id="btn"  class="btn btn-link" >사용하기</button>
+	</c:if>
+	<c:if test="${check eq false}">
+		<h3>${message}</h3>
 	</c:if>
 
 

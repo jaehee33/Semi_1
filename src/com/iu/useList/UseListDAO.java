@@ -4,43 +4,67 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
-import com.iu.board.BoardDTO;
-import com.iu.notice.NoticeDTO;
+import com.iu.book.BookDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class UseListDAO {
 	
-	public int insert(UseListDTO useListDTO) throws Exception{
-		
-		return 0;
-	}
-	public int getTotalCount(MakeRow makeRow) throws Exception {
+	public int getTotalCount(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql = "select nvl(count(num),0) from useList where "+makeRow.getKind()+" like ? ";
-		PreparedStatement pre = con.prepareStatement(sql);
-		pre.setString(1, "%"+makeRow.getSearch()+"%");
-		ResultSet rs = pre.executeQuery();
+		String sql = "select nvl(count(num),0) from useList where "+makeRow.getKind()+" like? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, "%"+makeRow.getSearch()+"%");
+		ResultSet rs = st.executeQuery();
 		rs.next();
-		int totalCount = rs.getInt(1); //nvl(count(num),0) 대신에 1로 쓰면 간단함
-		DBConnector.disConnect(rs, pre, con);
+		int totalCount = rs.getInt(1);
+		DBConnector.disConnect(rs, st, con);
 		return totalCount;
 	}
 	
-	//useList전체보기
-	public List<UseListDTO> selectList(MakeRow makeRow) throws Exception {
-		List<UseListDTO> ar = new ArrayList<UseListDTO>();
+	//나의예약 보기
+		public UseListDTO selectOne(int num) throws Exception{
+			Connection con = DBConnector.getConnect();
+			UseListDTO useListDTO = null;
+			String sql="select * from useList where num=?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, num);
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+				useListDTO = new UseListDTO();
+				useListDTO.setNum(rs.getInt("num"));
+				useListDTO.setId(rs.getString("id"));
+				useListDTO.setName(rs.getString("name"));
+				useListDTO.setPhone(rs.getString("phone"));
+				useListDTO.setBk_date(rs.getDate("bk_date"));
+				useListDTO.setStore(rs.getString("store"));
+				useListDTO.setStyle(rs.getString("style"));
+				useListDTO.setPrice(rs.getInt("price"));
+				useListDTO.setCoupon(rs.getString("coupon"));
+				useListDTO.setTime(rs.getString("time"));	
+				useListDTO.setState(rs.getString("state"));
+			}
+			
+			DBConnector.disConnect(rs, st, con);
+			return useListDTO;
+		}
+	
+	public ArrayList<UseListDTO> selectList2(BookDTO bookDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql = "select * from (select rownum R, N.* from (select * from useList where "+makeRow.getKind()+" like ? order by num desc) N) where R between ? and ? ";
-		PreparedStatement pre= con.prepareStatement(sql);
-		pre.setString(1, "%"+makeRow.getSearch()+"%");
-		pre.setInt(2, makeRow.getStartRow());
-		pre.setInt(3, makeRow.getLastRow());
-		ResultSet rs = pre.executeQuery();
+		ArrayList<UseListDTO> list = new ArrayList<>();
+		
+		String sql="select * from"
+				+ "(select rownum R,B.* from (select * from useList where id=?) B)"
+				+ "order by bk_date,time asc";
+		PreparedStatement st = con.prepareStatement(sql);	
+		st.setString(1, bookDTO.getId());
+		ResultSet rs = st.executeQuery();
+		
 		while(rs.next()) {
 			UseListDTO useListDTO = new UseListDTO();
+			useListDTO=new UseListDTO();
 			useListDTO.setNum(rs.getInt("num"));
 			useListDTO.setId(rs.getString("id"));
 			useListDTO.setName(rs.getString("name"));
@@ -50,13 +74,13 @@ public class UseListDAO {
 			useListDTO.setStyle(rs.getString("style"));
 			useListDTO.setPrice(rs.getInt("price"));
 			useListDTO.setCoupon(rs.getString("coupon"));
-			useListDTO.setTime(rs.getString("time"));
+			useListDTO.setTime(rs.getString("time"));	
 			useListDTO.setState(rs.getString("state"));
-			ar.add(useListDTO);
+			
+			list.add(useListDTO);
 		}
-		
-		DBConnector.disConnect(rs, pre, con);
-		return ar;
+		DBConnector.disConnect(rs, st, con);
+		return list;
 	}
 
 }
