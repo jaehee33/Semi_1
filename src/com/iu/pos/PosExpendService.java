@@ -11,7 +11,7 @@ import com.iu.action.ActionForward;
 import com.iu.kind.KindDAO;
 import com.iu.kind.KindDTO;
 
-public class PosInsertService implements Action {
+public class PosExpendService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
@@ -19,28 +19,29 @@ public class PosInsertService implements Action {
 		String method=request.getMethod();
 		PosDAO posDAO=new PosDAO();
 		if(method.equals("GET")) {
-			KindDAO kindDAO=new KindDAO();
+			
 			String store="";
-			ArrayList<KindDTO> ar=null;
+			
 			try {
 			store=request.getParameter("store");
-			ar=kindDAO.selectList(store);
+	
 			}catch(Exception e) {
 				
 			}
-			request.setAttribute("kindlist", ar);
+			
 			request.setAttribute("sname", store);
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/pos/posInsert.jsp");
+			actionForward.setPath("../WEB-INF/view/pos/posExpend.jsp");
 		}else {
 			PosDTO posDTO=null;
 			try {
 				posDTO=new PosDTO();
-				int pos_import=Integer.parseInt(request.getParameter("pos_import"));
+				int expend=Integer.parseInt(request.getParameter("expend"));
 				int totalMoney=posDAO.getTotalMoney();
 				posDTO.setStore(request.getParameter("store"));
-				posDTO.setPos_import(pos_import);
+				posDTO.setExpend(expend);
 				posDTO.setKind(request.getParameter("kind"));
+				posDTO.setTotal(totalMoney-expend);
 			
 			}catch (Exception e) {
 				// TODO: handle exception

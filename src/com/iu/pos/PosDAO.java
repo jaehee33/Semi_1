@@ -38,13 +38,12 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (sysdate,?,?,?,?,?,null,pos_seq.nextval)";
+		String sql="insert into pos values (sysdate,?,?,?,?,null,pos_seq.nextval)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, posDTO.getPos_import());
 		st.setInt(2, posDTO.getExpend());
 		st.setString(3, posDTO.getKind());
-		st.setInt(4, posDTO.getTotal());
-		st.setString(5, posDTO.getStore());
+		st.setString(4, posDTO.getStore());
 	
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
@@ -56,7 +55,7 @@ public class PosDAO {
 	public ArrayList<PosDTO> selectList(PosMakeRow posMakeRow, String store) throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select * from (select rownum R,P.* from "
-				+ "(select pos_date,"+posMakeRow.getType()+",total,pos_coupon,store,kind from pos where store=?) P)"
+				+ "(select pos_date,"+posMakeRow.getType()+",pos_coupon,store,kind,num from pos where store=? order by num asc) P)"
 						+ " where R between ? and ? order by R desc";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setString(1,store);
@@ -77,20 +76,22 @@ public class PosDAO {
 			posDTO.setStore(rs.getString("store"));
 			posDTO.setPos_date(rs.getDate("pos_date"));
 			posDTO.setKind(rs.getString("kind"));
-			posDTO.setTotal(rs.getInt("total"));
 			posDTO.setPos_coupon(Boolean.parseBoolean(rs.getString("pos_coupon")));
+			posDTO.setNum(rs.getInt("num"));
 			ar.add(posDTO);
 		}
 		return ar;
 	}
 	
 	
-	public int delete(MemberDTO memberDTO) throws Exception{
-		return 0;
-	}
-	
-	public int update(MemberDTO memberDTO) throws Exception{
-		return 0;
+	public int delete(int num) throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="delete pos where num=?";
+		PreparedStatement st=con.prepareStatement(sql);
+		st.setInt(1, num);
+		int result=st.executeUpdate();
+		DBConnector.disConnect(st, con);
+		return result;
 	}
 	
 	
