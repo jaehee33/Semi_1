@@ -54,13 +54,13 @@
 		<c:forEach items="${list}" var="i">
 			<tr>
 				<td>${i.num}</td>
+				<td>${i.id} </td>
 				<td>
 				<c:catch>
 				<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 				</c:catch>				
 				<a href="./${board}View.${board}?num=${i.num}">${i.title}</a>
 				</td>
-				<td>${i.id} </td>
 				<td>${i.reg_date}</td>
 				<td>${i.hit}</td>
 			</tr>
