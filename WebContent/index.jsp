@@ -11,6 +11,7 @@
 
 <c:if test="${empty member}">
 	<a href="./member/memberJoin.member">Join</a>
+	<a href="./member/kakaoJoin.member"></a>
 	<a href="./member/memberLogin.member">Login</a>
 	<hr>
 	<a href="./search/locationSearch.search">내 주변</a>
