@@ -19,40 +19,43 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 
+
 /**
- * Servlet implementation class BookController
+ * Servlet implementation class UseListController
  */
-@WebServlet("/BookController")
-public class BookController extends HttpServlet {
+@WebServlet("/UseController")
+public class UseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> command;
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BookController() {
+    public UseController() {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
     @Override
     public void init(ServletConfig config) throws ServletException {
     	command = new HashMap<>();
-    	String fileName = config.getInitParameter("property");
-    	String filePath = config.getServletContext().getRealPath("WEB-INF/property");
-    	FileInputStream fi= null;
+    	String filePath=config.getServletContext().getRealPath("WEB-INF/property");
+    	String fileName=config.getInitParameter("property");
+    	File file = new File(filePath, fileName);
+    	FileInputStream fi = null;
     	Properties prop = new Properties();
+    	
     	try {
-			fi = new FileInputStream(new File(filePath, fileName));
+			fi = new FileInputStream(file);
 			prop.load(fi);
 			Iterator<Object> it = prop.keySet().iterator();
 			while(it.hasNext()) {
 				String key = (String)it.next();
 				String value= (String)prop.get(key);
-				Class cls = Class.forName(value);
-				Object ins = cls.newInstance();
-				command.put(key, ins);
+				Class ins = Class.forName(value);
+				Object obj = ins.newInstance();
+				command.put(key, obj);
 			}
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,15 +68,17 @@ public class BookController extends HttpServlet {
 			}
 		}
     }
-    
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String uri = request.getServletPath();
 		ActionForward actionForward=null;
 		Action action=null;
-		action= (Action)command.get(uri);
+		
+		action = (Action)command.get(uri);
 		actionForward = action.doProcess(request, response);
 		
 		if(actionForward.isCheck()) {

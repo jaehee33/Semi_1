@@ -1,4 +1,4 @@
-package com.iu.book;
+package com.iu.use;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +9,7 @@ import com.iu.board.BoardDTO;
 import com.iu.member.MemberDTO;
 import com.iu.notice.NoticeDAO;
 
-public class BookViewService implements Action {
+public class UseViewService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
@@ -23,19 +23,19 @@ public class BookViewService implements Action {
 			// TODO: handle exception
 		}		
 		
-		BookDAO bookDAO = new BookDAO();
-		BookDTO bookDTO=null;
+		UseDAO useDAO = new UseDAO();
+		UseDTO useDTO=null;
 		
 		try {
-			bookDTO=bookDAO.selectOne(num);
+			useDTO=useDAO.selectOne(num);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
-		if(bookDTO != null) {
-			request.setAttribute("view", bookDTO);
-			actionForward.setPath("../WEB-INF/view/book/bookView.jsp");
+		if(useDTO != null) {
+			request.setAttribute("view", useDTO);
+			actionForward.setPath("../WEB-INF/view/use/useView.jsp");
 		}else {
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../member/memberMyPage.member");

@@ -1,4 +1,4 @@
-package com.iu.book;
+package com.iu.use;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 
-public class BookDeleteService implements Action {
+public class UseDeleteService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
@@ -17,9 +17,8 @@ public class BookDeleteService implements Action {
 		
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
-			BookDAO bookDAO=new BookDAO();
-			BookDTO bookDTO = bookDAO.selectOne(num);
-			result=bookDAO.delete(bookDTO);
+			UseDAO bookDAO=new UseDAO();
+			result=bookDAO.delete(num);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,7 +26,7 @@ public class BookDeleteService implements Action {
 		
 		if(result>0) {
 			actionForward.setCheck(false);
-			actionForward.setPath("./bookList.book");
+			actionForward.setPath("./useList.use");
 		}else {
 			request.setAttribute("message", "Fail");
 			request.setAttribute("path", "../memberMyPage.member");

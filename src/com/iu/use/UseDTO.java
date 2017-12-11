@@ -1,9 +1,8 @@
-package com.iu.useList;
+package com.iu.use;
 
 import java.sql.Date;
 
-public class UseListDTO {
-	
+public class UseDTO {
 	private int num;
 	private String id;
 	private String name;
@@ -82,5 +81,5 @@ public class UseListDTO {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
+
 }

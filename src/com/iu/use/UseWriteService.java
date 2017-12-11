@@ -1,4 +1,4 @@
-package com.iu.book;
+package com.iu.use;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 
-public class BookWriteService implements Action {
+public class UseWriteService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {

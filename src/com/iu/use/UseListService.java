@@ -1,4 +1,4 @@
-package com.iu.useList;
+package com.iu.use;
 
 <<<<<<< HEAD
 import java.util.List;
@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+<<<<<<< HEAD:src/com/iu/useList/UseListService.java
 import com.iu.book.BookDTO;
 
+=======
+import com.iu.member.MemberDTO;
+>>>>>>> sj_book:src/com/iu/use/UseListService.java
 import com.iu.util.MakePage;
 import com.iu.util.MakeRow;
 import com.iu.util.Pageing;
@@ -22,10 +26,12 @@ public class UseListService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-		//curPage 
+		
 		int curPage=1;
+		
 		try {
 			curPage=Integer.parseInt(request.getParameter("curPage"));
+<<<<<<< HEAD:src/com/iu/useList/UseListService.java
 		}catch (Exception e){
 			}
 		MakeRow makeRow = new MakeRow();
@@ -34,12 +40,24 @@ public class UseListService implements Action {
 
 		BookDTO bookDTO = (BookDTO)request.getSession().getAttribute("list");
 		UseListDAO useListDAO = new UseListDAO();
+=======
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		UseMakeRow useMakeRow = new UseMakeRow();
+		useMakeRow.setKind(request.getParameter("kind"));
+		useMakeRow.setSearch(request.getParameter("search"));
+		
+		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
+		UseDAO useDAO = new UseDAO();
+>>>>>>> sj_book:src/com/iu/use/UseListService.java
 		
 
 		int totalCount;
 		try {
-			totalCount = useListDAO.getTotalCount(makeRow);
+			totalCount=useDAO.getTotalCount(useMakeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
+<<<<<<< HEAD:src/com/iu/useList/UseListService.java
 			makeRow = makePage.getMakeRow(makeRow);
 
 			
@@ -53,21 +71,23 @@ public class UseListService implements Action {
 
 >>>>>>> jj
 			//pageing
+=======
+			useMakeRow = (UseMakeRow) makePage.getMakeRow(useMakeRow);
+			List<UseDTO> ar = useDAO.selectList(useMakeRow,memberDTO.getId());
+>>>>>>> sj_book:src/com/iu/use/UseListService.java
 			Pageing pageing = makePage.pageing();
 			
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
-			request.setAttribute("make", makeRow);
-			
+			request.setAttribute("make", useMakeRow);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}		
 		
-		//전송
 		actionForward.setCheck(true);
-		actionForward.setPath("../WEB-INF/view/useList/useList.jsp");
-			
+		actionForward.setPath("../WEB-INF/view/use/useList.jsp");
+		
 		return actionForward;
 	}
 
