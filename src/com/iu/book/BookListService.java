@@ -1,6 +1,6 @@
 package com.iu.book;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class BookListService implements Action {
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
 		BookDAO bookDAO = new BookDAO();
 		try {
-			ArrayList<BookDTO> ar = bookDAO.selectList(memberDTO);
+			List<BookDTO> ar = bookDAO.selectList(memberDTO);
 			request.setAttribute("list", ar);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
