@@ -11,11 +11,13 @@ $(function(){
 	$.get("./posList.pos?store=${store}", function(data) {
 		$("#list").html(data);
 	});
+	
 	$("#import").click(function(){
 		$.get("./posInsert.pos?store=${store}", function(data) {
 			$("#insert").html(data);
 		});
 	});
+	
 });
 </script>
 <title>Insert title here</title>

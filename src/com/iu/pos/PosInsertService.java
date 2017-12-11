@@ -1,11 +1,15 @@
 package com.iu.pos;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.kind.KindDAO;
+import com.iu.kind.KindDTO;
 
 public class PosInsertService implements Action {
 
@@ -15,12 +19,16 @@ public class PosInsertService implements Action {
 		String method=request.getMethod();
 		PosDAO posDAO=new PosDAO();
 		if(method.equals("GET")) {
+			KindDAO kindDAO=new KindDAO();
 			String store="";
+			ArrayList<KindDTO> ar=null;
 			try {
 			store=request.getParameter("store");
+			ar=kindDAO.selectList(store);
 			}catch(Exception e) {
 				
 			}
+			request.setAttribute("kindlist", ar);
 			request.setAttribute("sname", store);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/pos/posInsert.jsp");
