@@ -11,6 +11,18 @@ import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class PosDAO {
+	public int getTotalMoney() throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select sum(pos_import)-sum(expend) from pos";
+		PreparedStatement st=con.prepareStatement(sql);
+		ResultSet rs=st.executeQuery();
+		int totalMoney=0;
+		if(rs.next()) {
+			totalMoney=rs.getInt(1);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return totalMoney;
+	}
 	
 	public int getTotalCount() throws Exception{
 		Connection con = DBConnector.getConnect();
@@ -26,12 +38,13 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (sysdate,?,?,null,?,?,null,pos_seq.nextval)";
+		String sql="insert into pos values (sysdate,?,?,?,?,?,null,pos_seq.nextval)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, posDTO.getPos_import());
 		st.setInt(2, posDTO.getExpend());
-		st.setInt(3, posDTO.getTotal());
-		st.setString(4, posDTO.getStore());
+		st.setString(3, posDTO.getKind());
+		st.setInt(4, posDTO.getTotal());
+		st.setString(5, posDTO.getStore());
 	
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);

@@ -16,7 +16,6 @@
 <a href='./storeDelete.store?id=${store.id}'>delete</a>
 <a href='./storeUpdate.store?id=${store.id}'>update</a>
 
-<a href="../pos/posInsert.pos?store=${store.store}">posInsert</a>
 <a href="../pos/posIndex.pos?store=${store.store}">pos</a>
 <a href="../kind/kindIndex.kind">kind</a>
 </body>
