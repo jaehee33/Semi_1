@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.iu.member.MemberDTO;
 import com.iu.store.StoreDTO;
@@ -83,9 +84,9 @@ public class BookDAO {
 	}
 	
 	//나의 예약 가져오기
-	public ArrayList<BookDTO> selectList(MemberDTO memberDTO) throws Exception{
+	public List<BookDTO> selectList(MemberDTO memberDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		ArrayList<BookDTO> list = new ArrayList<>();
+		List<BookDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where id=?) B)"
@@ -96,7 +97,6 @@ public class BookDAO {
 		
 		while(rs.next()) {
 			BookDTO bookDTO = new BookDTO();
-			bookDTO=new BookDTO();
 			bookDTO.setNum(rs.getInt("num"));
 			bookDTO.setId(rs.getString("id"));
 			bookDTO.setName(rs.getString("name"));
@@ -116,9 +116,9 @@ public class BookDAO {
 	}
 	
 	//손님 예약 가져오기
-	public ArrayList<BookDTO> selectList(StoreDTO storeDTO) throws Exception{
+	public List<BookDTO> selectList(StoreDTO storeDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		ArrayList<BookDTO> list = new ArrayList<>();
+		List<BookDTO> list = new ArrayList<>();
 		
 		String sql="select * from"
 				+ "(select rownum R,B.* from (select * from book where bk_store='"+storeDTO.getStore()+"') B)"

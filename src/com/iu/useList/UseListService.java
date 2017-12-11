@@ -1,6 +1,5 @@
 package com.iu.useList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +42,7 @@ public class UseListService implements Action {
 			makeRow = makePage.getMakeRow(makeRow);
 			
 			List<UseListDTO> ar = useListDAO.selectList(makeRow); //db조회
-			ArrayList<BookDTO> ar2 = bookDAO.selectList(memberDTO);
+			List<BookDTO> ar2 = bookDAO.selectList(memberDTO);
 			System.out.println(ar);
 			System.out.println(ar2);
 			//pageing
