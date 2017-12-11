@@ -12,6 +12,7 @@ $(function(){
 	$("#btn").click(function(){
 		var store=document.frm.store.value;
 		window.open("../map/map.jsp?area="+store, "", "top=300, left=500, width=700, height=400");
+		
 	});
 });
 </script>
