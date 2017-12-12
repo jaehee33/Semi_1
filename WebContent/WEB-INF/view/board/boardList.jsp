@@ -35,10 +35,7 @@
 			<input type="hidden" name="curPage"> <select name="kind">
 				<option class="kind" value="title">TITLE</option>
 				<option class="kind" value="contents">CONTENTS</option>
-			
-			<c:if test="${member.id eq 'admin'}">
-				<option class="kind" value="id">ID
-			</option></c:if>
+				<option class="kind" value="contents" value="title">TITLE + CONTENTS</option>
 			
 			</select> <input type="text" name="search" value="${make.search}">
 			<button>Search</button>
@@ -70,7 +67,10 @@
 				
 				<td>${i.contents}</td>
 				<td>${i.reg_date}</td>
-				<td>${i.hit}</td>
+			
+			
+				<td id="hit">${i.hit}</td>
+				
 			</tr>
 		</c:forEach>
 
