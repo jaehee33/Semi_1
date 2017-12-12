@@ -61,8 +61,6 @@
 		<c:forEach items="${list}" var="i">
 			<tr>
 				<td>${i.num}</td>
-
-
 				<c:if test="${member.id eq 'admin'}">
 					<td id="id">${i.id}</td>
 				</c:if>

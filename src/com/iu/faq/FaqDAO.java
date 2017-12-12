@@ -73,7 +73,7 @@ public class FaqDAO implements BoardDAO {
 		List<BoardDTO> ar = new ArrayList<BoardDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
+				+ "(select * from faq where "+makeRow.getKind()+" like ? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+makeRow.getSearch()+"%");

@@ -1,10 +1,16 @@
 package com.iu.faq;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class FaqWriteService implements Action {
 
@@ -15,6 +21,33 @@ public class FaqWriteService implements Action {
 		if(method.equals("POST")) {
 			FaqDAO faqDAO = new FaqDAO();
 			FaqDTO faqDTO = new FaqDTO();
+			String filePath = request.getServletContext().getRealPath("upload");
+			File file = new File(filePath);
+			if(!file.exists()) {
+				file.mkdirs();
+			}
+			
+			int maxSize=1024*1024*10;
+			
+			try {
+				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+				faqDTO.setId(multi.getParameter("id"));
+				faqDTO.setContents(multi.getParameter("contents"));
+				faqDTO.setTitle(multi.getParameter("title"));
+				System.out.println("저장된 경로 : "+filePath);
+				Enumeration<Object> names=multi.getFileNames();
+				while(names.hasMoreElements()) {
+					String name=(String)names.nextElement();
+					String fileName = multi.getFilesystemName(name);
+					String oriName = multi.getOriginalFileName(name);
+					System.out.println("fileName :"+fileName);
+					System.out.println("oriName : "+oriName);
+				}
+				
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+			
 			int num=0;
 			try {
 				num = faqDAO.getNum();
@@ -23,9 +56,6 @@ public class FaqWriteService implements Action {
 				e1.printStackTrace();
 			}
 			faqDTO.setNum(num);
-			faqDTO.setId(request.getParameter("id"));
-			faqDTO.setContents(request.getParameter("contents"));
-			faqDTO.setTitle(request.getParameter("title"));
 			int result=0;
 			try {
 				result=faqDAO.insert(faqDTO);
