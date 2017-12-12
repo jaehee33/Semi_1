@@ -53,6 +53,7 @@
 		<hr>
 		<a href="./search/locationSearch.search">내 주변</a>
 		<a href="./search/styleSearch.search">스타일 찾기</a>
+		<a href="./store/storeList.store">가게 목록</a>
 		<a href="./use/useList.use">예약/취소</a>
 </c:if>
 </c:if>
