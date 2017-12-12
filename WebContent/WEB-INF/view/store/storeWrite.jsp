@@ -23,6 +23,7 @@ $(function(){
 <p>Area : <input type="text" name="area" value="검색버튼을 눌러주세요" readonly="readonly"></p>
 <p>StoreTel : <input type="text" name="storetel"></p>
 <p>Holiday <input type="text" name="holiday"></p>
+<p>file</p>
 <button>Write</button>
 </form>
 </body>
