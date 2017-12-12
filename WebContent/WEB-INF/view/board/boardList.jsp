@@ -44,7 +44,9 @@
 	<table>
 		<tr>
 			<td>NUM</td>
+			<c:if test="${member.id eq 'admin'}">
 			<td>ID</td>
+			</c:if>
 			<td>TITLE</td>
 			<td>CONTENTS</td>
 			<td>DATE</td>
@@ -54,13 +56,16 @@
 		<c:forEach items="${list}" var="i">
 			<tr>
 				<td>${i.num}</td>
+				<c:if test="${member.id eq 'admin'}">
 				<td>${i.id} </td>
+				</c:if>
 				<td>
 				<c:catch>
 				<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 				</c:catch>				
 				<a href="./${board}View.${board}?num=${i.num}">${i.title}</a>
 				</td>
+				<td>${i.contents}</td>
 				<td>${i.reg_date}</td>
 				<td>${i.hit}</td>
 			</tr>
@@ -85,6 +90,7 @@
 	<a href="./${board}Write.${board}">Write</a>
 	</c:if>
 	
+	<a href="../index.jsp">BackPage</a>
 	
 </body>
 </html>

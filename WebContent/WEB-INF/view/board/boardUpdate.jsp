@@ -10,9 +10,9 @@
 <h1>Update ${board}</h1>
 	<form action="./${board}Update.${board}" method="post">
 		<input type="hidden" name="num" value="${view.num}">
-		<input type="text" name="writer" readonly="readonly" value="${view.writer}">
-		<input type="text" name="title" value="${view.title}">
-		<textarea rows="" cols="" name="contents">${view.contents}</textarea>
+		<h3>ID: </h3><input type="text" name="id" readonly="readonly" value="${view.id}">
+		<h3>TITLE: </h3><input type="text" name="title" value="${view.title}">
+		<h3>CONTENTS: </h3><textarea rows="" cols="" name="contents">${view.contents}</textarea>
 		<button>Update</button>
 	</form>	
 </body>
