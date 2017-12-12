@@ -1,6 +1,6 @@
 package com.iu.pos;
 
-import java.util.ArrayList;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.kind.KindDAO;
-import com.iu.kind.KindDTO;
 
 public class PosExpendService implements Action {
 

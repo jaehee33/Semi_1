@@ -11,6 +11,9 @@ import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class PosDAO {
+	
+	
+	
 	public int getTotalMoney() throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select sum(pos_import)-sum(expend) from pos";

@@ -27,6 +27,7 @@ $(function(){
 <title>Insert title here</title>
 </head>
 <body>
+<div id="total"></div><input type="button" id="totalmonth" value="total">
 <div id="list"></div>
 <div id="insert"></div><input type="button" id="import" value="import">
 <div id="expend2"></div><input type="button" id="expend" value="expend">
