@@ -25,7 +25,6 @@ public class MemberIdCheckService implements Action {
 			}
 			
 			if(check) {
-				System.out.println(id);
 				request.setAttribute("id", id);
 				request.setAttribute("message", "사용가능한 id 입니다.");
 				request.setAttribute("check", check);

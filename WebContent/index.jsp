@@ -13,14 +13,11 @@
 </head>
 <body>
 
-
-
-
 <c:if test="${empty member}">
 	<a href="./member/memberJoin.member">Join</a>
 	<a href="./member/kakaoJoin.member"></a>
 	<a href="./member/memberLogin.member">Login</a>
-	
+	<hr>
 <!---------------------------- 카카오로그인 시작 ---------------------------->
 		<a id="kakao-login-btn"></a>
 		<a href="http://developers.kakao.com/logout"></a>
@@ -41,7 +38,7 @@
 			//]]>
 		</script>
 <!----------------------------카카오로그인 끝 ------------------------------->
-		<hr>
+		
 </c:if>
 
 <c:if test="${not empty member}">
