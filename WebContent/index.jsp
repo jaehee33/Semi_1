@@ -13,33 +13,35 @@
 </head>
 <body>
 
-<!---------------------------- 카카오로그인 시작 ---------------------------->
-<a id="kakao-login-btn"></a>
-<a href="http://developers.kakao.com/logout"></a>
-<script type='text/javascript'>
-  //<![CDATA[
-    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('44dc488bb7ee1b14cd2765f0530ea05b');
-    // 카카오 로그인 버튼을 생성합니다.
-    Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
-      success: function(authObj) {
-        alert(JSON.stringify(authObj));
-      },
-      fail: function(err) {
-         alert(JSON.stringify(err));
-      }
-    });
-  //]]>
-</script>
-<!----------------------------카카오로그인 끝 ------------------------------->
+
 
 
 <c:if test="${empty member}">
 	<a href="./member/memberJoin.member">Join</a>
 	<a href="./member/kakaoJoin.member"></a>
 	<a href="./member/memberLogin.member">Login</a>
-	<hr>
+	
+<!---------------------------- 카카오로그인 시작 ---------------------------->
+		<a id="kakao-login-btn"></a>
+		<a href="http://developers.kakao.com/logout"></a>
+		<script type='text/javascript'>
+			//<![CDATA[
+			// 사용할 앱의 JavaScript 키를 설정해 주세요.
+			Kakao.init('44dc488bb7ee1b14cd2765f0530ea05b');
+			// 카카오 로그인 버튼을 생성합니다.
+			Kakao.Auth.createLoginButton({
+				container : '#kakao-login-btn',
+				success : function(authObj) {
+					alert(JSON.stringify(authObj));
+				},
+				fail : function(err) {
+					alert(JSON.stringify(err));
+				}
+			});
+			//]]>
+		</script>
+<!----------------------------카카오로그인 끝 ------------------------------->
+		<hr>
 </c:if>
 
 <c:if test="${not empty member}">
