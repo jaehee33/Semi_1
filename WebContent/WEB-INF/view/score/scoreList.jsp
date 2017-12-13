@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
 	<h1>ScoreList</h1>
 
 </body>
