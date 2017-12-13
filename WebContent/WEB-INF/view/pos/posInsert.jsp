@@ -5,10 +5,10 @@
 <form action="posInsert.pos" method="post" name="frm">
 <input type="text" name="store" value="${sname}" readonly="readonly">
 <select name="kind" class="g">
+<option value="other">기타</option>
 <c:forEach items="${kindlist}" var="a" varStatus="j">
 <option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option>
 </c:forEach>
-<option value="other">기타</option>
 </select>
 <c:forEach items="${kindlist}" var="b" varStatus="i">
 <input type="hidden" id="price${i.index}" value="${b.price}" class="e">

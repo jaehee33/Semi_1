@@ -42,7 +42,7 @@
 	</tr>
 	<c:forEach items="${requestScope.storelist}" var="s">
 		<tr>
-			<td><a href="./storeView.store?id=${s.id}">${s.store}</a></td>
+			<td><a href="./storeIndex.store?id=${s.id}">${s.store}</a></td>
 			<td>${s.area}</td>
 		</tr>
 	</c:forEach>
