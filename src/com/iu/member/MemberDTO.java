@@ -10,6 +10,7 @@ public class MemberDTO {
 	private Date birth;
 	private String phone;
 	private String job;
+
 	public String getId() {
 		return id;
 	}

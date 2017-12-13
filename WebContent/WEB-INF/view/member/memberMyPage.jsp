@@ -7,17 +7,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Insert title here</title>
-
+<link href="/Semi_1/css/mypage.css" rel="stylesheet">
 </head>
 <body>
-<h3>ID: ${m2.id}</h3>
-<h3>Name: ${m2.name}</h3>
-<h3>Birth: ${m2.birth}</h3>
-<h3>Phone: ${m2.phone}</h3>
-<h3>Job: ${m2.job}</h3>
-<p><a href="../upload/${filef.fileName()}">${fileo.oriName()}</a>
+<header>
+<h1>나의 정보</h1>
+<div id="info">
+<ul>
+<li>이름: ${m2.name}</li>
+<li>생일: ${m2.birth}</li>
+<li>번호: ${m2.phone}</li>
+</ul>
+</div>
+<h3>Job(나중에 삭제): ${m2.job}</h3>
+</header>
+<nav>
 
-<a href="../index.jsp">index</a>
+</nav>
+<article>
+
+</article>
+<ul>
+<li>${fileName}</li>
+<li>${oriName}</li>
+</ul>
+
+<a href="../index.jsp">처음으로</a>
 <a href="./memberStyle.member">StyleUpload</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
