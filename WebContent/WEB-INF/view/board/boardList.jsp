@@ -60,7 +60,7 @@
 			<tr>
 				<td>${i.num}</td>
 				<c:if test="${member.id eq 'admin'}">
-					<td id="id">${i.id}</td>
+					<td>${i.id}</td>
 				</c:if>
 				<td><c:catch>
 						<c:forEach begin="1" end="${i.depth}">--</c:forEach>

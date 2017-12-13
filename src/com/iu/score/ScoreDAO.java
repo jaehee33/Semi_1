@@ -42,26 +42,28 @@ public class ScoreDAO {
 	}
 	
 	
-	public BoardDTO selectOne(int num) throws Exception {
+	public ScoreDTO selectOne(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
 		String sql ="select * from score where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
-		BoardDTO boardDTO = null;
+		ScoreDTO scoreDTO = null;
 		if(rs.next()) {
-			boardDTO = new BoardDTO();
-			boardDTO.setNum(rs.getInt("num"));
-			boardDTO.setId(rs.getString("id"));
-			boardDTO.setTitle(rs.getString("title"));
-			boardDTO.setContents(rs.getString("contents"));
-			boardDTO.setReg_date(rs.getDate("reg_date"));
-			boardDTO.setHit(rs.getInt("hit"));
+			scoreDTO = new ScoreDTO();
+			scoreDTO.setNum(rs.getInt("num"));
+			scoreDTO.setId(rs.getString("id"));
+			scoreDTO.setTitle(rs.getString("title"));
+			scoreDTO.setContents(rs.getString("contents"));
+			scoreDTO.setReg_date(rs.getDate("reg_date"));
+			scoreDTO.setHit(rs.getInt("hit"));
+			scoreDTO.setPoint(rs.getInt("point"));
+			
 			}
 		
 		DBConnector.disConnect(rs, st, con);
 		
-		return boardDTO;
+		return scoreDTO;
 	}
 	
 	

@@ -42,8 +42,29 @@
 			</select>
 		</form>
 	</div>
-	<br>
-	<br>
+	<table>
+		<tr>
+			<td>NUM</td>
+			<td>ID</td>
+			<td>TITLE</td>
+			<td>CONTENTS</td>
+			<td>DATE</td>
+			<td>HIT</td>
+			<td>POINT</td>
+		</tr>
+		
+		<c:forEach items="${list}" var="i">
+			<tr>
+			 	<td>${i.num}</td>			
+				<td>${i.id}</td>
+				<td>${i.title}</td>
+				<td>${i.contents}</td>
+				<td>${i.reg_date}</td>
+				<td>${i.hit}</td>
+				<td>${i.point}</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 	<c:if test="${not empty member}">
 	<button>Write</button>
@@ -63,6 +84,6 @@
 			value="[´ÙÀ½]">
 	</c:if>
 	
-
+	<a href="../storeIndex.store?id=${id}">BackPage</a>
 </body>
 </html>

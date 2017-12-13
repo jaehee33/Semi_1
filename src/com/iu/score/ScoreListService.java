@@ -28,13 +28,13 @@ public class ScoreListService implements Action {
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
 		
-		NoticeDAO noticeDAO = new NoticeDAO();
+		ScoreDAO scoreDAO = new ScoreDAO();
 		int totalCount;
 		try {
-			totalCount = noticeDAO.getTotalCount(makeRow);
+			totalCount = scoreDAO.getTotalCount(makeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
 			makeRow=makePage.getMakeRow(makeRow);
-			List<BoardDTO> ar=noticeDAO.selectList(makeRow);
+			List<ScoreDTO> ar=scoreDAO.selectList(makeRow);
 			
 			Pageing pageing = makePage.pageing();
 			
