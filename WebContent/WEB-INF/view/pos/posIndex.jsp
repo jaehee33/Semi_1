@@ -9,6 +9,11 @@
 
 <script type="text/javascript">
 $(function(){
+	$("#totalbtn").click(function(){
+		$.get("./posTotal.pos?store=${store}",function(total){
+			$("#total").html(total);
+		});
+	});
 	
 	$("#import").click(function(){
 		$.get("./posInsert.pos?store=${store}", function(data) {
@@ -44,7 +49,7 @@ $(function(){
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-<div id="total"></div><input type="button" id="totalmonth" value="total">
+<div id="total"></div><input type="button" id="totalbtn" value="total">
 <a href="./posList.pos?store=${store}">poslist</a>
 <a href="./"></a>
 <div id="insert"></div><input type="button" id="import" value="import">

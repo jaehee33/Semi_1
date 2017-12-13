@@ -1,10 +1,16 @@
 package com.iu.store;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.files.FilesDAO;
+import com.iu.files.FilesDTO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class StroeUpdateService implements Action {
 
@@ -31,22 +37,40 @@ public class StroeUpdateService implements Action {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/store/storeUpdate.jsp");
 		}else {
-			int result=0;
-			StoreDTO storeDTO=new StoreDTO();
-			storeDTO.setArea(request.getParameter("area"));
-			storeDTO.setHoliday(request.getParameter("holiday"));
-			storeDTO.setStore(request.getParameter("store"));
-			storeDTO.setStoretel(request.getParameter("storetel"));
-			storeDTO.setId(request.getParameter("id"));
-			try {
-				result=storeDAO.update(storeDTO);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			FilesDTO filesDTO=null;
+			FilesDAO filesDAO=new FilesDAO();
+
+			String filePath=request.getServletContext().getRealPath("upload");
+			File file=new File(filePath);
+			if(!file.exists()) {
+				file.mkdirs();
 			}
-			if(result>0) {
+			int maxSize=1024*1024*10;
+			int result=0;
+			int result2=0;
+			try {
+				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+				StoreDTO storeDTO=new StoreDTO();
+				storeDTO.setArea(multi.getParameter("area"));
+				storeDTO.setHoliday(multi.getParameter("holiday"));
+				storeDTO.setStore(multi.getParameter("store"));
+				storeDTO.setStoretel(multi.getParameter("storetel"));
+				storeDTO.setId(multi.getParameter("id"));
+				result2=filesDAO.storedelete(storeDTO.getStore());
+				
+				filesDTO=new FilesDTO();
+				filesDTO.setFname(multi.getFilesystemName("file"));
+				filesDTO.setStore(storeDTO.getStore());
+				filesDTO.setOname(multi.getOriginalFileName("file"));
+				result2=filesDAO.insert(filesDTO);
+				result=storeDAO.update(storeDTO);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			if(result>0 && result2>0) {
 				actionForward.setCheck(false);
-				actionForward.setPath("./storeView.store");
+				actionForward.setPath("./storeIndex.store");
 			}else {
 				request.setAttribute("message", "update Fail");
 				request.setAttribute("path", "../index.jsp");
