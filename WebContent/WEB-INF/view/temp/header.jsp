@@ -57,7 +57,6 @@
 	<hr>
 	<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>
 	<a href="<%=request.getContextPath()%>/faq/faqList.faq">자주 묻는 질문</a>
-	<a href="">평점 후기</a>
 </div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 	$(function() {
 		var i = 2;
 		$("#btn").click(function() {
-			var f = '<input type="file" name="f'+i+'">';
+			var f = '<input type="file" name="f' + i + '">';
 			$("#files").append(f);
 			i++;
 		});
@@ -32,34 +32,26 @@
 		});
 
 		$("#savebutton").click(
-				function() {
-					editor_object.getById["contents"].exec(
-							"UPDATE_CONTENTS_FIELD", []);
+			function() {
+				editor_object.getById["contents"].exec(
+					"UPDATE_CONTENTS_FIELD", []);
 
-					$("#frm").submit();
-				})
+				$("#frm").submit();
+			})
 	});
 </script>
 
 </head>
 <body>
-<<<<<<< HEAD
-<form id="frm" action="./${board}Write.${board}" method="post" enctype="multipart/form-data">
-		<p>id : ${member.id}</p>
-		<p>TITLE: <input type="text" name="title"></p>
-		<p><textarea rows="" cols="" name="contents" id="contents"></textarea></p>
-=======
 	<form id="frm" action="./${board}Write.${board}" method="post"
 		enctype="multipart/form-data">
-		<p>${member.id}</p>
-		<input type="hidden" name="id" value="${member.id}">
+		<p>ID : ${member.id}</p>
 		<p>
 			TITLE: <input type="text" name="title">
 		</p>
 		<p>
 			<textarea rows="" cols="" name="contents" id="contents"></textarea>
 		</p>
->>>>>>> 03f848d4756b4d9dbbc436b7e2da5b43fcf13b5b
 		<div id="files">
 			<input type="file" name="f1">
 		</div>
