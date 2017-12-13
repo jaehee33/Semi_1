@@ -6,6 +6,12 @@ public class StoreMakeRow extends MakeRow{
 
 
 	private String kind;
+	
+	
+	public String getKind() {
+		return kind;
+	}
+
 
 	public void setKind(String kind) {
 		if(kind==null) {

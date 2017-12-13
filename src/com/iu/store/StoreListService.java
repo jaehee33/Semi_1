@@ -1,6 +1,7 @@
 package com.iu.store;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,10 +33,10 @@ public class StoreListService implements Action {
 		StoreDAO storeDAO=new StoreDAO();
 		int totalCount;
 		try {
-			totalCount = storeDAO.getTotalCount();
+			totalCount = storeDAO.getTotalCount(storeMakeRow);
 			MakePage makePage= new MakePage(curPage, totalCount);
 			storeMakeRow=(StoreMakeRow)makePage.getMakeRow((MakeRow)storeMakeRow);
-			List<StoreDTO> ar=(List<StoreDTO>)storeDAO.selectList(storeMakeRow);
+			ArrayList<StoreDTO> ar=(ArrayList<StoreDTO>)storeDAO.selectList(storeMakeRow);
 			//페이징 처리
 			Pageing pageing=makePage.pageing();
 			request.setAttribute("storelist", ar);

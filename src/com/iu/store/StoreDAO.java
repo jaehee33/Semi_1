@@ -17,17 +17,22 @@ import com.sun.org.apache.xml.internal.security.keys.content.RetrievalMethod;
 public class StoreDAO{
 	
 	//회원가입
-			public int getTotalCount() throws Exception{
-				Connection con=DBConnector.getConnect();
-				String sql="select nvl(count(id)) from store";
-				PreparedStatement st=con.prepareStatement(sql);
-				ResultSet rs=st.executeQuery();
-				int result=0;
+			
+			public int getTotalCount(StoreMakeRow storeMakeRow) throws Exception {
+				Connection con = DBConnector.getConnect();
+				String sql ="select nvl(count(store), 0) from store where "+ storeMakeRow.getKind()+ " like ?";
+				
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1, "%"+storeMakeRow.getSearch()+"%");
+			
+				ResultSet rs = st.executeQuery();
+				int totalCount=0;
 				if(rs.next()) {
-					result=rs.getInt(1);
+					totalCount=rs.getInt(1);
 				}
 				DBConnector.disConnect(rs, st, con);
-				return result;
+			
+				return totalCount;
 			}
 	
 	
@@ -97,7 +102,7 @@ public class StoreDAO{
 				
 				String sql="select * from"
 						+ "(select rownum R,S.* from "
-						+ "(select * from store where "+storeMakeRow.getKind()+" like ? order by store asc) S)"
+						+ "(select * from store where "+storeMakeRow.getKind()+" like ? ) S)"
 						+ "where R between ? and ?";
 				PreparedStatement st = con.prepareStatement(sql);	
 				st.setString(1, "%"+storeMakeRow.getSearch()+"%");
