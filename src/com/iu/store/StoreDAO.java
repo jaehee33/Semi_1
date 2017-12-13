@@ -15,7 +15,7 @@ public class StoreDAO{
 			
 			public int getTotalCount(StoreMakeRow storeMakeRow) throws Exception {
 				Connection con = DBConnector.getConnect();
-				String sql ="select nvl(count(store), 0) from store where "+ storeMakeRow.getKind()+ " like ?";
+				String sql ="select nvl(count(store), 0) from store where "+storeMakeRow.getKind()+" like ?";
 				
 				PreparedStatement st = con.prepareStatement(sql);
 				st.setString(1, "%"+storeMakeRow.getSearch()+"%");
