@@ -33,10 +33,11 @@ public class PosExpendService implements Action {
 		}else {
 			PosDTO posDTO=null;
 			try {
+				String store=request.getParameter("store");
 				posDTO=new PosDTO();
 				int expend=Integer.parseInt(request.getParameter("expend"));
-				int totalMoney=posDAO.getTotalMoney();
-				posDTO.setStore(request.getParameter("store"));
+				int totalMoney=posDAO.getTotalMoney(store);
+				posDTO.setStore(store);
 				posDTO.setExpend(expend);
 				posDTO.setKind(request.getParameter("kind"));
 				posDTO.setTotal(totalMoney-expend);

@@ -26,6 +26,7 @@ public class StoreWriteService implements Action {
 		}else {
 			String id=((MemberDTO)request.getSession().getAttribute("member")).getId();
 			StoreDTO storeDTO=null;
+			FilesDTO filesDTO=null;
 
 			String filePath=request.getServletContext().getRealPath("upload");
 			File file=new File(filePath);
@@ -46,7 +47,7 @@ public class StoreWriteService implements Action {
 				storeDTO.setStoretel(multi.getParameter("storetel"));
 				storeDTO.setStore(multi.getParameter("store"));
 				storeDTO.setId(id);
-				FilesDTO filesDTO=new FilesDTO();
+				filesDTO=new FilesDTO();
 				filesDTO.setFname(multi.getFilesystemName("file"));
 				filesDTO.setStore(storeDTO.getStore());
 				filesDTO.setOname(multi.getOriginalFileName("file"));
@@ -56,6 +57,7 @@ public class StoreWriteService implements Action {
 			StoreDAO storeDAO=new StoreDAO();
 			try {
 				result=storeDAO.insert(storeDTO);
+				result2=filesDAO.insert(filesDTO);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -36,9 +36,10 @@ public class PosInsertService implements Action {
 			PosDTO posDTO=null;
 			try {
 				posDTO=new PosDTO();
+				String store=request.getParameter("store");
 				int pos_import=Integer.parseInt(request.getParameter("pos_import"));
-				int totalMoney=posDAO.getTotalMoney();
-				posDTO.setStore(request.getParameter("store"));
+				int totalMoney=posDAO.getTotalMoney(store);
+				posDTO.setStore(store);
 				posDTO.setPos_import(pos_import);
 				posDTO.setKind(request.getParameter("kind"));
 			

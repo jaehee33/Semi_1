@@ -14,10 +14,11 @@ public class PosDAO {
 	
 	
 	
-	public int getTotalMoney() throws Exception{
+	public int getTotalMoney(String store) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="select sum(pos_import)-sum(expend) from pos";
+		String sql="select sum(pos_import)-sum(expend) from pos where store=?";
 		PreparedStatement st=con.prepareStatement(sql);
+		st.setString(1, store);
 		ResultSet rs=st.executeQuery();
 		int totalMoney=0;
 		if(rs.next()) {
