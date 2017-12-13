@@ -147,7 +147,7 @@ public class FaqDAO implements BoardDAO {
 	@Override
 	public int hit(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql ="update faq set hit=hit+1 where num=?";
+		String sql ="update faq set hit= hit+1 where num=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
