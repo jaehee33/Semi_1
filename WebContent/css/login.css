@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body{
+	margin-top: 100px;
+	margin-left: 1250px;
+	background-image: url('/Semi_1/img/login-hair.jpg');
+}
+h1{
+	color: white;
+	font-weight: bolder;
+}
+form{
+	width: 300px;
+}

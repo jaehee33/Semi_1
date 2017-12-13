@@ -4,26 +4,44 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
-import com.iu.member.MemberDAO;
-import com.iu.member.MemberDTO;
 import com.iu.util.DBConnector;
-import com.iu.util.MakeRow;
+
 
 public class StoreDAO{
 	
 	//회원가입
+			
+			public int getTotalCount(StoreMakeRow storeMakeRow) throws Exception {
+				Connection con = DBConnector.getConnect();
+				String sql ="select nvl(count(store), 0) from store where "+storeMakeRow.getKind()+" like ?";
+				
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1, "%"+storeMakeRow.getSearch()+"%");
+			
+				ResultSet rs = st.executeQuery();
+				int totalCount=0;
+				if(rs.next()) {
+					totalCount=rs.getInt(1);
+				}
+				DBConnector.disConnect(rs, st, con);
+			
+				return totalCount;
+			}
+	
+	
 			public int insert(StoreDTO storeDTO) throws Exception{
 				Connection con = DBConnector.getConnect();
 				String sql="insert into store values(?,?,?,?,?)";
-				PreparedStatement pre = con.prepareStatement(sql);
-				pre.setString(1, storeDTO.getId());
-				pre.setString(2, storeDTO.getStore());
-				pre.setString(3, storeDTO.getArea());
-				pre.setString(4, storeDTO.getStoretel());
-				pre.setString(5, storeDTO.getHoliday());
-				int result=pre.executeUpdate();
-				DBConnector.disConnect(pre, con);
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setString(1, storeDTO.getId());
+				st.setString(2, storeDTO.getStore());
+				st.setString(3, storeDTO.getArea());
+				st.setString(4, storeDTO.getStoretel());
+				st.setString(5, storeDTO.getHoliday());
+				int result=st.executeUpdate();
+				DBConnector.disConnect(st, con);
 				return result;
 			}
 			
@@ -73,8 +91,32 @@ public class StoreDAO{
 				return result;
 			}
 			
-			public ArrayList<StoreDTO> selectList(MakeRow makeRow) throws Exception{
-				return null;
+			public List<StoreDTO> selectList(StoreMakeRow storeMakeRow) throws Exception{
+				Connection con = DBConnector.getConnect();
+				List<StoreDTO> list = new ArrayList<>();
+				
+				String sql="select * from"
+						+ "(select rownum R,S.* from "
+						+ "(select * from store where "+storeMakeRow.getKind()+" like ? ) S)"
+						+ "where R between ? and ?";
+				PreparedStatement st = con.prepareStatement(sql);	
+				st.setString(1, "%"+storeMakeRow.getSearch()+"%");
+				st.setInt(2, storeMakeRow.getStartRow());
+				st.setInt(3, storeMakeRow.getLastRow());
+				ResultSet rs = st.executeQuery();
+				
+				while(rs.next()) {
+					StoreDTO storeDTO=new StoreDTO();
+					storeDTO.setId(rs.getString("id"));
+					storeDTO.setArea(rs.getString("area"));
+					storeDTO.setHoliday(rs.getString("holiday"));
+					storeDTO.setStoretel(rs.getString("storetel"));
+					storeDTO.setStore(rs.getString("store"));
+					
+					list.add(storeDTO);
+				}
+				DBConnector.disConnect(rs, st, con);
+				return list;
 			}
 
 }

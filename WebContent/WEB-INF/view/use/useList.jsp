@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,8 +26,20 @@
 		});
 	});
 </script>
+<style type="text/css">
+#page{
+margin-left: 500px;
+}
+#mypage{
+float: right;
+}
+select {
+height: 26px;
+}
+</style>
 </head>
 <body>
+	<%@ include file="../temp/header.jsp" %>
 	<div class="container">
 		<h3>예약/취소내역</h3>
 		<div>
@@ -67,6 +80,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div id="page">
 		<c:if test="${page.curBlock > 1 }">
 			<input type="button" class="list" title="${page.startNum-1}" value="<<">
 		</c:if>
@@ -76,7 +90,10 @@
 		<c:if test="${page.curBlock < page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}" value=">>">
 		</c:if>
+		<div id="mypage">
 		<a href="../member/memberMyPage.member">마이페이지로 돌아가기</a>
+		</div>
 	</div>
+</div>
 </body>
 </html>

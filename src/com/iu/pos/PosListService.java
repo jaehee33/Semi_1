@@ -16,7 +16,12 @@ public class PosListService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
-		String store=request.getParameter("store");
+		String store="";
+		try {
+		store=request.getParameter("store");
+		}catch (Exception e) {
+			
+		}
 		//curPage
 				int curPage=1;
 				

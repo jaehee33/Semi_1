@@ -13,10 +13,12 @@ public class StoreViewService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
 		StoreDAO storeDAO=new StoreDAO();
-		MemberDTO memberDTO=((MemberDTO)request.getSession().getAttribute("member"));
+		
+		String id="";
 		StoreDTO storeDTO=null;
 		try {
-			storeDTO=storeDAO.selectOne(memberDTO.getId());
+			id=request.getParameter("id");
+			storeDTO=storeDAO.selectOne(id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

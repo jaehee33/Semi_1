@@ -32,15 +32,13 @@
 	<h1>${board}</h1>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
-			<input type="hidden" name="curPage"> <select name="kind">
+			<input type="hidden" name="curPage"> 
+			<select name="kind">
 				<option class="kind" value="title">TITLE</option>
 				<option class="kind" value="contents">CONTENTS</option>
-			
-			<c:if test="${member.id eq 'admin'}">
-				<option class="kind" value="id">ID
-			</option></c:if>
-			
-			</select> <input type="text" name="search" value="${make.search}">
+				<option class="kind" value="title" value="contents" >TITLE + CONTENTS</option>
+			</select> 
+			<input type="text" name="search" value="${make.search}">
 			<button>Search</button>
 		</form>
 	</div>
@@ -61,18 +59,16 @@
 		<c:forEach items="${list}" var="i">
 			<tr>
 				<td>${i.num}</td>
-
-
 				<c:if test="${member.id eq 'admin'}">
 					<td id="id">${i.id}</td>
 				</c:if>
 				<td><c:catch>
 						<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 					</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
-				
 				<td>${i.contents}</td>
 				<td>${i.reg_date}</td>
 				<td>${i.hit}</td>
+				
 			</tr>
 		</c:forEach>
 

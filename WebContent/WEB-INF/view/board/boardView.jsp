@@ -25,9 +25,14 @@
 </head>
 <body>
 	<h1>${board} View</h1>
-	<h3>NUM : ${view.num}</h3>
-	<h3>TITLE : ${view.title}</h3>
-	<h3>CONTENTS: ${view.contents}</h3>
+	<h3>NUM : </h3>
+	<h4>${view.num}</h4>
+	<h3>TITLE : </h3>
+	<h4>${view.title}</h4>
+	<h3>CONTENTS: </h3>
+	<h4>${view.contents}</h4>
+	<h3>HIT: </h3>
+	<h4>${view.hit}</h4>
 	
 	<c:if test="${member.id eq 'admin'}">
 	<button id="delete" type="button" >Delete</button>

@@ -11,27 +11,29 @@ public class FilesDAO {
 	//insert===================================================================================================
 		public int insert(FilesDTO filesDTO) throws Exception{
 			Connection con=DBConnector.getConnect();
-			String sql="insert into files values(?,?,?)";
+			String sql="insert into files values(?,?,?,?)";
 			PreparedStatement st=con.prepareStatement(sql);
 			st.setInt(1, filesDTO.getNum());
 			st.setString(2, filesDTO.getOname());
 			st.setString(3, filesDTO.getFname());
+			st.setString(4, filesDTO.getStore());
 			int result=st.executeUpdate();
 			DBConnector.disConnect(st, con);
 			return result;
 		}
 		//selectList================================================================================================
-		public ArrayList<FilesDTO> selectList(int num)throws Exception{
+		public ArrayList<FilesDTO> selectList()throws Exception{
 			Connection con=DBConnector.getConnect();
-			String sql="select * from files where num=?";
+			String sql="select * from files";
 			PreparedStatement st=con.prepareStatement(sql);
-			st.setInt(1, num);
 			ResultSet rs=st.executeQuery();
 			ArrayList<FilesDTO> ar=new ArrayList<>();
 			while(rs.next()) {
 				FilesDTO filesDTO=new FilesDTO();
 				filesDTO.setFname(rs.getString("fname"));
 				filesDTO.setOname(rs.getString("oname"));
+				filesDTO.setNum(rs.getInt("num"));
+				filesDTO.setStore(rs.getString("store"));
 				ar.add(filesDTO);
 			}
 			DBConnector.disConnect(rs, st, con);
@@ -43,6 +45,15 @@ public class FilesDAO {
 			String sql="delete files where num=?";
 			PreparedStatement st= con.prepareStatement(sql);
 			st.setInt(1, num);
+			int result=st.executeUpdate();
+			DBConnector.disConnect(st, con);
+			return result;
+		}
+		public int storedelete(String store) throws Exception{
+			Connection con=DBConnector.getConnect();
+			String sql="delete files where store=?";
+			PreparedStatement st=con.prepareStatement(sql);
+			st.setString(1, store);
 			int result=st.executeUpdate();
 			DBConnector.disConnect(st, con);
 			return result;

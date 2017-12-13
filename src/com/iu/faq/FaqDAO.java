@@ -73,7 +73,7 @@ public class FaqDAO implements BoardDAO {
 		List<BoardDTO> ar = new ArrayList<BoardDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from notice where "+makeRow.getKind()+" like ? order by num desc) N) "
+				+ "(select * from faq where "+makeRow.getKind()+" like ? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+makeRow.getSearch()+"%");
@@ -147,7 +147,7 @@ public class FaqDAO implements BoardDAO {
 	@Override
 	public int hit(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql ="update faq set hit=hit+1 where num=?";
+		String sql ="update faq set hit= hit+1 where num=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);

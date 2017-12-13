@@ -7,12 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="storeUpdate.store" method="post">
+<%@ include file="../temp/header.jsp" %>
+<form action="storeUpdate.store" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${store.id}">
 <p>StoreName : <input type="text" name="store" value="${store.store}"></p>
 <p>Area : <input type="text" name="area" value="${store.area}"></p>
 <p>StoreTel : <input type="text" name="storetel" value="${store.storetel}"></p>
-<p>Holiday <input type="text" name="holiday" value="${store.holiday}"></p>
+<p>Holiday : <input type="text" name="holiday" value="${store.holiday}"></p>
+<p>file : <input type="file" name="file"></p>
 <button>Write</button>
 </form>
 </body>

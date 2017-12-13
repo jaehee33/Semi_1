@@ -4,6 +4,14 @@ public class FilesDTO {
 	private int num;
 	private String oname;
 	private String fname;
+	private String store;
+
+	public String getStore() {
+		return store;
+	}
+	public void setStore(String store) {
+		this.store = store;
+	}
 	public int getNum() {
 		return num;
 	}

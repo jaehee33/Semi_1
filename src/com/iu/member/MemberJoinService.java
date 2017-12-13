@@ -2,6 +2,7 @@ package com.iu.member;
 
 import java.sql.Date;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +15,7 @@ public class MemberJoinService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		String method=request.getMethod();
+		
 		if(method.equals("POST")) {
 
 				MemberDTO memberDTO = new MemberDTO();
@@ -22,7 +24,7 @@ public class MemberJoinService implements Action {
 				memberDTO.setName(request.getParameter("name"));
 				memberDTO.setBirth(Date.valueOf(request.getParameter("birth")));
 				memberDTO.setPhone(request.getParameter("phone"));
-				memberDTO.setJob(request.getParameter("job"));
+				memberDTO.setJob(request.getParameter("job"));		
 
 				MemberDAO memberDAO = new MemberDAO();
 				int result=0;
@@ -42,9 +44,9 @@ public class MemberJoinService implements Action {
 					actionForward.setCheck(true);
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}
-			
+				
 		}else {
-			actionForward = new ActionForward();
+
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/member/memberJoin.jsp");
 
