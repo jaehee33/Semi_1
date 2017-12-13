@@ -14,6 +14,7 @@ $(function(){
 		window.open("../map/map.jsp?area="+store, "", "top=300, left=500, width=700, height=400");
 		
 	});
+	
 });
 </script>
 </head>
@@ -22,9 +23,10 @@ $(function(){
 <p>StoreName : <input type="text" name="store" placeholder="검색어를 입력해주세요"><input type="button" name="btn" id="btn" value="search"></p>
 <p>Area : <input type="text" name="area" value="검색버튼을 눌러주세요" readonly="readonly"></p>
 <p>StoreTel : <input type="text" name="storetel"></p>
-<p>Holiday <input type="text" name="holiday"></p>
-<p>file</p>
+<p>Holiday : <input type="text" name="holiday"></p>
+<p>file : <input type="file" name="file"></p>
 <button>Write</button>
 </form>
+
 </body>
 </html>
