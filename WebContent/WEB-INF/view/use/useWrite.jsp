@@ -1,19 +1,36 @@
- <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	Calendar cal=Calendar.getInstance();
-	int y=cal.get(Calendar.YEAR);
-	int m=cal.get(Calendar.MONTH)+1;
-	int d=cal.get(Calendar.DATE);
+	int year=cal.get(Calendar.YEAR);
+	int month=cal.get(Calendar.MONTH)+1;
+	int date=cal.get(Calendar.DATE);
+	int hour=cal.get(Calendar.HOUR);
+	int min=cal.get(Calendar.MINUTE);
 	
-	cal.set(y,m,d);
-	int startday=cal.getMinimum(Calendar.DAY_OF_MONTH);
-	out.println("시작일 : " + startday);
-	int endday=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-	out.println("종료일 : " + endday);
-	int startweek=cal.get(Calendar.DAY_OF_WEEK);
-	out.println("시작 요일 : " + startweek);
+	cal.set(year, month, date);
+	System.out.println(year+"년");
+	System.out.println(month+"월");
+	System.out.println(date+"일");
+	int day=cal.get(Calendar.DAY_OF_WEEK);
+	String Day=null;
+	 switch (day) {  
+	   case 1 : Day = "일"; break;
+	   case 2 :Day = "월"; break;
+	   case 3 :Day = "화"; break;
+	   case 4 :Day = "수"; break;
+	   case 5 :Day = "목";  break;
+	   case 6 :Day = "금"; break;
+	   case 7 : Day = "토";  
+	  }
+
+	System.out.println(Day+"요일");
+	
+	request.setAttribute("year", year);
+	request.setAttribute("month", month);
+	request.setAttribute("date", date);
+	request.setAttribute("Day", Day);
 %>
 <!DOCTYPE html>
 <html>
@@ -45,7 +62,6 @@
     margin-right: -1px;
 }
 
-
 #calendar ul.weekdays li {
     text-align: center;
     border: none;
@@ -63,14 +79,6 @@
     color: gray;
 }
 
-#calendar .other-month {
-    background: #f5f5f5;
-    color: #666;
-}
-#calendar .other-date {
-    text-align: center;
-    color: gray;
-}
 .container{
 	width: 50%;
 }	
@@ -106,177 +114,20 @@ table {
 		<div class="form-group">
 			<div id="calendar-wrap">
 				<div id="calendar">
-					<ul class="weekdays">
-						<li>일</li>
-						<li>월</li>
-						<li>화</li>
-						<li>수</li>
-						<li>목</li>
-						<li>금</li>
-						<li>토</li>
-					</ul>
-
-					<!-- Days from previous month -->
-
-					<ul class="days">
-						<li class="day other-month">
-							<div class="other-date">27</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">28</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">29</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">30</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">31</div>
-						</li>
-
-						<!-- Days in current month -->
-
-						<li class="day">
-							<div class="date">1</div>
-						</li>
-						<li class="day">
-							<div class="date">2</div>
-						</li>
-					</ul>
-
-					<!-- Row #2 -->
-
-					<ul class="days">
-						<li class="day">
-							<div class="date">3</div>
-						</li>
-						<li class="day">
-							<div class="date">4</div>
-						</li>
-						<li class="day">
-							<div class="date">5</div>
-						</li>
-						<li class="day">
-							<div class="date">6</div>
-						</li>
-						<li class="day">
-							<div class="date">7</div>
-						</li>
-						<li class="day">
-							<div class="date">8</div>
-						</li>
-						<li class="day">
-							<div class="date">9</div>
-						</li>
-					</ul>
-
-					<!-- Row #3 -->
-
-					<ul class="days">
-						<li class="day">
-							<div class="date">10</div>
-						</li>
-						<li class="day">
-							<div class="date">11</div>
-						</li>
-						<li class="day">
-							<div class="date">12</div>
-						</li>
-						<li class="day">
-							<div class="date">13</div>
-						</li>
-						<li class="day">
-							<div class="date">14</div>
-						</li>
-						<li class="day">
-							<div class="date">15</div>
-						</li>
-						<li class="day">
-							<div class="date">16</div>
-						</li>
-					</ul>
-
-					<!-- Row #4 -->
-
-					<ul class="days">
-						<li class="day">
-							<div class="date">17</div>
-						</li>
-						<li class="day">
-							<div class="date">18</div>
-						</li>
-						<li class="day">
-							<div class="date">19</div>
-						</li>
-						<li class="day">
-							<div class="date">20</div>
-						</li>
-						<li class="day">
-							<div class="date">21</div>
-						</li>
-						<li class="day">
-							<div class="date">22</div>
-						</li>
-						<li class="day">
-							<div class="date">23</div>
-						</li>
-					</ul>
-
-					<!-- Row #5 -->
-
-					<ul class="days">
-						<li class="day">
-							<div class="date">24</div>
-						</li>
-						<li class="day">
-							<div class="date">25</div>
-						</li>
-						<li class="day">
-							<div class="date">26</div>
-						</li>
-						<li class="day">
-							<div class="date">27</div>
-						</li>
-						<li class="day">
-							<div class="date">28</div>
-						</li>
-						<li class="day">
-							<div class="date">29</div>
-						</li>
-						<li class="day">
-							<div class="date">30</div>
-						</li>
-					</ul>
-
-					<!-- Row #6 -->
-
-					<ul class="days">
-						<li class="day">
-							<div class="date">31</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">1</div> <!-- Next Month -->
-						</li>
-						<li class="day other-month">
-							<div class="other-date">2</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">3</div>
-						</li>
-						<li class="day other-month">
-							<div class="date">4</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">5</div>
-						</li>
-						<li class="day other-month">
-							<div class="other-date">6</div>
-						</li>
-					</ul>
-
-				</div>
-			</div>
+						<ul class="weekdays">
+						<c:forEach items="">
+							<li>${Day}</li>
+						</c:forEach>
+						</ul>
+						<ul class="days">
+					<c:forEach begin="0" end="13" var="i">
+							<li class="day">
+								<div class="date">${date+i}</div>
+							</li>
+					</c:forEach>
+						</ul>
+				</div> <!-- calendar 끝 -->
+			</div> <!-- calendar-wrap 끝 -->
 			<div class="all">
 				<table>
 					<thead>
@@ -300,24 +151,10 @@ table {
 			</div>
 
 			<div class="all">
-				<label id="time_title" for="sel1">시간 선택</label> <select
-					class="form-control" id="sel1">
+				<label id="time_title" for="sel1">시간 선택</label>
+				<select class="form-control" id="sel1">
+					<option>예약할 시간을 선택해주세요</option>
 					<option>11:00</option>
-					<option>11:30</option>
-					<option>12:00</option>
-					<option>12:30</option>
-					<option>13:00</option>
-					<option>13:30</option>
-					<option>14:00</option>
-					<option>14:30</option>
-					<option>15:00</option>
-					<option>15:30</option>
-					<option>16:00</option>
-					<option>16:30</option>
-					<option>17:00</option>
-					<option>17:30</option>
-					<option>18:00</option>
-					<option>18:30</option>
 				</select>
 			</div>
 		</div>
