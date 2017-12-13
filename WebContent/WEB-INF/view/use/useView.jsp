@@ -17,6 +17,7 @@
 </style>
 </head>
 <body>
+	<%@ include file="../temp/header.jsp" %>
 	<div class="container">
 		<h3>상세내역</h3>
 		<table class="table table-hover">

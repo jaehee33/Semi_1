@@ -39,6 +39,7 @@ height: 26px;
 </style>
 </head>
 <body>
+	<%@ include file="../temp/header.jsp" %>
 	<div class="container">
 		<h3>예약/취소내역</h3>
 		<div>

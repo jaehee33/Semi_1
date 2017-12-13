@@ -102,6 +102,7 @@ table {
 </style>
 </head>
 <body>
+	<%@ include file="../temp/header.jsp" %>
 	<form action="./useWrite.use" method="post" class="container">
 		<h3>예약하기</h3>
 		<div class="form-group">
