@@ -20,7 +20,7 @@
 <c:if test="${sessionScope.member.job eq 'B'}">
 <a href="../kind/kindCList.kind?id=${store.id}">메뉴</a>
 <a href="./storeView.store?id=${store.id}">정보</a>
-<a href="#">리뷰</a>
+<a href="../score.scoreList.score">리뷰</a>
 </c:if>
 <a href="../index.jsp">index</a>
 </body>
