@@ -7,8 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>${board}</h1>
+	<div>
+		<form name="frm" action="./${board}List.${board}">
+			<input type="hidden" name="curPage"> 
+			<select name="kind">
+				<option class="kind" value="all">전체</option>
+				<option class="kind" value="pick">픽메뉴</option>
+				<option class="kind" value="cut">커트</option>
+				<option class="kind" value="perm">펌</option>
+				<option class="kind" value="clinic">클리닉</option>
+				<option class="kind" value="styling">스타일링</option>
+			</select> 
+		</form>
+	</div>
 	
-	<h1>ScoreList</h1>
+	
+	
+	
+	
+
+
+
+
+
 
 </body>
 </html>
