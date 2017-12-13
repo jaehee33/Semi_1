@@ -17,15 +17,21 @@ public class UseWriteService implements Action {
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
 		String store=request.getParameter("store");
 		String style=request.getParameter("style");
-		int price=Integer.parseInt(request.getParameter("price"));
+		int price=0;
+		try {
+			price=Integer.parseInt(request.getParameter("price"));			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 		String method=request.getMethod();
-		UseDTO useDTO=null;
 		if(method=="POST") {
-			useDTO=new UseDTO();
+			UseDTO useDTO=new UseDTO();
 			useDTO.setId(memberDTO.getId());
 			useDTO.setName(memberDTO.getName());
 			useDTO.setPhone(memberDTO.getPhone());
-			useDTO.setBk_date(Date.valueOf(request.getParameter("bk_date")));
+			System.out.println(request.getParameter("bk_date"));
+			//useDTO.setBk_date(request.getParameter("bk_date"));
 			useDTO.setStore(store);
 			useDTO.setStyle(style);
 			useDTO.setPrice(price);
@@ -45,7 +51,7 @@ public class UseWriteService implements Action {
 				actionForward.setPath("./useList.use");		
 			}else {
 				request.setAttribute("message", "fail");
-				request.setAttribute("path", "../kind/kindList.kind");
+				request.setAttribute("path", "../store/storeList.store");
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			}

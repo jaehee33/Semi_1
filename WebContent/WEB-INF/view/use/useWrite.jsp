@@ -132,7 +132,7 @@ table {
 			
 			<!-- 선택한 날짜 나오게 하는것 -->
 			<div id="bookdate">
-				<input type="hidden" id="bk_date" value="${year}${month}${date}"> 
+				<input type="hidden" name="bk_date" value="${year}-${month}-${date}"> 
 				${year}년 ${month}월 ${date}일 
 			</div>
 
@@ -146,10 +146,10 @@ table {
 					<tbody>
 						<tr>
 							<td rowspan="3"></td>
-							<td class="info" id="store">${store}</td>
+							<td class="info">${store}</td>
 						</tr>
 						<tr>
-							<td class="info" id="style">${style}</td>
+							<td class="info">${style}</td>
 						</tr>
 						<tr>
 							<td id="price">${price}</td>
@@ -160,12 +160,15 @@ table {
 
 			<div class="all">
 				<label id="time_title" for="sel1">시간 선택</label>
-				<select class="form-control" id="sel1">
+				<select class="form-control" id="sel1" name="time">
 					<option>예약할 시간을 선택해주세요</option>
+					<option>11:30</option>
+					<!--  
 						<c:forEach begin="${hour+2}" end="18" var="i">
 							<option>${i}:00</option>	
 							<option>${i}:30</option>				
 						</c:forEach>
+						 -->
 				</select>
 			</div>
 			
