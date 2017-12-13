@@ -1,10 +1,11 @@
 package com.iu.score;
 
-public class ScoreDTO {
+import com.iu.board.BoardDTO;
+
+public class ScoreDTO extends BoardDTO {
 
 	private int point;
 
-	
 	public int getPoint() {
 		return point;
 	}
@@ -12,5 +13,7 @@ public class ScoreDTO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
+	
 	
 }

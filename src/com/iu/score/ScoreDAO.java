@@ -56,7 +56,7 @@ public class ScoreDAO {
 		
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from faq where "+makeRow.getKind()+" like ? order by ref desc, step asc) N) "
+				+ "(select * from score where "+makeRow.getKind()+" like ? order by ref desc, step asc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+makeRow.getSearch()+"%");
