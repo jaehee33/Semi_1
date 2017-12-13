@@ -46,6 +46,7 @@ color: red;
 </style>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 	<section id="main">
 		<button id="plus">+</button>
 		<button id="btn">List 새로고침</button>

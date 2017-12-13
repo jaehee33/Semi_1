@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <form action="storeUpdate.store" method="post">
 <input type="hidden" name="id" value="${store.id}">
 <p>StoreName : <input type="text" name="store" value="${store.store}"></p>

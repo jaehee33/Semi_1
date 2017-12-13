@@ -31,7 +31,7 @@
 <a href="../store/storeWrite.store">storeWrite</a>
 </c:if>
 <c:if test="${not empty store}">
-<a href="../store/storeView.store?id=${sessionScope.member.id}">storeView</a>
+<a href="../store/storeIndex.store?id=${sessionScope.member.id}">storeIndex</a>
 </c:if>
 </c:if>
 </body>

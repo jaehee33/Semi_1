@@ -28,6 +28,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <div>
 		<form name="frm" action="./storeList.store">
 			<input type="hidden" name="curPage">
