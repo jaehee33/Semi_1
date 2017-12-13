@@ -22,6 +22,24 @@ $(function(){
 			$("#expend2").html(data);
 		});
 	});
+	
+	$("#insert").on("change",".g",function(){
+		$(".op").each(function(){
+			if($(this).prop("selected")){
+				var title=$(this).attr("title");
+				$(".e").each(function(){
+					if($(this).attr("id")==title){
+					document.frm.pos_import.value=$(this).attr("value");
+					}
+				});
+			}
+		});
+	});
+	
+	$("#insert").on("click","#btn",function(){
+		document.frm.submit();
+	});
+	
 });
 </script>
 <title>Insert title here</title>

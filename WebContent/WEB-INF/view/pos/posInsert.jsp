@@ -4,12 +4,15 @@
 <!DOCTYPE html>
 <form action="posInsert.pos" method="post" name="frm">
 <input type="text" name="store" value="${sname}" readonly="readonly">
-<select name="kind">
-<c:forEach items="${kindlist}" var="a">
-<option value="${a.kind}">${a.kind}</option>
+<select name="kind" class="g">
+<c:forEach items="${kindlist}" var="a" varStatus="j">
+<option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option>
 </c:forEach>
 <option value="other">기타</option>
 </select>
-<input type="number" name="pos_import" id="price">
-<button>버튼</button>
+<c:forEach items="${kindlist}" var="b" varStatus="i">
+<input type="hidden" id="price${i.index}" value="${b.price}" class="e">
+</c:forEach>
+<input type="number" name="pos_import" value="">
+<input type="button" value="btn" id="btn">
 </form>
