@@ -28,6 +28,13 @@
 </script>
 </head>
 <body>
+<div>
+		<form name="frm" action="./storeList.store">
+			<input type="hidden" name="curPage">
+			<input type="text" name="search" value="${make.search}">
+			<button>Search</button>
+		</form>
+	</div>
 <table>
 	<tr>
 		<td>store</td>
