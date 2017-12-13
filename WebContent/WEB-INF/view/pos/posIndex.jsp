@@ -45,6 +45,7 @@ $(function(){
 <body>
 <div id="total"></div><input type="button" id="totalmonth" value="total">
 <a href="./posList.pos?store=${store}">poslist</a>
+<a href="./"></a>
 <div id="insert"></div><input type="button" id="import" value="import">
 <div id="expend2"></div><input type="button" id="expend" value="expend">
 </body>
