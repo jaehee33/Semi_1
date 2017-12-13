@@ -10,6 +10,7 @@
 
 <title>Insert title here</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<link href="/Semi_1/css/join.css" rel="stylesheet">
 </head>
 <body>
 
