@@ -96,13 +96,13 @@ table {
 #time_title{
 	color: gray;
 }
-.bookdate{
-	text-align: center;
+#bookdate{
+	margin-top: 25px;
 }
 </style>
 </head>
 <body>
-	<form action="" method="post" class="container">
+	<form action="./useWrite.use" method="post" class="container">
 		<h3>예약하기</h3>
 		<div class="form-group">
 			<div id="calendar-wrap">
@@ -122,7 +122,7 @@ table {
 							</c:forEach>
 						<c:forEach begin="1" end="${end}" var="i">
 							<li class="day">
-								<div class="date">${i}</div>
+								<div class="date" id="day${i}">${i}</div>
 							</li>
 						</c:forEach>
 					</ul>
@@ -130,10 +130,11 @@ table {
 			</div> <!-- calendar-wrap 끝 -->
 			
 			<!-- 선택한 날짜 나오게 하는것 -->
-			<div class="bookdate">
-				${year}년
+			<div id="bookdate">
+				<input type="hidden" id="bk_date" value="${year}${month}${date}"> 
+				${year}년 ${month}월 ${date}일 
 			</div>
-			
+
 			<div class="all">
 				<table>
 					<thead>
@@ -144,13 +145,13 @@ table {
 					<tbody>
 						<tr>
 							<td rowspan="3"></td>
-							<td class="info">pokemon</td>
+							<td class="info" id="store">${store}</td>
 						</tr>
 						<tr>
-							<td class="info">컷트</td>
+							<td class="info" id="style">${style}</td>
 						</tr>
 						<tr>
-							<td id="price">15000</td>
+							<td id="price">${price}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -166,6 +167,11 @@ table {
 						</c:forEach>
 				</select>
 			</div>
+			
+			<div>
+				<h3>총 결제금액 : ${price}</h3><button>예약하기</button>
+			</div>
+			
 		</div>
 	</form>
 </body>
