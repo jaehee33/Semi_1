@@ -92,6 +92,10 @@
   <servlet>
     <servlet-name>score</servlet-name>
     <servlet-class>com.iu.control.ScoreController</servlet-class>
+     <init-param>
+      <param-name>property</param-name>
+      <param-value>score.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>score</servlet-name>
