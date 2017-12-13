@@ -10,6 +10,7 @@
 <link href="/Semi_1/css/mypage.css" rel="stylesheet">
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <header>
 <h1>나의 정보</h1>
 <div id="info">
