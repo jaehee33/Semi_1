@@ -96,6 +96,9 @@ table {
 #time_title{
 	color: gray;
 }
+.bookdate{
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -127,8 +130,8 @@ table {
 			</div> <!-- calendar-wrap 끝 -->
 			
 			<!-- 선택한 날짜 나오게 하는것 -->
-			<div>
-				
+			<div class="bookdate">
+				${year}년
 			</div>
 			
 			<div class="all">
