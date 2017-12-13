@@ -21,7 +21,6 @@ public class StoreListService implements Action {
 		ActionForward actionForward=new ActionForward();
 		
 		int curPage=1;
-		
 		try {
 		curPage=Integer.parseInt(request.getParameter("curPage"));
 		}catch (Exception e) {
@@ -29,24 +28,27 @@ public class StoreListService implements Action {
 		}
 		//kind search
 		StoreMakeRow storeMakeRow=new StoreMakeRow();
+		storeMakeRow.setKind(request.getParameter("kind"));
+		storeMakeRow.setSearch(request.getParameter("search"));
 		
 		StoreDAO storeDAO=new StoreDAO();
-		int totalCount;
+		ArrayList<StoreDTO> ar=null;
+		int totalCount=0;
+		Pageing pageing=null;
 		try {
 			totalCount = storeDAO.getTotalCount(storeMakeRow);
 			MakePage makePage= new MakePage(curPage, totalCount);
 			storeMakeRow=(StoreMakeRow)makePage.getMakeRow((MakeRow)storeMakeRow);
-			ArrayList<StoreDTO> ar=(ArrayList<StoreDTO>)storeDAO.selectList(storeMakeRow);
-			//페이징 처리
-			Pageing pageing=makePage.pageing();
-			request.setAttribute("storelist", ar);
-			request.setAttribute("page", pageing);
-			request.setAttribute("make", storeMakeRow);
+			ar=(ArrayList<StoreDTO>)storeDAO.selectList(storeMakeRow);
+			pageing=makePage.pageing();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("storelist", ar);
+		request.setAttribute("page", pageing);
+		request.setAttribute("make", storeMakeRow);
 		
 		//전송
 		actionForward.setCheck(true);

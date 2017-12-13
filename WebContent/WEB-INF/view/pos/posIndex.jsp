@@ -6,11 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(function(){
-	$.get("./posList.pos?store=${store}", function(data) {
-		$("#list").html(data);
-	});
 	
 	$("#import").click(function(){
 		$.get("./posInsert.pos?store=${store}", function(data) {
@@ -46,7 +44,7 @@ $(function(){
 </head>
 <body>
 <div id="total"></div><input type="button" id="totalmonth" value="total">
-<div id="list"></div>
+<a href="./posList.pos?store=${store}">poslist</a>
 <div id="insert"></div><input type="button" id="import" value="import">
 <div id="expend2"></div><input type="button" id="expend" value="expend">
 </body>

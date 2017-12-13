@@ -7,7 +7,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		var kind='${make.kind}';
+		$(".kind").each(function(){
+			if($(this).val()==kind){
+				$(this).attr("selected", true);
+			}
+		});
+		
+		$(".list").click(function(){
+			var cur = $(this).attr("title");
+			document.frm.curPage.value=cur;
+			document.frm.submit();
+		});
+	});
+	
+</script>
 </head>
 <body>
 <table>
