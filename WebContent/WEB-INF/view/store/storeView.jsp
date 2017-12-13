@@ -9,13 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <p>id : ${store.id}</p>
 <p>storeName : ${store.store}</p>
 <p>holiday : ${store.holiday}</p>
 <p>area : ${store.area}</p>
 <p>storetel : ${store.storetel}</p>
 
-<c:if test="${sessionScope.member.job eq 'S'}">
+<c:if test="${sessionScope.member.id eq store.id}">
 <a href='./storeDelete.store?id=${store.id}'>delete</a>
 <a href='./storeUpdate.store?id=${store.id}'>update</a>
 

@@ -19,6 +19,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <div>
 		<form name="frm" action="./posList.pos">
 			<input type="hidden" name="curPage">

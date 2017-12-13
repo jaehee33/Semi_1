@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <table>
 	<tr>
 		<td>kind</td>
