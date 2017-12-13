@@ -19,6 +19,7 @@ $(function(){
 </script>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 <h1>file</h1>
 
 <form id="frm" action="./memberStyle.member" method="post" enctype="multipart/form-data">
