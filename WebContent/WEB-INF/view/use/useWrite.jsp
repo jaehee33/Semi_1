@@ -1,36 +1,26 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	Calendar cal=Calendar.getInstance();
 	int year=cal.get(Calendar.YEAR);
-	int month=cal.get(Calendar.MONTH)+1;
+	int month=cal.get(Calendar.MONTH);
 	int date=cal.get(Calendar.DATE);
-	int hour=cal.get(Calendar.HOUR);
+	int hour=cal.get(Calendar.HOUR_OF_DAY);
 	int min=cal.get(Calendar.MINUTE);
 	
-	cal.set(year, month, date);
-	System.out.println(year+"년");
-	System.out.println(month+"월");
-	System.out.println(date+"일");
+	cal.set(year, month, date, hour, min);
 	int day=cal.get(Calendar.DAY_OF_WEEK);
-	String Day=null;
-	 switch (day) {  
-	   case 1 : Day = "일"; break;
-	   case 2 :Day = "월"; break;
-	   case 3 :Day = "화"; break;
-	   case 4 :Day = "수"; break;
-	   case 5 :Day = "목";  break;
-	   case 6 :Day = "금"; break;
-	   case 7 : Day = "토";  
-	  }
-
-	System.out.println(Day+"요일");
+	int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 	
-	request.setAttribute("year", year);
-	request.setAttribute("month", month);
-	request.setAttribute("date", date);
-	request.setAttribute("Day", Day);
+	request.setAttribute("year", year); //년
+	request.setAttribute("month", month+1); //월
+	request.setAttribute("date", date); //일
+	request.setAttribute("day", day); 
+	request.setAttribute("end", end); //해당 월에 끝나는 날짜
+	request.setAttribute("hour", hour);
+	request.setAttribute("min", min);
 %>
 <!DOCTYPE html>
 <html>
@@ -114,20 +104,33 @@ table {
 		<div class="form-group">
 			<div id="calendar-wrap">
 				<div id="calendar">
-						<ul class="weekdays">
-						<c:forEach items="">
-							<li>${Day}</li>
-						</c:forEach>
-						</ul>
-						<ul class="days">
-					<c:forEach begin="0" end="13" var="i">
+					<ul class="weekdays">
+						<li>일</li>
+						<li>월</li>
+						<li>화</li>
+						<li>수</li>
+						<li>목</li>
+						<li>금</li>
+						<li>토</li>
+					</ul>
+					<ul class="days">
+							<c:forEach begin="0" end="${day}" var="i">
+								<li></li>
+							</c:forEach>
+						<c:forEach begin="1" end="${end}" var="i">
 							<li class="day">
-								<div class="date">${date+i}</div>
+								<div class="date">${i}</div>
 							</li>
-					</c:forEach>
-						</ul>
+						</c:forEach>
+					</ul>
 				</div> <!-- calendar 끝 -->
 			</div> <!-- calendar-wrap 끝 -->
+			
+			<!-- 선택한 날짜 나오게 하는것 -->
+			<div>
+				
+			</div>
+			
 			<div class="all">
 				<table>
 					<thead>
@@ -154,7 +157,10 @@ table {
 				<label id="time_title" for="sel1">시간 선택</label>
 				<select class="form-control" id="sel1">
 					<option>예약할 시간을 선택해주세요</option>
-					<option>11:00</option>
+						<c:forEach begin="${hour+2}" end="18" var="i">
+							<option>${i}:00</option>	
+							<option>${i}:30</option>				
+						</c:forEach>
 				</select>
 			</div>
 		</div>
