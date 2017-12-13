@@ -37,7 +37,7 @@ public class NoticeDAO implements BoardDAO {
 		st.setString(2, boardDTO.getId());
 		st.setString(3, boardDTO.getTitle());
 		st.setString(4, boardDTO.getContents());
-
+		
 		int result = st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
@@ -154,7 +154,7 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int hit(int num) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql ="update notice set hit=hit+1 where num=?";
+		String sql ="update notice set hit= hit+1 where num=?";
 
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);

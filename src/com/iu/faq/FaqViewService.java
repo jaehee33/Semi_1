@@ -19,6 +19,14 @@ public class FaqViewService implements Action {
 			// TODO: handle exception
 		}
 		FaqDAO faqDAO = new FaqDAO();
+		
+		try {
+			faqDAO.hit(num);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		BoardDTO boardDTO=null;
 		try {
 			boardDTO = faqDAO.selectOne(num);
