@@ -1,21 +1,36 @@
- <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	Calendar cal=Calendar.getInstance();
 	int year=cal.get(Calendar.YEAR);
 	int month=cal.get(Calendar.MONTH)+1;
 	int date=cal.get(Calendar.DATE);
-	int day=cal.get(Calendar.DAY_OF_WEEK);
+	int hour=cal.get(Calendar.HOUR);
+	int min=cal.get(Calendar.MINUTE);
 	
-	System.out.println("날짜"+date);
-	System.out.println("요일"+day);
+	cal.set(year, month, date);
+	System.out.println(year+"년");
+	System.out.println(month+"월");
+	System.out.println(date+"일");
+	int day=cal.get(Calendar.DAY_OF_WEEK);
+	String Day=null;
+	 switch (day) {  
+	   case 1 : Day = "일"; break;
+	   case 2 :Day = "월"; break;
+	   case 3 :Day = "화"; break;
+	   case 4 :Day = "수"; break;
+	   case 5 :Day = "목";  break;
+	   case 6 :Day = "금"; break;
+	   case 7 : Day = "토";  
+	  }
+
+	System.out.println(Day+"요일");
 	
 	request.setAttribute("year", year);
 	request.setAttribute("month", month);
 	request.setAttribute("date", date);
+	request.setAttribute("Day", Day);
 %>
 <!DOCTYPE html>
 <html>
@@ -99,22 +114,18 @@ table {
 		<div class="form-group">
 			<div id="calendar-wrap">
 				<div id="calendar">
-					<ul class="weekdays">
-						<li>일</li>
-						<li>월</li>
-						<li>화</li>
-						<li>수</li>
-						<li>목</li>
-						<li>금</li>
-						<li>토</li>
-					</ul>
-					
-					<ul class="days">
-						<li class="day">
-							<div class="date">${date}</div>
-						</li>
-					</ul>
-
+						<ul class="weekdays">
+						<c:forEach items="">
+							<li>${Day}</li>
+						</c:forEach>
+						</ul>
+						<ul class="days">
+					<c:forEach begin="0" end="13" var="i">
+							<li class="day">
+								<div class="date">${date+i}</div>
+							</li>
+					</c:forEach>
+						</ul>
 				</div> <!-- calendar 끝 -->
 			</div> <!-- calendar-wrap 끝 -->
 			<div class="all">
@@ -142,22 +153,8 @@ table {
 			<div class="all">
 				<label id="time_title" for="sel1">시간 선택</label>
 				<select class="form-control" id="sel1">
+					<option>예약할 시간을 선택해주세요</option>
 					<option>11:00</option>
-					<option>11:30</option>
-					<option>12:00</option>
-					<option>12:30</option>
-					<option>13:00</option>
-					<option>13:30</option>
-					<option>14:00</option>
-					<option>14:30</option>
-					<option>15:00</option>
-					<option>15:30</option>
-					<option>16:00</option>
-					<option>16:30</option>
-					<option>17:00</option>
-					<option>17:30</option>
-					<option>18:00</option>
-					<option>18:30</option>
 				</select>
 			</div>
 		</div>
