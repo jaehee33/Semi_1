@@ -14,9 +14,9 @@
 <body>
 <div id="header">
 <c:if test="${empty member}">
-	<a href="./member/memberJoin.member">Join</a>
-	<a href="./member/kakaoJoin.member"></a>
-	<a href="./member/memberLogin.member">Login</a>
+	<a href="<%=request.getContextPath()%>/member/memberJoin.member">Join</a>
+	<a href="<%=request.getContextPath()%>/member/kakaoJoin.member"></a>
+	<a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a>
 	<hr>
 <!---------------------------- 카카오로그인 시작 ---------------------------->
 		<a id="kakao-login-btn"></a>

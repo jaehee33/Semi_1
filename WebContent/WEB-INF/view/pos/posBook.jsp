@@ -22,12 +22,6 @@
 			<td>TIME</td>
 			<td>COUPON</td>
 		</tr>
-		<%ArrayList<PosBookDTO> ar=(ArrayList<PosBookDTO>)request.getAttribute("posbook");
-		for(int i=0;i<ar.size();i++){
-		System.out.println(ar.get(i).getId());
-		}
-			%>
-		
 		<c:forEach items="${posbook}" var="a">
 		<tr>
 			<td>${a.id}</td>
@@ -38,7 +32,7 @@
 			<td>${a.price}</td>
 			<td>${a.time}</td>
 			<td>${a.coupon}</td>
-		<td></td>
+			<td><a href="posbookDelete.pos?num=${a.num}">완료</a></td>
 		</tr>
 		</c:forEach>
 	</table>
