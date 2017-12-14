@@ -11,10 +11,15 @@
 <%@ include file="../temp/header.jsp" %>
 <table>
 	<tr>
+	<td>사진</td>
 		<td>kind</td>
 		<td>price</td>
+
+
+		<td>store</td>
 		<td>예약여부</td>
 		<td>즐겨찾기</td>
+
 	</tr>
 	
 	<c:forEach items="${kindlist}" var="k">
@@ -26,8 +31,15 @@
 		</c:forEach>
 			<td>${k.kind}</td>
 			<td>${k.price}</td>
-			<td><a href="../use/useWrite.use?store=${store.store}&style=${k.kind}&price=${k.price}">예약</a></td>
-			<td><a href="../member/memberStyle.member">스타일즐겨찾기</td>
+
+			<c:forEach items="${storelist}" var="s">
+			<c:if test="${k.store eq s.store}">
+			<td>${k.store}</td>
+			<td><a href="../use/useWrite.use?store=${s.store}&style=${k.kind}&price=${k.price}">예약</a></td>
+			<td><a href="../member/memberStyle.member">스타일즐겨찾기</a></td>
+			</c:if>
+			</c:forEach>
+			
 		</tr>
 	</c:forEach>
 </table>

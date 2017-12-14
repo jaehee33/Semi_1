@@ -23,7 +23,7 @@ public class PosBookListService implements Action {
 		
 		try {
 			store=request.getParameter("store");
-			ar=(ArrayList<PosBookDTO>)posBookDAO.selectList(store);
+			ar=(ArrayList<PosBookDTO>) posBookDAO.selectList(store);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
