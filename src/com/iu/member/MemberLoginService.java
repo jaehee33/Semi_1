@@ -14,7 +14,7 @@ public class MemberLoginService implements Action {
 		ActionForward actionForward = new ActionForward();
 		String method=request.getMethod();
 		MemberDTO memberDTO = new MemberDTO();
-		
+	
 		if(method.equals("POST")) {
 			
 			memberDTO.setId(request.getParameter("id"));
@@ -44,6 +44,7 @@ public class MemberLoginService implements Action {
 			}
 			
 		}else {
+		
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/member/memberLogin.jsp");
 		}

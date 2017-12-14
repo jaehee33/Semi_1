@@ -2,8 +2,20 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Semi_1</display-name>
   <session-config>
-  <session-timeout>50</session-timeout>
+    <session-timeout>50</session-timeout>
   </session-config>
+  <servlet>
+    <servlet-name>favor</servlet-name>
+    <servlet-class>com.iu.control.FavorController</servlet-class>
+    <init-param>
+      <param-name>property</param-name>
+      <param-value>favor.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>favor</servlet-name>
+    <url-pattern>*.favor</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>use</servlet-name>
     <servlet-class>com.iu.control.UseController</servlet-class>
@@ -28,7 +40,6 @@
     <servlet-name>search</servlet-name>
     <url-pattern>*.search</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <servlet-name>kind</servlet-name>
     <servlet-class>com.iu.control.KindController</servlet-class>
@@ -68,7 +79,7 @@
   <servlet>
     <servlet-name>faq</servlet-name>
     <servlet-class>com.iu.control.FaqController</servlet-class>
-     <init-param>
+    <init-param>
       <param-name>property</param-name>
       <param-value>faq.properties</param-value>
     </init-param>
@@ -80,7 +91,7 @@
   <servlet>
     <servlet-name>notice</servlet-name>
     <servlet-class>com.iu.control.NoticeController</servlet-class>
-     <init-param>
+    <init-param>
       <param-name>property</param-name>
       <param-value>notice.properties</param-value>
     </init-param>
@@ -92,7 +103,7 @@
   <servlet>
     <servlet-name>score</servlet-name>
     <servlet-class>com.iu.control.ScoreController</servlet-class>
-     <init-param>
+    <init-param>
       <param-name>property</param-name>
       <param-value>score.properties</param-value>
     </init-param>

@@ -41,7 +41,6 @@
 <link href="/Semi_1/css/login.css" rel="stylesheet">
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
 <div class="container">
 <h1>Login</h1>
 

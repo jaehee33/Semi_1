@@ -32,6 +32,7 @@
 
 <a href="../index.jsp">처음으로</a>
 <a href="./memberStyle.member">스타일 즐겨찾기보기</a>
+<a href="../favor/favorList.favor">가게 즐겨찾기보기</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 <hr>

@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
 	<h1>관심</h1>
 	<table>
 		<tr>
-			<td>${fav_store}</td>
+			<td>${favor.fav_store}</td>
 		</tr>
 	</table>
 </body>
