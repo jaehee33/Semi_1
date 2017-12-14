@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -177,7 +177,7 @@
 	</div>
 
 	<table>
-		<h3>«—¡Ÿ∆Ú()</h3>
+		<h3>ÌïúÏ§ÑÌèâ()</h3>
 		<tr>
 			<td>ID: ${member.id}</td>
 			<td><span class="star-input">
@@ -193,7 +193,7 @@
     <input type="radio" name="star-input" id="p9" value="9"><label for="p9">9</label>
     <input type="radio" name="star-input" id="p10" value="10"><label for="p10">10</label>
   </span>
-  <output for="star-input"><b>0</b>¡°</output>
+  <output for="star-input"><b>0</b>Ï†ê</output>
 </span></td>
 			
 			<td><textarea rows="" cols="" name="contents">${view.contents}</textarea></td>
@@ -208,7 +208,7 @@
 
 	<c:if test="${page.curBlock gt 1}">
 		<input type="button" class="list" title="${page.startNum-1}"
-			value="[¿Ã¿¸]">
+			value="[Ïù¥Ï†Ñ]">
 	</c:if>
 
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
@@ -217,7 +217,7 @@
 
 	<c:if test="${page.curBlock lt page.totalBlock}">
 		<input type="button" class="list" title="${page.lastNum+1}"
-			value="[¥Ÿ¿Ω]">
+			value="[Îã§Ïùå]">
 	</c:if>
 
 	<a href="../index.jsp">BackPage</a>

@@ -14,11 +14,8 @@
 	<td>사진</td>
 		<td>kind</td>
 		<td>price</td>
-
-
 		<td>store</td>
 		<td>예약여부</td>
-
 		<td>즐겨찾기</td>
 
 
