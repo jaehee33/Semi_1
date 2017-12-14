@@ -14,7 +14,7 @@
 		<td>kind</td>
 		<td>price</td>
 		<td>예약여부</td>
-		<td>즐겨찾기</td>
+		<td><a href="../member/memberStyle.member">즐겨찾기저장</td>
 	</tr>
 	
 	<c:forEach items="${kindlist}" var="k">
@@ -27,7 +27,7 @@
 			<td>${k.kind}</td>
 			<td>${k.price}</td>
 			<td><a href="../use/useWrite.use?store=${store.store}&style=${k.kind}&price=${k.price}">예약</a></td>
-			<td><a href="../member/memberStyle.member">스타일즐겨찾기</td>
+			<td><input type="checkbox"></td>
 		</tr>
 	</c:forEach>
 </table>
