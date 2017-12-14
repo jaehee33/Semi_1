@@ -30,7 +30,7 @@ public class UseDAO {
 	public int insert(UseDTO useDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
-		String sql="insert into use values(use_seq,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into use values(use_seq.nextval,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, useDTO.getId());
 		st.setString(2, useDTO.getName());
@@ -44,7 +44,7 @@ public class UseDAO {
 		st.setString(10, "예약");
 		st.executeUpdate();
 		
-		sql="insert into posbook values(use_seq,?,?,?,?,?,?,?,?,?,?)";
+		sql="insert into posbook values(use_seq.nextval,?,?,?,?,?,?,?,?,?,?)";
 		st = con.prepareStatement(sql);
 		st.setString(1, useDTO.getId());
 		st.setString(2, useDTO.getName());
