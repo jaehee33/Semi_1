@@ -11,8 +11,8 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-<h1>file</h1>
 
+<h1>스타일 즐겨찾기 보기</h1>
 
 </body>
 </html>

@@ -33,7 +33,7 @@ public class KindFListService implements Action {
 			request.setAttribute("filelist", ar2);
 			request.setAttribute("kindlist", ar);
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/kind/kindStoreList.jsp");
+			actionForward.setPath("../WEB-INF/view/kind/kindList.jsp");
 		}else {
 			request.setAttribute("message", "kind Fail");
 			request.setAttribute("path", "../index.jsp");
