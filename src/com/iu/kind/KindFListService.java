@@ -11,27 +11,37 @@ import com.iu.files.FilesDAO;
 import com.iu.files.FilesDTO;
 import com.iu.store.StoreDAO;
 import com.iu.store.StoreDTO;
+import com.iu.store.StoreMakeRow;
 
 public class KindFListService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
+		StoreDAO storeDAO=new StoreDAO();
 		FilesDAO filesDAO=new FilesDAO();
 		KindDAO kindDAO=new KindDAO();
-		ArrayList<KindDTO> ar= new ArrayList<>();
-		ArrayList<FilesDTO> ar2=new ArrayList<>();
+		ArrayList<KindDTO> kindar= new ArrayList<>();
+		ArrayList<FilesDTO> filear=new ArrayList<>();
+		ArrayList<StoreDTO> storear=new ArrayList<>();
+		StoreMakeRow storeMakeRow=new StoreMakeRow();
 		try {
-			ar2=filesDAO.selectList();
-			ar=kindDAO.allselectList();
+			filear=filesDAO.selectList();
+			kindar=kindDAO.allselectList();
+			storeMakeRow.setKind("store");
+			storeMakeRow.setSearch("");
+			storeMakeRow.setLastRow(storeDAO.getTotalCount(storeMakeRow));
+			storeMakeRow.setStartRow(0);
+			storear=(ArrayList<StoreDTO>)storeDAO.selectList(storeMakeRow);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(ar!=null) {
-			request.setAttribute("filelist", ar2);
-			request.setAttribute("kindlist", ar);
+		if(kindar!=null) {
+			request.setAttribute("filelist", filear);
+			request.setAttribute("kindlist", kindar);
+			request.setAttribute("storelist", storear);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/kind/kindList.jsp");
 		}else {
