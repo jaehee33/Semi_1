@@ -98,11 +98,7 @@
 			<td><c:if test="${not empty member}">
 					<button>Submit</button>
 				</c:if></td>
-
 		</tr>
-
-
-
 	</table>
 
 

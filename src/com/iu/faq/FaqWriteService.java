@@ -55,6 +55,7 @@ public class FaqWriteService implements Action {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
 			faqDTO.setNum(num);
 			int result=0;
 			try {

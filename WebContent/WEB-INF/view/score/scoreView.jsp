@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<table>
+		<tr>
+			<td>${view.Id}</td>
+			<td>${view.point}</td>
+			<td></td>
+		</tr>
+	</table>
 </body>
 </html>
