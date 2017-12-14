@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -24,12 +25,17 @@
 			document.frm.curPage.value=cur;
 			document.frm.submit();
 		});
+		
+		$("#backpage").click(function(){
+			window.location.href="../index.jsp"
+		});		
+		
 	});
 	
 </script>
 </head>
 <body>
-	<h1>${board}</h1>
+	<h2>${board}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
 			<input type="hidden" name="curPage"> 
@@ -44,19 +50,22 @@
 	</div>
 
 
-	<table>
+	<table class="table table-hover">
+		<thead>
 		<tr>
-			<td>NUM</td>
+			<th>NUM</th>
 			<c:if test="${member.id eq 'admin'}">
 				<td>ID</td>
 			</c:if>
-			<td>TITLE</td>
-			<td>CONTENTS</td>
-			<td>DATE</td>
-			<td>HIT</td>
+			<th>TITLE</th>
+			<th>CONTENTS</th>
+			<th>DATE</th>
+			<th>HIT</th>
 		</tr>
-
+		</thead>
+		
 		<c:forEach items="${list}" var="i">
+			<tbody>
 			<tr>
 				<td>${i.num}</td>
 				<c:if test="${member.id eq 'admin'}">
@@ -68,8 +77,8 @@
 				<td>${i.contents}</td>
 				<td>${i.reg_date}</td>
 				<td>${i.hit}</td>
-				
 			</tr>
+			</tbody>
 		</c:forEach>
 
 	</table>
@@ -93,6 +102,7 @@
 		<a href="./${board}Write.${board}">Write</a>
 	</c:if>
 	
-	<a href="../index.jsp">BackPage</a>
+	<button type="button" class="btn" id="backpage">BackPage</button>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
