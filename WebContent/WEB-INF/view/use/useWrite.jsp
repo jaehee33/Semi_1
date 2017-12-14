@@ -103,7 +103,7 @@ table {
 </head>
 <body>
 	<%@ include file="../temp/header.jsp" %>
-	<form action="./useWrite.use" method="post" class="container">
+	<form action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
 		<h3>예약하기</h3>
 		<div class="form-group">
 			<div id="calendar-wrap">

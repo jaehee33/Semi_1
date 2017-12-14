@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.member.MemberDTO;
+import com.iu.pos.PosDAO;
+import com.iu.pos.PosDTO;
 
 public class UseWriteService implements Action {
 
@@ -15,16 +17,19 @@ public class UseWriteService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
+		String method=request.getMethod();
+		
 		String store=request.getParameter("store");
+		System.out.println(store);
 		String style=request.getParameter("style");
+		System.out.println(style);
 		int price=0;
 		try {
-			price=Integer.parseInt(request.getParameter("price"));			
+			price=Integer.parseInt(request.getParameter("price"));	
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
-		String method=request.getMethod();
+		
 		if(method=="POST") {
 			UseDTO useDTO=new UseDTO();
 			useDTO.setId(memberDTO.getId());
@@ -37,18 +42,24 @@ public class UseWriteService implements Action {
 			useDTO.setCoupon(request.getParameter("coupon"));
 			useDTO.setTime(request.getParameter("time"));
 			
-			System.out.println(request.getParameter("time"));
+			PosDTO posDTO = new PosDTO();
+			posDTO.setPos_import(price);
+			posDTO.setKind(style);
+			posDTO.setStore(store);
 			
+			PosDAO posDAO=new PosDAO();
 			UseDAO useDAO = new UseDAO();
-			int result=0;
+			int useresult=0;
+			int posresult=0;
 			
 			try {
-				result=useDAO.insert(useDTO);
+				useresult=useDAO.insert(useDTO);
+				posresult=posDAO.insert(posDTO);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			if(result>0) {
+			if(useresult>0 && posresult>0) {
 				actionForward.setCheck(false);
 				actionForward.setPath("./useList.use");		
 			}else {
@@ -62,7 +73,7 @@ public class UseWriteService implements Action {
 			request.setAttribute("style", style);
 			request.setAttribute("price", price);
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/use/useWrite.jsp");		
+			actionForward.setPath("../WEB-INF/view/use/useWrite.jsp");
 		}
 		return actionForward;
 	}
