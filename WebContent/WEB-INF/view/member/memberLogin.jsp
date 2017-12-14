@@ -7,7 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<%	Cookie [] ar=request.getCookies();
+String cId="";
+for(int i=0;i<ar.length;i++){
+	if(ar[i].getName().equals("id")){
+		cId=ar[i].getValue();
+		break;
+	}
+} %>
 <style type="text/css">
 * {
 	margin: 0;
@@ -48,7 +55,7 @@
   <form action="./memberLogin.member" method="post">
     <div class="form-group">
       <label for="id">ID:</label>
-      <input type="text" class="form-control" id="id" value="${cId}" placeholder="Enter id" name="id">
+      <input type="text" class="form-control" id="id" value="<%=cId%>" placeholder="Enter id" name="id">
     </div>
     <div class="form-group">
       <label for="pw">Password:</label>

@@ -20,6 +20,19 @@ public class MemberLoginService implements Action {
 			memberDTO.setId(request.getParameter("id"));
 			memberDTO.setPw(request.getParameter("pw"));
 			// 추가적으로 job 셋팅
+			String save=request.getParameter("remember");
+
+			if(save !=null){
+			Cookie id=new Cookie("id",memberDTO.getId());
+			Cookie pw=new Cookie("pw",memberDTO.getPw());
+			id.setMaxAge(60*10);
+			response.addCookie(id);
+			}else{
+				Cookie id= new Cookie("id","");
+				id.setMaxAge(0);
+				response.addCookie(id);
+			}
+			
 			
 			MemberDAO memberDAO = new MemberDAO();
 			
@@ -44,6 +57,8 @@ public class MemberLoginService implements Action {
 			}
 			
 		}else {
+			
+			
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/member/memberLogin.jsp");
 		}
