@@ -13,6 +13,7 @@ public class StoreDeleteService implements Action {
 		ActionForward actionForward=new ActionForward();
 		StoreDAO storeDAO=new StoreDAO();
 		String id=request.getParameter("id");
+		
 		int result=0;
 		try {
 			result=storeDAO.delete(id);

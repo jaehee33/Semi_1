@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	//star rating
 	var starRating = function() {
-		var $star = $(".star-input"), $result = $star.find("output>b");
+		var $star = $(".star-input"), $result = $star.find("starspan");
 		$(document).on("focusin", ".star-input>.input", function() {
 			$(this).addClass("focus");
 		}).on("focusout", ".star-input>.input", function() {
@@ -90,8 +90,8 @@
 			name="star-input" id="p9" value="9"><label for="p9">4.5</label>
 			<input type="radio" name="star-input" id="p10" value="10"><label
 			for="p10">5</label>
-			</span> <output for="star-input">
-			<b>0</b>Á¡</output>
+			</span> <span id="starspan" for="star-input">
+			<b>0</b>Á¡</span>
 			</span></td>
 			
 			<td><textarea rows="" cols="" name="contents">${view.contents}</textarea></td>
