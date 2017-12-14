@@ -20,18 +20,21 @@ public class UseWriteService implements Action {
 		String method=request.getMethod();
 		
 		String store=request.getParameter("store");
-		System.out.println(store);
 		String style=request.getParameter("style");
-		System.out.println(style);
 		int price=0;
+		int num=0;
+		PosDAO posDAO=new PosDAO();
+		UseDAO useDAO = new UseDAO();
 		try {
 			price=Integer.parseInt(request.getParameter("price"));	
+			num=useDAO.getNum();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		
 		if(method=="POST") {
 			UseDTO useDTO=new UseDTO();
+			useDTO.setNum(num);
 			useDTO.setId(memberDTO.getId());
 			useDTO.setName(memberDTO.getName());
 			useDTO.setPhone(memberDTO.getPhone());
@@ -43,12 +46,12 @@ public class UseWriteService implements Action {
 			useDTO.setTime(request.getParameter("time"));
 			
 			PosDTO posDTO = new PosDTO();
+			posDTO.setNum(num);
 			posDTO.setPos_import(price);
 			posDTO.setKind(style);
 			posDTO.setStore(store);
 			
-			PosDAO posDAO=new PosDAO();
-			UseDAO useDAO = new UseDAO();
+		
 			int useresult=0;
 			int posresult=0;
 			

@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.pos.PosDAO;
+import com.iu.pos.PosDTO;
 
 public class UseDeleteService implements Action {
 
@@ -13,18 +15,21 @@ public class UseDeleteService implements Action {
 		ActionForward actionForward = new ActionForward();
 		
 		int num=0;
-		int result=0;
+		int useresult=0;
+		int posresult=0;
 		
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
 			UseDAO bookDAO=new UseDAO();
-			result=bookDAO.delete(num);
+			useresult=bookDAO.delete(num);
+			PosDAO posDAO=new PosDAO();
+			posresult=posDAO.delete(num);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(result>0) {
+		if(useresult>0 && posresult>0) {
 			actionForward.setCheck(false);
 			actionForward.setPath("./useList.use");
 		}else {
