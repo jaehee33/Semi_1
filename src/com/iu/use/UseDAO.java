@@ -11,6 +11,18 @@ import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
 public class UseDAO {
+	public int getNum() throws Exception {
+		Connection con = DBConnector.getConnect();
+		String sql ="select use_seq.nextval from dual";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		int num = rs.getInt(1);
+		DBConnector.disConnect(rs, st, con);
+		
+		return num;
+	}
+	
 	//글 갯수 가져오기
 	public int getTotalCount(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
@@ -30,32 +42,34 @@ public class UseDAO {
 	public int insert(UseDTO useDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
-		String sql="insert into use values(use_seq.nextval,?,?,?,?,?,?,?,?,?,?)";
+		String sql="insert into use values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, useDTO.getId());
-		st.setString(2, useDTO.getName());
-		st.setString(3, useDTO.getPhone());
-		st.setDate(4, useDTO.getBk_date());
-		st.setString(5, useDTO.getStore());
-		st.setString(6, useDTO.getStyle());
-		st.setInt(7, useDTO.getPrice());
-		st.setString(8, useDTO.getCoupon());
-		st.setString(9, useDTO.getTime());
-		st.setString(10, "예약");
+		st.setInt(1, useDTO.getNum());
+		st.setString(2, useDTO.getId());
+		st.setString(3, useDTO.getName());
+		st.setString(4, useDTO.getPhone());
+		st.setDate(5, useDTO.getBk_date());
+		st.setString(6, useDTO.getStore());
+		st.setString(7, useDTO.getStyle());
+		st.setInt(8, useDTO.getPrice());
+		st.setString(9, useDTO.getCoupon());
+		st.setString(10, useDTO.getTime());
+		st.setString(11, "예약");
 		st.executeUpdate();
 		
-		sql="insert into posbook values(use_seq.currval,?,?,?,?,?,?,?,?,?,?)";
+		sql="insert into posbook values(?,?,?,?,?,?,?,?,?,?,?)";
 		st = con.prepareStatement(sql);
-		st.setString(1, useDTO.getId());
-		st.setString(2, useDTO.getName());
-		st.setString(3, useDTO.getPhone());
-		st.setDate(4, useDTO.getBk_date());
-		st.setString(5, useDTO.getStore());
-		st.setString(6, useDTO.getStyle());
-		st.setInt(7, useDTO.getPrice());
-		st.setString(8, useDTO.getCoupon());
-		st.setString(9, useDTO.getTime());
-		st.setString(10, "예약");
+		st.setInt(1, useDTO.getNum());
+		st.setString(2, useDTO.getId());
+		st.setString(3, useDTO.getName());
+		st.setString(4, useDTO.getPhone());
+		st.setDate(5, useDTO.getBk_date());
+		st.setString(6, useDTO.getStore());
+		st.setString(7, useDTO.getStyle());
+		st.setInt(8, useDTO.getPrice());
+		st.setString(9, useDTO.getCoupon());
+		st.setString(10, useDTO.getTime());
+		st.setString(11, "예약");
 
 		int result=st.executeUpdate();
 		

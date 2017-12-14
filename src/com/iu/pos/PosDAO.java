@@ -30,7 +30,7 @@ public class PosDAO {
 	
 	public int getTotalCount() throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql ="select nvl(count(num), 0) from pos";
+		String sql ="select nvl(count(num), 0) from pos"; 
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		rs.next();
@@ -42,12 +42,13 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (sysdate,?,?,?,?,null,pos_seq.nextval)";
+		String sql="insert into pos values (sysdate,?,?,?,?,null,?)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, posDTO.getPos_import());
 		st.setInt(2, posDTO.getExpend());
 		st.setString(3, posDTO.getKind());
 		st.setString(4, posDTO.getStore());
+		st.setInt(5, posDTO.getNum());
 	
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
