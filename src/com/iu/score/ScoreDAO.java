@@ -97,7 +97,6 @@ public class ScoreDAO {
 		return ar;
 	}
 	
-	
 	public int delete(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
 		String sql = "delete score where num=?";
