@@ -51,7 +51,7 @@ $(function(){
 <%@ include file="../temp/header.jsp" %>
 <div id="total"></div><input type="button" id="totalbtn" value="total">
 <a href="./posList.pos?store=${store}">poslist</a>
-<a href="./posBook.pos?store=${store}">예약목록</a>
+<a href="./posbook.pos?store=${store}">예약목록</a>
 <div id="insert"></div><input type="button" id="import" value="import">
 <div id="expend2"></div><input type="button" id="expend" value="expend">
 </body>
