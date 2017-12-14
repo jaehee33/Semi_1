@@ -80,4 +80,22 @@ public class KindDAO {
 		DBConnector.disConnect(st, con);
 		return result;
 	}
+	
+	public ArrayList<KindDTO> allselectList() throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select * from kind";
+		PreparedStatement st=con.prepareStatement(sql);
+		ResultSet rs=st.executeQuery();
+		ArrayList<KindDTO> ar=new ArrayList<>();
+		while(rs.next()) {
+			KindDTO kindDTO=new KindDTO();
+			kindDTO.setKind(rs.getString("kind"));
+			kindDTO.setPrice(rs.getInt("price"));
+			kindDTO.setStore(rs.getString("store"));
+			kindDTO.setNum(rs.getInt("num"));
+			ar.add(kindDTO);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return ar;
+	}
 }
