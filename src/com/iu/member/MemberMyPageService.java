@@ -18,6 +18,7 @@ public class MemberMyPageService implements Action {
 		
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
 		
+		
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO m2 = null;
 		try {
@@ -34,6 +35,8 @@ public class MemberMyPageService implements Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
 			request.setAttribute("store", storeDTO);
 			request.setAttribute("m2", m2);
 			actionForward.setCheck(true);
