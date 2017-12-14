@@ -32,32 +32,31 @@ public class UseDAO {
 		
 		String sql="insert into use values(use_seq,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, useDTO.getNum());
-		st.setString(2, useDTO.getId());
-		st.setString(3, useDTO.getName());
-		st.setString(4, useDTO.getPhone());
-		st.setDate(5, useDTO.getBk_date());
-		st.setString(6, useDTO.getStore());
-		st.setString(7, useDTO.getStyle());
-		st.setInt(8, useDTO.getPrice());
-		st.setString(9, useDTO.getCoupon());
-		st.setString(10, useDTO.getTime());
-		st.setString(11, useDTO.getState());
+		st.setString(1, useDTO.getId());
+		st.setString(2, useDTO.getName());
+		st.setString(3, useDTO.getPhone());
+		st.setDate(4, useDTO.getBk_date());
+		st.setString(5, useDTO.getStore());
+		st.setString(6, useDTO.getStyle());
+		st.setInt(7, useDTO.getPrice());
+		st.setString(8, useDTO.getCoupon());
+		st.setString(9, useDTO.getTime());
+		st.setString(10, "예약");
 		st.executeUpdate();
 		
 		sql="insert into posbook values(use_seq,?,?,?,?,?,?,?,?,?,?)";
 		st = con.prepareStatement(sql);
-		st.setInt(1, useDTO.getNum());
-		st.setString(2, useDTO.getId());
-		st.setString(3, useDTO.getName());
-		st.setString(4, useDTO.getPhone());
-		st.setDate(5, useDTO.getBk_date());
-		st.setString(6, useDTO.getStore());
-		st.setString(7, useDTO.getStyle());
-		st.setInt(8, useDTO.getPrice());
-		st.setString(9, useDTO.getCoupon());
-		st.setString(10, useDTO.getTime());
-		st.setString(11, useDTO.getState());
+		st.setString(1, useDTO.getId());
+		st.setString(2, useDTO.getName());
+		st.setString(3, useDTO.getPhone());
+		st.setDate(4, useDTO.getBk_date());
+		st.setString(5, useDTO.getStore());
+		st.setString(6, useDTO.getStyle());
+		st.setInt(7, useDTO.getPrice());
+		st.setString(8, useDTO.getCoupon());
+		st.setString(9, useDTO.getTime());
+		st.setString(10, "예약");
+
 		int result=st.executeUpdate();
 		
 		DBConnector.disConnect(st, con);

@@ -30,13 +30,14 @@ public class UseWriteService implements Action {
 			useDTO.setId(memberDTO.getId());
 			useDTO.setName(memberDTO.getName());
 			useDTO.setPhone(memberDTO.getPhone());
-			System.out.println(request.getParameter("bk_date"));
-			//useDTO.setBk_date(request.getParameter("bk_date"));
+			useDTO.setBk_date(Date.valueOf(request.getParameter("bk_date")));
 			useDTO.setStore(store);
 			useDTO.setStyle(style);
 			useDTO.setPrice(price);
 			useDTO.setCoupon(request.getParameter("coupon"));
 			useDTO.setTime(request.getParameter("time"));
+			
+			System.out.println(request.getParameter("time"));
 			
 			UseDAO useDAO = new UseDAO();
 			int result=0;
@@ -45,6 +46,7 @@ public class UseWriteService implements Action {
 				result=useDAO.insert(useDTO);
 			} catch (Exception e) {
 				// TODO: handle exception
+				e.printStackTrace();
 			}
 			if(result>0) {
 				actionForward.setCheck(false);
