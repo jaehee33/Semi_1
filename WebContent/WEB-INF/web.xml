@@ -5,6 +5,18 @@
     <session-timeout>50</session-timeout>
   </session-config>
   <servlet>
+    <servlet-name>coupon</servlet-name>
+    <servlet-class>com.iu.control.CouponController</servlet-class>
+    <init-param>
+      <param-name>property</param-name>
+      <param-value>coupon.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>coupon</servlet-name>
+    <url-pattern>*.coupon</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>favor</servlet-name>
     <servlet-class>com.iu.control.FavorController</servlet-class>
     <init-param>
