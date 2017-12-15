@@ -42,7 +42,7 @@
 		
 </c:if>
 
-<c:if test="${not empty member}">
+
 		<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a>
 		<a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a>
 
@@ -53,7 +53,7 @@
 		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내 주변</a>
 		<a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a>
 		<a href="<%=request.getContextPath()%>/store/storeList.store">전체 가게</a>
-</c:if>
+
 
 	<hr>
 	<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>

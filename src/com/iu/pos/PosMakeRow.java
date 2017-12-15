@@ -29,7 +29,7 @@ public class PosMakeRow extends MakeRow{
 		return type;
 	}
 	public void setType(String type) {
-		if(kind==null) {
+		if(type==null) {
 		this.type = "pos_import,expend";
 		}else {
 			this.type= type;

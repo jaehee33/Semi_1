@@ -90,6 +90,18 @@ public class PosDAO {
 		return ar;
 	}
 	
+	public int getNum() throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select use_seq.nextval from dual";
+		PreparedStatement st=con.prepareStatement(sql);
+		ResultSet rs=st.executeQuery();
+		int result=0;
+		if(rs.next()) {
+			result=rs.getInt(1);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return result;
+	}
 	
 	public int delete(int num) throws Exception{
 		Connection con=DBConnector.getConnect();
