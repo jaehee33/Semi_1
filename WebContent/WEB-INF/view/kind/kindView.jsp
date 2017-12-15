@@ -18,7 +18,7 @@
 				<td><img src="../upload/${file.fname}"></td>
 			</tr>
 			<tr>
-				<td><h3>${kind.kind}</h3></td>
+				<td><h3>${kind.style}</h3></td>
 				<td><a href="../member/memberStyle.member">♡</a></td>	
 			</tr>
 			<tr>
@@ -32,9 +32,9 @@
 			</tr>
 			<c:forEach items="${list}" var="i">		
 			<tr>	
-				<td>${i.kind}</td>
+				<td>${i.style}</td>
 				<td>${i.price}</td>
-				<td><a href="../use/useWrite.use?store=${i.store}&style=${i.kind}&price=${i.price}">예약</a></td>
+				<td><a href="../use/useWrite.use?store=${i.store}&style=${i.style}&price=${i.price}">예약</a></td>
 			</tr>
 			</c:forEach>
 

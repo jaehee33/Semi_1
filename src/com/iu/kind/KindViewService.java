@@ -23,7 +23,7 @@ public class KindViewService implements Action {
 			KindDAO kindDAO = new KindDAO();
 			KindDTO kindDTO = kindDAO.selectone(num);
 			ArrayList<KindDTO> list=kindDAO.selectList(kindDTO);
-			
+
 			FilesDAO filesDAO = new FilesDAO();			
 			FilesDTO filesDTO = filesDAO.selectOne(num);
 			
