@@ -54,6 +54,8 @@ for(int i=0;i<ar.length;i++){
 			Kakao.Auth.createLoginButton({
 				container : '#kakao-login-btn',
 				success : function(authObj) {
+					var refreshToken = Kakao.Auth.getRefreshToken();
+					Kakao.Auth.setAccessToken(accessTokenFromServer);
 					alert(JSON.stringify(authObj));
 				},
 				fail : function(err) {
