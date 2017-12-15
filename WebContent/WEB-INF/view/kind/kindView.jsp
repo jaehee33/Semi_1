@@ -5,6 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			var favor=$(this).attr("class");
+			if(favor=="btn btn-default"){
+				$(this).attr("class","btn btn-danger");
+			}else {
+				$(this).attr("class","btn btn-default");
+			}
+		});
+	});
+</script>
 <style type="text/css">
 #font{
 	font-weight: bold;
@@ -19,7 +34,7 @@
 			</tr>
 			<tr>
 				<td><h3>${kind.style}</h3></td>
-				<td><a href="../member/memberStyle.member">♡</a></td>	
+				<td><button id="btn" type="button" class="btn btn-default">♡</button></td>	
 			</tr>
 			<tr>
 				<td>${kind.store}</td>
