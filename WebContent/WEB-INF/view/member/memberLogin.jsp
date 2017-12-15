@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <%	Cookie [] ar=request.getCookies();
 String cId="";
 for(int i=0;i<ar.length;i++){
@@ -21,29 +22,6 @@ for(int i=0;i<ar.length;i++){
 	padding: 0;
 }
 </style>
-<!--   <script type="text/javascript">
-  $(document).ready(function(){
-	 var userInputId = getCookie("id");
-	 $("input[name='id']").val(userInputId);
-	 if($("input[name='id']").val() !=""){
-	 $('#remember').attr("checked",true);
-	 }
-	 $("#remember").change(function(){
-		if($("#remember").is(":checked")){
-			var userInputId = $("input[name='id']").val();
-			setCookie("userInputId", userInputId, 7);
-		} else{
-			deleteCookie("userInputId");
-		}
-	 });
-	 $("input[name='id']").keyup(function(){
-		if($("#remember").is(":checked")){
-			var userInputId = $("input[name='id']").val();
-			setCookie("userInputId", userInputId, 7);
-		} 
-	 });
-  });
-  </script> -->
 
 <link href="/Semi_1/css/login.css" rel="stylesheet">
 </head>
@@ -63,7 +41,29 @@ for(int i=0;i<ar.length;i++){
 	 <div class="checkbox">
       <label><input type="checkbox" id="remember" name="remember" value="remember"> Remember me</label>
     </div>
-    <button type="submit" class="btn btn-default">Login</button>
+    <p><button type="submit" class="btn btn-default">Login</button></p>
+    <!---------------------------- 카카오로그인 시작 ---------------------------->
+    <p>
+		<a id="kakao-login-btn"></a>
+		<a href="http://developers.kakao.com/logout"></a>
+		<script type='text/javascript'>
+			//<![CDATA[
+			// 사용할 앱의 JavaScript 키를 설정해 주세요.
+			Kakao.init('44dc488bb7ee1b14cd2765f0530ea05b');
+			// 카카오 로그인 버튼을 생성합니다.
+			Kakao.Auth.createLoginButton({
+				container : '#kakao-login-btn',
+				success : function(authObj) {
+					alert(JSON.stringify(authObj));
+				},
+				fail : function(err) {
+					alert(JSON.stringify(err));
+				}
+			});
+			//]]>
+		</script>
+	</p>
+<!----------------------------카카오로그인 끝 ------------------------------->	
   </form>
 </div>
 

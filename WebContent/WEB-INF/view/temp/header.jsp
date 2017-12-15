@@ -17,47 +17,25 @@
 <c:if test="${empty member}">
 	<a href="<%=request.getContextPath()%>/member/memberJoin.member">Join</a>
 	<a href="<%=request.getContextPath()%>/member/kakaoJoin.member"></a>
-	<a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a>
-	<hr>
-<!---------------------------- 카카오로그인 시작 ---------------------------->
-		<a id="kakao-login-btn"></a>
-		<a href="http://developers.kakao.com/logout"></a>
-		<script type='text/javascript'>
-			//<![CDATA[
-			// 사용할 앱의 JavaScript 키를 설정해 주세요.
-			Kakao.init('44dc488bb7ee1b14cd2765f0530ea05b');
-			// 카카오 로그인 버튼을 생성합니다.
-			Kakao.Auth.createLoginButton({
-				container : '#kakao-login-btn',
-				success : function(authObj) {
-					alert(JSON.stringify(authObj));
-				},
-				fail : function(err) {
-					alert(JSON.stringify(err));
-				}
-			});
-			//]]>
-		</script>
-<!----------------------------카카오로그인 끝 ------------------------------->
-		
+	<a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a>		
 </c:if>
 
-
-		<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a>
-		<a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a>
-
+		<c:if test="${not empty member}">
+			<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a>
+			<a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a>
+		</c:if>
 		<c:if test="${member.job eq 'B'}">
-		<a href="<%=request.getContextPath()%>/use/useList.use">예약/취소</a>
+			<a href="<%=request.getContextPath()%>/use/useList.use">예약/취소</a>
 		</c:if>
 		<hr>
-		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내 주변</a>
-		<a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a>
-		<a href="<%=request.getContextPath()%>/store/storeList.store">전체 가게</a>
+		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내
+			주변</a> <a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a> <a href="<%=request.getContextPath()%>/store/storeList.store">전체
+			가게</a>
 
 
-	<hr>
-	<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>
-	<a href="<%=request.getContextPath()%>/faq/faqList.faq">자주 묻는 질문</a>
-</div>
+		<hr>
+		<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>
+		<a href="<%=request.getContextPath()%>/faq/faqList.faq">자주 묻는 질문</a>
+	</div>
 </body>
 </html>
