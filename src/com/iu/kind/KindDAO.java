@@ -23,6 +23,7 @@ public class KindDAO {
 		kindDTO.setKind(rs.getString("kind"));
 		kindDTO.setPrice(rs.getInt("price"));
 		kindDTO.setStore(rs.getString("store"));
+		kindDTO.setStyle(rs.getString("style"));
 	
 		DBConnector.disConnect(rs, st, con);
 		return kindDTO;
@@ -44,12 +45,13 @@ public class KindDAO {
 	
 	public int insert(KindDTO kindDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into kind values (?,?,?,?)";
+		String sql="insert into kind values (?,?,?,?,?)";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setString(1, kindDTO.getKind());
+		st.setString(1, kindDTO.getStyle());
 		st.setInt(2, kindDTO.getPrice());
 		st.setString(3, kindDTO.getStore());
 		st.setInt(4, kindDTO.getNum());
+		st.setString(5, kindDTO.getKind());
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
 		return result;
@@ -70,6 +72,7 @@ public class KindDAO {
 			kindDTO.setPrice(rs.getInt("price"));
 			kindDTO.setStore(rs.getString("store"));
 			kindDTO.setNum(rs.getInt("num"));
+			kindDTO.setStyle(rs.getString("style"));
 			ar.add(kindDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
@@ -90,6 +93,7 @@ public class KindDAO {
 			kindDTO.setPrice(rs.getInt("price"));
 			kindDTO.setStore(rs.getString("store"));
 			kindDTO.setNum(rs.getInt("num"));
+			kindDTO.setStyle(rs.getString("style"));
 			ar.add(kindDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
@@ -132,6 +136,7 @@ public class KindDAO {
 			kindDTO.setPrice(rs.getInt("price"));
 			kindDTO.setStore(rs.getString("store"));
 			kindDTO.setNum(rs.getInt("num"));
+			kindDTO.setStyle(rs.getString("style"));
 			ar.add(kindDTO);
 		}
 		DBConnector.disConnect(rs, st, con);

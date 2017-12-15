@@ -48,10 +48,11 @@ public class KindInsertService implements Action {
 			int result2=0;
 			try {
 				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-				String[] kind=multi.getParameterValues("kind");
+				String[] style=multi.getParameterValues("style");
 				String[] price=multi.getParameterValues("price");
+				String[] kind=multi.getParameterValues("kind");
 				
-				for(int i=0;i<kind.length;i++) {
+				for(int i=0;i<style.length;i++) {
 					KindDTO kindDTO=new KindDTO();
 					int num=0;
 					try {
@@ -61,9 +62,10 @@ public class KindInsertService implements Action {
 						e1.printStackTrace();
 					}
 					kindDTO.setNum(num);
-					kindDTO.setKind(kind[i]);
+					kindDTO.setStyle(style[i]);
 					kindDTO.setPrice(Integer.parseInt(price[i]));
 					kindDTO.setStore(storeDTO.getStore());
+					kindDTO.setKind(kind[i]);
 					FilesDTO filesDTO=new FilesDTO();
 					filesDTO.setFname(multi.getFilesystemName("f"+i));
 					filesDTO.setOname(multi.getOriginalFileName("f"+i));
@@ -86,7 +88,7 @@ public class KindInsertService implements Action {
 				e1.printStackTrace();
 			}
 			
-			if(result>0) {
+			if(result>0 && result2>0) {
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/kind/kindIndex.jsp");
 			}else {

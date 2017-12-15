@@ -13,7 +13,7 @@
 		<td><img src="../upload/${f.fname}"></td>
 		</c:if>
 		</c:forEach>
-			<td>${k.kind}</td>
+			<td>${k.style}</td>
 			<td>${k.price}</td>
 			<td id="X"><a href="kindDelete.kind?num=${k.num}">X</a></td>
 		</tr>

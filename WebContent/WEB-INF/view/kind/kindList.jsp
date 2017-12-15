@@ -19,7 +19,7 @@
 				</c:forEach>
 			</tr>
 			<tr>
-				<td><h3><a href="./kindView.kind?num=${k.num}">${k.kind}</a></h3></td>
+				<td><h3><a href="./kindView.kind?num=${k.num}">${k.style}</a></h3></td>
 			</tr>
 			<tr>
 				<c:forEach items="${storelist}" var="s">

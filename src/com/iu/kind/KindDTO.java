@@ -2,10 +2,17 @@ package com.iu.kind;
 
 public class KindDTO {
 
-	private String kind;
+	private String style;
 	private int price;
 	private String store;
 	private int num;
+	private String kind;
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
 	public int getNum() {
 		return num;
 	}
