@@ -15,12 +15,13 @@
 <h1>나의 정보</h1>
 <div id="info">
 <ul>
-<li>이름: ${m2.name}</li>
+<li>이름: ${m2.name}<span><c:if test="${m2.job eq 'B' }"> [고객]
+</c:if><c:if test="${m2.job eq 'S' }"> [점주]</c:if></span></li>
 <li>생일: ${m2.birth}</li>
 <li>번호: ${m2.phone}</li>
 </ul>
 </div>
-<h3>Job(나중에 삭제): ${m2.job}</h3>
+
 </header>
 <nav>
 
@@ -31,8 +32,8 @@
 
 
 <a href="../index.jsp">처음으로</a>
-<a href="./memberStyle.member">스타일 즐겨찾기보기</a>
-<a href="../favor/favorList.favor">가게 즐겨찾기보기</a>
+<a href="../favor/favorStyle.favor">스타일 즐겨찾기보기</a>
+<a href="../favor/favorStore.favor">가게 즐겨찾기보기</a>
 <a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
 <a href="./memberDelete.member">memberDelete</a>
 <hr>

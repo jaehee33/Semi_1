@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,18 @@
 
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
+	<%@ include file="../temp/header.jsp"%>
 
-<h1>스타일 즐겨찾기 보기</h1>
+	<h1>스타일 즐겨찾기 보기</h1>
+	<table>
+		<tr>
+			<td>사진</td>
+			<td>종류</td>
+			<td>가격</td>
+			<td>가게명</td>
+		</tr>
 
+
+	</table>
 </body>
 </html>
