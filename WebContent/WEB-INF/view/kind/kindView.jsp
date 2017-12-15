@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,28 +9,26 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<table>
-		<c:forEach items="${kindlist}" var="k">
-			<tr>
+			<%-- <tr>
 				<c:forEach items="${filelist}" var="f">
 					<c:if test="${k.num eq f.num}">
 						<td><img src="../upload/${f.fname}"></td>
 					</c:if>
 				</c:forEach>
-			</tr>
+			</tr> --%>
 			<tr>
-				<td><h3><a href="./kindView.kind?num=${k.num}">${k.kind}</a></h3></td>
-			</tr>
-			<tr>
-				<c:forEach items="${storelist}" var="s">
+				<td><h3>${kind.kind}</h3></td>
+				<td>${kind.price}</td>
+				<%-- <c:forEach items="${storelist}" var="s">
 					<c:if test="${k.store eq s.store}">
 						<td>${k.store}</td>
 						<td><a href="../use/useWrite.use?store=${s.store}&style=${k.kind}&price=${k.price}">예약</a></td>
-						<td><a href="../favor/favorStyle.favor">저장</a></td>
-
+						<td><a href="../member/memberStyle.member">저장</a></td>
 					</c:if>
 				</c:forEach>
+ --%>
 			</tr>
-		</c:forEach>
+
 	</table>
 </body>
 </html>
