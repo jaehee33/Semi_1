@@ -12,7 +12,7 @@ public class FavorDAO {
 		String sql="insert into favor values(?,?,?)";
 		PreparedStatement pre = con.prepareStatement(sql);
 		pre.setString(1, favorDTO.getId());
-		pre.setString(2, favorDTO.getFav_store());
+		pre.setString(2, favorDTO.getFav_style());
 		pre.setInt(3, favorDTO.getCount());
 		int result=pre.executeUpdate();
 		DBConnector.disConnect(pre, con);
