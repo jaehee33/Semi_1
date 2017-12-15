@@ -28,11 +28,10 @@
 			<a href="<%=request.getContextPath()%>/use/useList.use">예약/취소</a>
 		</c:if>
 		<hr>
-		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내
-			주변</a> <a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a> <a href="<%=request.getContextPath()%>/store/storeList.store">전체
-			가게</a>
-
-
+		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내주변</a>
+		<a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a>
+		<a href="<%=request.getContextPath()%>/store/storeList.store">전체 가게</a>
+		
 		<hr>
 		<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>
 		<a href="<%=request.getContextPath()%>/faq/faqList.faq">자주 묻는 질문</a>
