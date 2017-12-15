@@ -14,7 +14,13 @@
 			document.frm.curPage.value=cur;
 			document.frm.submit();
 		});
+		$("#type").change(function(){
+			var cur = $(".list").attr("title");
+			document.frm.curPage.value=cur;
+			document.frm.submit();
+		});
 	});
+
 	
 </script>
 </head>
@@ -24,6 +30,11 @@
 		<form name="frm" action="./posList.pos">
 			<input type="hidden" name="curPage">
 			<input type="hidden" name="store" value="${store}">
+			<select name="type" id="type">
+			<option value="import,expend">total</option>
+			<option value="import">import</option>
+			<option value="expend">expend</option>
+			</select>
 		</form>
 	</div>
 <table>
@@ -45,8 +56,9 @@
 			<td>${a.kind}</td>
 			<td>${a.store}</td>
 			<td>${a.pos_coupon}</td>
+			<c:if test="${a.state ne '예약'}">
 			<td><a href="posDelete.pos?num=?${a.num}">X</a></td>
-		<td></td>
+			</c:if>
 		</tr>
 		</c:forEach>
 	</table>

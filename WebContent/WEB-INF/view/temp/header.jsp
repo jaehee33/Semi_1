@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id="header">
+<a href="<%=request.getContextPath()%>/index.jsp">index</a>
 <c:if test="${empty member}">
 	<a href="<%=request.getContextPath()%>/member/memberJoin.member">Join</a>
 	<a href="<%=request.getContextPath()%>/member/kakaoJoin.member"></a>

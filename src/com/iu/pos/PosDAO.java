@@ -42,13 +42,14 @@ public class PosDAO {
 	
 	public int insert(PosDTO posDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="insert into pos values (sysdate,?,?,?,?,null,?)";
+		String sql="insert into pos values (sysdate,?,?,?,?,null,?,?)";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setInt(1, posDTO.getPos_import());
 		st.setInt(2, posDTO.getExpend());
 		st.setString(3, posDTO.getKind());
 		st.setString(4, posDTO.getStore());
 		st.setInt(5, posDTO.getNum());
+		st.setString(6, posDTO.getState());
 	
 		int result=st.executeUpdate();
 		DBConnector.disConnect(st, con);
@@ -60,7 +61,7 @@ public class PosDAO {
 	public ArrayList<PosDTO> selectList(PosMakeRow posMakeRow, String store) throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select * from (select rownum R,P.* from "
-				+ "(select pos_date,"+posMakeRow.getType()+",pos_coupon,store,kind,num from pos where store=? order by num asc) P)"
+				+ "(select pos_date,"+posMakeRow.getType()+",pos_coupon,store,kind,num,state from pos where store=? order by num asc) P)"
 						+ " where R between ? and ? order by R desc";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setString(1,store);
@@ -83,6 +84,7 @@ public class PosDAO {
 			posDTO.setKind(rs.getString("kind"));
 			posDTO.setPos_coupon(Boolean.parseBoolean(rs.getString("pos_coupon")));
 			posDTO.setNum(rs.getInt("num"));
+			posDTO.setState(rs.getString("state"));
 			ar.add(posDTO);
 		}
 		return ar;

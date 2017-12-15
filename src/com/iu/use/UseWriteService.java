@@ -50,6 +50,7 @@ public class UseWriteService implements Action {
 			posDTO.setPos_import(price);
 			posDTO.setKind(style);
 			posDTO.setStore(store);
+			posDTO.setState("예약");
 			
 		
 			int useresult=0;
