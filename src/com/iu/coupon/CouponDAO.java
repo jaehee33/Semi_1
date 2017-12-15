@@ -35,14 +35,12 @@ public class CouponDAO {
 		DBConnector.disConnect(pre, con);
 		return result;
 	}
-	public List<CouponDTO> selectList(MakeRow makeRow) throws Exception {
+	public List<CouponDTO> selectList(String id) throws Exception {
 		List<CouponDTO> ar = new ArrayList<CouponDTO>();
 		Connection con = DBConnector.getConnect();
-		String sql = "select * from (select rownum R, N.* from (select * from coupon where "+makeRow.getKind()+" like ? order by num desc) N) where R between ? and ? ";
+		String sql = "select * from coupon where id=?";
 		PreparedStatement pre= con.prepareStatement(sql);
-		pre.setString(1, "%"+makeRow.getSearch()+"%");
-		pre.setInt(2, makeRow.getStartRow());
-		pre.setInt(3, makeRow.getLastRow());
+		pre.setString(1, id);
 		ResultSet rs = pre.executeQuery();
 		while(rs.next()) {
 			CouponDTO couponDTO = new CouponDTO();
@@ -55,5 +53,7 @@ public class CouponDAO {
 		DBConnector.disConnect(rs, pre, con);
 		return ar;
 	}
+	
+
 
 }
