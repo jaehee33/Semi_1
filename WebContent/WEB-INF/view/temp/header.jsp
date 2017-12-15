@@ -51,9 +51,8 @@
 		</c:if>
 		<hr>
 		<a href="<%=request.getContextPath()%>/search/locationSearch.search">내 주변</a>
-		<a href="<%=request.getContextPath()%>/search/styleSearch.search">스타일 찾기</a>
-		<a href="<%=request.getContextPath()%>/store/storeList.store">가게 목록</a>
-		<a href="<%=request.getContextPath()%>/kind/kindFList.kind">kind</a>
+		<a href="<%=request.getContextPath()%>/kind/kindFList.kind">스타일</a>
+		<a href="<%=request.getContextPath()%>/store/storeList.store">전체 가게</a>
 </c:if>
 
 	<hr>
