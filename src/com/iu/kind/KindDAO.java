@@ -8,8 +8,27 @@ import java.util.ArrayList;
 import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
+import com.sun.org.apache.regexp.internal.recompile;
 
 public class KindDAO {
+	
+	public KindDTO selectone(int num) throws Exception{
+		Connection con = DBConnector.getConnect();
+		
+		String sql="select * from kind where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, num);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		KindDTO kindDTO = new KindDTO();
+		kindDTO.setNum(num);
+		kindDTO.setKind(rs.getString("kind"));
+		kindDTO.setPrice(rs.getInt("price"));
+		kindDTO.setStore(rs.getString("store"));
+	
+		DBConnector.disConnect(rs, st, con);
+		return kindDTO;
+	}
 	
 	public int getNum() throws Exception{
 		Connection con=DBConnector.getConnect();
@@ -67,7 +86,6 @@ public class KindDAO {
 		
 		return result;
 	}
-	
 	
 	public int update(KindDTO kindDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
