@@ -82,8 +82,10 @@ public class UseWriteService implements Action {
 				actionForward.setPath("../WEB-INF/view/use/useWrite.jsp");
 			}
 		}else {
-			actionForward.setCheck(false);
-			actionForward.setPath("../member/memberLogin.member");
+			request.setAttribute("message", "로그인이 필요합니다");
+			request.setAttribute("path", "../member/memberLogin.member");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		}
 		return actionForward;
 	}
