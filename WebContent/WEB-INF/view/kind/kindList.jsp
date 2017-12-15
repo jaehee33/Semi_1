@@ -6,6 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+ 	$(function(){
+ 		$(".btn").click(function(){
+ 			var favor=$(this).attr("class");
+ 			if(favor=="btn btn-default"){
+ 				$(this).attr("class","btn btn-danger");
+ 				$.get("styleList.style", function(data){
+
+
+ 				});	
+ 			}else {
+ 				$(this).attr("class","btn btn-default");
+ 			}
+ 		});
+ 	});
+</script>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
@@ -25,7 +44,9 @@
 				<c:forEach items="${storelist}" var="s">
 					<c:if test="${k.store eq s.store}">
 						<td>${k.store}</td>
-						<td><a href="../favor/favorStyle.favor">♡</a></td>
+						<div id="favorInsert">
+						
+						</div>
 					</c:if>
 				</c:forEach>
 			</tr>

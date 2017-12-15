@@ -1,29 +1,28 @@
 package com.iu.favor;
 
 public class FavorDTO {
-	
+	private int num;
 	private String id;
-	private String fav_style;
-	private int count;
+	private String store;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getFav_style() {
-		return fav_style;
+	public String getStore() {
+		return store;
 	}
-	public void setFav_style(String fav_style) {
-		this.fav_style = fav_style;
+	public void setStore(String store) {
+		this.store = store;
 	}
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
-	}
-	
-	
+
 
 }
