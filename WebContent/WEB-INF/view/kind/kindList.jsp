@@ -25,9 +25,7 @@
 				<c:forEach items="${storelist}" var="s">
 					<c:if test="${k.store eq s.store}">
 						<td>${k.store}</td>
-						<td><a href="../use/useWrite.use?store=${s.store}&style=${k.kind}&price=${k.price}">예약</a></td>
-						<td><a href="../favor/favorStyle.favor">저장</a></td>
-
+						<td><a href="../favor/favorStyle.favor">♡</a></td>
 					</c:if>
 				</c:forEach>
 			</tr>

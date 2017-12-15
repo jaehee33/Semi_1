@@ -8,6 +8,25 @@ import java.util.ArrayList;
 import com.iu.util.DBConnector;
 
 public class FilesDAO {
+	//selectOne=============================================================================================
+	public FilesDTO selectOne(int num) throws Exception{
+		Connection con = DBConnector.getConnect();
+		
+		String sql="select * from files where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, num);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		FilesDTO filesDTO = new FilesDTO();
+		filesDTO.setNum(num);
+		filesDTO.setFname(rs.getString("fname"));
+		filesDTO.setOname(rs.getString("oname"));
+		filesDTO.setStore(rs.getString("store"));
+		
+		DBConnector.disConnect(rs, st, con);
+		return filesDTO;		
+	}
+	
 	//insert===================================================================================================
 		public int insert(FilesDTO filesDTO) throws Exception{
 			Connection con=DBConnector.getConnect();

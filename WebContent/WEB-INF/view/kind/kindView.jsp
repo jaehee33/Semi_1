@@ -5,29 +5,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#font{
+	font-weight: bold;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<table>
-			<%-- <tr>
-				<c:forEach items="${filelist}" var="f">
-					<c:if test="${k.num eq f.num}">
-						<td><img src="../upload/${f.fname}"></td>
-					</c:if>
-				</c:forEach>
-			</tr> --%>
+			<tr>
+				<td><img src="../upload/${file.fname}"></td>
+			</tr>
 			<tr>
 				<td><h3>${kind.kind}</h3></td>
-				<td>${kind.price}</td>
-				<%-- <c:forEach items="${storelist}" var="s">
-					<c:if test="${k.store eq s.store}">
-						<td>${k.store}</td>
-						<td><a href="../use/useWrite.use?store=${s.store}&style=${k.kind}&price=${k.price}">예약</a></td>
-						<td><a href="../member/memberStyle.member">저장</a></td>
-					</c:if>
-				</c:forEach>
- --%>
+				<td><a href="../member/memberStyle.member">♡</a></td>	
 			</tr>
+			<tr>
+				<td>${kind.store}</td>
+			</tr>
+	</table>
+	<hr>
+	<table>
+			<tr>
+				<td id="font" colspan="3">이 스타일 관련 메뉴</td>
+			</tr>
+			<c:forEach items="${list}" var="i">		
+			<tr>	
+				<td>${i.kind}</td>
+				<td>${i.price}</td>
+				<td><a href="../use/useWrite.use?store=${i.store}&style=${i.kind}&price=${i.price}">예약</a></td>
+			</tr>
+			</c:forEach>
 
 	</table>
 </body>

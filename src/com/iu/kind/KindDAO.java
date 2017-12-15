@@ -5,13 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.iu.store.StoreDTO;
 import com.iu.util.DBConnector;
-import com.iu.util.MakeRow;
-import com.sun.org.apache.regexp.internal.recompile;
 
 public class KindDAO {
 	
+	//============================KindView selectOne============================
 	public KindDTO selectone(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
 		
@@ -29,6 +27,7 @@ public class KindDAO {
 		DBConnector.disConnect(rs, st, con);
 		return kindDTO;
 	}
+	//============================KindView selectOne 끝============================
 	
 	public int getNum() throws Exception{
 		Connection con=DBConnector.getConnect();
@@ -55,6 +54,28 @@ public class KindDAO {
 		DBConnector.disConnect(st, con);
 		return result;
 	}
+	
+	//============================KindView selectList============================
+	public ArrayList<KindDTO> selectList(KindDTO kindDTO) throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select * from kind where store=? and kind=?";
+		PreparedStatement st=con.prepareStatement(sql);
+		st.setString(1, kindDTO.getStore());
+		st.setString(2, kindDTO.getKind());
+		ResultSet rs=st.executeQuery();
+		ArrayList<KindDTO> ar=new ArrayList<>();
+		while(rs.next()) {
+			kindDTO=new KindDTO();
+			kindDTO.setKind(rs.getString("kind"));
+			kindDTO.setPrice(rs.getInt("price"));
+			kindDTO.setStore(rs.getString("store"));
+			kindDTO.setNum(rs.getInt("num"));
+			ar.add(kindDTO);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return ar;
+	}
+	//============================KindView selectList끝============================
 	
 	public ArrayList<KindDTO> selectList(String store) throws Exception{
 		Connection con=DBConnector.getConnect();
