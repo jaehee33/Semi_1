@@ -16,8 +16,7 @@ $(function(){
 	});
 	
 	$("#import").click(function(){
-		$("#itemplus").attr("type","button");
-		$("#itemdelete").attr("type","button");
+		$(".hide").attr("type","button");
 		$.get("./posInsert.pos?store=${store}", function(data) {
 			$("#insert").html(data);
 		});
@@ -26,7 +25,7 @@ $(function(){
 	
 	var i=0;
 	$("#itemplus").click(function(){
-		$("#insert").prepend('<p id="ins'+i+'"><input type="text" name="store" value="${store}" readonly="readonly"><select name="kind" class="g"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" value=""></p>')
+		$("#frm").prepend('<p id="ins'+i+'"><input type="text" name="store" value="${store}" readonly="readonly"><select name="kind" class="g"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import"><input type="hidden" name="expend" value="0" id="price"></p>')
 	i++;
 	});
 	
@@ -39,11 +38,12 @@ $(function(){
 		i=0;
 	}
 	
+	var j=0;
 	$("#expend").click(function(){
-		$.get("./posExpend.pos?store=${store}", function(data) {
-			$("#expend2").html(data);
-		});
+		$("#frm").prepend('<p id="exp'+j+'"><input type="text" name="store" value="${store}" readonly="readonly"><input type="text" name="kind"><input type="number" name="expend" id="price"><input type="hidden" name="pos_import" id="price" value="0"></p>');
+	j++;
 	});
+	
 	
 	$("#insert").on("change",".g",function(){
 		$(".op").each(function(){
@@ -71,7 +71,10 @@ $(function(){
 <div id="total"></div><input type="button" id="totalbtn" value="total">
 <a href="./posList.pos?store=${store}">poslist</a>
 <a href="./posbook.pos?store=${store}">예약목록</a>
-<div id="insert"></div><input type="hidden" value="item +" id="itemplus"><input type="hidden" value="item-" id="itemdelete"><input type="button" id="import" value="import">
-<div id="expend2"></div><input type="button" id="expend" value="expend">
+<div id="insert"></div>
+<input type="hidden" value="item +" id="itemplus" class="hide">
+<input type="hidden" value="item-" id="itemdelete" class="hide">
+<input type="button" id="import" value="insert">
+<input type="hidden" id="expend" class="hide" value="expend">
 </body>
 </html>

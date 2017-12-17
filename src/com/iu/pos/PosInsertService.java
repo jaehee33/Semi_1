@@ -33,27 +33,33 @@ public class PosInsertService implements Action {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/pos/posInsert.jsp");
 		}else {
+			int result=0;
 			PosDTO posDTO=null;
 			try {
 				posDTO=new PosDTO();
-				String store=request.getParameter("store");
-				int pos_import=Integer.parseInt(request.getParameter("pos_import"));
-				int totalMoney=posDAO.getTotalMoney(store);
+				String store[]=request.getParameterValues("store");
+				String pos_import[]=request.getParameterValues("pos_import");
+				String expend[]=request.getParameterValues("expend");
+				String kind[]=request.getParameterValues("kind");
+				
+				
+				
+				for(int i=0;i<store.length;i++) {
 				int num=posDAO.getNum();
-				posDTO.setStore(store);
+				posDTO.setStore(store[i]);
 				posDTO.setNum(num);
-				posDTO.setPos_import(pos_import);
-				posDTO.setKind(request.getParameter("kind"));
+				posDTO.setPos_import(Integer.parseInt(pos_import[i]));
+				posDTO.setKind(kind[i]);
+				posDTO.setExpend(Integer.parseInt(expend[i]));
+				try {
+					result=posDAO.insert(posDTO);
+				} catch (Exception e) {
+					
+				}
+				
+				}
 			
 			}catch (Exception e) {
-				// TODO: handle exception
-			}
-			int result=0;
-			try {
-				result=posDAO.insert(posDTO);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 			if(result>0) {
 				request.setAttribute("store", posDTO.getStore());
