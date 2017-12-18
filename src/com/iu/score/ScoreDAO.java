@@ -166,10 +166,11 @@ public class ScoreDAO {
 	
 	public int getTotalPoint(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql="select nvl(count(num)) from score ";
+		String sql="select avg(point) from score ";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		int result= st.executeUpdate();
+		DBConnector.disConnect(st, con);	
 		
 		return result;
 	}

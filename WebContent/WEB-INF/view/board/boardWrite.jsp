@@ -11,7 +11,7 @@
 	charset="utf-8"></script>
 <script type="text/javascript">
 	$(function() {
-		var i = 2;
+	/* 	var i = 2;
 		$("#btn").click(function() {
 			var f = '<input type="file" name="f' + i + '">';
 			$("#files").append(f);
@@ -29,12 +29,12 @@
 				bUseVerticalResizer : true,
 				bUseModeChanger : true,
 			}
-		});
+		}); */
 
 		$("#savebutton").click(
 			function() {
-				editor_object.getById["contents"].exec(
-					"UPDATE_CONTENTS_FIELD", []);
+				/* editor_object.getById["contents"].exec(
+					"UPDATE_CONTENTS_FIELD", []); */
 
 				$("#frm").submit();
 			})
@@ -46,11 +46,11 @@
 	<form id="frm" action="./${board}Write.${board}" method="post" enctype="multipart/form-data">
 		<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}"></p>
 		<p>TITLE: <input type="text" name="title"></p>
-		<p><textarea rows="" cols="" name="contents" id="contents"></textarea></p>
-		<div id="files">
-			<input type="file" name="f1">
+		<p>CONTEXT:<textarea rows="" cols="" name="contents" id="contents"></textarea></p>
+		<!-- 	<div id="files">
+		<input type="file" name="f1">
 		</div>
-		<input type="button" id="btn" value="Add File">
+		<input type="button" id="btn" value="Add File"> -->
 		<p>
 			<input type="button" value="글쓰기" id="savebutton">
 		</p>
