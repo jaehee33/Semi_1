@@ -21,7 +21,7 @@ public class StyleDAO {
 
 	public int insert(StyleDTO styleDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="insert into style values(?,?favor_seq.nextval,?,?)";
+		String sql="insert into style values(?,?,favor_seq.nextval,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, styleDTO.getId());
 		st.setString(2, styleDTO.getStyle());
