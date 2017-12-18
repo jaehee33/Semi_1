@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<td><button type="button" class="btn btn-default">♡</button></td>
+<form action="./styleInsert.style" method="post">
+	<input type="hidden" name="num" value="${num}">
+	<input type="hidden" name="style" value="${style}">
+	<input type="hidden" name="price" value="${price}">
+	<input type="hidden" name="store" value="${store}">
+	<input type="hidden" name="page" value="View"> 
+	<button type="button" class="btn btn-default" id="btn">♡</button>
+</form>

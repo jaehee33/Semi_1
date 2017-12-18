@@ -10,8 +10,11 @@ public class StyleListService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		ActionForward actionForward = new ActionForward();
+		
+		
+		
+		return actionForward;
 	}
 
 }
