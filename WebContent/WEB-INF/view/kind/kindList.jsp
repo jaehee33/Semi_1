@@ -15,10 +15,6 @@
  			var favor=$(this).attr("class");
  			if(favor=="btn btn-default"){
  				$(this).attr("class","btn btn-danger");
- 				$.get("styleList.style", function(data){
-
-
- 				});	
  			}else {
  				$(this).attr("class","btn btn-default");
  			}
@@ -39,6 +35,9 @@
 			</tr>
 			<tr>
 				<td><h3><a href="./kindView.kind?num=${k.num}">${k.style}</a></h3></td>
+				<c:if test="${not empty member}">
+					<td><button type="button" class="btn btn-default" id="btn">♡</button></td>
+				</c:if>
 			</tr>
 			<tr>
 				<c:forEach items="${storelist}" var="s">

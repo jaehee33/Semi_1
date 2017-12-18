@@ -5,20 +5,22 @@
 <%
 	Calendar cal=Calendar.getInstance();
 	int year=cal.get(Calendar.YEAR);
-	int month=cal.get(Calendar.MONTH);
+	int month=cal.get(Calendar.MONTH)+1;
 	int date=cal.get(Calendar.DATE);
 	int hour=cal.get(Calendar.HOUR_OF_DAY);
 	int min=cal.get(Calendar.MINUTE);
 	
-	cal.set(year, month, date, hour, min);
-	int day=cal.get(Calendar.DAY_OF_WEEK);
+	cal.set(year, month-1, 1);
+	int start=1;
 	int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+	int week=cal.get(Calendar.DAY_OF_WEEK);
 	
 	request.setAttribute("year", year); //년
-	request.setAttribute("month", month+1); //월
-	request.setAttribute("date", date); //일
-	request.setAttribute("day", day); 
+	request.setAttribute("month", month); //월
+	request.setAttribute("date", date);
+	request.setAttribute("start", start); 
 	request.setAttribute("end", end); //해당 월에 끝나는 날짜
+	request.setAttribute("week",week);
 	request.setAttribute("hour", hour);
 	request.setAttribute("min", min);
 %>
@@ -30,11 +32,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript">
+	$(function(){
+		
+	});
+</script>
 <style type="text/css">
 .all{
-		margin-top: 25px;
-	}
+	margin-top: 25px;
+}
+.container{
+	width: 50%;
+}	
 
 #calendar {
     width:100%;
@@ -69,9 +78,6 @@
     color: gray;
 }
 
-.container{
-	width: 50%;
-}	
 table {
 	width: 100%;
    	border: 1px solid black; 
@@ -96,9 +102,13 @@ table {
 #time_title{
 	color: gray;
 }
-#bookdate{
-	margin-top: 25px;
+#bk_date{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align:center;
+	font-weight: bold;
 }
+
 </style>
 </head>
 <body>
@@ -106,36 +116,40 @@ table {
 	<form action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
 		<h3>예약하기</h3>
 		<div class="form-group">
-			<div id="calendar-wrap">
-				<div id="calendar">
-					<ul class="weekdays">
-						<li>일</li>
-						<li>월</li>
-						<li>화</li>
-						<li>수</li>
-						<li>목</li>
-						<li>금</li>
-						<li>토</li>
-					</ul>
-					<ul class="days">
-							<c:forEach begin="0" end="${day}" var="i">
-								<li></li>
-							</c:forEach>
-						<c:forEach begin="1" end="${end}" var="i">
+			<div id="calendar">
+				<ul class="weekdays">
+					<li>일</li>
+					<li>월</li>
+					<li>화</li>
+					<li>수</li>
+					<li>목</li>
+					<li>금</li>
+					<li>토</li>
+				</ul>
+				<ul class="days">
+					<c:forEach begin="1" end="${week-1}" var="i">
+						<li></li>
+					</c:forEach>
+					<c:forEach begin="1" end="${end}" var="i">
+						<c:if test="${date==i}">
 							<li class="day">
-								<div class="date" id="day${i}">${i}</div>
+								<div class="date" id="day&${i}">${i}</div>
 							</li>
-						</c:forEach>
-					</ul>
-				</div> <!-- calendar 끝 -->
-			</div> <!-- calendar-wrap 끝 -->
-			
-			<!-- 선택한 날짜 나오게 하는것 -->
-			<div id="bookdate">
-				<input type="hidden" name="bk_date" value="${year}-${month}-${date}"> 
-				${year}년 ${month}월 ${date}일 
+						</c:if>
+						<c:if test="${date != i}">
+							<li class="day">
+								<div class="date" id="day&${i}">${i}</div>
+							</li>
+						</c:if>
+					</c:forEach>
+				</ul>
 			</div>
+			<!-- calendar 끝 -->
 
+			<!-- 선택한 날짜 나오게 하는것 -->
+			<div id=bk_date>
+			
+			</div>
 			<div class="all">
 				<table>
 					<thead>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +10,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(function(){
+	$(function(){		
+		$.get('../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&page="View"', function(data){
+			$("#favor").html(data);
+		});	
 		$("#btn").click(function(){
 			var favor=$(this).attr("class");
 			if(favor=="btn btn-default"){
 				$(this).attr("class","btn btn-danger");
+				
 			}else {
 				$(this).attr("class","btn btn-default");
 			}
@@ -34,7 +39,7 @@
 			</tr>
 			<tr>
 				<td><h3>${kind.style}</h3></td>
-				<td><button id="btn" type="button" class="btn btn-default">♡</button></td>	
+				<td id="favor"><td>
 			</tr>
 			<tr>
 				<td>${kind.store}</td>
