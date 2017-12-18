@@ -24,7 +24,7 @@ public class ScoreWriteService implements Action {
 		if(method.equals("POST")) {
 			ScoreDAO scoreDAO = new ScoreDAO();
 			ScoreDTO scoreDTO = new ScoreDTO();
-			String filePath = request.getServletContext().getRealPath("upload");
+			/*String filePath = request.getServletContext().getRealPath("upload");
 			File file = new File(filePath);
 			if(!file.exists()) {
 				file.mkdirs();
@@ -50,7 +50,7 @@ public class ScoreWriteService implements Action {
 			} catch (IOException e2) {
 				e2.printStackTrace();
 			}
-			
+			*/
 			int num=0;
 			try {
 				num = scoreDAO.getNum();
