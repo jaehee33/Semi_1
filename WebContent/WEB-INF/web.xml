@@ -17,18 +17,7 @@
     <servlet-name>style</servlet-name>
     <url-pattern>*.style</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-  <servlet>
- 
-=======
-	<servlet>
-  <display-name>Semi_1</display-name>
-  <session-config>
-    <session-timeout>50</session-timeout>
-  </session-config> 
-  </servlet>
-  <servlet>
->>>>>>> hello_1
+<servlet>
     <servlet-name>coupon</servlet-name>
     <servlet-class>com.iu.control.CouponController</servlet-class>
     <init-param>
