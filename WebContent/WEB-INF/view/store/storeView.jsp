@@ -6,6 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.get("../map/map2.jsp?area=${store.area}",function(data){
+		$("#maps").html(data);
+	});
+});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -15,6 +22,8 @@
 <p>holiday : ${store.holiday}</p>
 <p>area : ${store.area}</p>
 <p>storetel : ${store.storetel}</p>
+<div id="maps"></div>
+
 
 <c:if test="${sessionScope.member.id eq store.id}">
 <a href='./storeDelete.store?id=${store.id}'>delete</a>
