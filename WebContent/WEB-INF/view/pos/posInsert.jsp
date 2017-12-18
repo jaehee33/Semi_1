@@ -13,7 +13,7 @@
 <c:forEach items="${kindlist}" var="b" varStatus="i">
 <input type="hidden" id="price${i.index}" value="${b.price}" class="e">
 </c:forEach>
-<input type="number" name="pos_import" value="">
+<input type="number" name="pos_import" value="" class="imoney">
 <input type="hidden" name="expend" value="0">
 <input type="button" value="btn" id="btn">
 </form>
