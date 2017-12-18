@@ -1,0 +1,14 @@
+@charset "UTF-8";
+*{
+	margin:  0;
+	padding: 0;
+}
+
+#hdtop{
+	width: 100%;
+	height: 80px;
+	/* position: fixed; */
+	background-color: #5F4B8B;
+	color: white;
+	z-index: 990;
+}
