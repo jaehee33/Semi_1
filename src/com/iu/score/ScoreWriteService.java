@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.member.MemberDTO;
 import com.iu.notice.NoticeDAO;
 import com.iu.notice.NoticeDTO;
 import com.oreilly.servlet.MultipartRequest;
@@ -24,33 +25,8 @@ public class ScoreWriteService implements Action {
 		if(method.equals("POST")) {
 			ScoreDAO scoreDAO = new ScoreDAO();
 			ScoreDTO scoreDTO = new ScoreDTO();
-			/*String filePath = request.getServletContext().getRealPath("upload");
-			File file = new File(filePath);
-			if(!file.exists()) {
-				file.mkdirs();
-			}
-			
-			int maxSize=1024*1024*10;
-			
-			try {
-				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-				scoreDTO.setId(multi.getParameter("id"));
-				scoreDTO.setTitle(multi.getParameter("title"));
-				scoreDTO.setContents(multi.getParameter("contents"));
-				System.out.println("저장된 경로 : "+filePath);
-				Enumeration<Object> names=multi.getFileNames();
-				while(names.hasMoreElements()) {
-					String name=(String)names.nextElement();
-					String fileName = multi.getFilesystemName(name);
-					String oriName = multi.getOriginalFileName(name);
-					System.out.println("fileName :"+fileName);
-					System.out.println("oriName : "+oriName);
-				}
-				
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
-			*/
+			String id = ((MemberDTO)request.getSession().getAttribute("member")).getId();
+			scoreDTO.setId(id);
 			int num=0;
 			try {
 				num = scoreDAO.getNum();
@@ -58,6 +34,8 @@ public class ScoreWriteService implements Action {
 				e1.printStackTrace();
 			}
 			scoreDTO.setNum(num);
+			scoreDTO.setContents(request.getParameter("contents"));
+			scoreDTO.setPoint(Double.valueOf(request.getParameter("star-input")));
 			
 			int result=0;
 			try {
