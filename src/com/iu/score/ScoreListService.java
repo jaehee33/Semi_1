@@ -25,7 +25,6 @@ public class ScoreListService implements Action {
 		MakeRow makeRow = new MakeRow();
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
-		
 		ScoreDAO scoreDAO = new ScoreDAO();
 		int totalCount;
 		try {

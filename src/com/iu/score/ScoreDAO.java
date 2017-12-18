@@ -26,14 +26,13 @@ public class ScoreDAO {
 	
 	public int insert(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql="insert into score values(?,?,?,?,sysdate,0,?)";
+		String sql="insert into score values(?,?,?,sysdate,0,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, scoreDTO.getNum());
 		st.setString(2, scoreDTO.getId());
-		st.setString(3, scoreDTO.getTitle());
-		st.setString(4, scoreDTO.getContents());
-		st.setInt(5, scoreDTO.getPoint());
+		st.setString(3, scoreDTO.getContents());
+		st.setDouble(4, scoreDTO.getPoint());
 		
 		int result = st.executeUpdate();
 		DBConnector.disConnect(st, con);
@@ -53,11 +52,10 @@ public class ScoreDAO {
 			scoreDTO = new ScoreDTO();
 			scoreDTO.setNum(rs.getInt("num"));
 			scoreDTO.setId(rs.getString("id"));
-			scoreDTO.setTitle(rs.getString("title"));
 			scoreDTO.setContents(rs.getString("contents"));
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
 			scoreDTO.setHit(rs.getInt("hit"));
-			scoreDTO.setPoint(rs.getInt("point"));
+			scoreDTO.setPoint(rs.getDouble("point"));
 			
 			}
 		
@@ -86,11 +84,10 @@ public class ScoreDAO {
 			ScoreDTO scoreDTO = new ScoreDTO();
 			scoreDTO.setNum(rs.getInt("num"));
 			scoreDTO.setId(rs.getString("Id"));
-			scoreDTO.setTitle(rs.getString("title"));
 			scoreDTO.setContents(rs.getString("contents"));
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
 			scoreDTO.setHit(rs.getInt("hit"));
-			scoreDTO.setPoint(rs.getInt("point"));
+			scoreDTO.setPoint(rs.getDouble("point"));
 			ar.add(scoreDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
@@ -109,12 +106,11 @@ public class ScoreDAO {
 	
 	public int update(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql = "update score set title=?, contents=? point=? where num=?";
+		String sql = "update score set contents=? point=? where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, scoreDTO.getTitle());
-		st.setString(2, scoreDTO.getContents());
-		st.setInt(3, scoreDTO.getPoint());
-		st.setInt(4, scoreDTO.getNum());
+		st.setString(1, scoreDTO.getContents());
+		st.setDouble(2, scoreDTO.getPoint());
+		st.setInt(3, scoreDTO.getNum());
 		
 		int result = st.executeUpdate();
 		return result;
@@ -149,19 +145,6 @@ public class ScoreDAO {
 		return result;
 	}
 	
-	
-	public int point(int num) throws Exception {
-		Connection con = DBConnector.getConnect();
-		String sql = "insert into score value(?)";
-		
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, num);
-		
-		int result= st.executeUpdate();
-		DBConnector.disConnect(st, con);
-		
-		return result;
-	}
 	
 	
 	public int getTotalPoint(ScoreDTO scoreDTO) throws Exception {
