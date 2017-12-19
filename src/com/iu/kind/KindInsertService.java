@@ -24,6 +24,7 @@ public class KindInsertService implements Action {
 		ActionForward actionForward=new ActionForward();
 		String method=request.getMethod();
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
+		if(memberDTO!=null) {
 		if(method.equals("POST")) {
 			StoreDAO storeDAO=new StoreDAO();
 			StoreDTO storeDTO=null;
@@ -111,7 +112,12 @@ public class KindInsertService implements Action {
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/kind/kindInsertForm.jsp");
 		}
-
+		}else {
+			request.setAttribute("message", "로그인이 필요한 서비스입니다.");
+			request.setAttribute("path", "../member/memberLogin.member");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
+		}
 		return actionForward;
 	}
 
