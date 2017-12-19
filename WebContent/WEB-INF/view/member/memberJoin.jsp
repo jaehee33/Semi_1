@@ -1,14 +1,15 @@
 <%@page import="com.iu.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="<%=request.getContextPath()%>/css/join.css" rel="stylesheet">
 <title>Insert title here</title>
 <script type="text/javascript">
 	window.onload = function() {
@@ -70,28 +71,56 @@
 
 </head>
 <body>
-<h1>join</h1>
-<form name="frm" action="./memberJoin.member" method="post">
-<input type="hidden" name="idCheck" value="0">
-<p>ID: <input type="text" name="id" id="id" placeholder="Enter id">
-<input type="button" value="중복확인" class="btn" id="overlap">
+	<h1>JOIN US</h1>
 
-<p>PW: <input type="password" name="pw" id="pw" class="n" placeholder="Enter pw">
-PW확인: <input type="password" name="pw" id="pw2" class="n"><span id="pwcheck2"></span>
-</p>
+	<form name="frm" action="./memberJoin.member" method="post">
+		<input type="hidden" name="idCheck" value="0">
+		<table>
+			<tr>
+				<th><a>*</a>아이디:</th>
+				<td><input type="text" name="id" id="id" placeholder="ID" class="box">
+					<input type="button" value="중복확인" class="btn" id="overlap"></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a>비밀번호:</th>
+				<td><input type="password" name="pw" id="pw" class="n box" placeholder="Password"></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a>비밀번호 확인:</th>
+				<td><input type="password" name="pw" id="pw2" class="n box"><span id="pwcheck2"></span></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a>이름:</th>
+				<td><input type="text" name="name" class="box"></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a>생일:</th>
+				<td><input type="date" name="birth" class="box"></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a>연락처:</th>
+				<td><input type="text" name="phone" class="box"></td>
+			</tr>
+			
+			<tr>
+				<th><a>*</a></th> 
+				<td>고객용 <input type="radio" name=job id="j1" value="B" checked="checked">
+				가맹점용 <input type="radio" name=job id="j2" value="S"></td>
+			</tr>
 
-<p>NAME: <input type="text" name="name"></p>
-<p>BIRTH: <input type="date" name="birth"></p>
-<p>PHONE: <input type="text" name="phone"></p>
-<p>
-Customer<input type="radio" name=job id="j1" value="B" checked="checked">
-Store<input type="radio" name=job id="j2" value="S"></p>
 
-<p><input type="button" value="Join" id="check" class= "btn">
+		</table>
 
-<a href="../index.jsp"><input type="button" value="돌아가기"></a>
-</p>
-</form>
+		<p>
+			<input type="button" value="가입하기" id="check" class="btn"> <a
+				href="../index.jsp"><input type="button" value="돌아가기"></a>
+		</p>
+	</form>
 </body>
 </html>
 
