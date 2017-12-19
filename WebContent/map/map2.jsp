@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div id="map" style="width:100%;height:350px;"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae88eb2c4820eb8b91b58f0cfc8ea570&libraries=services"></script>
 <script>
+$(function(){
+	
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -41,4 +43,7 @@ geocoder.addressSearch('${area}', function(result, status) {
         map.setCenter(coords);
     } 
 });    
+	
+});
 </script>
+<div id="map" style="width:100%;height:350px;"></div>
