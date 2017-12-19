@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="<%=request.getContextPath()%>/css/join.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/member/join.css" rel="stylesheet">
 <title>Insert title here</title>
 <script type="text/javascript">
 	window.onload = function() {
@@ -54,13 +54,21 @@
 			if (n[0].value != n[1].value) {
 				result2 = false;
 			}
+		var rr = false;
+		var r=document.getElementsByClassName("r");
+		for (var j=0; j<r.length; j++){
+			if( !r[j].checked){
+				rr=true;
+			}
+		}
 
-			if (result && result2 && idCheck=="1") {
+			if (result && result2 && idCheck=="1" && rr) {
 				document.frm.submit();
 			} else {
-				alert("모두 입력하세요");
+				alert("모두 입력 또는 체크하세요");
 			}
 		});
+		
 		
 		var id=document.getElementById("id");
 		id.addEventListener("change", function() {
@@ -71,6 +79,7 @@
 
 </head>
 <body>
+	<%@ include file="../temp/header.jsp"%>
 	<h1>JOIN US</h1>
 
 	<form name="frm" action="./memberJoin.member" method="post">
@@ -117,10 +126,10 @@
 		
 		<table id="infotable1">
 		<tr>
-		<td><p class="total1"><input type="checkbox"> 전체동의</p></td>
+		<td><p class="total1"><input type="checkbox" class="r" checked="checked"> 전체동의</p></td>
 		</tr>
 		<tr>
-		<td><p class="total2"><input type="checkbox"> 이용약관
+		<td><p class="total2"><input type="checkbox" class="r" checked="checked"> 이용약관
 		<textarea  placeholder="인터넷 쇼핑몰 『(주)세미헤어샵』회원 약관
 
 제1조(목적)
@@ -337,7 +346,7 @@
 		"></textarea></p></td>
 		</tr>
 				<tr>
-		<td><p class="total2"><input type="checkbox"> 개인정보 수집 및 이용 안내</p></td>
+		<td><p class="total2"><input type="checkbox" class="r" checked="checked"> 개인정보 수집 및 이용 안내</p></td>
 		</tr>
 		</table>
 		
@@ -364,10 +373,7 @@
 		</tr>
 		</table>
 		
-		<p>
-			<input type="button" value="가입하기" id="check" class="btn2"> 
-			<a href="../index.jsp"><input type="button" value="돌아가기" class="btn2"></a>
-		</p>
+		<p><input type="button" value="가입하기" id="check" class="btn2"></p>
 	</form>
 </body>
 </html>
