@@ -5,10 +5,20 @@
 }
 
 #hdtop{
-	width: 100%;
-	height: 80px;
-	/* position: fixed; */
-	background-color: #5F4B8B;
-	color: white;
-	z-index: 990;
+
+}
+#logo{
+	margin-top: 30px;
+	margin-left: 200px;
+
+}
+#login{
+float: right;
+color: white;
+text-decoration: none;
+}
+#notice{
+float: right;
+color: white;
+text-decoration: none;
 }
