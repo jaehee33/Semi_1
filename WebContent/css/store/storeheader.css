@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#storeheader{
+width: 200px;
+height: 1000px;	
+border: 1px #5F4B8B solid;
+}
+
+#storeheader > img{
+	display: inline-block;
+}
+
+a{
+	display: inline-block;
+}
+
+h1{
+	display: inline-block;
+}
