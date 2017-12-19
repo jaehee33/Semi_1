@@ -10,6 +10,7 @@ import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.kind.KindDAO;
 import com.iu.kind.KindDTO;
+import com.iu.member.MemberDTO;
 
 public class PosInsertService implements Action {
 
@@ -17,6 +18,8 @@ public class PosInsertService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
 		String method=request.getMethod();
+		MemberDTO memberDTO=(MemberDTO)(request.getSession().getAttribute("member"));
+		if(memberDTO!=null) {
 		PosDAO posDAO=new PosDAO();
 		if(method.equals("GET")) {
 			KindDAO kindDAO=new KindDAO();
@@ -74,7 +77,12 @@ public class PosInsertService implements Action {
 			
 			
 		}
-		
+		}else {
+			request.setAttribute("message", "로그인이 필요한 서비스입니다.");
+			request.setAttribute("path", "../member/memberLogin.member");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
+		}
 		return actionForward;
 	}
 

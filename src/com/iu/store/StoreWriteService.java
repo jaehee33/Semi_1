@@ -18,6 +18,8 @@ public class StoreWriteService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
+		MemberDTO memberDTO=(MemberDTO)(request.getSession().getAttribute("member"));
+		if(memberDTO!=null) {
 		String method=request.getMethod();
 
 		if(method.equals("GET")) {
@@ -72,6 +74,13 @@ public class StoreWriteService implements Action {
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			}
 
+		}
+			
+		}else {
+			request.setAttribute("message", "로그인이 필요한 서비스입니다.");
+			request.setAttribute("path", "../member/memberLogin.member");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		}
 
 		return actionForward;

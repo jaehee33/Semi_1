@@ -15,6 +15,7 @@ public class StoreIndexService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
+		
 		StoreDAO storeDAO=new StoreDAO();
 		FilesDAO filesDAO=new FilesDAO();
 		ArrayList<FilesDTO> ar=null;

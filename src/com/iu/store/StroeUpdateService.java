@@ -9,6 +9,7 @@ import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.files.FilesDAO;
 import com.iu.files.FilesDTO;
+import com.iu.member.MemberDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -17,6 +18,8 @@ public class StroeUpdateService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
+		MemberDTO memberDTO=(MemberDTO)(request.getSession().getAttribute("member"));
+		if(memberDTO!=null) {
 		String method=request.getMethod();
 		StoreDAO storeDAO=new StoreDAO();
 		String id="";
@@ -79,7 +82,12 @@ public class StroeUpdateService implements Action {
 			}
 			
 		}
-		
+		}else {
+			request.setAttribute("message", "로그인이 필요한 서비스입니다.");
+			request.setAttribute("path", "../member/memberLogin.member");
+			actionForward.setCheck(true);
+			actionForward.setPath("../WEB-INF/view/common/result.jsp");
+		}
 		
 		return actionForward;
 	}

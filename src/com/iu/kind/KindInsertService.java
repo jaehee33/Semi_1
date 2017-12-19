@@ -24,6 +24,7 @@ public class KindInsertService implements Action {
 		ActionForward actionForward=new ActionForward();
 		String method=request.getMethod();
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
+		
 		if(method.equals("POST")) {
 			StoreDAO storeDAO=new StoreDAO();
 			StoreDTO storeDTO=null;
