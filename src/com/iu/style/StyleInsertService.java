@@ -18,7 +18,7 @@ public class StyleInsertService implements Action {
 		String method=request.getMethod();
 
 		if(method=="POST") {
-			String view=request.getParameter("view");
+			String page=request.getParameter("page");
 			StyleDAO styleDAO=new StyleDAO();
 			int count=0;
 			int result=0;
@@ -37,11 +37,10 @@ public class StyleInsertService implements Action {
 					styleDTO.setStore(request.getParameter("store"));
 					result=styleDAO.insert(styleDTO);
 					
-					if(view.equals("view")) {
+					if(page.equals("view")) {
 						if(result>0) {
-							request.setAttribute("num", styleDTO.getNum());
 							actionForward.setCheck(false);
-							actionForward.setPath("./kindView.kind");
+							actionForward.setPath("./kindView.kind?num="+styleDTO.getNum());
 						}else {
 							request.setAttribute("message", "추가 실패");
 							request.setAttribute("path", "./kindView.kind");
@@ -51,7 +50,7 @@ public class StyleInsertService implements Action {
 					}else {
 						if(result>0) {
 							actionForward.setCheck(false);
-							actionForward.setPath("../WEB-INF/view/common/result.jsp");
+							actionForward.setPath("./kindFList.kind");
 						}else {
 							request.setAttribute("message", "추가 실패");
 							request.setAttribute("path", "./kinFList.kind");

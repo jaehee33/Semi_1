@@ -11,9 +11,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function(){		
-		$.get('../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&page="View"', function(data){
+/* 		$.get('../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&page="View"', function(data){
 			$("#favor").html(data);
-		});	
+		});	 */
 		$("#btn").click(function(){
 			var favor=$(this).attr("class");
 			if(favor=="btn btn-default"){
@@ -39,7 +39,7 @@
 			</tr>
 			<tr>
 				<td><h3>${kind.style}</h3></td>
-				<td id="favor"><td>
+				<td id="favor"><button type="button" class="btn btn-default" id="btn">♡</button><td>
 			</tr>
 			<tr>
 				<td>${kind.store}</td>
