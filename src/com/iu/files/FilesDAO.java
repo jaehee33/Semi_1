@@ -16,13 +16,14 @@ public class FilesDAO {
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
 		ResultSet rs = st.executeQuery();
-		rs.next();
-		FilesDTO filesDTO = new FilesDTO();
+		FilesDTO filesDTO=null;
+		if(rs.next()) {
+		filesDTO = new FilesDTO();
 		filesDTO.setNum(num);
 		filesDTO.setFname(rs.getString("fname"));
 		filesDTO.setOname(rs.getString("oname"));
 		filesDTO.setStore(rs.getString("store"));
-		
+		}
 		DBConnector.disConnect(rs, st, con);
 		return filesDTO;		
 	}
