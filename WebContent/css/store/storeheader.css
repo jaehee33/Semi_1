@@ -1,19 +1,24 @@
 @charset "UTF-8";
 
 #storeheader{
+margin: 20px;
 width: 200px;
-height: 1000px;	
+height: 700px;	
 border: 1px #5F4B8B solid;
+display: 
 }
 
 #storeheader > img{
 	display: inline-block;
+	margin: 10px;
 }
 
-a{
-	display: inline-block;
+#storeheader > a{
+	display: block;
+	height: 50px;
 }
 
-h1{
-	display: inline-block;
+.font{
+	margin: 0px auto;
+	width: 180px;
 }

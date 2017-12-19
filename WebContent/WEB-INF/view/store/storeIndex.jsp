@@ -16,10 +16,11 @@
 	<div></div>
 	<c:forEach items="${filelist}" var="f">
 		<c:if test="${store.store eq f.store}">
-			<img src="../upload/${f.fname}" width="200px" height="150px">
+			<img src="../upload/${f.fname}" width="180px" height="130px">
 		</c:if>
 	</c:forEach>
-	<h1>storeName : ${store.store}</h1>
+	<h3 class="font">store</h3>
+	<h1 class="font">${store.store}</h1>
 	<a href="../kind/kindCList.kind?id=${store.id}">메뉴</a>
 	<a href="./storeView.store?id=${store.id}">정보</a>
 	<a href="../score/scoreList.score">리뷰</a>
