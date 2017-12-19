@@ -13,8 +13,10 @@ public class StyleDAO {
 		String sql="select nvl(count(num),0) from style";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
-
-		int count=rs.getInt(1);
+		int count=0;
+		if(rs.next()) {
+		count=rs.getInt(1);
+		}
 		DBConnector.disConnect(rs, st, con);
 		return count;
 	}
