@@ -7,8 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="<%=request.getContextPath()%>/css/member/idCheck.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script type="text/javascript">
 window.onload=function(){
 	var btn=document.getElementById("btn");
@@ -28,7 +28,12 @@ window.onload=function(){
 		<button>중복확인</button>
 		
 	</form>
-	
+	<%boolean ch=true;%>
+	<c:if test="${id eq ''}">
+		<h3>사용 불가능한 ID 입니다.</h3>
+	<%ch=false; %>
+	</c:if>
+	<%if(ch){ %>
 	<c:if test="${check eq true}">
 		<h3>${message}</h3>
 	<button id="btn"  class="btn btn-link" >사용하기</button>
@@ -36,6 +41,7 @@ window.onload=function(){
 	<c:if test="${check eq false}">
 		<h3>${message}</h3>
 	</c:if>
+	<%}%>
 
 
 </body>
