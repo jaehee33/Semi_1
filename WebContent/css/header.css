@@ -1,24 +1,87 @@
 @charset "UTF-8";
-*{
-	margin:  0;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {
+	margin: 0;
 	padding: 0;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
-#hdtop{
-
+#menu{
+	padding:10px;
+	display: inline-block;
+	
 }
-#logo{
+
+#hdtop {
+	height: 120px;
+	border-bottom: #5F4B8B 2px solid;
+}
+
+#logo {
 	margin-top: 30px;
-	margin-left: 200px;
+	margin-left: 30px;
+	display: inline-block;
+}
 
+#member {
+	display: inline-block;
+	float: right;
+	margin-right: 30px;
 }
-#login{
-float: right;
-color: white;
-text-decoration: none;
+
+#notice {
+	float: right;
+	color: white;
+	text-decoration: none;
 }
-#notice{
-float: right;
-color: white;
-text-decoration: none;
+
+.dropbtn {
+	background-color: white;
+	color: gray;
+	padding: 16px;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+	text-decoration: none;
+	font-weight: bold;
+}
+.dropbtn:hover {
+	color: #5F4B8B;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: white;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+	display: inline-block;
+}
+
+.dropdown:hover .dropbtn {
+	color: #5F4B8B;
+	text-decoration: none;
 }
