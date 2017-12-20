@@ -80,6 +80,7 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
+	<section id="main">
 	<h1>JOIN US</h1>
 
 	<form name="frm" action="./memberJoin.member" method="post">
@@ -375,6 +376,7 @@
 		
 		<p><input type="button" value="가입하기" id="check" class="btn2"></p>
 	</form>
+	</section>
 </body>
 </html>
 

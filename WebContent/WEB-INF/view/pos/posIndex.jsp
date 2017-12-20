@@ -109,6 +109,7 @@ $(function(){
 <title>Insert title here</title>
 </head>
 <body>
+<section id="main">
 <%@ include file="../temp/header.jsp" %>
 <div id="total"></div><input type="button" id="totalbtn" value="total">
 <a href="./posList.pos?store=${store}">poslist</a>

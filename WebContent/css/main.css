@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#main{
+width: 100%;
+height: 1000px;
+background-image: url("/Semi_1/img/background/cream_pixels.png");
+background-repeat: repeat;
+display: block;
+margin-top: 100px;
+}
