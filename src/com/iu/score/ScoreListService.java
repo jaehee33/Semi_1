@@ -16,7 +16,8 @@ public class ScoreListService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
-
+		String storeName = request.getParameter("store");
+		
 		int curPage=1;
 		try {
 			curPage= Integer.parseInt(request.getParameter("curPage"));
@@ -27,23 +28,26 @@ public class ScoreListService implements Action {
 		makeRow.setSearch(request.getParameter("search"));
 		ScoreDAO scoreDAO = new ScoreDAO();
 		int totalCount;
+		List<ScoreDTO> ar=null;
+		Pageing pageing=null;
 		try {
 			totalCount = scoreDAO.getTotalCount(makeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
 			makeRow=makePage.getMakeRow(makeRow);
-			List<ScoreDTO> ar=scoreDAO.selectList(makeRow);
+			ar=scoreDAO.selectList(makeRow);
 			
-			Pageing pageing = makePage.pageing();
+			pageing = makePage.pageing();
 			
-			request.setAttribute("board", "score");
-			request.setAttribute("list", ar);
-			request.setAttribute("page", pageing);
-			request.setAttribute("make", makeRow);
 		} catch (Exception e) {
 			e.printStackTrace();
 		
 		}
 		
+		request.setAttribute("store", storeName);
+		request.setAttribute("board", "score");
+		request.setAttribute("list", ar);
+		request.setAttribute("page", pageing);
+		request.setAttribute("make", makeRow);
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/score/scoreList.jsp");
 		

@@ -6,6 +6,15 @@ public class ScoreDTO extends BoardDTO {
 
 	private Double point;
 	private int rec;
+	private String store;
+
+	public String getStore() {
+		return store;
+	}
+
+	public void setStore(String store) {
+		this.store = store;
+	}
 
 	public int getRec() {
 		return rec;
@@ -22,7 +31,7 @@ public class ScoreDTO extends BoardDTO {
 	public void setPoint(Double point) {
 		this.point = point;
 	}
-
+	
 	
 
 	

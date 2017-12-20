@@ -10,7 +10,7 @@
 	$(function() {
 		
 		$(function(){
-			window.onload
+			
 			
 		});
 		
@@ -52,6 +52,9 @@
 </script>
 </head>
 <body>
+
+<h1>${store}</h1>
+
 <form action="./scoreWrite.score" method="post">
 				<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}"></p>
 				<span class="star-input"> <span class="input">
@@ -74,21 +77,11 @@
 							<b>0</b>점
 						</output>
 				</span>
-
-				<textarea rows="" cols="" name="contents">${view.contents}</textarea>
-				
-				<c:choose>
-					<c:when test="${not empty member}">
+				<input type="hidden" name="store" value="${store}">
+				<textarea rows="" cols="" name="contents"></textarea>
+						
 						<button id="btn">Submit</button>
-					</c:when>
-					
-					<c:when test="${empty member}">
-						<button id="redo" onclick="location.href='../member/memberLogin.member'">Submit</button>
-					</c:when>
-				</c:choose>
-				
-				
-				
+		
 		</form>
 </body>
 </html>

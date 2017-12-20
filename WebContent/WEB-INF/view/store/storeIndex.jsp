@@ -23,7 +23,7 @@
 	<h1 class="font">${store.store}</h1>
 	<a href="../kind/kindCList.kind?id=${store.id}">메뉴</a>
 	<a href="./storeView.store?id=${store.id}">정보</a>
-	<a href="../score/scoreList.score">리뷰</a>
+	<a href="../score/scoreList.score?store=${store.store}">리뷰</a>
 	<a href="../index.jsp">index</a>
 	</div>
 </body>

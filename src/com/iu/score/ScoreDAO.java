@@ -16,8 +16,10 @@ public class ScoreDAO {
 		String sql ="select board_seq.nextval from dual";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
-		rs.next();
-		int num = rs.getInt(1);
+		int num=0;
+		if(rs.next()) {
+			num = rs.getInt(1);
+		}
 		DBConnector.disConnect(rs, st, con);
 		
 		return num;
@@ -26,13 +28,14 @@ public class ScoreDAO {
 	
 	public int insert(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql="insert into score values(?,?,?,sysdate,0,?)";
+		String sql="insert into score values(?,?,?,sysdate,0,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, scoreDTO.getNum());
 		st.setString(2, scoreDTO.getId());
 		st.setString(3, scoreDTO.getContents());
 		st.setDouble(4, scoreDTO.getPoint());
+		st.setString(5, scoreDTO.getStore());
 		
 		int result = st.executeUpdate();
 		DBConnector.disConnect(st, con);
@@ -56,7 +59,7 @@ public class ScoreDAO {
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
 			scoreDTO.setHit(rs.getInt("hit"));
 			scoreDTO.setPoint(rs.getDouble("point"));
-			
+			scoreDTO.setStore(rs.getString("store"));
 			}
 		
 		DBConnector.disConnect(rs, st, con);
@@ -88,6 +91,7 @@ public class ScoreDAO {
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
 			scoreDTO.setHit(rs.getInt("hit"));
 			scoreDTO.setPoint(rs.getDouble("point"));
+			scoreDTO.setStore(rs.getString("store"));
 			ar.add(scoreDTO);
 		}
 		DBConnector.disConnect(rs, st, con);
@@ -149,8 +153,9 @@ public class ScoreDAO {
 	
 	public int getTotalPoint(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql="select avg(point) from score ";
+		String sql="select avg(point) from score where store=?";
 		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, scoreDTO.getStore());
 		
 		int result= st.executeUpdate();
 		DBConnector.disConnect(st, con);	

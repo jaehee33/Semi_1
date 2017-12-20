@@ -129,7 +129,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	
 	$(function() {
 		
 		var kind = '${make.kind}';
@@ -144,16 +143,26 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
-		$.get("./scoreWrite.score", function(callback){
+		$.get("./scoreWrite.score?store=${store}", function(callback){
 			$("#score").html(callback);
 			
 		});
+		
+		$("#delete").click(function(){
+			window.location.href="${board}Delete.${board}?num=${view.num}";
+		}); 
+		$("#update").click(function(){
+			window.location.href="${board}Update.${board}?num=${view.num}"
+		});
+		$("#backpage").click(function(){
+			window.location.href="${board}List.${board}?num=${View.num}"
+		});		
 		
 	});
 </script>
 </head>
 <body>
-	<h1>${board}</h1>
+	<h1>${store}</h1>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
 			<input type="hidden" name="curPage"> <select name="kind">
@@ -190,6 +199,13 @@
 	</table>
 
 
+	<c:if test="${member.id eq 'admin'}">
+	<button id="delete" type="button" >Delete</button>
+	</c:if>
+	<c:if test="${member.id}">
+	<button id="update"type="button">Update</button>
+	</c:if>
+
 
 	<c:if test="${page.curBlock gt 1}">
 		<input type="button" class="list" title="${page.startNum-1}"
@@ -204,7 +220,6 @@
 		<input type="button" class="list" title="${page.lastNum+1}"
 			value="[다음]">
 	</c:if>
-
 
 	<a href="../index.jsp">BackPage</a>
 </body>
