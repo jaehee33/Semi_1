@@ -25,9 +25,9 @@
 	<h1 class="font">${store.store}</h1>
 	</div>
 	<ul id="storeMenu">
-	<li><a href="../kind/kindCList.kind?id=${store.id}">메뉴</a></li>
-	<li><a href="./storeView.store?id=${store.id}">정보</a></li>
-	<li><a href="../score/scoreList.score">리뷰</a></li>
+	<li class="menuli"><a href="../kind/kindCList.kind?id=${store.id}">STYLE</a></li>
+	<li class="menuli"><a href="./storeView.store?id=${store.id}">INFORMATION</a></li>
+	<li class="menuli"><a href="../score/scoreList.score">REVIEW</a></li>
 	</ul>
 	</div>
 	</section>

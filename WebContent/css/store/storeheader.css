@@ -28,3 +28,30 @@ background-color: #5F4B8B;
 	width: 100%;
 	margin: 10px 0;
 }
+#storeMenu{
+text-align: center;
+margin: 100px auto;
+}
+
+.menuli{
+	height: 50px;
+}
+
+.menuli:hover{
+	background: white;
+	height: 50px;
+}
+
+.menuli > a{
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+.menuli:hover > a{
+	display: inline-block;
+	text-align: center;
+	color: #5F4B8B;
+	text-decoration: none;
+}

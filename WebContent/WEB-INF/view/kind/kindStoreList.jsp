@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
 <table>
 	<tr>
 		<td>kind</td>
@@ -27,5 +28,6 @@
 		</tr>
 	</c:forEach>
 </table>
+</section>
 </body>
 </html>
