@@ -59,7 +59,7 @@
 	background-position: 0 bottom;
 }
 
-.star-input>.input>label:hover ~label{
+.star-input>.input>label:hover ~label {
 	background-image: none;
 }
 
@@ -130,7 +130,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
+
 		var kind = '${make.kind}';
 		$(".kind").each(function() {
 			if ($(this).val() == kind) {
@@ -143,21 +143,21 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
-		$.get("./scoreWrite.score?store=${store}", function(callback){
+		$.get("./scoreWrite.score?store=${store}", function(callback) {
 			$("#score").html(callback);
-			
+
 		});
-		
-		$("#delete").click(function(){
-			window.location.href="${board}Delete.${board}?num=${view.num}";
-		}); 
-		$("#update").click(function(){
-			window.location.href="${board}Update.${board}?num=${view.num}"
+
+		$("#delete").click(function() {
+			window.location.href = "${board}Delete.${board}?num=${view.num}";
 		});
-		$("#backpage").click(function(){
-			window.location.href="${board}List.${board}?num=${View.num}"
-		});		
-		
+		$("#update").click(function() {
+			window.location.href = "${board}Update.${board}?num=${view.num}"
+		});
+		$("#backpage").click(function() {
+			window.location.href = "../index.jsp"
+		});
+
 	});
 </script>
 </head>
@@ -176,34 +176,35 @@
 		</form>
 	</div>
 
-<h3>한줄평()</h3>
+	<h3>한줄평()</h3>
 	<div id="score"></div>
-	<table>
+	<table class="table">
 		<thead>
-		<tr>
-			<th>ID</th>
-			<th>POINT</th>
-			<th>CONTENTS</th>
-		</tr>
-		<thead>
-		
-		<c:forEach items="${list}" var="i">
-		<tbody>
-		<tr>
-		<td>${i.id}</td>
-		<td>${i.point}</td>
-		<td>${i.contents}</td>
-		</tr>
-		</tbody>
-		</c:forEach>
+			<tr>
+				<th>ID</th>
+				<th>POINT</th>
+				<th>CONTENTS</th>
+			</tr>
+		</thead>
+
+			<c:forEach items="${list}" var="i">
+				<tbody>
+					<tr>
+						<td>${i.id}</td>
+						<td>${i.point}</td>
+						<td>${i.contents}</td>
+						<td>${i.reg_date}</td>
+					</tr>
+				</tbody>
+			</c:forEach>
 	</table>
 
 
 	<c:if test="${member.id eq 'admin'}">
-	<button id="delete" type="button" >Delete</button>
+		<button id="delete" type="button">Delete</button>
 	</c:if>
 	<c:if test="${member.id}">
-	<button id="update"type="button">Update</button>
+		<button id="update" type="button">Update</button>
 	</c:if>
 
 
@@ -221,6 +222,6 @@
 			value="[다음]">
 	</c:if>
 
-	<a href="../index.jsp">BackPage</a>
+	<button id="backpage">BackPage</button>
 </body>
 </html>

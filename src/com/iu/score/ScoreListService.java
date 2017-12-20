@@ -30,6 +30,7 @@ public class ScoreListService implements Action {
 		int totalCount;
 		List<ScoreDTO> ar=null;
 		Pageing pageing=null;
+		
 		try {
 			totalCount = scoreDAO.getTotalCount(makeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.member.MemberDTO;
-import com.iu.notice.NoticeDAO;
-import com.iu.notice.NoticeDTO;
 import com.iu.store.StoreDTO;
 import com.iu.use.UseDAO;
 import com.oreilly.servlet.MultipartRequest;
@@ -35,7 +33,6 @@ public class ScoreWriteService implements Action {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-		
 		
 		if(method.equals("POST")) {
 			if(memberDTO==null) {

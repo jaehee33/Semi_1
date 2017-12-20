@@ -135,21 +135,6 @@ public class ScoreDAO {
 	}
 
 	
-	public int hit(int num) throws Exception{
-		Connection con = DBConnector.getConnect();
-		String sql ="update score set hit=hit+1 where num=?";
-
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, num);
-
-		int result = st.executeUpdate();
-
-		DBConnector.disConnect(st, con);
-
-		return result;
-	}
-	
-	
 	
 	public int getTotalPoint(ScoreDTO scoreDTO) throws Exception {
 		Connection con = DBConnector.getConnect();

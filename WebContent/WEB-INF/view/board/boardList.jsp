@@ -103,6 +103,6 @@
 	</c:if>
 	
 	<button type="button" class="btn" id="backpage">BackPage</button>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
 </body>
 </html>
