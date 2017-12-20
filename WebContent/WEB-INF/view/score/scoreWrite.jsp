@@ -1,9 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html><script type="text/javascript">
-	
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
 	$(function() {
+		
+		$(function(){
+			window.onload
+			
+		});
+		
+		
 		// star rating
 		var starRating = function(){
 		  var $star = $(".star-input"),
@@ -37,12 +48,10 @@
 		};
 		starRating();
 	
-
-		
 	});
 </script>
-
-
+</head>
+<body>
 <form action="./scoreWrite.score" method="post">
 				<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}"></p>
 				<span class="star-input"> <span class="input">
@@ -67,7 +76,19 @@
 				</span>
 
 				<textarea rows="" cols="" name="contents">${view.contents}</textarea>
-				<c:if test="${not empty member}">
+				
+				<c:choose>
+					<c:when test="${not empty member}">
 						<button id="btn">Submit</button>
-					</c:if>
+					</c:when>
+					
+					<c:when test="${empty member}">
+						<button id="redo" onclick="location.href='../member/memberLogin.member'">Submit</button>
+					</c:when>
+				</c:choose>
+				
+				
+				
 		</form>
+</body>
+</html>
