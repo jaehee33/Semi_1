@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae88eb2c4820eb8b91b58f0cfc8ea570&libraries=services"></script>
@@ -53,6 +54,7 @@ geocoder.addressSearch('${store.area}', function(result, status) {
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
 <p>id : ${store.id}</p>
 <p>storeName : ${store.store}</p>
 <p>holiday : ${store.holiday}</p>
@@ -68,6 +70,6 @@ geocoder.addressSearch('${store.area}', function(result, status) {
 <a href="../pos/posIndex.pos?store=${store.store}">pos</a>
 <a href="../kind/kindIndex.kind">kind</a>
 </c:if>
-
+</section>
 </body>
 </html>

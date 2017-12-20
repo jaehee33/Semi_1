@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -29,6 +30,7 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
 <div>
 		<form name="frm" action="./storeList.store">
 			<input type="hidden" name="curPage">
@@ -59,5 +61,6 @@
 	<c:if test="${page.curBlock lt page.totalBlock}">
 	<input type="button" value="[다음]" title="${page.lastNum+1}" class="list">
 	</c:if>
+	</section>
 </body>
 </html>
