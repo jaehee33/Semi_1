@@ -52,9 +52,7 @@
 </script>
 </head>
 <body>
-
 <h1>${store}</h1>
-
 <form action="./scoreWrite.score" method="post">
 				<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}"></p>
 				<span class="star-input"> <span class="input">
