@@ -55,6 +55,8 @@ geocoder.addressSearch('${store.area}', function(result, status) {
 <body>
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
+<%@ include file="./storeIndex.jsp" %>
+<div id="storeView">
 <p>id : ${store.id}</p>
 <p>storeName : ${store.store}</p>
 <p>holiday : ${store.holiday}</p>
@@ -70,6 +72,7 @@ geocoder.addressSearch('${store.area}', function(result, status) {
 <a href="../pos/posIndex.pos?store=${store.store}">pos</a>
 <a href="../kind/kindIndex.kind">kind</a>
 </c:if>
+</div>
 </section>
 </body>
 </html>
