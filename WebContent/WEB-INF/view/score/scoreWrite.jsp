@@ -9,12 +9,6 @@
 <script type="text/javascript">
 	$(function() {
 		
-		$(function(){
-			
-			
-		});
-		
-		
 		// star rating
 		var starRating = function(){
 		  var $star = $(".star-input"),
@@ -51,10 +45,10 @@
 	});
 </script>
 </head>
-<body>
+<body>	
 <h1>${store}</h1>
 <form action="./scoreWrite.score" method="post">
-				<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}"></p>
+				<p>ID : ${member	.id} <input type="hidden" name="id" value="${member.id}"></p>
 				<span class="star-input"> <span class="input">
 							<input type="radio" name="star-input" id="p1" value="0.5"><label
 							for="p1">0.5</label> <input type="radio" name="star-input"

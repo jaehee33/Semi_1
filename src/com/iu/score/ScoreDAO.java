@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
-import com.iu.board.BoardDTO;
 import com.iu.util.DBConnector;
 import com.iu.util.MakeRow;
 
@@ -68,20 +68,18 @@ public class ScoreDAO {
 	}
 	
 	
-	public ArrayList<ScoreDTO> selectList(MakeRow makeRow) throws Exception{
+	public List<ScoreDTO> selectList(MakeRow makeRow) throws Exception{
 		Connection con = DBConnector.getConnect();
-		
+		List<ScoreDTO> ar = new ArrayList<ScoreDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from score where "+makeRow.getKind()+" like ? order by ref desc, step asc) N) "
+				+ "(select * from score where "+makeRow.getKind()+" like ? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, "%"+makeRow.getSearch()+"%");
 		st.setInt(2, makeRow.getStartRow());
 		st.setInt(3, makeRow.getLastRow());
-		
 		ResultSet rs = st.executeQuery();
-		ArrayList<ScoreDTO> ar = new ArrayList<>();
 		
 		while(rs.next()) {
 			ScoreDTO scoreDTO = new ScoreDTO();
