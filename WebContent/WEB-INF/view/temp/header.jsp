@@ -13,6 +13,7 @@
 				width="100px" height="80px"
 				src="<%=request.getContextPath()%>/img/logo_pantone.png">
 			</a>
+			<!-- <p>SEMI HAIR</p> -->
 		</div>
 
 		<div id="member">
@@ -30,15 +31,10 @@
 		</div>
 
 		<div id="menu">
-			<a class="dropbtn"
-				href="<%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a>
-			<a class="dropbtn"
-				href="<%=request.getContextPath()%>/search/locationSearch.search">내주변</a>
-			<a class="dropbtn"
-				href="<%=request.getContextPath()%>/kind/kindFList.kind">STYLE</a>
-
+			<a class="dropbtn text"
+				href="#">ABOUT</a>
 			<div class="dropdown">
-				<a class="dropbtn"
+				<a class="dropbtn text"
 					href="<%=request.getContextPath()%>/store/storeList.store">STORE</a>
 				<div class="dropdown-content">
 					<a href="<%=request.getContextPath()%>/store/storeList.store">STORE</a>
@@ -46,9 +42,14 @@
 						href="<%=request.getContextPath()%>/search/locationSearch.search">내주변</a>
 				</div>
 			</div>
+			<a class="dropbtn text"
+				href="<%=request.getContextPath()%>/kind/kindFList.kind">STYLE</a>
 
+
+			<a class="dropbtn text" 
+				href="<%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a>
 			<div class="dropdown">
-				<a class="dropbtn"
+				<a class="dropbtn text"
 					href="<%=request.getContextPath()%>/notice/noticeList.notice">NOTICE</a>
 				<div class="dropdown-content">
 					<a href="<%=request.getContextPath()%>/notice/noticeList.notice">공지사항</a>

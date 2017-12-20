@@ -1,33 +1,59 @@
 @charset "UTF-8";
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/css?family=Poppins:300);
+
 
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Poppins','Nanum Gothic', sans-serif;
 }
+
+
 
 #menu{
-	padding:10px;
 	display: inline-block;
-	
+	position: fixed;
+	right: 35%;
+	margin: 30px 0px;
 }
 
+
+
 #hdtop {
-	height: 120px;
+	background-color: white;
+	position: fixed;
+	top:0px;
+	height: 98px;
+	width: 100%;
 	border-bottom: #5F4B8B 2px solid;
 }
 
 #logo {
-	margin-top: 30px;
-	margin-left: 30px;
+	margin-top: 5px;
+	margin-left: 550px;
 	display: inline-block;
+	font-size: 35px;
+	text-decoration: none;
 }
 
+/* #logo >p{
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 800;
+	color:#5F4B8B;
+	position: fixed;
+	top: 20px;
+	left: 130px;
+} */
 #member {
 	display: inline-block;
 	float: right;
 	margin-right: 30px;
+}
+#member > a{
+	color: #5F4B8B;
+	text-decoration: none;
 }
 
 #notice {
@@ -38,14 +64,20 @@
 
 .dropbtn {
 	background-color: white;
-	color: gray;
-	padding: 16px;
+	color: #000;
+	margin: 20px 0px;
+	padding: 25px;
 	font-size: 20px;
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 600;
 }
+
+.text{
+	height: 98px;
+}
+
 .dropbtn:hover {
 	color: #5F4B8B;
 	text-decoration: none;
