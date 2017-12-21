@@ -21,32 +21,6 @@ public class NoticeWriteService implements Action {
 		if(method.equals("POST")) {
 			NoticeDAO noticeDAO = new NoticeDAO();
 			NoticeDTO noticeDTO = new NoticeDTO();
-			String filePath = request.getServletContext().getRealPath("upload");
-			File file = new File(filePath);
-			if(!file.exists()) {
-				file.mkdirs();
-			}
-			
-			int maxSize=1024*1024*10;
-			
-			try {
-				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-				noticeDTO.setId(multi.getParameter("id"));
-				noticeDTO.setTitle(multi.getParameter("title"));
-				noticeDTO.setContents(multi.getParameter("contents"));
-				System.out.println("저장된 경로 : "+filePath);
-				Enumeration<Object> names=multi.getFileNames();
-				while(names.hasMoreElements()) {
-					String name=(String)names.nextElement();
-					String fileName = multi.getFilesystemName(name);
-					String oriName = multi.getOriginalFileName(name);
-					System.out.println("fileName :"+fileName);
-					System.out.println("oriName : "+oriName);
-				}
-				
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
 			
 			int num=0;
 			try {

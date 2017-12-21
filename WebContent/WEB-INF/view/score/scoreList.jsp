@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 .star-input>.input, .star-input>.input>label:hover, .star-input>.input>input:focus+label,
 	.star-input>.input>input:checked+label {
@@ -124,13 +129,8 @@
 	vertical-align: middle;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
 		var kind = '${make.kind}';
 		$(".kind").each(function() {
 			if ($(this).val() == kind) {
@@ -143,9 +143,9 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
+		
 		$.get("./scoreWrite.score?store=${store}", function(callback) {
 			$("#score").html(callback);
-
 		});
 
 		$("#delete").click(function() {
@@ -162,10 +162,11 @@
 </script>
 </head>
 <body>
-	<h1>${store}</h1>
+	<h2>${store}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
-			<input type="hidden" name="curPage"> <select name="kind">
+			<input type="hidden" name="curPage"> 
+			<select name="kind">
 				<option class="kind" value="all">All</option>
 				<option class="kind" value="pick">PICK</option>
 				<option class="kind" value="cut">CUT</option>
@@ -173,6 +174,8 @@
 				<option class="kind" value="clinic">CLINIC</option>
 				<option class="kind" value="styling">STYLE</option>
 			</select>
+			<input type="text" name="search" value="${make.search}">
+			<button>Search</button>
 		</form>
 	</div>
 
@@ -181,18 +184,21 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th>NUM</th>
 				<th>ID</th>
-				<th>POINT</th>
 				<th>CONTENTS</th>
+				<th>POINT</th>
+				<th>DATE</th>
 			</tr>
 		</thead>
 
 			<c:forEach items="${list}" var="i">
 				<tbody>
 					<tr>
+						<td>${i.num}</td>
 						<td>${i.id}</td>
-						<td>${i.point}</td>
 						<td>${i.contents}</td>
+						<td>${i.point}</td>
 						<td>${i.reg_date}</td>
 					</tr>
 				</tbody>
@@ -222,6 +228,6 @@
 			value="[다음]">
 	</c:if>
 
-	<button id="backpage">BackPage</button>
+	<button type="button" class="btn" id="backpage">BackPage</button>
 </body>
 </html>

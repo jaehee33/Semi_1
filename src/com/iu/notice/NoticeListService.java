@@ -26,7 +26,6 @@ public class NoticeListService implements Action {
 		MakeRow makeRow = new MakeRow();
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
-		
 		NoticeDAO noticeDAO = new NoticeDAO();
 		int totalCount;
 		try {

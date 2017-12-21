@@ -58,7 +58,6 @@
 				<td>ID</td>
 			</c:if>
 			<th>TITLE</th>
-			<th>CONTENTS</th>
 			<th>DATE</th>
 			<th>HIT</th>
 		</tr>
@@ -73,8 +72,8 @@
 				</c:if>
 				<td><c:catch>
 						<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-					</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
-				<td>${i.contents}</td>
+					</c:catch> 
+					<a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
 				<td>${i.reg_date}</td>
 				<td>${i.hit}</td>
 			</tr>

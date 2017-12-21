@@ -19,12 +19,10 @@ public class ScoreWriteService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		ActionForward actionForward = new ActionForward();
-		
 		MemberDTO memberDTO= (MemberDTO)request.getSession().getAttribute("member");
-		
 		String method=request.getMethod();
+		
 		StoreDTO storeDTO = new StoreDTO();
 		UseDAO useDAO = new UseDAO();
 		try {
@@ -44,7 +42,6 @@ public class ScoreWriteService implements Action {
 			ScoreDAO scoreDAO = new ScoreDAO();
 			ScoreDTO scoreDTO = new ScoreDTO();
 			String id = ((MemberDTO)request.getSession().getAttribute("member")).getId();
-			scoreDTO.setId(id);
 			
 			int num=0;
 			try {
@@ -53,6 +50,7 @@ public class ScoreWriteService implements Action {
 				e1.printStackTrace();
 			}
 			
+			scoreDTO.setId(id);
 			scoreDTO.setNum(num);
 			scoreDTO.setContents(request.getParameter("contents"));
 			scoreDTO.setPoint(Double.valueOf(request.getParameter("star-input")));
@@ -79,6 +77,7 @@ public class ScoreWriteService implements Action {
 			
 		}else {
 			String store= request.getParameter("store");
+			
 			request.setAttribute("store", store );
 			request.setAttribute("board", "score");
 			actionForward.setCheck(true);
