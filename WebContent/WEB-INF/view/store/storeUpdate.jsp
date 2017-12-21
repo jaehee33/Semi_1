@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<div id="storeView">
 <form action="storeUpdate.store" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${store.id}" >
 <p>StoreName : <input type="text" name="store" value="${store.store}" readonly="readonly"></p>
@@ -19,5 +20,6 @@
 <p>file : <input type="file" name="file"></p>
 <button>Write</button>
 </form>
+</div>
 </body>
 </html>
