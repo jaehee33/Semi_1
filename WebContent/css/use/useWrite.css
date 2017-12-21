@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.form-group .rsv_l {
+	float: left;
+	width: 500px;
+}
+
+.form-group .rsv_r {
+    position: relative;
+    z-index: 1;
+    float: right;
+    width: 500px;
+    padding: 0 20px;
+}
+
+.wrap{
+	margin-bottom: 25px;
+}
+#calendar {
+	width: 100%;
+	margin-bottom: 25px;
+}
+
+#calendar ul {
+	padding-bottom: 25px;
+}
+
+#calendar li {
+	display: block;
+	float: left;
+	width: 14.342%;
+	padding: 5px;
+	margin-right: -1px;
+}
+
+#calendar ul.weekdays li {
+	text-align: center;
+	border: none;
+	font-size: 13px;
+	color: #918EDB;
+}
+
+#calendar .days li:hover .date {
+	background: #918EDB;
+	color: #fff;
+}
+
+#calendar .date {
+	text-align: center;
+	color: gray;
+}
+
+table {
+	width: 100%;
+	border: 1px solid black;
+	background-color: #ffffff;
+}
+
+#reserve_title {
+	color: gray;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+
+.info {
+	text-align: right;
+	padding-right: 15px;
+	font-size: large;
+	font-weight: bold;
+}
+
+#price {
+	color: #918EDB;
+	text-align: right;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+.title {
+	color: gray;
+}
+
+#today {
+	font-weight: bold;
+	text-align: center;
+	color: #ffffff;
+	background-color: #918EDB;
+	
+}
+
+#finish{
+	float: right;
+}

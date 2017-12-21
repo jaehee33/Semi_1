@@ -1,12 +1,15 @@
 package com.iu.use;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.coupon.CouponDAO;
+import com.iu.coupon.CouponDTO;
 import com.iu.member.MemberDTO;
 import com.iu.pos.PosDAO;
 import com.iu.pos.PosDTO;
@@ -34,7 +37,7 @@ public class UseWriteService implements Action {
 				// TODO: handle exception
 			}
 
-			if(method=="POST") {
+			if(method=="POST") {				
 				UseDTO useDTO=new UseDTO();
 				useDTO.setNum(num);
 				useDTO.setId(memberDTO.getId());
@@ -75,6 +78,17 @@ public class UseWriteService implements Action {
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}
 			}else {
+				CouponDAO couponDAO = new CouponDAO();
+				ArrayList<CouponDTO> ar = null;
+				
+				try {
+					ar = (ArrayList<CouponDTO>)couponDAO.selectList(memberDTO.getId());
+				} catch (Exception e) {
+				}
+				
+				if(ar != null) {
+					request.setAttribute("list", ar);					
+				}
 				request.setAttribute("store", store);
 				request.setAttribute("style", style);
 				request.setAttribute("price", price);
