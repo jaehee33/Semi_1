@@ -57,12 +57,19 @@ geocoder.addressSearch('${store.area}', function(result, status) {
 <section id="main">
 <%@ include file="./storeIndex.jsp" %>
 <div id="storeView">
-<p>id : ${store.id}</p>
-<p>storeName : ${store.store}</p>
-<p>holiday : ${store.holiday}</p>
-<p>area : ${store.area}</p>
-<p>storetel : ${store.storetel}</p>
-<div id="map" style="width:100%;height:350px;"></div>
+<c:forEach items="${filelist}" var="f">
+		<c:if test="${store.store eq f.store}">
+			<img src="../upload/${f.fname}" width="400px" height="200px">
+		</c:if>
+	</c:forEach>
+	<ul>
+<li>id : ${store.id}</li>
+<li>storeName : ${store.store}</li>
+<li>holiday : ${store.holiday}</li>
+<li>area : ${store.area}</li>
+<li>storetel : ${store.storetel}</li>
+</ul>
+<div id="map" style="width:100%;height:400px;"></div>
 
 
 <c:if test="${sessionScope.member.id eq store.id}">

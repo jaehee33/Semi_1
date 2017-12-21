@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
 #storeheader{
-width: 120px;
+width: 70px;
 height: 100%;	
-border-right: 1px #5F4B8B solid;
 position: fixed;
-background-color: #5F4B8B;
+background-color: white;
 }
 
 #storeheader > img{
@@ -19,7 +18,7 @@ background-color: #5F4B8B;
 }
 
 .font{
-	color: white;
+	color: #5F4B8B;
 	text-align: center;
 }
 
@@ -34,17 +33,20 @@ margin: 100px auto;
 }
 
 .menuli{
-	height: 50px;
+	 -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg); /* Standard syntax */
+  	list-style-type: none;
+  	width: 70px;
+  	padding: 27px 0px;
+  	text-align: center;
+    
 }
 
-.menuli:hover{
-	background: white;
-	height: 50px;
-}
 
 .menuli > a{
 	display: inline-block;
-	color: white;
+	color: #5F4B8B;
 	text-decoration: none;
 	text-align: center;
 }
@@ -53,6 +55,7 @@ margin: 100px auto;
 	display: inline-block;
 	text-align: center;
 	color: #5F4B8B;
+	font-weight:bold;
 	text-decoration: none;
 }
 
