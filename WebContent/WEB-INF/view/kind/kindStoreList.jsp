@@ -10,6 +10,7 @@
 <body>
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
+<%@ include file="../store/storeIndex.jsp"%>
 <table>
 	<tr>
 		<td>kind</td>

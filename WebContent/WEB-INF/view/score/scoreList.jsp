@@ -162,6 +162,9 @@
 </script>
 </head>
 <body>
+<%@ include file="../temp/header.jsp" %>
+<section id="main">
+<%@ include file="../store/storeIndex.jsp"%>
 	<h2>${store}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
@@ -229,5 +232,6 @@
 	</c:if>
 
 	<button type="button" class="btn" id="backpage">BackPage</button>
+	</section>
 </body>
 </html>
