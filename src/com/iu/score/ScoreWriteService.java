@@ -19,12 +19,10 @@ public class ScoreWriteService implements Action {
 
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		ActionForward actionForward = new ActionForward();
-		
 		MemberDTO memberDTO= (MemberDTO)request.getSession().getAttribute("member");
-		
 		String method=request.getMethod();
+		
 		StoreDTO storeDTO = new StoreDTO();
 		UseDAO useDAO = new UseDAO();
 		try {

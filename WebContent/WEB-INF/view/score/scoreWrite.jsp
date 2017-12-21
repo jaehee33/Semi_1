@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../SE2/js/HuskyEZCreator.js"
+	charset="utf-8"></script>
 <script type="text/javascript">
 	$(function() {
 		
@@ -42,38 +46,43 @@
 		};
 		starRating();
 	
+		$("#savebutton").click(
+				function() {
+			
+					$("#frm").submit();
+				})
+		
+		
 	});
 </script>
 </head>
-<body>	
-<h1>${store}</h1>
-<form action="./scoreWrite.score" method="post">
-				<p>ID : ${member	.id} <input type="hidden" name="id" value="${member.id}"></p>
-				<span class="star-input"> <span class="input">
-							<input type="radio" name="star-input" id="p1" value="0.5"><label
-							for="p1">0.5</label> <input type="radio" name="star-input"
-							id="p2" value="1.0"><label for="p2">1.0</label> <input
-							type="radio" name="star-input" id="p3" value="1.5"><label
-							for="p3">1.5</label> <input type="radio" name="star-input"
-							id="p4" value="2.0"><label for="p4">2.0</label> <input
-							type="radio" name="star-input" id="p5" value="2.5"><label
-							for="p5">2.5</label> <input type="radio" name="star-input"
-							id="p6" value="3.0"><label for="p6">3.0</label> <input
-							type="radio" name="star-input" id="p7" value="3.5"><label
-							for="p7">3.5</label> <input type="radio" name="star-input"
-							id="p8" value="4.0"><label for="p8">4.0</label> <input
-							type="radio" name="star-input" id="p9" value="4.5"><label
-							for="p9">4.5</label> <input type="radio" name="star-input"
-							id="p10" value="5.0"><label for="p10">5.0</label>
-					</span> <output for="star-input">
-							<b>0</b>점
-						</output>
-				</span>
-				<input type="hidden" name="store" value="${store}">
-				<textarea rows="" cols="" name="contents"></textarea>
-						
-						<button id="btn">Submit</button>
-		
-		</form>
+<body>
+	<h1>${store}</h1>
+	<form id="frm" action="./scoreWrite.score" method="post">
+		<p>
+			ID : ${member.id} <input type="hidden" name="id" value="${member.id}">
+		</p>
+		<span class="star-input"> <span class="input"> <input
+				type="radio" name="star-input" id="p1" value="0.5"><label
+				for="p1">0.5</label> <input type="radio" name="star-input" id="p2"
+				value="1.0"><label for="p2">1.0</label> <input type="radio"
+				name="star-input" id="p3" value="1.5"><label for="p3">1.5</label>
+				<input type="radio" name="star-input" id="p4" value="2.0"><label
+				for="p4">2.0</label> <input type="radio" name="star-input" id="p5"
+				value="2.5"><label for="p5">2.5</label> <input type="radio"
+				name="star-input" id="p6" value="3.0"><label for="p6">3.0</label>
+				<input type="radio" name="star-input" id="p7" value="3.5"><label
+				for="p7">3.5</label> <input type="radio" name="star-input" id="p8"
+				value="4.0"><label for="p8">4.0</label> <input type="radio"
+				name="star-input" id="p9" value="4.5"><label for="p9">4.5</label>
+				<input type="radio" name="star-input" id="p10" value="5.0"><label
+				for="p10">5.0</label>
+		</span> <output for="star-input">
+				<b>0</b>점
+			</output>
+		</span> <input type="hidden" name="store" value="${store}">
+		<textarea rows="" cols="" name="contents"></textarea>
+			<input type="button" value="SUBMIT" id="savebutton">
+	</form>
 </body>
 </html>
