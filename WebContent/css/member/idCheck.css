@@ -1,0 +1,40 @@
+@charset "UTF-8";
+*{
+	margin:  0;
+	padding: 0;
+}
+h1{
+	text-align: center;
+	color: gray;
+	padding: 10px;
+	font-size: xx-large;
+	margin-bottom: 10px;
+}
+form{
+	margin-left: 75px;
+}
+.box{
+	width: 150px;
+	height: 20px;
+	border: 1px solid lightgray;
+
+}
+button{
+	width: 80px;
+	height: 22px;
+	background-color: gray;
+	color: white;
+	border: none;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+	margin-left: 3px;
+}
+h3{
+	text-align: center;
+	margin-top: 30px;
+}
+#btn{
+	margin-left: 150px;
+	background-color: #5f4b8b;
+}

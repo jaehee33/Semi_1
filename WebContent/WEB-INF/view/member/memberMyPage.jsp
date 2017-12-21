@@ -1,53 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>Insert title here</title>
-<link href="/Semi_1/css/mypage.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/member/mypage.css" rel="stylesheet">
+<title>마이페이지</title>
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-<header>
-<h1>나의 정보</h1>
-<div id="info">
-<ul>
-<li>이름: ${m2.name}<span><c:if test="${m2.job eq 'B' }"> [고객]
-</c:if><c:if test="${m2.job eq 'S' }"> [점주]</c:if></span></li>
-<li>생일: ${m2.birth}</li>
-<li>번호: ${m2.phone}</li>
-</ul>
+	<header>
+		<h2>나의 상세 정보</h2>
+	</header>
+	<nav>
+		
+
+	</nav>
+	
+<div id="content">
+	<div class="col" id="col1">
+		<div class="box" id="box1">
+			<img src="<%=request.getContextPath()%>/img/member/img_avatar1.png">
+			<ul>
+				<li><h4> ${m2.name} 
+				<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if><c:if test="${m2.job eq 'S' }"> [가맹주]</c:if></span>
+				</h4></li>
+				<li><h4>${m2.birth}</h4></li>
+				<li><h4>${m2.phone}</h4></li>
+			</ul>
+		</div>
+		<div class="box" id="box3">
+			<p><a href="../favor/favorStyle.favor">스타일즐겨찾기보기</a></p> 
+		</div>
+		<div class="box" id="box5">
+		<p><a href="./memberUpdate.member?id=${m2.id}">정보수정</a></p>
+		</div>
+		<div id="box7">
+		<a href="../index.jsp">처음으로</a> 
+		</div>
+	</div>
+		
+	<div class="col" id="col2">
+		<div class="box" id="box2">
+			<c:if test="${sessionScope.member.job eq 'B'}">
+				<p><a href="../use/useList.use">예약/취소</a></p>
+			</c:if>
+			<c:if test="${sessionScope.member.job eq 'S'}">
+			<c:if test="${empty store}">
+				<p><a href="../store/storeWrite.store">가맹점 등록하기</a></p>
+			</c:if>
+			<c:if test="${not empty store}">
+				<p><a href="../store/storeIndex.store?id=${sessionScope.member.id}">가맹점관리</a></p>
+			</c:if>
+		</c:if>
+		</div>
+		<div class="box" id="box4">
+			<p><a href="../favor/favorStore.favor">가게 즐겨찾기보기</a></p>
+		</div>
+		<div class="box" id="box6">
+			<p><a href="./memberDelete.member">회원탈퇴</a></p>
+		</div>
+	</div>
 </div>
 
-</header>
-<nav>
 
-</nav>
-<article>
-
-</article>
-
-
-<a href="../index.jsp">처음으로</a>
-<a href="../favor/favorStyle.favor">스타일 즐겨찾기보기</a>
-<a href="../favor/favorStore.favor">가게 즐겨찾기보기</a>
-<a href="./memberUpdate.member?id=${m2.id}">memberUpdate</a>
-<a href="./memberDelete.member">memberDelete</a>
-<hr>
-<c:if test="${sessionScope.member.job eq 'B'}">
-<a href="../use/useList.use">예약/취소</a>
-</c:if>
-
-<c:if test="${sessionScope.member.job eq 'S'}">
-<c:if test="${empty store}">
-<a href="../store/storeWrite.store">storeWrite</a>
-</c:if>
-<c:if test="${not empty store}">
-<a href="../store/storeIndex.store?id=${sessionScope.member.id}">storeIndex</a>
-</c:if>
-</c:if>
 </body>
 </html>
