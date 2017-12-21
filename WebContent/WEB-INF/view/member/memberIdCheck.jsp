@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디 중복체크</title>
 <link href="<%=request.getContextPath()%>/css/member/idCheck.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -22,12 +22,12 @@ window.onload=function(){
 </script>
 </head>
 <body>
-	<h1>ID Check</h1>
+	<h1>아이디 중복확인</h1>
 	<form action="memberIdCheck.member" name="frm">
-		<input type="text" name="id" value="${id}">
+		<input type="text" name="id" class="box" value="${id}">
 		<button>중복확인</button>
-		
 	</form>
+	
 	<%boolean ch=true;%>
 	<c:if test="${id eq ''}">
 		<h3>사용 불가능한 ID 입니다.</h3>

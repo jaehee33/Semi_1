@@ -27,6 +27,7 @@ for(int i=0;i<ar.length;i++){
 <link href="/Semi_1/css/login.css" rel="stylesheet">
 </head>
 <body>
+	<%@ include file="../temp/header.jsp"%>
 <div class="container">
 <h1>Login</h1>
 
@@ -43,8 +44,8 @@ for(int i=0;i<ar.length;i++){
       <label><input type="checkbox" id="remember" name="remember" value="remember"> Remember me</label>
     </div>
     <p><button type="submit" class="btn btn-default">Login</button></p>
-    <!---------------------------- 카카오로그인 시작 ---------------------------->
-    <p>
+<!---------------------------- 카카오로그인 시작 ---------------------------->
+<p>
 		<a id="kakao-login-btn"></a>
 		<a href="http://developers.kakao.com/logout"></a>
 		<script type='text/javascript'>
@@ -55,8 +56,7 @@ for(int i=0;i<ar.length;i++){
 			Kakao.Auth.createLoginButton({
 				container : '#kakao-login-btn',
 				success : function(authObj) {
-					var refreshToken = Kakao.Auth.getRefreshToken();
-					Kakao.Auth.setAccessToken(accessTokenFromServer);
+				
 					alert(JSON.stringify(authObj));
 				},
 				fail : function(err) {

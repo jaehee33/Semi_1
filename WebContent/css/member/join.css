@@ -5,18 +5,23 @@
 }
 h1{
 	margin-top: 100px;
-	margin-bottom: 30px;
 	text-align: center;
 	color: gray;
+	padding: 10px;
+	font-size: xx-large;
+}
+h6{
+	text-align: center;
+	margin-bottom: 10px;
 }
 a{
 	color: red;
 }
-table{
+form{
 	width: 800px;
+	background-color: white;
 	margin: auto;
 	display: block;
-	
 }
 #jointable{
 	border-top: 2px solid black;
@@ -70,6 +75,7 @@ textarea{
 #infotable2{
 	border: 1px solid lightgray;
 	margin-bottom: 30px;
+	padding: 0px;
 }
 #infotable2 td, #infotable2 th{
 		height: 80px;

@@ -26,12 +26,12 @@ public class MemberIdCheckService implements Action {
 			
 			if(check) {
 				request.setAttribute("id", id);
-				request.setAttribute("message", "사용가능한 id 입니다.");
+				request.setAttribute("message", "사용가능한 ID 입니다.");
 				request.setAttribute("check", check);
 
 			}else {
 				request.setAttribute("id", id);
-				request.setAttribute("message", "중복된 id입니다.");
+				request.setAttribute("message", "중복된 ID 입니다.");
 				request.setAttribute("check", check);
 			}
 			actionForward.setCheck(true);

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+*{
+	margin:  0;
+	padding: 0;
+}
+h2{
+	margin-top: 100px;
+	text-align: center;
+	color: gray;
+	padding: 10px;
+	font-size: xx-large;
+}

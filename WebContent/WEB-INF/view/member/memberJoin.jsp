@@ -1,16 +1,12 @@
-<%@page import="com.iu.member.MemberDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="<%=request.getContextPath()%>/css/member/join.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>회원 가입</title>
 <script type="text/javascript">
 	window.onload = function() {
 		var btn = document.getElementById("overlap");
@@ -54,11 +50,11 @@
 			if (n[0].value != n[1].value) {
 				result2 = false;
 			}
-		var rr = false;
+		var rr = true;
 		var r=document.getElementsByClassName("r");
 		for (var j=0; j<r.length; j++){
 			if( !r[j].checked){
-				rr=true;
+				rr=false;
 			}
 		}
 
@@ -81,21 +77,21 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="main">
-	<h1>JOIN US</h1>
-
+	<h1>회원가입</h1>
+<h6>세미헤어샵에 가입하면 회원만을 위한 다양한 혜택과 서비스를 누리실 수 있습니다.  24시간 쉽고 편리하게 예약하세요!</h6>
 	<form name="frm" action="./memberJoin.member" method="post">
 		<input type="hidden" name="idCheck" value="0">
 		
 		<table id="jointable">
 			<tr>
 				<th><a>* </a>아이디:</th>
-				<td><input type="text" name="id" id="id" placeholder="ID" class="box">
+				<td><input type="text" name="id" id="id" placeholder=" ID" class="box">
 					<input type="button" value="중복확인" class="btn" id="overlap"></td>
 			</tr>
 			
 			<tr>
 				<th><a>* </a>비밀번호:</th>
-				<td><input type="password" name="pw" id="pw" class="n box" placeholder="Password"></td>
+				<td><input type="password" name="pw" id="pw" class="n box" placeholder=" Password"></td>
 			</tr>
 			
 			<tr>
