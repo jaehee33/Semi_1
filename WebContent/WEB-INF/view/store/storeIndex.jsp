@@ -8,9 +8,11 @@
 	<div id="storeheader">
 	
 	<div id="storeName">
+
 	<h5 class="font">store</h5>
 	<h3 class="font">${store.store}</h3>
 	</div>
+
 	<ul id="storeMenu">
 	<li class="menuli"><a href="../kind/kindCList.kind?id=${store.id}">STYLE</a></li>
 	<li class="menuli"><a href="./storeView.store?id=${store.id}">INFO</a></li>

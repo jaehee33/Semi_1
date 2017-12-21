@@ -40,6 +40,7 @@ height: 26px;
 </head>
 <body>
 	<%@ include file="../temp/header.jsp" %>
+	<section id="main">
 	<div class="container">
 		<h3>예약/취소내역</h3>
 		<div>
@@ -95,5 +96,6 @@ height: 26px;
 		</div>
 	</div>
 </div>
+</section>
 </body>
 </html>
