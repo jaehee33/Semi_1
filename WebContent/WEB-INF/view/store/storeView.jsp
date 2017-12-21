@@ -11,6 +11,19 @@
 <script>
 $(function(){
 	
+	$.get("../favor/favorInsert.favor?store=${store.store}", function(data){
+		$("#favor").html(data);
+	});	
+	$("#favor").on("click","#btn",function(){
+		var favor=$(this).attr("class");
+		document.frm.submit();
+		if(favor=="btn btn-default"){
+			$("#btn").attr("class","btn btn-danger");
+		}else {
+			$("#btn").attr("class","btn btn-default");
+		}
+	});
+	
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표

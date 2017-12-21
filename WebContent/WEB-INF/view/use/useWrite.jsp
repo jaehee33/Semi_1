@@ -176,13 +176,20 @@ table {
 				<label id="time_title" for="sel1">시간 선택</label>
 				<select class="form-control" id="sel1" name="time">
 					<option>예약할 시간을 선택해주세요</option>
-					<option>11:30</option>
-					<!--  
-						<c:forEach begin="${hour+2}" end="18" var="i">
-							<option>${i}:00</option>	
-							<option>${i}:30</option>				
-						</c:forEach>
-						 -->
+					<c:choose>
+						<c:when test="${date}">
+							<c:forEach begin="${hour+1}" end="19" var="i">
+								<option>${i}:00</option>	
+								<option>${i}:30</option>				
+							</c:forEach>
+						</c:when>
+						<c:when test="${date}>">
+							<c:forEach begin="11" end="18" var="i">
+								<option>${i}:00</option>	
+								<option>${i}:30</option>				
+							</c:forEach>
+						</c:when>
+					</c:choose>
 				</select>
 			</div>
 			

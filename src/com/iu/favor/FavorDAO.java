@@ -7,15 +7,17 @@ import java.sql.ResultSet;
 import com.iu.util.DBConnector;
 
 public class FavorDAO {
-	//========================store========================
-	public int getCount() throws Exception{
+	
+	public int TotalCount() throws Exception{
 		Connection con = DBConnector.getConnect();
-		
+
 		String sql="select max(count) from favor";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
-		
-		int count=rs.getInt(1);
+		int count=0;
+		if(rs.next()) {
+		count=rs.getInt(1);
+		}
 		DBConnector.disConnect(rs, st, con);
 		return count;
 	}
@@ -31,11 +33,11 @@ public class FavorDAO {
 		return result;
 	}
 	
-	public int delete(FavorDTO favorDTO) throws Exception{
+	public int delete(String store) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="delete favor where id=?";
+		String sql="delete favor where store=?";
 		PreparedStatement pre = con.prepareStatement(sql);
-		pre.setString(1, favorDTO.getId());
+		pre.setString(1, store);
 		int result=pre.executeUpdate();
 		DBConnector.disConnect(pre, con);
 		return result;

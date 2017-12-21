@@ -10,7 +10,7 @@ public class StyleDAO {
 	public int TotalCount() throws Exception{
 		Connection con = DBConnector.getConnect();
 
-		String sql="select nvl(count(num),0) from style";
+		String sql="select max(count) from style";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
 		int count=0;
