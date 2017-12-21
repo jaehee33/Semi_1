@@ -14,10 +14,7 @@
 	<div id="storeName">
 	<h4 class="font">store</h4>
 	<h1 class="font">${store.store}</h1>
-	</div>
-	
-	<div id="favor">즐겨찾기</div>
-	
+	</div>	
 	<ul id="storeMenu">
 	<li class="menuli"><a href="../kind/kindCList.kind?id=${store.id}">STYLE</a></li>
 	<li class="menuli"><a href="./storeView.store?id=${store.id}">INFORMATION</a></li>
