@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.form-group {
+	background-color: #ffffff;
+}
+
 .form-group .rsv_l {
 	float: left;
 	width: 500px;
