@@ -122,7 +122,8 @@
 			</div>
 			<div id="mapArea">
 			
-			<h1> STORE AREA</h1>
+			<h1><img src="<%=request.getContextPath()%>/img/store/scissors.png"
+								style="width: 16px; height: 16px;">STORE AREA</h1>
 			<div id="map" style="width: 100%; height: 500px;"></div>
 			</div>
 
