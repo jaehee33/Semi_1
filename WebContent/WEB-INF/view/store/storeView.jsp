@@ -111,7 +111,7 @@
 						<div id="ownerMenu">
 						OwnerMenu
 				<div class="toggle" id="delete">delete</div>
-				<div class="toggle" id="update" >update</div>
+				<div class="toggle" id="update">update</div>
 
 				<div class="toggle" id="pos">pos</div>
 				<div class="toggle" id="kind">kind</div>
@@ -122,7 +122,8 @@
 			</div>
 			<div id="mapArea">
 			
-			<h1> STORE AREA</h1>
+			<h1><img src="<%=request.getContextPath()%>/img/store/scissors.png"
+								style="width: 20px; height: 20px;"> STORE AREA</h1>
 			<div id="map" style="width: 100%; height: 500px;"></div>
 			</div>
 
