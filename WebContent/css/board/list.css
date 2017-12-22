@@ -1,83 +1,15 @@
 @charset "UTF-8";
 
-*{
-	margin-left: 100px;
-	margin-right: 100px;
-	margin-top: 0px;
-	margin-bottom: 0px;	
-	pading: 0;
+body {
+	background-image: url("/Semi_1/img/background/cream_pixels.png");
 }
 
-header{
-	margin:0;	
+section {
+	height: 1000px;
+	background-color: white;
+	margin-top: 200px;
+	margin-left: 23%;
+	margin-right: 23%;
 }
 
-section{
-	margin:0;
-	margin-right:100px;
-}
-
-
-table#list thead th{
-	vertical-align: top;
-	color: #fff;
-	background: #5F4B8B;
-	margin: 20px 10px; 
-}
-a{
-	margin: 0;
-	padding: 0;
-}
-
-table#list td{
-	vertical-align: top;
-}
-
-h2{
-	margin-left: 100px;
-	font-size: 40px;
-	font-weight: bolder;
-	color: #5F4B8B;
-}
-
-h2 a:hover { 
-	color: black; text-decoration: none;
-}
-
-td a:hover{
-	color:#5F4B8B; text-decoration: none;
-} 
-
-td a:link { 
-	color: black; text-decoration: none;
-	}
-
-a:visited { color: #5F4B8B; text-decoration: none;}
-
-
-.table{
-	border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-}
-
-
-thead{
-
-}
-
-#title{
-	 text-align: left;
-}
-
-
-#search{
-	margin-left: 0;
-	margin-top:25px;
-	marign-bottom: 25px;
-}
-
-#list{
-		
-	
 }
