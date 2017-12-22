@@ -10,14 +10,10 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-	<header>
-		<h2>나의 상세 정보</h2>
-	</header>
-	<nav>
-		
+	<section id="main">
 
-	</nav>
-	
+		<h2>나의 상세 정보</h2>
+
 <div id="content">
 	<div class="col" id="col1">
 		<div class="box" id="box1">
@@ -31,7 +27,7 @@
 			</ul>
 		</div>
 		<div class="box" id="box3">
-			<p><a href="../favor/favorStyle.favor">스타일즐겨찾기보기</a></p> 
+			<p><a href="../style/styleList.style">스타일즐겨찾기보기</a></p> 
 		</div>
 		<div class="box" id="box5">
 		<p><a href="./memberUpdate.member?id=${m2.id}">정보수정</a></p>
@@ -51,12 +47,12 @@
 				<p><a href="../store/storeWrite.store">가맹점 등록하기</a></p>
 			</c:if>
 			<c:if test="${not empty store}">
-				<p><a href="../store/storeIndex.store?id=${sessionScope.member.id}">가맹점관리</a></p>
+				<p><a href="../store/storeView.store?id=${sessionScope.member.id}">가맹점관리</a></p>
 			</c:if>
 		</c:if>
 		</div>
 		<div class="box" id="box4">
-			<p><a href="../favor/favorStore.favor">가게 즐겨찾기보기</a></p>
+			<p><a href="../favor/favorList.favor">가게 즐겨찾기보기</a></p>
 		</div>
 		<div class="box" id="box6">
 			<p><a href="./memberDelete.member">회원탈퇴</a></p>
@@ -64,6 +60,6 @@
 	</div>
 </div>
 
-
+</section>
 </body>
 </html>

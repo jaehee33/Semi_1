@@ -1,3 +1,4 @@
+<%@page import="com.iu.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -115,7 +116,7 @@
 			</tr>
 			
 			<tr>
-				<th><a>* </a>이용목적:</th> 
+				<th><a>* </a>회원구분:</th> 
 				<td>고객용 <input type="radio" name=job id="j1" value="B" checked="checked">
 				가맹점용 <input type="radio" name=job id="j2" value="S"></td>
 			</tr>

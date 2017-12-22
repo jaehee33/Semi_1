@@ -32,7 +32,7 @@
 
 		<div id="menu">
 			<a class="dropbtn text"
-				href="#">ABOUT</a>
+				href="<%=request.getContextPath()%>/about.jsp">ABOUT</a>
 			<div class="dropdown">
 				<a class="dropbtn text"
 					href="<%=request.getContextPath()%>/store/storeList.store">STORE</a>
