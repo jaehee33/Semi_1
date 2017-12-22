@@ -10,14 +10,10 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-	<header>
-		<h2>나의 상세 정보</h2>
-	</header>
-	<nav>
-		
+	<section id="main">
 
-	</nav>
-	
+		<h2>나의 상세 정보</h2>
+
 <div id="content">
 	<div class="col" id="col1">
 		<div class="box" id="box1">
@@ -51,7 +47,7 @@
 				<p><a href="../store/storeWrite.store">가맹점 등록하기</a></p>
 			</c:if>
 			<c:if test="${not empty store}">
-				<p><a href="../store/storeIndex.store?id=${sessionScope.member.id}">가맹점관리</a></p>
+				<p><a href="../store/storeView.store?id=${sessionScope.member.id}">가맹점관리</a></p>
 			</c:if>
 		</c:if>
 		</div>
@@ -64,6 +60,6 @@
 	</div>
 </div>
 
-
+</section>
 </body>
 </html>
