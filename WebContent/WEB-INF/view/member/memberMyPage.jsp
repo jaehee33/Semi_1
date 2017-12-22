@@ -27,7 +27,7 @@
 			</ul>
 		</div>
 		<div class="box" id="box3">
-			<p><a href="../favor/favorStyle.favor">스타일즐겨찾기보기</a></p> 
+			<p><a href="../style/styleList.style">스타일즐겨찾기보기</a></p> 
 		</div>
 		<div class="box" id="box5">
 		<p><a href="./memberUpdate.member?id=${m2.id}">정보수정</a></p>
@@ -52,7 +52,7 @@
 		</c:if>
 		</div>
 		<div class="box" id="box4">
-			<p><a href="../favor/favorStore.favor">가게 즐겨찾기보기</a></p>
+			<p><a href="../favor/favorList.favor">가게 즐겨찾기보기</a></p>
 		</div>
 		<div class="box" id="box6">
 			<p><a href="./memberDelete.member">회원탈퇴</a></p>

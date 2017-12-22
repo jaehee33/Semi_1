@@ -27,7 +27,7 @@ public class MemberDeleteService implements Action {
 			} catch (Exception e) {
 			}
 			
-			if(result>0) {
+			if(result>0 && result2>0) {
 				request.setAttribute("check", "탈퇴하시겠습니까?");
 				request.setAttribute("pass", "../index.jsp");
 				actionForward.setCheck(true);
