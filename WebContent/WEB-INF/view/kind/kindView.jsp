@@ -36,10 +36,10 @@
 					<div class="photo">
 						<img src="../upload/${file.fname}">
 						<p class="date">
-							<strong>매장명 </strong> ${kind.store} <strong>가격</strong>
-							${kind.price }
+							<strong>매장명 </strong> ${kind.store}
+							<strong>가격</strong> ${kind.price }원
 						</p>
-						<div class="toggle" id="favor">즐겨찾기</div>
+						<div class="toggle" id="favor"></div>
 					</div>
 					<div class="buy">
 						<a href="../use/useWrite.use?store=${kind.store}&style=${kind.style}&price=${kind.price}" target="_self">예약하기</a>
@@ -53,7 +53,9 @@
 			<div class="list_product">
 				<ul class="list">
 					<c:forEach items="${list}" var="i">
-						<li><a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}<img src="../upload/${file.fname}"></a></li>
+						<li>
+							<a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}</a>
+						</li>
 					</c:forEach>
 				</ul>
 			</div>
