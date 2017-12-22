@@ -7,6 +7,8 @@
 <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/store/storeView.css"
 	rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+	
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,7 +72,9 @@
 		$("#update").click(function(){
 			location.href="./storeUpdate.store?id=${store.id}";
 		});
-		
+		$.get("./storeIndex.store?id=${store.id}",function(index){
+			$("#storeheader").html(index);
+		});
 		
 	});
 </script>
@@ -79,7 +83,7 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="main">
-		<%@ include file="./storeIndex.jsp"%>
+		<div id="storeheader"></div>
 		<div id="storeView">
 			<div id="img">
 				<c:forEach items="${filelist}" var="f">

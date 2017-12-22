@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -157,6 +158,9 @@
 		$("#backpage").click(function() {
 			window.location.href = "../index.jsp"
 		});
+		$.get("../store/storeIndex.store?id=${storeid}",function(index){
+			$("#storeheader").html(index);
+		});
 
 	});
 </script>
@@ -164,7 +168,7 @@
 <body>
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
-<%@ include file="../store/storeIndex.jsp"%>
+<div id="storeheader"></div>
 	<h2>${store}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">

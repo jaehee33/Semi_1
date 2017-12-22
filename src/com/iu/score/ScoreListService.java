@@ -17,6 +17,7 @@ public class ScoreListService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		String store = request.getParameter("store");
+		String id= request.getParameter("id");
 		
 		int curPage=1;
 		try {
@@ -49,7 +50,7 @@ public class ScoreListService implements Action {
 			e.printStackTrace();
 		
 		}
-		
+		request.setAttribute("storeid", id);
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/score/scoreList.jsp");
 		
