@@ -8,5 +8,5 @@
 	<input type="hidden" name="price" value="${price}">price : ${price }
 	<input type="hidden" name="store" value="${store}">store : ${store }
 	<input type="hidden" name="page" value="view">
-	<button type="button" class="btn btn-default" id="btn">♡</button>
+	<button type="button" class="btn btn-default" id="btn">즐겨찾기</button>
 </form>
