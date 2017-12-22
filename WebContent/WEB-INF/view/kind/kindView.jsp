@@ -24,6 +24,11 @@
 		});
 	});
 </script>
+<style type="text/css">
+#font {
+	font-weight: bold;
+}
+</style>
 <link href="<%=request.getContextPath()%>/css/kind/kindView.css"
 	rel="stylesheet">
 </head>
@@ -36,10 +41,11 @@
 					<div class="photo">
 						<img src="../upload/${file.fname}">
 						<p class="date">
-							<strong>매장명 </strong> ${kind.store}
-							<strong>가격</strong> ${kind.price }원
+							<strong>매장명 </strong> ${kind.store} <strong>가격</strong>
+							${kind.price }
 						</p>
-						<div class="toggle" id="favor"></div>
+						<div id=favor></div>
+
 					</div>
 					<div class="buy">
 						<a href="../use/useWrite.use?store=${kind.store}&style=${kind.style}&price=${kind.price}" target="_self">예약하기</a>
@@ -53,9 +59,7 @@
 			<div class="list_product">
 				<ul class="list">
 					<c:forEach items="${list}" var="i">
-						<li>
-							<a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}</a>
-						</li>
+						<li><a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}<img src="../upload/${file.fname}"></a></li>
 					</c:forEach>
 				</ul>
 			</div>

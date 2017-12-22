@@ -17,7 +17,6 @@ public class StyleDAO {
 		if(rs.next()) {
 			count=rs.getInt(1);
 		}
-		System.out.println(count);
 		DBConnector.disConnect(rs, st, con);
 		return count;
 	}
