@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body{
+	margin-left: 23%;
+	margin-right: 23%; 
+}
+
+h1{
+	font-weight: lighter;
+}
+
+.coupon_1{
+	height: 100px;
+}
