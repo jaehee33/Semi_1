@@ -2,28 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	Calendar cal=Calendar.getInstance();
-	int year=cal.get(Calendar.YEAR);
-	int month=cal.get(Calendar.MONTH)+1;
-	int date=cal.get(Calendar.DATE);
-	int hour=cal.get(Calendar.HOUR_OF_DAY);
-	int min=cal.get(Calendar.MINUTE);
-	
-	cal.set(year, month-1, 1);
-	int start=1;
-	int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-	int week=cal.get(Calendar.DAY_OF_WEEK);
-	
-	request.setAttribute("year", year); //년
-	request.setAttribute("month", month); //월
-	request.setAttribute("date", date);
-	request.setAttribute("start", start); 
-	request.setAttribute("end", end); //해당 월에 끝나는 날짜
-	request.setAttribute("week",week);
-	request.setAttribute("hour", hour);
-	request.setAttribute("min", min);
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,24 +41,21 @@
 								<th>토</th>
 							</tr>
 
-						<tr class="days">
-							<c:forEach begin="1" end="${week-1}" var="i">
-								<td></td>
-							</c:forEach>
-	
-									<c:forEach begin="1" end="${end}" var="i">
+							<tr class="days">
+								<c:forEach begin="1" end="${week-1}" var="i">
+									<td></td>
+								</c:forEach>
+								<c:forEach begin="1" end="${end}" var="i">
+									<c:if test="">
+									<td class="day">
 										<c:if test="${date==i}">
-											<td class="day">
-												<div id="today">${i}</div>
-											</td>
+											<div id="today">${i}</div>
+										</c:if> <c:if test="${date != i}">
+											<div class="date" id="day&${i}">${i}</div>
 										</c:if>
-										<c:if test="${date != i}">
-											<td class="day">
-												<div class="date" id="day&${i}">${i}</div>
-											</td>
-										</c:if>
-									</c:forEach>
-
+									</td>
+									</c:if>
+								</c:forEach>
 							</tr>
 						</table>
 					</div>
@@ -88,8 +63,7 @@
 
 					<!-- 선택한 날짜 나오게 하는것 -->
 					<div id="bk_date" class="wrap">
-						<hr>${year}년${month}월
-						${date}일
+						<hr>${year}년${month}월${date}일
 						<hr>
 					</div>
 

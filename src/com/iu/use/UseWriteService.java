@@ -2,6 +2,7 @@ package com.iu.use;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,6 +90,33 @@ public class UseWriteService implements Action {
 				if(ar != null) {
 					request.setAttribute("list", ar);					
 				}
+				
+				Calendar cal=Calendar.getInstance();
+				int year=cal.get(Calendar.YEAR);
+				int month=cal.get(Calendar.MONTH)+1;
+				int date=cal.get(Calendar.DATE);
+				int hour=cal.get(Calendar.HOUR_OF_DAY);
+				int min=cal.get(Calendar.MINUTE);
+				
+				cal.set(year, month-1, 1); //시작일
+				int start=1;
+				int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+				int week=cal.get(Calendar.DAY_OF_WEEK);//1일이 무슨요일인지 알아냄
+				int weeks=cal.get(Calendar.WEEK_OF_MONTH);
+				
+				request.setAttribute("year", year); //년
+				request.setAttribute("month", month); //월
+				request.setAttribute("date", date);
+				request.setAttribute("start", start); 
+				request.setAttribute("end", end); //해당 월에 끝나는 날짜
+				request.setAttribute("week",week);
+				request.setAttribute("weeks", weeks);
+				request.setAttribute("hour", hour);
+				request.setAttribute("min", min);
+				
+				
+				
+				
 				request.setAttribute("store", store);
 				request.setAttribute("style", style);
 				request.setAttribute("price", price);
