@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Semi_1/css/board/list.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/board/list.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -36,10 +36,13 @@
 </script>
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
+	<%@ include file="../temp/header.jsp" %>
+	
+	<section>
+		<div>
 		<h2><a href="./${board}List.${board}">${board}</a></h2>
-	<section id="main">
-		<div id="search">
+		</div>
+		<div>
 			<form name="frm" action="./${board}List.${board}">
 				<input type="hidden" name="curPage"> <select name="kind">
 					<option class="kind" value="title">TITLE</option>
@@ -49,9 +52,8 @@
 				<button>Search</button>
 			</form>
 		</div>
-
-
-		<table id="list" class="table table-hover">
+	</section>
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th scope="col">NUM</th>
@@ -63,7 +65,6 @@
 					<th scope="col">HIT</th>
 				</tr>
 			</thead>
-
 			<c:forEach items="${list}" var="i">
 				<tbody>
 					<tr>
@@ -71,18 +72,16 @@
 						<c:if test="${member.id eq 'admin'}">
 							<td>${i.id}</td>
 						</c:if>
-						<td id="title"><c:catch>
+						<td><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch> <a id="titlea" href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
+							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
 						<td>${i.reg_date}</td>
 						<td>${i.hit}</td>
 					</tr>
 				</tbody>
 			</c:forEach>
-
 		</table>
-	</section>
-	<footer>
+	
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
@@ -102,6 +101,10 @@
 		</c:if>
 
 		<button type="button" class="btn" id="backpage">BackPage</button>
-	</footer>
+
+
+
+
+
 </body>
 </html>

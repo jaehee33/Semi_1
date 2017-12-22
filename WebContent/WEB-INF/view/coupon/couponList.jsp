@@ -9,10 +9,12 @@
 <link href="/Semi_1/css/coupon.css" rel="stylesheet">
 </head>
 <body>
-
-<h1>COUPON</h1>
+<%@ include file="../temp/header.jsp"%>
+<section>
 <div>
-	
+<h1>COUPON</h1>
+</div>
+<div>
 
 
 </div>
@@ -23,11 +25,13 @@
 <div>
 <a href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg">${a.coupon}</a>
 </div>
+
 </c:if>
 </c:forEach>
 
 <c:if test="${member.id eq 'admin'}">
 	<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">coupon</a>
 	</c:if>
+	</section>
 </body>
 </html>
