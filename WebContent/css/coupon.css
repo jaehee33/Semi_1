@@ -2,25 +2,23 @@
 
 body{
 	background-image: url("/Semi_1/img/background/cream_pixels.png");
+	background-repeat: repeat;
 }
 
 section{
 	height: 1000px;
 	background-color: white;
-	margin-top:98px;
+	margin-top: 98px;
 	margin-left: 23%;
 	margin-right: 23%; 
 }
 
-div{
-}
-
-
 h1{
-	font-size:xx-large;
+	margin-top:50px;
 	font-weight: lighter;
+	font-size: xx-large;
 }
 
 .coupon_1{
-	height: 100px;
+	height: 150px;
 }

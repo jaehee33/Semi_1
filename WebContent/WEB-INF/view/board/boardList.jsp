@@ -37,7 +37,6 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp" %>
-	
 	<section>
 		<div>
 		<h2><a href="./${board}List.${board}">${board}</a></h2>
@@ -52,7 +51,7 @@
 				<button>Search</button>
 			</form>
 		</div>
-	</section>
+	
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -101,7 +100,7 @@
 		</c:if>
 
 		<button type="button" class="btn" id="backpage">BackPage</button>
-
+</section>
 
 
 
