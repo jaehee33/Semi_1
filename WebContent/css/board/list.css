@@ -13,4 +13,29 @@ section {
 	margin-right: 23%;
 }
 
+table{
+	table-layout: fixed;	
+}
+
+td{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+h2 a{
+	color: #5F4B8B;
+	font-weight:bolder;
+	font-size: xx-large;
+	
+}
+
+h2 a:hover {
+	color: black; text-decoration: none;
+}
+td a:hover { 
+	color: #5F4B8B; text-decoration: none;
+}
+
+
 }

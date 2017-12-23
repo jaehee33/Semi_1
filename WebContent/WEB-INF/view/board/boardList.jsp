@@ -56,10 +56,10 @@
 			<thead>
 				<tr>
 					<th scope="col">NUM</th>
+					<th scope="col">TITLE</th>
 					<c:if test="${member.id eq 'admin'}">
 						<th scope="col">ID</th>
 					</c:if>
-					<th scope="col">TITLE</th>
 					<th scope="col">DATE</th>
 					<th scope="col">HIT</th>
 				</tr>
@@ -68,12 +68,12 @@
 				<tbody>
 					<tr>
 						<td>${i.num}</td>
-						<c:if test="${member.id eq 'admin'}">
-							<td>${i.id}</td>
-						</c:if>
 						<td><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
+						<c:if test="${member.id eq 'admin'}">
+							<td>${i.id}</td>
+						</c:if>
 						<td>${i.reg_date}</td>
 						<td>${i.hit}</td>
 					</tr>
