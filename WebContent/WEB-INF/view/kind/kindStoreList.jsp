@@ -105,7 +105,7 @@ $(function(){
         }()),
       },
     });
-    });
+});
   </script>
 <div id="style">
 	<c:forEach items="${kindlist}" var="k">
@@ -115,7 +115,7 @@ $(function(){
 		<img src="../upload/${f.fname}">
 		</c:if>
 		</c:forEach>
-			<p>${k.kind}</p>
+			<p>${k.style}(${k.kind})</p>
 			<p>${k.price}</p>
 			<p><a href="../use/useWrite.use?store=${store.store}&style=${k.kind}&price=${k.price}">예약</a></p>
 		</div>
