@@ -114,9 +114,9 @@ public class KindDAO {
 	
 	public int update(KindDTO kindDTO) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="update kind set kind=?,price=? where store=?";
+		String sql="update kind set style=?,price=? where store=?";
 		PreparedStatement st=con.prepareStatement(sql);
-		st.setString(1, kindDTO.getKind());
+		st.setString(1, kindDTO.getStyle());
 		st.setInt(2, kindDTO.getPrice());
 		st.setString(3, kindDTO.getStore());
 		int result=st.executeUpdate();
