@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="/Semi_1/css/board/list.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,24 +44,23 @@
 		</div>
 	
 	
-	
 		<table class="list_table">
 			<thead>
 				<tr>
-					<th scope="col">NUM</th>
-					<th scope="col">TITLE</th>
+					<th id="num" scope="col">NO.</th>
+					<th id="subject" scope="col">SUBJECT</th>
 					<c:if test="${member.id eq 'admin'}">
-						<th scope="col">ID</th>
+						<th id="id" scope="col">ID</th>
 					</c:if>
-					<th scope="col">DATE</th>
-					<th scope="col">HIT</th>
+					<th id="date" scope="col">DATE</th>
+					<th id="hit" scope="col">HIT</th>
 				</tr>
 			</thead>
 			<c:forEach items="${list}" var="i">
 				<tbody>
 					<tr>
 						<td>${i.num}</td>
-						<td><c:catch>
+						<td id="title"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
 						<c:if test="${member.id eq 'admin'}">
@@ -80,12 +80,13 @@
 					<option class="kind" value="title">TITLE</option>
 					<option class="kind" value="contents">CONTENTS</option>
 					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
-				</select> <input type="text" name="search" value="${make.search}">
+				</select> 
+				<input type="text" name="search" value="${make.search}">
 				<button>Search</button>
 			</form>
 		</div>
 	
-	
+		<div id="div_page">
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
@@ -103,6 +104,8 @@
 		<c:if test="${member.id eq 'admin'}">
 			<a href="./${board}Write.${board}">Write</a>
 		</c:if>
+		</div>
+		
 
 		<!-- <button type="button" class="btn" id="backpage">BackPage</button> -->
 </section>

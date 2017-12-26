@@ -6,6 +6,7 @@ body {
 }
 
 section {
+	width: 54%;
 	height: 1000px;
 	background-color: white;
 	margin-top: 98px;
@@ -14,55 +15,102 @@ section {
 }
 
 table.list_table{
+	width: 97.5%;
 	border-collapse: seperate;
 	border-spacing: 1px;
-	text-align: left;
     line-height: 1.5;
     border-top: 1px solid #ccc;
- 	margin : 20px 10px;
+ 	margin : 50px 10px 20px 10px;
 	table-layout: fixed;	
 }
 
-table.list_table th{
-	width: 150px;
-    padding: 10px;
+.list_table th{
+	font-size: 12px;
+    padding: 5px;
     font-weight: bold;
     vertical-align: top;
     border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 
 
-table.list_table td{
-	width: 350px;
+.list_table td{
+	font-size: 12px;
 	padding: 10px;
 	vertical-align: top;
+	text-align: center;
 	border-bottom: 1px solid #ccc;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
+#title{
+	text-align: left;
+}
+
+.list_table #num{
+	width: 3%;
+}
+
+.list_table #subject{
+	width: 40%;
+}
+
+.list_table #id{
+	width: 5%;
+}
+
+.list_table #date{
+	width: 7%;
+}
+
+.list_table #hit{
+	width: 3%;
+}
+
+div h2{
+	padding: 50px;
+}
+
+h2{
+	text-align: center;
+}
+
 h2 a{
 	color: black;
-	font-weight:bolder;
+	font-weight: border;
 	font-size: xx-large;
 }
 
 h2 a:hover {
 	color: #5F4B8B; text-decoration: none;
 }
+
+td a{
+	color: black;
+}
+
 td a:hover { 
 	color: #5F4B8B; text-decoration: none;
 }
 
+
 #div_search{
-	
-	margin-top: 50px;
+	position: absolute;
+	bottom: 280px;
+	right: 450px;
+	font-size: 12px;
+	margin-top: 10px;
 	margin-bottom: 15px;
 	
 }
 
-
+#div_page{
+	position: absolute;
+	left: 1000px;
+	font-size: 12px;
+}
 
 
 
