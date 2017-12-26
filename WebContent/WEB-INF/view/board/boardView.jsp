@@ -39,6 +39,6 @@
 	<button id="update"type="button">Update</button>
 	</c:if>
 	
-	<button id="backpage">BackPage</button>
+	<button id="backpage">목록</button>
 </body>
 </html>

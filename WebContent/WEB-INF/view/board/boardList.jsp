@@ -27,10 +27,10 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
-
+		/* 
 		$("#backpage").click(function() {
 			window.location.href = "../index.jsp"
-		});
+		}); */
 
 	});
 </script>
@@ -41,18 +41,10 @@
 		<div>
 		<h2><a href="./${board}List.${board}">${board}</a></h2>
 		</div>
-		<div>
-			<form name="frm" action="./${board}List.${board}">
-				<input type="hidden" name="curPage"> <select name="kind">
-					<option class="kind" value="title">TITLE</option>
-					<option class="kind" value="contents">CONTENTS</option>
-					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
-				</select> <input type="text" name="search" value="${make.search}">
-				<button>Search</button>
-			</form>
-		</div>
 	
-		<table class="table table-hover">
+	
+	
+		<table class="list_table">
 			<thead>
 				<tr>
 					<th scope="col">NUM</th>
@@ -81,6 +73,19 @@
 			</c:forEach>
 		</table>
 	
+	
+	<div id="div_search">
+			<form name="frm" action="./${board}List.${board}">
+				<input type="hidden" name="curPage"> <select name="kind">
+					<option class="kind" value="title">TITLE</option>
+					<option class="kind" value="contents">CONTENTS</option>
+					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
+				</select> <input type="text" name="search" value="${make.search}">
+				<button>Search</button>
+			</form>
+		</div>
+	
+	
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
@@ -99,7 +104,7 @@
 			<a href="./${board}Write.${board}">Write</a>
 		</c:if>
 
-		<button type="button" class="btn" id="backpage">BackPage</button>
+		<!-- <button type="button" class="btn" id="backpage">BackPage</button> -->
 </section>
 
 
