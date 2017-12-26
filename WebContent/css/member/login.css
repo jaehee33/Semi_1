@@ -1,16 +1,42 @@
 @charset "UTF-8";
-
-body{
-	margin-top: 100px;
+*{
+	margin: 0;
+	padding: 0;
+}
+section{
+	margin-top: 200px;
+	height: 400px;	
+	display: block;
 }
 h1{
+	text-align: center;
+	color: gray;
+	padding: 10px;
+	font-size: xx-large;
+}
+#content{
+	width: 400px;
+	margin: auto;
+	display: block;
+}
+.box{
+	width: 400px;
+	height: 40px;
+	border: 1px solid lightgray;
+}
+.checkbox{
+	margin-left: 20px;
+}
+#button{
+	width: 90px;
+	height: 40px;
+	background-color: #5f4b8b;
 	color: white;
-	font-weight: bolder;
+	border: none;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+	display: inline-block;
 }
-form{
-	width: 300px;
-}
-#kakao-login-btn{
-width:100px;
-height: 30px;
-}
+
+

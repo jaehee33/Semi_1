@@ -19,7 +19,7 @@
 		<div class="box" id="box1">
 			<img src="<%=request.getContextPath()%>/img/member/img_avatar1.png">
 			<ul>
-				<li><h4> ${m2.name} 
+				<li><h4>${m2.name} 
 				<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if><c:if test="${m2.job eq 'S' }"> [가맹주]</c:if></span>
 				</h4></li>
 				<li><h4>${m2.birth}</h4></li>
@@ -33,7 +33,7 @@
 		<p><a href="./memberUpdate.member?id=${m2.id}">정보수정</a></p>
 		</div>
 		<div id="box7">
-		<a href="../index.jsp">처음으로</a> 
+		<p><a href="../index.jsp">처음으로</a></p>
 		</div>
 	</div>
 		
@@ -57,9 +57,11 @@
 		<div class="box" id="box6">
 			<p><a href="./memberDelete.member">회원탈퇴</a></p>
 		</div>
+
 	</div>
 </div>
 
 </section>
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

@@ -11,10 +11,11 @@ h2{
 	font-size: xx-large;
 }
 #content{
-	width: 650px;
-	position: relative;
+	width: 35%;
+	height: ;
 	z-index: 20;
 	margin: 0 auto;
+	display: block;
 }
 .col{
 	display: block;
@@ -63,6 +64,14 @@ li{
 	color: #ff8080;
 	font-weight: bolder;
 }
+#box7 a{
+	color: #5f4b8b;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+
+}
+
 
 
 

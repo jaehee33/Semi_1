@@ -6,6 +6,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>About</title>
 <link href="<%=request.getContextPath()%>/css/about/about.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                if($(this).scrollTop()>0){
+                    $('.top').fadeIn();
+                } else {
+                    $('.top').fadeOut();
+                }
+            });
+            
+            $('.top').click(function(){
+                $('html,body').animate({scrollTop:0},450);
+                return false;                
+            });
+        });
+</script> 
 
 </head>
 <body>
@@ -42,6 +59,8 @@ Learn about the philosophy, corporate identity, and leadership that drive </p>
 </div>
 
 </section>
+<a href="#" class="top">TOP</a>
+<%@ include file="WEB-INF/view/temp/footer.jsp" %>
 </body>
 </html>
 

@@ -17,56 +17,25 @@ for(int i=0;i<ar.length;i++){
 		break;
 	}
 } %>
-<style type="text/css">
-* {
-	margin: 0;
-	padding: 0;
-}
-/* #img{
-	width: 1920px;
-	height: 1080px;
-	float: right;
-	margin-top: 150px;
-	margin-right: 100px;
-	background-image: url('/Semi_1/img/member/login_hair2.jpg');
-	-webkit-animation-name: hair;
-	-webkit-animation-duration: 6s;
-	animation-name: hair;
-	animation-duration: 6s;
-}
-@-webkit-keyframes hair{
-	from {background-image: url('/Semi_1/img/member/login_hair2.jpg');}
-	to {background-image: url('/Semi_1/img/member/login_hair1.jpg');}
-}
-@keyframes hair{
-	from {background-image: url('/Semi_1/img/member/login_hair2.jpg');}
-	to {background-image: url('/Semi_1/img/member/login_hair1.jpg');}
-} */
-
-</style>
-
-<link href="/Semi_1/css/login.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-<div class="container">
-<h1>Login</h1>
-<div id="img">
-  <form action="./memberLogin.member" method="post">
-    <div class="form-group">
-      <label for="id">ID:</label>
-      <input type="text" class="form-control" id="id" value="<%=cId%>" placeholder="Enter id" name="id">
-    </div>
-    <div class="form-group">
-      <label for="pw">Password:</label>
-      <input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
-    </div>
-	 <div class="checkbox">
-      <label><input type="checkbox" id="remember" name="remember" value="remember"> Remember me</label>
-    </div>
-    <p><button type="submit" class="btn btn-default">Login</button></p>
-<!---------------------------- 카카오로그인 시작 ---------------------------->
-<p>
+		<section>
+		<h1>Login</h1>
+			<form action="./memberLogin.member" method="post">
+				<div id="content">
+				<p>ID</p>
+				<p><input type="text" id="id" value="<%=cId%>" placeholder=" Enter id" name="id" class="box"></p> 
+				<p>Password</p>
+				<p><input type="password" id="pw" placeholder=" Enter password" name="pw" class="box"></p>
+				
+				<div class="checkbox">
+					<p><input type="checkbox" id="remember" name="remember" value="remember"> Remember me</p>
+				</div>
+				<p><button id="button">Login</button></p>
+				</div>
+				<!---------------------------- 카카오로그인 시작 ---------------------------->
+				<!-- <p>
 		<a id="kakao-login-btn"></a>
 		<a href="http://developers.kakao.com/logout"></a>
 		<script type='text/javascript'>
@@ -86,10 +55,10 @@ for(int i=0;i<ar.length;i++){
 			});
 			//]]>
 		</script>
-	</p>
-<!----------------------------카카오로그인 끝 ------------------------------->	
-  </form>
-</div>
-</div>
+	</p> -->
+				<!----------------------------카카오로그인 끝 ------------------------------->
+			</form>
+		</section>
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>
