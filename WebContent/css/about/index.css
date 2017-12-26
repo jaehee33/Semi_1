@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.container{
+	margin: auto;
+	padding: 20px;
+}
+#sale{
+	width: 60%;
+	height: 450px;
+	background-color: #e8e8e8;
+	color: gray;
+	text-align: center;
+	font-size: 16px;
+	margin-top: 20px;
+	margin: auto;
+}
+#ment{
+	text-align: center;
+	margin-bottom: 50px;
+}
+

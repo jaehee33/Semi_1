@@ -371,9 +371,10 @@
 		</tr>
 		</table>
 		
-		<p><input type="button" value="가입하기" id="check" class="btn2"></p>
 	</form>
+		<p><input type="button" value="가입하기" id="check" class="btn2"></p>
 	</section>
+		<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>
 
