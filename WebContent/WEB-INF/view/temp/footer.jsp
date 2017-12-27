@@ -7,7 +7,7 @@
 		<div id="flogo">
 			<a href="<%=request.getContextPath()%>/index.jsp"> <img
 				width="100px" height="80px"
-				src="<%=request.getContextPath()%>/img/logo_white.png">
+				src="<%=request.getContextPath()%>/img/logo/logo_white.png">
 			</a>
 		</div>
 

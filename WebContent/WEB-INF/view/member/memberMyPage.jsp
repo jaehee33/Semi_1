@@ -31,7 +31,7 @@
 			<p><a href="../style/styleList.style">스타일즐겨찾기보기</a></p> 
 		</div>
 		<div class="box" id="box5">
-		<p><a href="./memberUpdate.member?id=${m2.id}">정보수정</a></p>
+		<p><a href="./memberUpdate.member?id=${sessionScope.member.id}">정보수정</a></p>
 		</div>
 		<div id="box7">
 		<p><a href="../index.jsp">처음으로</a></p>

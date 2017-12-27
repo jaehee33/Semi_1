@@ -8,22 +8,66 @@
 <title>가입정보수정</title>
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
-	<section id="main">
-		<h2>정보 수정</h2>
+	<%@ include file="../temp/header.jsp"%>
+	<section id="">
+		<h1>회원정보 수정</h1>
+		<h5>회원님의 소중한 정보를 안전하게 관리하세요.</h5>
+
 		<form action="memberUpdate.member" method="post">
-			<div id="content">
-				<input type="hidden" name="id" value="${m2.id}">
-				<p>pw: <input type="text" name="pw" value="${m2.pw}"></p>
-				<p>MemberName : <input type="text" name="name" value="${m2.name}"></p>
-				<p>Birth : <input type="date" name="birth" value="${m2.birth}"></p>
-				<p>Phone : <input type="text" name="phone" value="${m2.phone}"></p>
-				<button>수정</button>
-				<p>
-					<a href="./memberMyPage.member">취소</a>
-				</p>
+			<input type="hidden" name="id" value="${m2.id}">
+
+		<h2>기본정보</h2>
+			<table id="jointable">
+				<tr>
+					<th>비밀번호:</th>
+					<td><input type="password" name="pw" value="${m2.pw}" class="n box" placeholder=" Password"></td>
+				</tr>
+				<tr>
+					<th>이름:</th>
+					<td><input type="text" name="name" value="${m2.name}" class="n box"></td>
+				</tr>
+				<tr>
+					<th>생년월일:</th>
+					<td><input type="date" name="birth" value="${m2.birth}" class="n box"></td>
+				</tr>
+				<tr>
+					<th>휴대전화:</th>
+					<td><input type="text" name="phone" value="${m2.phone}" class="n box"></td>
+				</tr>
+			</table>
+			<div id="btn">
+			<button class="btn" id="cancel"><a href="./memberMyPage.member">취소</a></button>
+			<button class="btn" id="modify">수정</button>
 			</div>
 		</form>
+
+		<div class="info">
+			<a href="#">
+				<dl id="q">
+					<dt>자주찾는 질문</dt>
+					<dd>
+						<p>
+							SEMI HAIR에 관한 궁금하신 사항을 확인하세요. <br>질문에 빠르고 정확한 답변을 제공합니다.
+						</p>
+					</dd>
+				</dl> 
+			</a>
+				<span id="line"></span>
+		</div>
+		<div class="info">
+			<a href="#">
+				<dl>
+					<dt>1:1 상담</dt>
+					<dd>
+						<ul>
+							<li>평일: 다음 날 답변 완료</li>
+							<li>토·일 공휴일: 휴일 이후 답변 완료</li>
+						</ul>
+					</dd>
+				</dl> <span></span>
+			</a>
+		</div>
 	</section>
+<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

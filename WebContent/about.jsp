@@ -27,7 +27,7 @@
 </head>
 <body>
 <%@ include file="WEB-INF/view/temp/header.jsp" %>
-<section id="main">
+<section id="">
 <div id="content">
 <div id="company">
 <p>COMPANY</p>
