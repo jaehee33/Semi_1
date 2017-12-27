@@ -1,4 +1,78 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Martel+Sans:200,300,400,800,900);
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+section.head {
+  background-color: #fff;
+  position: relative;
+  z-index: 10;
+}
+section.head a {
+  widht: 300px;
+  height: 500px;
+   font-size: 160px;
+   text-decoration:none;
+  line-height: 0.9;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 50px;
+  font-weight:600;
+  color: #7a5f50;
+  display: inline-block;
+  
+  -webkit-transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
+  -moz-transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
+  transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
+}
+section.head a:before, section.head a:after {
+  color: #2e2e2e;
+  font-weight: 900;
+  font-size: 30px;
+  text-transform: none;
+  display: block;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  transition: inherit;
+}
+section.head a:before {
+  content: attr(data-bf);
+  position: absolute;
+  top: -45px;
+  left: -5px;
+}
+section.head a:after {
+  content: attr(data-af);
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+}
+section.head a:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+section.head a:hover:before {
+  -webkit-transform: scale(1.2) translate(-25px, -15px);
+  -moz-transform: scale(1.2) translate(-25px, -15px);
+  -ms-transform: scale(1.2) translate(-25px, -15px);
+  -o-transform: scale(1.2) translate(-25px, -15px);
+  transform: scale(1.2) translate(-25px, -15px);
+}
+section.head a:hover:after {
+  -webkit-transform: scale(1.2) translate(25px, 15px);
+  -moz-transform: scale(1.2) translate(25px, 15px);
+  -ms-transform: scale(1.2) translate(25px, 15px);
+  -o-transform: scale(1.2) translate(25px, 15px);
+  transform: scale(1.2) translate(25px, 15px);
+}
 #content{
 	width: 90%;
 	height: 550px;

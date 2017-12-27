@@ -47,9 +47,9 @@ Learn about the philosophy, corporate identity, and leadership that drive </p>
 </div>
 </div>
 
-<div id="gold">
-<p>for your <br> sustainable <br> growth</p>
-</div>
+<section class="head" id="gold">
+<a href=""""><p>for your <br> sustainable <br> growth</p></a>
+</section>
 <div id="text">
 <p>세미헤어샵은 업계 리더로써 
 <br>차별화된 퀄리티의 헤어샵을 제공하며,
