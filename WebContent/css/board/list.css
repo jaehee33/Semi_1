@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-body {
+/* body {
 	background-image: url("/Semi_1/img/background/cream_pixels.png");
 	background-repeat: repeat;
 }
-
+ */
 section {
 	width: 54%;
 	height: 1000px;
@@ -70,7 +70,7 @@ table.list_table{
 }
 
 div h2{
-	padding: 50px;
+	padding-top: 50px;
 }
 
 h2{
@@ -80,11 +80,10 @@ h2{
 h2 a{
 	color: black;
 	font-weight: border;
-	font-size: xx-large;
 }
 
 h2 a:hover {
-	color: #5F4B8B; text-decoration: none;
+	color: gray; text-decoration: none;
 }
 
 td a{
@@ -92,32 +91,72 @@ td a{
 }
 
 td a:hover { 
-	color: #5F4B8B; text-decoration: none;
+	color: gray; text-decoration: none;
 }
 
 
 #div_search{
-	position: absolute;
-	bottom: 280px;
-	right: 450px;
-	font-size: 12px;
+	/* position: relative;
+	left: 670px;
 	margin-top: 10px;
-	margin-bottom: 15px;
+	margin-bottom: 15px; */
+	font-size: 12px;
+	float: right;
 	
 }
 
 #div_page{
-	position: absolute;
-	left: 1000px;
 	font-size: 12px;
+	margin: auto;
+	vertical-align:middle;
+	text-align:center; 
+
 }
 
+#write{
+	float: left;
+}
 
+.list{
+	padding: 0.2em 0.2em;
+	width: 20px;
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	border: 1px solid gray;
+}
 
+.list:hover{
+	background-color: whiteSmoke;
+	color: black;
+}
 
+.button{
+	padding: 0.2em 0.2em;
+	background-color: white;
+	text-decoration: none;
+	border: 0.5px solid gray;
+	border-radius: 0.35em;
+}
 
+.button:hover{
+	background-color: whiteSmoke;
+}
 
+.buttonWrite{
+	padding: 0.5em 1em;
+	background-color: white;
+	color: #5F4B8B;
+	border: 0.5px solid silver;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+	display: inline-block;
+}
 
-
+.buttonWrite:hover{
+	background-color: silver;
+	color: white;
+}
 
 }

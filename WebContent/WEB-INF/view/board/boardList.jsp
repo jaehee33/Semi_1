@@ -28,6 +28,10 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
+		$("#write").click(function(){
+			window.location.href="./${board}Write.${board}";
+		});
+		
 		/* 
 		$("#backpage").click(function() {
 			window.location.href = "../index.jsp"
@@ -73,20 +77,15 @@
 			</c:forEach>
 		</table>
 	
-	
-	<div id="div_search">
-			<form name="frm" action="./${board}List.${board}">
-				<input type="hidden" name="curPage"> <select name="kind">
-					<option class="kind" value="title">TITLE</option>
-					<option class="kind" value="contents">CONTENTS</option>
-					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
-				</select> 
-				<input type="text" name="search" value="${make.search}">
-				<button>Search</button>
-			</form>
-		</div>
+
+		<div></div>
 	
 		<div id="div_page">
+		
+		<c:if test="${member.id eq 'admin'}">
+			<button type="button" class="buttonWrite" id="write">글쓰기</button>
+		</c:if>                                                                                                                      
+		
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
@@ -100,18 +99,26 @@
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
 		</c:if>
-
-		<c:if test="${member.id eq 'admin'}">
-			<a href="./${board}Write.${board}">Write</a>
-		</c:if>
 		</div>
+	
+		
+	<div id="div_search">
+			<form name="frm" action="./${board}List.${board}">
+				<input type="hidden" name="curPage"> <select name="kind">
+					<option class="kind" value="title">TITLE</option>
+					<option class="kind" value="contents">CONTENTS</option>
+					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
+				</select> 
+				<input type="text" name="search" value="${make.search}">
+				<button class="button">Search</button>
+			</form>
+		</div>
+
 		
 
 		<!-- <button type="button" class="btn" id="backpage">BackPage</button> -->
 </section>
-
-
-
+<%@ include file="../temp/footer.jsp" %>
 
 </body>
 </html>
