@@ -81,28 +81,48 @@
 		<div></div>
 	
 		<div id="div_page">
-		
 		<c:if test="${member.id eq 'admin'}">
 			<button type="button" class="buttonWrite" id="write">글쓰기</button>
 		</c:if>                                                                                                                      
 		
 		
-		<input type="button" class="list" title="${page.startNum}" value="<<">
+		
+		<c:if test="${not empty make}">
+			<input type="button" class="list" title="${page.startNum}" value="<<">
+		</c:if>
+		
+		<c:if test="${not empty make}">
+			<c:choose>
+			<c:when test="${page.curBlock gt 1}">
+			<input type="button" class="list" title="${page.curBlock-1}" value="<">
+			</c:when>
+			<c:otherwise>
+			<input type="button" class="list" title="${page.curBlock}" value="<">
+			</c:otherwise>
+			</c:choose>
+		</c:if>
+		
 		
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
 		</c:if>
-
 		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
 			<input type="button" class="list" title="${i}" value="${i}">
 		</c:forEach>
-
 		<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
 		</c:if>
+		
+		
+		<c:if test="${not empty make}">
+			<input type="button" class="list" title="${page.curBlock+1}" value=">">
+		</c:if>
+		
+		<c:if test="${not empty make}">
 			<input type="button" class="list" title="${page.lastNum}" value=">>">
+		</c:if>
 		</div>
 	
 		
