@@ -10,8 +10,6 @@
 <link href="<%=request.getContextPath() %>/css/kind/kindstoreList.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <title>Insert title here</title>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../slider/slick/slick.css">
   <link rel="stylesheet" type="text/css" href="../slider/slick/slick-theme.css">
@@ -20,27 +18,6 @@ $(function(){
 	$.get("../store/storeIndex.store?id=${store.id}",function(index){
 		$("#storeheader").html(index);
 	});
-});
-</script>
-<script type="text/javascript">
-$(function(){
-	function initparticles() {
-	   confetti();
-	}
-	function confetti() {
-	   $.each($(".particletext.confetti"), function(){
-	      var confetticount = ($(this).width()/50)*10;
-	      for(var i = 0; i <= confetticount; i++) {
-	         $(this).append('<span class="particle c' + $.rnd(1,2) + '" style="top:' + $.rnd(10,50) + '%; left:' + $.rnd(0,100) + '%;width:' + $.rnd(6,8) + 'px; height:' + $.rnd(3,4) + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
-	      }
-	   });
-	}
-	jQuery.rnd = function(m,n) {
-	      m = parseInt(m);
-	      n = parseInt(n);
-	      return Math.floor( Math.random() * (n - m + 1) ) + m;
-	}
-	initparticles();
 });
 </script>
  <style type="text/css">
@@ -97,9 +74,7 @@ $(function(){
 <div id="storeheader"></div>
 <div id="storeView">
 <div id="style">
-<div class="textcontainer">
-   			<span class="particletext confetti"><img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"> STYLE LIST <img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"></span>
-		</div>
+<h1><img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"> STYLE LIST <img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"></h1>
 <div id="stylelist">
  <div class="variable slider">
 	<c:forEach items="${kindlist}" var="k">
