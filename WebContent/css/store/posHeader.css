@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#posheader{
+	background-color: #6baed6;
+	width:100%;
+	height: 50px;
+	overflow: auto;
+}
+
+#posheader ul li{
+	float: left;
+	line-height:50px;
+	list-style-type: none;
+	vertical-align: middle;
+	text-align: center;
+	width: 150px;
+}
+
+li > a{
+	display: block;
+}
