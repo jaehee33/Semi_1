@@ -86,6 +86,9 @@
 			<button type="button" class="buttonWrite" id="write">글쓰기</button>
 		</c:if>                                                                                                                      
 		
+		
+		<input type="button" class="list" title="${page.startNum}" value="<<">
+		
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
@@ -99,6 +102,7 @@
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
 		</c:if>
+			<input type="button" class="list" title="${page.lastNum}" value=">>">
 		</div>
 	
 		
