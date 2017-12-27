@@ -5,19 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link href="<%=request.getContextPath()%>/css/store/posIndex.css" rel="stylesheet">
-</head>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(function(){
 	var total=0;
-	
-	
-	$.get("./posHeader.pos?store=${store}",function(header){
-		$("#posHeader").html(header);
-	});
-	
 	$("#totalbtn").click(function(){
 		$.get("./posTotal.pos?store=${store}",function(total){
 			$("#total").html(total);
@@ -114,16 +106,18 @@ $(function(){
 	
 });
 </script>
+<title>Insert title here</title>
+</head>
 <body>
 <section id="main">
 <%@ include file="../temp/header.jsp" %>
-<div id="posHeader">
-</div>
-<input type="button" id="import" value="insert">
+<div id="total"></div><input type="button" id="totalbtn" value="total">
+<a href="./posList.pos?store=${store}">poslist</a>
+<a href="./posbook.pos?store=${store}">예약목록</a>
 <div id="insert"></div>
 <div id="insertTotal"><p>Total :</p><p id="instotal"></p></div>
 <input type="hidden" value="item +" id="itemplus" class="hide">
+<input type="button" id="import" value="insert">
 <input type="hidden" id="expend" class="hide" value="expend">
-</section>
 </body>
 </html>
