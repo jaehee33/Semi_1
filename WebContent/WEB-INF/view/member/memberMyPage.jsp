@@ -11,8 +11,9 @@
 <body>
 <%@ include file="../temp/header.jsp" %>
 	<section id="main">
-
+<div id="hd">
 		<h2>나의 상세 정보</h2>
+</div>
 
 <div id="content">
 	<div class="col" id="col1">
