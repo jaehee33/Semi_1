@@ -16,44 +16,28 @@ margin-top: 100px;
 	padding: 0;
 	font-family: 'Poppins','Nanum Gothic', sans-serif;
 }
+#hdtop {
+	background-color: white;
+	top:0px;
+	height: 98px;
+	width: 100%;
+	position: fixed;
+	/* box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); */
+	overflow: hidden;
+}
 
-
-
+#logo {
+	padding: 15px;
+	float: left;
+	margin-left: 30px;
+	display: inline-block;
+}
 #menu{
 	display: inline-block;
 	position: absolute;
 	right: 35%;
 	margin: 30px 0px;
 }
-
-
-
-#hdtop {
-	background-color: white;
-	top:0px;
-	height: 98px;
-	width: 100%;
-	border-bottom: #5F4B8B 1px solid;
-	position: fixed;
-}
-
-#logo {
-	margin-top: 5px;
-	margin-left: 550px;
-	display: inline-block;
-	font-size: 35px;
-	text-decoration: none;
-}
-
-/* #logo >p{
-	display: inline-block;
-	text-decoration: none;
-	font-weight: 800;
-	color:#5F4B8B;
-	position: fixed;
-	top: 20px;
-	left: 130px;
-} */
 #member {
 	display: inline-block;
 	float: right;

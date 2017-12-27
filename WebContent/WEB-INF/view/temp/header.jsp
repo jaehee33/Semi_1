@@ -2,16 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="<%=request.getContextPath()%>/css/header.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/header.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 
 <header>
 	<div id="hdtop">
 		<div id="logo">
-			<a href="<%=request.getContextPath()%>/index.jsp"> <img
-				width="100px" height="80px"
-				src="<%=request.getContextPath()%>/img/logo_pantone.png">
+			<a href="<%=request.getContextPath()%>/index.jsp"> 
+			<img src="<%=request.getContextPath()%>/img/logo/logo230.png">
 			</a>
 			<!-- <p>SEMI HAIR</p> -->
 		</div>
