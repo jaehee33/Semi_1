@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/css/kind/kindstoreList.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -73,7 +74,9 @@ $(function(){
 <div id="storeheader"></div>
 <div id="storeView">
 <div id="style">
- <section class="variable slider">
+<h1><img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"> STYLE LIST <img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;"></h1>
+<div id="stylelist">
+ <div class="variable slider">
 	<c:forEach items="${kindlist}" var="k">
 		<div id="kindlist">
 		<c:forEach items="${filelist}" var="f">
@@ -86,7 +89,8 @@ $(function(){
 			<p><a href="../use/useWrite.use?store=${store.store}&style=${k.kind}&price=${k.price}">예약</a></p>
 		</div>
 	</c:forEach>
-  </section>
+  </div>
+</div>
 </div>
 </div>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
