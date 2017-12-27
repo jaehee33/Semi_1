@@ -111,13 +111,13 @@ $(function(){
 <body>
 <section id="main">
 <%@ include file="../temp/header.jsp" %>
+<%@ include file="./posHeader.jsp" %>
 <div id="total"></div><input type="button" id="totalbtn" value="total">
-<a href="./posList.pos?store=${store}">poslist</a>
-<a href="./posbook.pos?store=${store}">예약목록</a>
 <div id="insert"></div>
 <div id="insertTotal"><p>Total :</p><p id="instotal"></p></div>
 <input type="hidden" value="item +" id="itemplus" class="hide">
 <input type="button" id="import" value="insert">
 <input type="hidden" id="expend" class="hide" value="expend">
+</section>
 </body>
 </html>

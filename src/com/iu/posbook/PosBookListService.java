@@ -28,6 +28,7 @@ public class PosBookListService implements Action {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("store", store);
 		request.setAttribute("posbook", ar);
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/pos/posBook.jsp");

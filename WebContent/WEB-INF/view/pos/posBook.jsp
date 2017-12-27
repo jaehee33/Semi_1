@@ -11,6 +11,8 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
+<%@ include file="./posHeader.jsp" %>
 <table>
 		<tr>
 			<td>ID</td>
@@ -36,5 +38,6 @@
 		</tr>
 		</c:forEach>
 	</table>
+	</section>
 </body>
 </html>
