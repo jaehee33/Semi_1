@@ -108,7 +108,7 @@
 				value="[이전]">
 		</c:if>
 		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-			<input type="button" class="list" title="${i}" value="${i}">
+			<input type="button" class="list" id="page${i}" title="${i}" value="${i}">
 		</c:forEach>
 		<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"

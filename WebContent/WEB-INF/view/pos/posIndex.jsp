@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<link href="<%=request.getContextPath()%>/css/store/posInsert.css" rel="stylesheet">
 <script type="text/javascript">
 $(function(){
 	var total=0;
@@ -26,7 +26,7 @@ $(function(){
 	
 	var i=0;
 	$("#itemplus").click(function(){
-		$("#frm").prepend('<p id="ins'+i+'"><input type="text" name="store" value="${store}" readonly="readonly"><select name="kind" class="g"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" class="imoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O">X</span></p>')
+		$("#frm").prepend('<p id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O">X</span></p>')
 	i++;
 	});
 	
@@ -56,7 +56,7 @@ $(function(){
 	
 	var j=0;
 	$("#expend").click(function(){
-		$("#frm").prepend('<p id="exp'+j+'"><input type="text" name="store" value="${store}" readonly="readonly"><input type="text" name="kind"><input type="number" name="expend" id="price" class="etotal imoney"><input type="hidden" name="pos_import" id="price" value="0"><span id="'+j+'" class="X">X</span></p>');
+		$("#frm").prepend('<p id="exp'+j+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><input type="text" class="kind" name="kind"><input type="number" name="expend" id="price" class="etotal imoney insertmoney"><input type="hidden" name="pos_import" id="price" value="0"><span id="'+j+'" class="X">X</span></p>');
 	j++;
 	});
 	
@@ -105,6 +105,7 @@ $(function(){
 	});
 	
 });
+
 </script>
 <title>Insert title here</title>
 </head>
@@ -113,7 +114,8 @@ $(function(){
 <%@ include file="../temp/header.jsp" %>
 <div id="posBackground">
 <%@ include file="./posHeader.jsp" %>
-<div id="total"></div><input type="button" id="totalbtn" value="total">
+<div id="total"></div>
+<input type="button" id="totalbtn" value="total">
 <div id="insert"></div>
 <div id="insertTotal"><p>Total :</p><p id="instotal"></p></div>
 <input type="hidden" value="item +" id="itemplus" class="hide">
