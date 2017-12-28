@@ -111,6 +111,7 @@ $(function(){
 <body>
 <section id="main">
 <%@ include file="../temp/header.jsp" %>
+<div id="posBackground">
 <%@ include file="./posHeader.jsp" %>
 <div id="total"></div><input type="button" id="totalbtn" value="total">
 <div id="insert"></div>
@@ -118,6 +119,7 @@ $(function(){
 <input type="hidden" value="item +" id="itemplus" class="hide">
 <input type="button" id="import" value="insert">
 <input type="hidden" id="expend" class="hide" value="expend">
+</div>
 </section>
 </body>
 </html>

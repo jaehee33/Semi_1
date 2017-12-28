@@ -1,21 +1,40 @@
 @charset "UTF-8";
-
-#posheader{
-	background-color: #6baed6;
-	width:100%;
-	height: 50px;
-	overflow: auto;
+.hover13{
+  position: relative;
+  overflow: hidden;
 }
 
-#posheader ul li{
-	float: left;
-	line-height:50px;
-	list-style-type: none;
-	vertical-align: middle;
-	text-align: center;
-	width: 150px;
+.hover13, .hover13__label{
+  display: inline-block;
 }
 
-li > a{
-	display: block;
+.hover13:after{
+  content: '' attr(data-hover-label) '';
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  opacity: 0;
+  transform: translate3d(0, 140%, 0);
+  transition: transform .2s cubic-bezier(.86, .6, .08, 1.01), opacity .2s ease-in; 
+}
+
+.hover13:hover:after, .hover13:hover .hover13__label{
+  transition-duration: .4s;
+}
+
+.hover13:hover:after, .hover13:focus:after{
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.hover13:hover .hover13__label, .hover13:focus .hover13__label{
+  transform: translate3d(0, -140%, 0);
+}
+
+.hover13__label{
+  transform: translate3d(0, 0, 0);
+  transition-property: transform; 
+  transition-duration: .3s;
+  transition-timing-function: cubic-bezier(.86, .6, .08, 1.01);
 }
