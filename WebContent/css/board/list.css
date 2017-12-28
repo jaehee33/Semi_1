@@ -49,10 +49,9 @@ table.list_table{
 	text-align: left;
 }
 
-#padding{
+#contents_view{
 	padding: 50px;
 	display: none;
-	
 }
 
 .list_table #num{
