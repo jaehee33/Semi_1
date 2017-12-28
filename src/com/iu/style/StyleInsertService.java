@@ -62,7 +62,7 @@ public class StyleInsertService implements Action {
 							actionForward.setPath("./kindFList.kind");
 						}else {
 							request.setAttribute("message", "추가 실패");
-							request.setAttribute("path", "./kinFList.kind");
+							request.setAttribute("path", "./kindFList.kind");
 							actionForward.setCheck(true);
 							actionForward.setPath("../WEB-INF/view/common/result.jsp");
 						}

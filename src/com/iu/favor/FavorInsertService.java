@@ -16,13 +16,6 @@ public class FavorInsertService implements Action {
 		ActionForward actionForward = new ActionForward();
 		String id=((MemberDTO)request.getSession().getAttribute("member")).getId();
 		String method=request.getMethod();
-		int num=0;
-		int price=0;
-		try {
-			num=Integer.parseInt(request.getParameter("num"));
-			price=Integer.parseInt(request.getParameter("price"));
-		}catch (Exception e) {
-		}
 
 		if(method.equals("POST")) {
 			String page=request.getParameter("page");
@@ -33,37 +26,34 @@ public class FavorInsertService implements Action {
 				count=styleDAO.TotalCount();
 				System.out.println(count);
 
-				if(count>4) {
+				if(count>2) {
 					request.setAttribute("message", "즐겨찾기는 최대 3개까지 가능합니다");
-					request.setAttribute("path", "../style/styleList.style");
+					request.setAttribute("path", "../favor/favorList.favor");
 					actionForward.setCheck(true);
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}else {
 					StyleDTO styleDTO=new StyleDTO();
 					styleDTO.setId(id);
-					styleDTO.setNum(num);
-					styleDTO.setStyle(request.getParameter("style"));
-					styleDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 					styleDTO.setStore(request.getParameter("store"));
 					result=styleDAO.insert(styleDTO);
 
 					if(page.equals("view")) {
 						if(result>0) {
 							actionForward.setCheck(false);
-							actionForward.setPath("../kind/kindView.kind?num="+num);
+							actionForward.setPath("../store/storeView.store?id="+id);
 						}else {
 							request.setAttribute("message", "추가 실패");
-							request.setAttribute("path", "./kindView.kind?num="+num);
+							request.setAttribute("path", "./storeView.store?id="+id);
 							actionForward.setCheck(true);
 							actionForward.setPath("../WEB-INF/view/common/result.jsp");
 						}
 					}else {
 						if(result>0) {
 							actionForward.setCheck(false);
-							actionForward.setPath("./kindFList.kind");
+							actionForward.setPath("./storeList.store");
 						}else {
 							request.setAttribute("message", "추가 실패");
-							request.setAttribute("path", "./kinFList.kind");
+							request.setAttribute("path", "./storeList.store");
 							actionForward.setCheck(true);
 							actionForward.setPath("../WEB-INF/view/common/result.jsp");
 						}
@@ -74,16 +64,11 @@ public class FavorInsertService implements Action {
 				e.printStackTrace();
 			}
 
-
-
 		}else {
-			request.setAttribute("num",num);
-			request.setAttribute("style", request.getParameter("style"));
-			request.setAttribute("price",price);
 			request.setAttribute("store", request.getParameter("store"));
 			request.setAttribute("page", request.getParameter("page"));
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/kind/kindFavorAjax.jsp");
+			actionForward.setPath("../WEB-INF/view/store/storeFavorAjax.jsp");
 		}
 
 		return actionForward;
