@@ -1,3 +1,70 @@
 @charset "UTF-8";
 
-.storename
+.insertt{
+	height: 50px;
+	border-bottom:#BDBDBD solid 1px;
+}
+
+.insertt input{
+	height: 30px;
+	border: none;
+	text-align: center;
+	padding: 0 10px;
+}
+
+
+.insertt select{
+	text-align: center;
+	height: 30px;
+	padding: 0 10px;
+	border: none;
+}
+
+
+.insertmoney{
+	width: 200px;
+}
+
+#postitle{
+	margin: 20px 0;
+	background-color: white;
+	width:100%;
+	height: 40px;
+}
+
+
+#postitle ul{
+}
+
+#postitle ul li{
+	font-weight: bold;
+	float:left;
+	line-height:40px;
+	list-style-type: none;
+	vertical-align: middle;
+	text-align: center;
+}
+
+li > a{
+	font-weight: bold;
+	color: black;
+	display: block;
+}
+
+.storename{
+	width: 200px;
+	line-height: 50px;
+}
+
+.kind{
+	width: 400px;
+	line-height: 50px;
+}
+
+.imoney{
+	width: 400px;
+	line-height: 50px;
+}
+
+
+

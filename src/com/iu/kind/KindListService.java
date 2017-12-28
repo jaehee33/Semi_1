@@ -45,7 +45,7 @@ public class KindListService implements Action {
 			request.setAttribute("filelist", ar2);
 			request.setAttribute("kindlist", ar);
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/kind/kindListajax.jsp");
+			actionForward.setPath("../WEB-INF/view/kind/kindListajax2.jsp");
 		}else {
 			request.setAttribute("message", "kind Fail");
 			request.setAttribute("path", "../index.jsp");

@@ -32,7 +32,7 @@ public class PosInsertService implements Action {
 				
 			}
 			request.setAttribute("kindlist", ar);
-			request.setAttribute("sname", store);
+			request.setAttribute("store", store);
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/pos/posInsert.jsp");
 		}else {

@@ -3,11 +3,12 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <form action="posInsert.pos" method="post" name="frm" id="frm">
-<input type="text" name="store" class="storename" value="${sname}" readonly="readonly">
+<p class="insertt">
+<input type="text" name="store" class="storename" value="${store}" readonly="readonly">
 <select name="kind" class="g kind">
 <option value="other">기타</option>
 <c:forEach items="${kindlist}" var="a" varStatus="j">
-<option value="${a.kind}" title="price${j.index}" class="op">${a.kind}</option>
+<option value="${a.style}" title="price${j.index}" class="op">${a.style}</option>
 </c:forEach>
 </select>
 <c:forEach items="${kindlist}" var="b" varStatus="i">
@@ -15,5 +16,6 @@
 </c:forEach>
 <input type="number" name="pos_import" value="" class="imoney insertmoney">
 <input type="hidden" name="expend" value="0">
+</p>
 <input type="button" value="btn" id="btn">
 </form>
