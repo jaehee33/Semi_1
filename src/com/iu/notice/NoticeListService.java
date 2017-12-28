@@ -18,6 +18,29 @@ public class NoticeListService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 
+		int num=0;
+		try {
+		num = Integer.parseInt(request.getParameter("num"));
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		NoticeDAO noticeDAO = new NoticeDAO();
+		try {
+			noticeDAO.hit(num);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		BoardDTO boardDTO=null;
+		
+		try {
+			boardDTO = noticeDAO.selectOne(num);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		int curPage=1;
 		try {
 			curPage= Integer.parseInt(request.getParameter("curPage"));
@@ -26,7 +49,6 @@ public class NoticeListService implements Action {
 		MakeRow makeRow = new MakeRow();
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
-		NoticeDAO noticeDAO = new NoticeDAO();
 		int totalCount;
 		try {
 			totalCount = noticeDAO.getTotalCount(makeRow);

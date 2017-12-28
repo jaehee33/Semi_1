@@ -18,7 +18,6 @@ public class NoticeViewService implements Action {
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		
 		NoticeDAO noticeDAO = new NoticeDAO();
 		try {
 			noticeDAO.hit(num);
