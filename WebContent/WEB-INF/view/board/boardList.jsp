@@ -38,15 +38,7 @@
 		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
-				$(this).css("background-color","yellow");
-			}
-		});
-		
-		
-		var list= '${i.kind}';
-		$(".button_now").click(function(){
-			if($(this).attr("selected", true)){
-			$(this).css("background-color","yellow");			
+				$(this).css("background-color","silver");
 			}
 		});
 		
