@@ -51,16 +51,16 @@
 			}
 		});
 
-		$.get('../favor/favorInsert.favor?&store=${store.store}&page="view"', function(data) {
+		$.get('../favor/favorInsert.favor?store_id=${store.id}&store=${store.store}', function(data) {
 			$("#favor").html(data);
 		});
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
-			if (favor == "toggle") {
-				$("#btn").attr("class", "");
+			if (favor == "off") {
+				$("#btn").attr("class", "on");
 			} else {
-				$("#btn").attr("class", "");
+				$("#btn").attr("class", "off");
 			}
 		});
 		
@@ -116,7 +116,7 @@
 							<img src="<%=request.getContextPath()%>/img/store/scissors.png"
 								style="width: 16px; height: 16px;"><b>storetel</b> <br>${store.storetel}</p>
 						<br>
-						<div class="toggle" id="favor"></div>
+						<div id="favor"></div>
 						<c:if test="${sessionScope.member.id eq store.id}">
 							<div id="ownerMenu">
 								OwnerMenu

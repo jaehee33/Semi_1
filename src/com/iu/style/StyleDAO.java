@@ -10,6 +10,18 @@ import com.iu.util.DBConnector;
 
 public class StyleDAO {
 
+	public StyleDTO selectOne(int num) throws Exception{
+		Connection con = DBConnector.getConnect();
+		
+		String sql="select * from style where num=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, num);
+		ResultSet rs = st.executeQuery();
+		
+		StyleDTO styleDTO=null;
+		return styleDTO;
+	}
+	
 	public List<StyleDTO> selectList() throws Exception {
 		Connection con= DBConnector.getConnect();
 		

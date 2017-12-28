@@ -3,8 +3,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <form action="../favor/favorInsert.favor" method="post" name="frm" id="frm">
-	<input type="hidden" name="num" value="${num}">
+	<input type="hidden" name="store_id" value="${store_id}">
 	<input type="hidden" name="store" value="${store}">
-	<input type="hidden" name="page" value="view">
-	<button type="button" class="toggle" id="btn">즐겨찾기</button>
+		<c:if test="">
+		<button type="button" id="btn" class="off">즐겨찾기</button>
+	</c:if>
+	<c:if test="">
+		<button type="button" id="btn" class="on">즐겨찾기</button>
+	</c:if>
 </form>
