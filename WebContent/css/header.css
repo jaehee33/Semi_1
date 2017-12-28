@@ -9,12 +9,13 @@ background-image: url("/Semi_1/img/background/cream_pixels.png");
 background-repeat: repeat;
 display: block;
 margin-top: 100px;
+
 }
 
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Poppins','Nanum Gothic', sans-serif;
+
 }
 #hdtop {
 	background-color: white;

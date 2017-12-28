@@ -8,59 +8,129 @@
 <link href="<%=request.getContextPath()%>/css/member/mypage.css" rel="stylesheet">
 <title>마이페이지</title>
 </head>
+<script type="text/javascript">
+$(function(){
+	//<!-- =====================마이페이지============================= -->
+		$(".hover").mouseleave(
+				  function () {
+				    $(this).removeClass("hover");
+				  }
+				);
+	//<!-- =====================마이페이지============================= -->
+});
+</script>
+
 <body>
 <%@ include file="../temp/header.jsp" %>
-	<section id="main">
-<div id="hd">
-		<h2>나의 상세 정보</h2>
-</div>
-
-<div id="content">
-	<div class="col" id="col1">
-		<div class="box" id="box1">
+	<section id="">
+		<div id="hd">
+		<br>
+			<h2>나의 상세 정보</h2>
 			<img src="<%=request.getContextPath()%>/img/member/img_avatar1.png">
 			<ul>
-				<li><h4>${m2.name} 
-				<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if><c:if test="${m2.job eq 'S' }"> [가맹주]</c:if></span>
-				</h4></li>
+				<li><h4>${m2.name}
+						<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if>
+							<c:if test="${m2.job eq 'S' }"> [가맹주]</c:if></span>
+					</h4></li>
 				<li><h4>${m2.birth}</h4></li>
 				<li><h4>${m2.phone}</h4></li>
 			</ul>
+				<p><a href="./memberUpdate.member?id=${sessionScope.member.id}">정보수정</a></p>
 		</div>
-		<div class="box" id="box3">
-			<p><a href="../style/styleList.style">스타일즐겨찾기보기</a></p> 
-		</div>
-		<div class="box" id="box5">
-		<p><a href="./memberUpdate.member?id=${sessionScope.member.id}">정보수정</a></p>
-		</div>
-		<div id="box7">
-		<p><a href="../index.jsp">처음으로</a></p>
-		</div>
-	</div>
-		
-	<div class="col" id="col2">
-		<div class="box" id="box2">
-			<c:if test="${sessionScope.member.job eq 'B'}">
-				<p><a href="../use/useList.use">예약/취소</a></p>
-			</c:if>
-			<c:if test="${sessionScope.member.job eq 'S'}">
-			<c:if test="${empty store}">
-				<p><a href="../store/storeWrite.store">가맹점 등록하기</a></p>
-			</c:if>
-			<c:if test="${not empty store}">
-				<p><a href="../store/storeView.store?id=${sessionScope.member.id}">가맹점관리</a></p>
-			</c:if>
-		</c:if>
-		</div>
-		<div class="box" id="box4">
-			<p><a href="../favor/favorList.favor">가게 즐겨찾기보기</a></p>
-		</div>
-		<div class="box" id="box6">
-			<p><a href="./memberDelete.member">회원탈퇴</a></p>
-		</div>
+<!-- =====================box1============================= -->
+		<article>
+			<div id="box1" class="box">
+				<figure class="snip1432">
+					<img
+						src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample21.jpg"
+						alt="sample36" />
+					<figcaption>
+						<div>
+							<h3>Click Favorites</h3>
+							<h3>To view style marked</h3>
+						</div>
+						<div>
+							<h2>Style Favorites</h2>
+						</div>
+					</figcaption>
+					<a href="../style/styleList.style"></a>
+				</figure>
+			</div>
+			<!-- =====================box1============================= -->
+			<!-- =====================box2============================= -->
+			<div id="box2" class="box">
+				<figure class="snip1432">
+					<img
+						src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample45.jpg"
+						alt="sample36" />
+					<figcaption>
+						<div>
+							<h3>Click Favorites</h3>
+							<h3>To view store marked</h3>
+						</div>
+						<div>
+							<h2>Store Favorites</h2>
+						</div>
+					</figcaption>
+					<a href="../favor/favorList.favor"></a>
+				</figure>
+			</div>
+			<!-- =====================box2============================= -->
+			<!-- =====================box3============================= -->
+			<div id="box3" class="box">
+				<figure class="snip1432">
+					<img
+						src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample78.jpg"
+						alt="sample36" />
+					<c:if test="${sessionScope.member.job eq 'B'}">
+						<figcaption>
+							<div>
+								<h3>Booking</h3>
+								<h3>Make a reservation</h3>
+							</div>
+							<div>
+								<h2>예약/취소</h2>
+							</div>
+						</figcaption>
+						<a href="../use/useList.use"></a>
+					</c:if>
+					<c:if test="${sessionScope.member.job eq 'S'}">
+						<c:if test="${empty store}">
+							<figcaption>
+								<div>
+									<h3>Add Franchisee</h3>
+									<h3>Register for Franchisee</h3>
+								</div>
+								<div>
+									<h2>가맹점 등록</h2>
+								</div>
+							</figcaption>
+							<a href="../store/storeWrite.store"></a>
+						</c:if>
+						<c:if test="${not empty store}">
+							<figcaption>
+								<div>
+									<h3>Franchisee</h3>
+									<h3>Franchisee Management</h3>
+								</div>
+								<div>
+									<h2>가맹점관리</h2>
+								</div>
+							</figcaption>
+							<a href="../store/storeView.store?id=${sessionScope.member.id}"></a>
+						</c:if>
+					</c:if>
+				</figure>
+			</div>
+		</article>
+		<!-- =====================box3============================= -->
+	
 
-	</div>
-</div>
+	
+		<p><a href="../index.jsp">처음으로</a></p>
+
+			<p><a href="./memberDelete.member">회원탈퇴</a></p>
+
 
 </section>
 	<%@ include file="../temp/footer.jsp"%>
