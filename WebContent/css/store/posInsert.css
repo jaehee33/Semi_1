@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+#import{
+	width: 120px;
+	height: 60px;
+	float: right;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6baed6;
+	text-align: center;
+	line-height: 60px;
+	border:#E1E1E1 1px solid;
+	 -webkit-transition:background-color 2s;
+    transition:background-color 2s;
+    margin-right: 30px;
+}
+
+#import:hover{
+	background-color: #6baed6;
+	color: white;
+}
+
 .insertt{
 	height: 50px;
 	border-bottom:#BDBDBD solid 1px;

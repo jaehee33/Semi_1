@@ -26,7 +26,7 @@ $(function(){
 	var o=0;
 	var i=0;
 	$("#itemplus").click(function(){
-		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="price${j.index}" class="op">${a.style}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" title="'+o+'" name="pos_import" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O">X</span></p>')
+		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select title="'+i+'" name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="price${j.index}" id="'+i+'" class="op">${a.style}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O">X</span></p>')
 	i++;
 		o++;
 	});
@@ -74,7 +74,6 @@ $(function(){
 		$(".op",this).each(function(){
 			if($(this).prop("selected")){
 				var title=$(this).attr("title");
-				alert(title);
 				$(".e").each(function(){
 					if($(this).attr("id")==title){
 					document.frm.pos_import.value=$(this).attr("value");
@@ -123,7 +122,7 @@ $(function(){
 <input type="button" id="totalbtn" value="total">
 <input type="hidden" value="import" id="itemplus" class="hide">
 <input type="hidden" id="expend" class="hide" value="expend">
-<input type="button" id="import" value="insert">
+<div id="import">START</div>
 </div>
 </section>
 </body>
