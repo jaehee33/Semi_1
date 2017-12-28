@@ -7,6 +7,10 @@
 	<input type="hidden" name="style" value="${style}">
 	<input type="hidden" name="price" value="${price}">
 	<input type="hidden" name="store" value="${store}">
-	<input type="hidden" name="page" value="view">
-	<button type="button" class="toggle" id="btn">즐겨찾기</button>
+	<c:if test="">
+		<button type="button" id="btn" class="off">즐겨찾기</button>
+	</c:if>
+	<c:if test="">
+		<button type="button" id="btn" class="on">즐겨찾기</button>
+	</c:if>
 </form>

@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.member.MemberDTO;
-import com.iu.style.StyleDAO;
-import com.iu.style.StyleDTO;
 
 public class FavorInsertService implements Action {
 
@@ -16,47 +14,38 @@ public class FavorInsertService implements Action {
 		ActionForward actionForward = new ActionForward();
 		String id=((MemberDTO)request.getSession().getAttribute("member")).getId();
 		String method=request.getMethod();
+		
+		String store_id=request.getParameter("store_id");
 
 		if(method.equals("POST")) {
-			String page=request.getParameter("page");
-			StyleDAO styleDAO=new StyleDAO();
+			FavorDAO favorDAO=new FavorDAO();
 			int count=0;
 			int result=0;
 			try {
-				count=styleDAO.TotalCount();
+				count=favorDAO.TotalCount();
 				System.out.println(count);
 
 				if(count>2) {
 					request.setAttribute("message", "즐겨찾기는 최대 3개까지 가능합니다");
-					request.setAttribute("path", "../favor/favorList.favor");
+					request.setAttribute("path", "../store/storeView.store?id="+store_id);
 					actionForward.setCheck(true);
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}else {
-					StyleDTO styleDTO=new StyleDTO();
-					styleDTO.setId(id);
-					styleDTO.setStore(request.getParameter("store"));
-					result=styleDAO.insert(styleDTO);
+					FavorDTO favorDTO=new FavorDTO();
+					favorDTO.setId(id);
+					favorDTO.setStore(request.getParameter("store"));
+					favorDTO.setStore_id(store_id);
+					result=favorDAO.insert(favorDTO);
 
-					if(page.equals("view")) {
-						if(result>0) {
-							actionForward.setCheck(false);
-							actionForward.setPath("../store/storeView.store?id="+id);
-						}else {
-							request.setAttribute("message", "추가 실패");
-							request.setAttribute("path", "./storeView.store?id="+id);
-							actionForward.setCheck(true);
-							actionForward.setPath("../WEB-INF/view/common/result.jsp");
-						}
+
+					if(result>0) {
+						actionForward.setCheck(false);
+						actionForward.setPath("../store/storeView.store?id="+store_id);
 					}else {
-						if(result>0) {
-							actionForward.setCheck(false);
-							actionForward.setPath("./storeList.store");
-						}else {
-							request.setAttribute("message", "추가 실패");
-							request.setAttribute("path", "./storeList.store");
-							actionForward.setCheck(true);
-							actionForward.setPath("../WEB-INF/view/common/result.jsp");
-						}
+						request.setAttribute("message", "추가 실패");
+						request.setAttribute("path", "../store/storeView.store?id="+store_id);
+						actionForward.setCheck(true);
+						actionForward.setPath("../WEB-INF/view/common/result.jsp");
 					}					
 				}
 			} catch (Exception e) {
@@ -65,8 +54,8 @@ public class FavorInsertService implements Action {
 			}
 
 		}else {
+			request.setAttribute("store_id", store_id);
 			request.setAttribute("store", request.getParameter("store"));
-			request.setAttribute("page", request.getParameter("page"));
 			actionForward.setCheck(true);
 			actionForward.setPath("../WEB-INF/view/store/storeFavorAjax.jsp");
 		}

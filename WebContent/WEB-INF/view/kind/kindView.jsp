@@ -10,16 +10,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.get('../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&page="view"', function(data) {
+		$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 			$("#favor").html(data);
 		});
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
-			if (favor == "toggle") {
-				$("#btn").attr("class", "");
+			if (favor == "off") {
+				$("#btn").attr("class", "on");
 			} else {
-				$("#btn").attr("class", "");
+				$("#btn").attr("class", "off");
 			}
 		});
 	});

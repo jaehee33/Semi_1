@@ -12,6 +12,8 @@ public class StyleDeleteService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		
+		String style=request.getParameter("style");
+		
 		int num=0;
 		int result=0;
 		try {
@@ -28,7 +30,7 @@ public class StyleDeleteService implements Action {
 		}else {
 			request.setAttribute("message", "삭제 실패");
 		}
-		request.setAttribute("path", "./kinFList.kind");
+		request.setAttribute("path", "../kind/kindView.kind?num="+num+"&style="+style);
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		
