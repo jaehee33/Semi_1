@@ -365,3 +365,21 @@ input[type=checkbox], input[type=radio] {
 }
 
 }
+
+.toggle{
+	font-size: 12px;
+	margin: 10px 0px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	width: 90px;
+	height:50px;
+	border:#E1E1E1 1px solid;
+	 -webkit-transition:background-color 2s;
+    transition:background-color 2s;
+}
+
+.toggle:hover{
+	background-color: #5F4B8B;
+	color: white;
+}

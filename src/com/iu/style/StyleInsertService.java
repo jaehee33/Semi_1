@@ -30,12 +30,14 @@ public class StyleInsertService implements Action {
 			int result=0;
 			try {
 				count=styleDAO.TotalCount();
+				System.out.println(count);
 
-				if(count>3) {
+				if(count>4) {
 					request.setAttribute("message", "즐겨찾기는 최대 3개까지 가능합니다");
-					request.setAttribute("path", "../favor/favorStyle.jsp");
-				}
-				else {
+					request.setAttribute("path", "../style/styleList.style");
+					actionForward.setCheck(true);
+					actionForward.setPath("../WEB-INF/view/common/result.jsp");
+				}else {
 					StyleDTO styleDTO=new StyleDTO();
 					styleDTO.setId(id);
 					styleDTO.setNum(num);
@@ -43,7 +45,7 @@ public class StyleInsertService implements Action {
 					styleDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 					styleDTO.setStore(request.getParameter("store"));
 					result=styleDAO.insert(styleDTO);
-					
+
 					if(page.equals("view")) {
 						if(result>0) {
 							actionForward.setCheck(false);
@@ -70,6 +72,9 @@ public class StyleInsertService implements Action {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
+			
 		}else {
 			request.setAttribute("num",num);
 			request.setAttribute("style", request.getParameter("style"));

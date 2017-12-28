@@ -16,10 +16,10 @@
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
-			if (favor == "btn btn-default") {
-				$("#btn").attr("class", "btn btn-danger");
+			if (favor == "toggle") {
+				$("#btn").attr("class", "");
 			} else {
-				$("#btn").attr("class", "btn btn-default");
+				$("#btn").attr("class", "");
 			}
 		});
 	});
@@ -29,8 +29,8 @@
 	font-weight: bold;
 }
 </style>
-<link href="<%=request.getContextPath()%>/css/kind/kindView.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/kind/kindView.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
@@ -44,7 +44,7 @@
 							<strong>매장명 </strong> ${kind.store} <strong>가격</strong>
 							${kind.price }
 						</p>
-						<div id=favor></div>
+						<div id="favor"></div>
 
 					</div>
 					<div class="buy">

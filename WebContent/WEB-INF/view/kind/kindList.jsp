@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.photo{
+	weight: 250px;
+	height: 250px;
+}
+</style>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
@@ -18,7 +24,7 @@
 			<tr>
 				<c:forEach items="${filelist}" var="f">
 					<c:if test="${k.num eq f.num}">
-						<td><img src="../upload/${f.fname}"></td>
+						<td><img class="photo" src="../upload/${f.fname}"></td>
 					</c:if>
 				</c:forEach>
 			</tr>
