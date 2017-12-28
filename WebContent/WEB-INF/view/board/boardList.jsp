@@ -43,7 +43,7 @@
 		});
 		
 		$("#title").click(function(){
-			$("#panel").slideToggle("slow");
+			$("#contents_view").slideToggle("slow");
 		});
 		
 		
@@ -81,7 +81,15 @@
 						<td>${i.num}</td>
 						<td id="title"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
+							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a>
+							<div id="panel">
+								<h2>hello</h2>
+							</div>
+						</td>
+					
+					
+					
+					
 						<c:if test="${member.id eq 'admin'}">
 							<td>${i.id}</td>
 						</c:if>
@@ -92,11 +100,6 @@
 			</c:forEach>
 		</table>
 	
-		<div id="panel">
-			<h2>hello</h2>
-		</div>
-
-
 
 		<div id="div_page">
 		<c:if test="${member.id eq 'admin'}">
