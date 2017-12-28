@@ -36,7 +36,7 @@ table.list_table{
 
 .list_table td{
 	font-size: 12px;
-	padding: 10px;
+	padding: 5px;
 	vertical-align: top;
 	text-align: center;
 	border-bottom: 1px solid #ccc;
@@ -45,12 +45,19 @@ table.list_table{
 	white-space: nowrap;
 }
 
-#title{
+.table_title{
 	text-align: left;
+	font-size: 12px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
-#contents_view{
-	padding: 50px;
+.div_view{
+	width: auto;
+	height: auto;
+	margin: 10px 10px;
+	border-top: solid 1px #c3c3c3;
 	display: none;
 }
 
@@ -79,6 +86,7 @@ div h2{
 }
 
 h2{
+	text-transform: capitalize;
 	text-align: center;
 }
 
@@ -130,7 +138,7 @@ td a:hover {
 	background-color: white;
 	color: black;
 	text-decoration: none;
-	border: 1px solid gray;
+	border: 1px solid silver;
 }
 
 .list:hover{
