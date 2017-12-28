@@ -28,9 +28,23 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
+		
 		$("#write").click(function(){
 			window.location.href="./${board}Write.${board}";
 		});
+		
+		var list= '${i.kind}';
+		$(".button_now").click(function(){
+			if($(this).attr("selected", true)){
+			$(this).css("background-color","yellow");			
+			}
+		});
+		
+		$("#title").click(function(){
+			$("#panel").slideToggle("slow");
+		});
+		
+		
 		
 		/* 
 		$("#backpage").click(function() {
@@ -46,7 +60,6 @@
 		<div>
 		<h2><a href="./${board}List.${board}">${board}</a></h2>
 		</div>
-	
 	
 		<table class="list_table">
 			<thead>
@@ -77,9 +90,12 @@
 			</c:forEach>
 		</table>
 	
+		<div id="panel">
+			<h2>hello</h2>
+		</div>
 
-		<div></div>
-	
+
+
 		<div id="div_page">
 		<c:if test="${member.id eq 'admin'}">
 			<button type="button" class="buttonWrite" id="write">글쓰기</button>
@@ -102,18 +118,19 @@
 			</c:choose>
 		</c:if>
 		
-		
+	<%-- 	
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
-		</c:if>
+		</c:if> --%>
+		
 		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-			<input type="button" class="list" title="${i}" value="${i}">
+			<input type="button" class="list button_now" title="${i}" value="${i}">
 		</c:forEach>
-		<c:if test="${page.curBlock lt page.totalBlock}">
+	<%-- 	<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
-		</c:if>
+		</c:if> --%>
 		
 		
 		<c:if test="${not empty make}">
