@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +12,25 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-
-	<h1>스타일 즐겨찾기 보기</h1>
-	<table>
-		<tr>
-			<td>사진</td>
-			<td>종류</td>
-			<td>가격</td>
-			<td>가게명</td>
-		</tr>
-
-
-	</table>
+	<section id="main">
+		<h1>스타일 즐겨찾기 보기</h1>
+		<table>
+			<tr>
+				<td>사진</td>
+				<td>종류</td>
+				<td>가격</td>
+				<td>가게명</td>
+			</tr>
+			<c:forEach items="${list}" var="i">
+				<tr>
+					<td>사진</td>
+					<td>${i.style}</td>
+					<td>${i.price}</td>
+					<td>${i.store}</td>
+				</tr>			
+			</c:forEach>
+		</table>
+	</section>
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

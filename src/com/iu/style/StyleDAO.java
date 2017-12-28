@@ -3,10 +3,36 @@ package com.iu.style;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.iu.util.DBConnector;
 
 public class StyleDAO {
 
+	public List<StyleDTO> selectList() throws Exception {
+		Connection con= DBConnector.getConnect();
+		
+		String sql="select * from style";
+		PreparedStatement st = con.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		List<StyleDTO> list=new ArrayList<>();
+		
+		while(rs.next()) {
+			StyleDTO styleDTO = new StyleDTO();
+			styleDTO.setId(rs.getString("id"));
+			styleDTO.setNum(rs.getInt("num"));
+			styleDTO.setPrice(rs.getInt("price"));
+			styleDTO.setStore(rs.getString("store"));
+			styleDTO.setStyle(rs.getString("style"));
+			
+			list.add(styleDTO);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return list;		
+	}
+	
 	public int TotalCount() throws Exception{
 		Connection con = DBConnector.getConnect();
 
