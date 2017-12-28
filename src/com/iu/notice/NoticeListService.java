@@ -36,6 +36,7 @@ public class NoticeListService implements Action {
 			
 			Pageing pageing = makePage.pageing();
 			
+			request.setAttribute("curPage", curPage);
 			request.setAttribute("board", "notice");
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
