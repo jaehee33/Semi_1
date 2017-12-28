@@ -41,10 +41,6 @@
 			}
 		});
 		
-		$("#title").click(function(){
-			$("#contents_view").slideToggle("slow");
-		}); 
-		
 		$(".g").each(function(){
 			var num=$(this).attr("title");
 			$("#title"+num).click(function(){
