@@ -18,8 +18,8 @@ public class StyleInsertService implements Action {
 		int num=0;
 		int price=0;
 		try {
-		num=Integer.parseInt(request.getParameter("num"));
-		price=Integer.parseInt(request.getParameter("price"));
+			num=Integer.parseInt(request.getParameter("num"));
+			price=Integer.parseInt(request.getParameter("price"));
 		}catch (Exception e) {
 		}
 
@@ -38,6 +38,7 @@ public class StyleInsertService implements Action {
 				else {
 					StyleDTO styleDTO=new StyleDTO();
 					styleDTO.setId(id);
+					styleDTO.setNum(num);
 					styleDTO.setStyle(request.getParameter("style"));
 					styleDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 					styleDTO.setStore(request.getParameter("store"));

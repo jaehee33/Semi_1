@@ -49,12 +49,13 @@ public class StyleDAO {
 
 	public int insert(StyleDTO styleDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="insert into style values(?,?,favor_seq.nextval,?,?)";
+		String sql="insert into style values(?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, styleDTO.getId());
 		st.setString(2, styleDTO.getStyle());
-		st.setInt(3, styleDTO.getPrice());
-		st.setString(4, styleDTO.getStore());
+		st.setInt(3, styleDTO.getNum());
+		st.setInt(4, styleDTO.getPrice());
+		st.setString(5, styleDTO.getStore());
 		int result=st.executeUpdate();
 
 		DBConnector.disConnect(st, con);
