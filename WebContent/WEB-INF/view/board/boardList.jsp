@@ -91,13 +91,10 @@
 		</table>
 	
 
-		<div></div>
-	
 		<div id="div_page">
 		<c:if test="${member.id eq 'admin'}">
 			<button type="button" class="buttonWrite" id="write">글쓰기</button>
 		</c:if>                                                                                                                      
-		
 		
 		
 		<c:if test="${not empty make}">

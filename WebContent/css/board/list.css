@@ -166,15 +166,5 @@ td a:hover {
 	background-color: silver;
 	color: white;
 }
-.paging {position:relative; width:100%; text-align:center; margin-top:10px; }
-.paging a{display:inline-block; background:url('./img/btn_bg.gif') no-repeat; color:#353e44; font-size:12px; font-weight:bold; width:26px; height:25px; line-height:27px; vertical-align:middle; margin-right:2px; border:1px solid #c8c8c8;}
-.paging a.active{background:url('');  border:1px solid #018fc2; color:#FFFFFF; background-color:#0da2d7;}
-
-
-.paging .btn_first{background:url('./img/btn_first.gif') no-repeat;}
-.paging .btn_prev{background:url('./img/btn_prev.gif') no-repeat; margin-right:14px;}
-.paging .btn_next{background:url('./img/btn_next.gif') no-repeat; margin-left:14px;}
-.paging .btn_end{background:url('./img/btn_end.gif') no-repeat;}
-
 
 }

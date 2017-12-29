@@ -7,8 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link href="/Semi_1/css/score/list.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="<%=request.getContextPath()%>/css/store/storeheader.css"
+	rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -145,8 +147,9 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
-		
-		$.get("./scoreWrite.score?id=${storeid}&store=${store}", function(callback) {
+
+		$.get("./scoreWrite.score?id=${storeid}&store=${store}", function(
+				callback) {
 			$("#score").html(callback);
 		});
 
@@ -159,7 +162,7 @@
 		$("#backpage").click(function() {
 			window.location.href = "../index.jsp"
 		});
-		$.get("../store/storeIndex.store?id=${storeid}",function(index){
+		$.get("../store/storeIndex.store?id=${storeid}", function(index) {
 			$("#storeheader").html(index);
 		});
 
@@ -167,40 +170,38 @@
 </script>
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
-<div id="storeheader"></div>
-<div id="storeView">
-	<h2>${store}</h2>
-	<div>
-		<form name="frm" action="./${board}List.${board}">
-			<input type="hidden" name="curPage"> 
-			<select name="kind">
-				<option class="kind" value="all">All</option>
-				<option class="kind" value="pick">PICK</option>
-				<option class="kind" value="cut">CUT</option>
-				<option class="kind" value="perm">PERM</option>
-				<option class="kind" value="clinic">CLINIC</option>
-				<option class="kind" value="styling">STYLE</option>
-			</select>
-			<input type="hidden" name="id" value="${storeid}">
-			<input type="hidden" name="store" value="${store}">
-			<input type="text" name="search" value="${make.search}">
-			<button>Search</button>
-		</form>
-	</div>
+	<%@ include file="../temp/header.jsp"%>
+	<div id="storeheader"></div>
+	<div id="storeView" class="div_page">
+		<h2>${store}</h2>
+		<div>
+			<form name="frm" action="./${board}List.${board}">
+				<input type="hidden" name="curPage"> <select name="kind">
+					<option class="kind" value="all">All</option>
+					<option class="kind" value="pick">PICK</option>
+					<option class="kind" value="cut">CUT</option>
+					<option class="kind" value="perm">PERM</option>
+					<option class="kind" value="clinic">CLINIC</option>
+					<option class="kind" value="styling">STYLE</option>
+				</select> <input type="hidden" name="id" value="${storeid}"> <input
+					type="hidden" name="store" value="${store}"> <input
+					type="text" name="search" value="${make.search}">
+				<button>Search</button>
+			</form>
+		</div>
 
-	<h3>한줄평()</h3>
-	<div id="score"></div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>NUM</th>
-				<th>ID</th>
-				<th>CONTENTS</th>
-				<th>POINT</th>
-				<th>DATE</th>
-			</tr>
-		</thead>
+		<h3>한줄평()</h3>
+		<div id="score"></div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>NUM</th>
+					<th>ID</th>
+					<th>CONTENTS</th>
+					<th>POINT</th>
+					<th>DATE</th>
+				</tr>
+			</thead>
 
 			<c:forEach items="${list}" var="i">
 				<tbody>
@@ -213,32 +214,59 @@
 					</tr>
 				</tbody>
 			</c:forEach>
-	</table>
+		</table>
 
 
-	<c:if test="${member.id eq 'admin'}">
-		<button id="delete" type="button">Delete</button>
-	</c:if>
-	<c:if test="${member.id}">
-		<button id="update" type="button">Update</button>
-	</c:if>
+		<c:if test="${member.id eq 'admin'}">
+			<button id="delete" type="button">Delete</button>
+		</c:if>
+		<c:if test="${member.id}">
+			<button id="update" type="button">Update</button>
+		</c:if>
 
 
-	<c:if test="${page.curBlock gt 1}">
-		<input type="button" class="list" title="${page.startNum-1}"
-			value="[이전]">
-	</c:if>
+		<c:if test="${not empty make}">
+			<input type="button" class="list" title="${page.startNum}" value="<<">
+		</c:if>
 
-	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-		<input type="button" class="list" title="${i}" value="${i}">
-	</c:forEach>
+		<c:if test="${not empty make}">
+			<c:choose>
+				<c:when test="${page.curBlock gt 1}">
+					<input type="button" class="list" title="${page.curBlock-1}"
+						value="<">
+				</c:when>
+				<c:otherwise>
+					<input type="button" class="list" title="${page.curBlock}"
+						value="<">
+				</c:otherwise>
+			</c:choose>
+		</c:if>
 
-	<c:if test="${page.curBlock lt page.totalBlock}">
-		<input type="button" class="list" title="${page.lastNum+1}"
-			value="[다음]">
-	</c:if>
+		<c:if test="${page.curBlock gt 1}">
+			<input type="button" class="list" title="${page.startNum-1}"
+				value="[이전]">
+		</c:if>
 
-	<button type="button" class="btn" id="backpage">BackPage</button>
+		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
+			<input type="button" class="list" title="${i}" value="${i}">
+		</c:forEach>
+
+		<c:if test="${page.curBlock lt page.totalBlock}">
+			<input type="button" class="list" title="${page.lastNum+1}"
+				value="[다음]">
+		</c:if>
+
+		<c:if test="${not empty make}">
+			<input type="button" class="list" title="${page.curBlock+1}"
+				value=">">
+		</c:if>
+
+		<c:if test="${not empty make}">
+			<input type="button" class="list" title="${page.lastNum}" value=">>">
+		</c:if>
+
+
+		<button type="button" class="btn" id="backpage">BackPage</button>
 	</div>
 </body>
 </html>
