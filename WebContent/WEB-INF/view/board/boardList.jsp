@@ -28,9 +28,12 @@
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
+		
 		$("#write").click(function(){
 			window.location.href="./${board}Write.${board}";
 		});
+		
+		
 		var curPage=Number(${curPage});		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
@@ -54,13 +57,14 @@
 </script>
 </head>
 <body>
-	<%@ include file="../temp/header.jsp" %>
+	<%@ include file="../temp/header.jsp"%>
 	<section>
 		<div>
-		<h2><a href="./${board}List.${board}">${board}</a></h2>
+			<h2>
+				<a href="./${board}List.${board}">${board}</a>
+			</h2>
 		</div>
-	
-	
+
 		<table class="list_table">
 			<thead>
 				<tr>
@@ -73,86 +77,102 @@
 					<th id="hit" scope="col">HIT</th>
 				</tr>
 			</thead>
-			<c:forEach items="${list}" var="i">
-				<tbody>
+			<tbody>
+				<c:forEach items="${list}" var="i" varStatus="j">
 					<tr>
 						<td>${i.num}</td>
-						<td id="title"><c:catch>
+
+						<td id="title${j.index}" class="g" title="${j.index}"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch> <a href="./${board}View.${board}?num=${i.num}">${i.title}</a></td>
+							</c:catch><p class="table_title">${i.title}</p>
+							<div id="contents_view${j.index}" class="div_view" >
+								<h2>HELLO</h2>
+							</div>
+						</td>
+
+
 						<c:if test="${member.id eq 'admin'}">
 							<td>${i.id}</td>
 						</c:if>
+
 						<td>${i.reg_date}</td>
 						<td>${i.hit}</td>
+
+
 					</tr>
-				</tbody>
-			</c:forEach>
+				</c:forEach>
+			</tbody>
 		</table>
-	
+
 
 		<div id="div_page">
-		<c:if test="${member.id eq 'admin'}">
-			<button type="button" class="buttonWrite" id="write">글쓰기</button>
-		</c:if>                                                                                                                      
-		
-		
-		<c:if test="${not empty make}">
-			<input type="button" class="list" title="${page.startNum}" value="<<">
-		</c:if>
-		
-		<c:if test="${not empty make}">
-			<c:choose>
-			<c:when test="${page.curBlock gt 1}">
-			<input type="button" class="list" title="${page.curBlock-1}" value="<">
-			</c:when>
-			<c:otherwise>
-			<input type="button" class="list" title="${page.curBlock}" value="<">
-			</c:otherwise>
-			</c:choose>
-		</c:if>
-		
-		
+			<c:if test="${member.id eq 'admin'}">
+				<button type="button" class="buttonWrite" id="write">글쓰기</button>
+			</c:if>
+
+
+
+			<c:if test="${not empty make}">
+				<input type="button" class="list" title="${page.startNum}"
+					value="<<">
+			</c:if>
+
+			<c:if test="${not empty make}">
+				<c:choose>
+					<c:when test="${page.curBlock gt 1}">
+						<input type="button" class="list" title="${page.curBlock-1}"
+							value="<">
+					</c:when>
+					<c:otherwise>
+						<input type="button" class="list" title="${page.curBlock}"
+							value="<">
+					</c:otherwise>
+				</c:choose>
+			</c:if>
+
+			<%-- 	
 		<c:if test="${page.curBlock gt 1}">
 			<input type="button" class="list" title="${page.startNum-1}"
 				value="[이전]">
-		</c:if>
-		<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-			<input type="button" class="list" id="page${i}" title="${i}" value="${i}">
-		</c:forEach>
-		<c:if test="${page.curBlock lt page.totalBlock}">
+		</c:if> --%>
+
+			<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
+				<input type="button" class="list button_now" title="${i}"
+					value="${i}">
+			</c:forEach>
+			<%-- 	<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
-		</c:if>
-		
-		
-		<c:if test="${not empty make}">
-			<input type="button" class="list" title="${page.curBlock+1}" value=">">
-		</c:if>
-		
-		<c:if test="${not empty make}">
-			<input type="button" class="list" title="${page.lastNum}" value=">>">
-		</c:if>
+		</c:if> --%>
+
+
+			<c:if test="${not empty make}">
+				<input type="button" class="list" title="${page.curBlock+1}"
+					value=">">
+			</c:if>
+
+			<c:if test="${not empty make}">
+				<input type="button" class="list" title="${page.lastNum}" value=">>">
+			</c:if>
 		</div>
-	
-		
-	<div id="div_search">
+
+
+		<div id="div_search">
 			<form name="frm" action="./${board}List.${board}">
 				<input type="hidden" name="curPage"> <select name="kind">
 					<option class="kind" value="title">TITLE</option>
 					<option class="kind" value="contents">CONTENTS</option>
 					<option class="kind" value="title" value="contents">TITLE + CONTENTS</option>
-				</select> 
-				<input type="text" name="search" value="${make.search}">
+				</select> <input type="text" name="search" value="${make.search}">
 				<button class="button">Search</button>
 			</form>
 		</div>
 
-		
+
 
 		<!-- <button type="button" class="btn" id="backpage">BackPage</button> -->
-</section>
-<%@ include file="../temp/footer.jsp" %>
+	</section>
+	<%@ include file="../temp/footer.jsp"%>
 
 </body>
 </html>
