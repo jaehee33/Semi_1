@@ -10,32 +10,25 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {		
-		//insert
-		if(${style}) {
+		if(${style == null}) { //insert
 			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 				$("#favor").html(data);
+				alert("aa");
 			});
-			$("#favor").on("click", "#btn", function() {
-				var favor = $(this).attr("class");
-				document.frm.submit();
-				if (favor == "off") {
-					$("#btn").attr("class", "on");
-				}
-			});
-		}else {
+		}else {//delete
 			$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
 				$("#favor").html(data);
 			});
-			$("#favor").on("click", "#btn", function() {
-				var favor = $(this).attr("class");
-				document.frm.submit();
-				if (favor == "on") {
-					$("#btn").attr("class", "off");
-				}
-			});
 		}
-		
-		
+		$("#favor").on("click", "#btn", function() {
+			var favor = $(this).attr("class");
+			document.frm.submit();
+			if (favor == "off") {
+				$("#btn").attr("class", "on");
+			}else {
+				$("#btn").attr("class", "off");
+			}
+		});
 	});
 </script>
 <style type="text/css">
@@ -55,8 +48,9 @@
 					<div class="photo">
 						<img src="../upload/${file.fname}">
 						<p class="date">
-							<strong>매장명 </strong> ${kind.store} <strong>가격</strong>
-							${kind.price }
+							<strong>${kind.style}</strong><br>
+							<strong>매장명 </strong> ${kind.store}
+							<strong>가격</strong> ${kind.price}
 						</p>
 						<div id=favor></div>
 

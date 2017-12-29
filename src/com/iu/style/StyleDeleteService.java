@@ -16,16 +16,23 @@ public class StyleDeleteService implements Action {
 		
 		int num=0;
 		int result=0;
+		StyleDTO styleDTO=null;
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
 			StyleDAO styleDAO = new StyleDAO();
 			result=styleDAO.delete(num);
+			styleDTO=styleDAO.selectOne(num);
+			System.out.println(styleDTO.getNum());
+			System.out.println(styleDTO.getStore());
+			System.out.println(styleDTO.getStyle());
+			System.out.println(styleDTO.getPrice());
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
-		if(result>0) {
+		if(result>0 && styleDTO != null) {
+			request.setAttribute("style", styleDTO);
 			request.setAttribute("message", "즐겨찾기에서 삭제되었습니다.");
 		}else {
 			request.setAttribute("message", "삭제 실패");

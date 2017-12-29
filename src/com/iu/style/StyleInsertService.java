@@ -45,9 +45,9 @@ public class StyleInsertService implements Action {
 					styleDTO.setStore(request.getParameter("store"));
 					result=styleDAO.insert(styleDTO);
 
-
 					if(result>0) {
-						actionForward.setCheck(false);
+						request.setAttribute("style", styleDTO);
+						actionForward.setCheck(true);
 						actionForward.setPath("../kind/kindView.kind?num="+num+"&style="+style);
 					}else {
 						request.setAttribute("message", "추가 실패");
