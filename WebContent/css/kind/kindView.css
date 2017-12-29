@@ -364,4 +364,50 @@ input[type=checkbox], input[type=radio] {
 	text-align: center;
 }
 
+.off{
+	background-color: #fff;
+	font-size: 12px;
+	margin: 10px 0px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	width: 90px;
+	height:50px;
+	border:#E1E1E1 1px solid;
+	 -webkit-transition:background-color 0.5s;
+    transition:background-color 0.5s;
 }
+
+.off:hover{
+	background-color: #5F4B8B;
+	color: white;
+}
+
+.on{
+	background-color: #5F4B8B;
+	font-size: 12px;
+	margin: 10px 0px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	width: 90px;
+	height:50px;
+	border:#E1E1E1 1px solid;
+	 -webkit-transition:background-color 0.5s;
+    transition:background-color 0.5s;
+}
+
+.on:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+
+
+
+
+
+
+
+
+

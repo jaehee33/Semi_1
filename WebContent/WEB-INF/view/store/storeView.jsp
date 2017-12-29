@@ -5,15 +5,12 @@
 <html>
 <head>
 <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/store/storeView.css"
-	rel="stylesheet">
-	<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/store/storeView.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
 	
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae88eb2c4820eb8b91b58f0cfc8ea570&libraries=services"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae88eb2c4820eb8b91b58f0cfc8ea570&libraries=services"></script>
 <script>
 	$(function() {
 		
@@ -54,8 +51,17 @@
 			}
 		});
 
-		$("#favor").click(function(){
-			location.href="";
+		$.get('../favor/favorInsert.favor?store_id=${store.id}&store=${store.store}', function(data) {
+			$("#favor").html(data);
+		});
+		$("#favor").on("click", "#btn", function() {
+			var favor = $(this).attr("class");
+			document.frm.submit();
+			if (favor == "off") {
+				$("#btn").attr("class", "on");
+			} else {
+				$("#btn").attr("class", "off");
+			}
 		});
 		
 		$("#pos").click(function(){
@@ -110,25 +116,27 @@
 							<img src="<%=request.getContextPath()%>/img/store/scissors.png"
 								style="width: 16px; height: 16px;"><b>storetel</b> <br>${store.storetel}</p>
 						<br>
-						<div class="toggle" id="favor">즐겨찾기</div>
+						<div id="favor"></div>
 						<c:if test="${sessionScope.member.id eq store.id}">
-						<div id="ownerMenu">
-						OwnerMenu
-				<div class="toggle" id="delete">delete</div>
-				<div class="toggle" id="update" >update</div>
+							<div id="ownerMenu">
+								OwnerMenu
+								<div class="toggle" id="delete">delete</div>
+								<div class="toggle" id="update">update</div>
 
-				<div class="toggle" id="pos">pos</div>
-				<div class="toggle" id="kind">kind</div>
-				</div>
-			</c:if>
+								<div class="toggle" id="pos">pos</div>
+								<div class="toggle" id="kind">kind</div>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
 			<div id="mapArea">
-			
-			<h1><img src="<%=request.getContextPath()%>/img/store/scissors.png"
-								style="width: 16px; height: 16px;">STORE AREA</h1>
-			<div id="map" style="width: 100%; height: 500px;"></div>
+
+				<h1>
+					<img src="<%=request.getContextPath()%>/img/store/scissors.png"
+						style="width: 16px; height: 16px;">STORE AREA
+				</h1>
+				<div id="map" style="width: 100%; height: 500px;"></div>
 			</div>
 
 
