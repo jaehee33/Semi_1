@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {		
 		//insert
-		if(${style} == null) {
+		if(${style}) {
 			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 				$("#favor").html(data);
 			});
