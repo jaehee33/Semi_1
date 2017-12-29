@@ -32,7 +32,7 @@ public class KindViewService implements Action {
 			StyleDAO styleDAO = new StyleDAO();
 			StyleDTO styleDTO=styleDAO.selectOne(num);
 			
-			if(kindDTO != null && list != null && styleDTO != null) {
+			if(kindDTO != null && list != null) {
 				request.setAttribute("style", styleDTO);
 				request.setAttribute("list", list);
 				request.setAttribute("kind", kindDTO);

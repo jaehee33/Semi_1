@@ -11,30 +11,29 @@
 <script type="text/javascript">
 	$(function() {		
 		//insert
-		$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
-			$("#favor").html(data);
-		});
-		$("#favor").on("click", "#btn", function() {
-			var favor = $(this).attr("class");
-			document.frm.submit();
-
-			if (favor == "off") {
-				$("#btn").attr("class", "on");
-			}
-		});
-		
-		//delete
-		$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
-			$("#favor").html(data);
-		});
-		
-		$("#favor").on("click", "#btn", function() {
-			var favor = $(this).attr("class");
-			document.frm.submit();
-			if (favor == "on") {
-				$("#btn").attr("class", "off");
-			}
-		});
+		if(${style} == null) {
+			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
+				$("#favor").html(data);
+			});
+			$("#favor").on("click", "#btn", function() {
+				var favor = $(this).attr("class");
+				document.frm.submit();
+				if (favor == "off") {
+					$("#btn").attr("class", "on");
+				}
+			});
+		}else {
+			$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
+				$("#favor").html(data);
+			});
+			$("#favor").on("click", "#btn", function() {
+				var favor = $(this).attr("class");
+				document.frm.submit();
+				if (favor == "on") {
+					$("#btn").attr("class", "off");
+				}
+			});
+		}
 		
 		
 	});
