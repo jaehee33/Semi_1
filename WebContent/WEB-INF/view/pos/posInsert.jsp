@@ -8,13 +8,13 @@
 <select name="kind" class="g kind">
 <option value="other">기타</option>
 <c:forEach items="${kindlist}" var="a" varStatus="j">
-<option value="${a.style}" title="price${j.index}" class="op">${a.style}</option>
+<option value="${a.style}" title="${a.price}" id="0" class="op">${a.style}</option>
 </c:forEach>
 </select>
 <c:forEach items="${kindlist}" var="b" varStatus="i">
 <input type="hidden" id="price${i.index}" value="${b.price}" class="e">
 </c:forEach>
-<input type="number" name="pos_import" value="" class="imoney insertmoney">
+<input type="number" name="pos_import" value="" title="0" class="imoney insertmoney">
 <input type="hidden" name="expend" value="0">
 </p>
 <input type="button" value="INPUT" id="btn" class="btn">

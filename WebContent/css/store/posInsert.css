@@ -87,7 +87,11 @@ li > a{
 	line-height: 50px;
 	border-right: #BDBDBD 1px dotted;
 }
-
+#imoney{
+	width: 37%;
+	line-height: 50px;
+	border-right: #BDBDBD 1px dotted;
+}
 
 .btn{
 	width: 80px;
