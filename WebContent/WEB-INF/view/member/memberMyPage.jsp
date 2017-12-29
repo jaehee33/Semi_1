@@ -24,9 +24,9 @@ $(function(){
 <%@ include file="../temp/header.jsp" %>
 	<section id="">
 		<div id="hd">
-		<br>
 			<h2>나의 상세 정보</h2>
-			<img src="<%=request.getContextPath()%>/img/member/img_avatar1.png">
+			<h4>SEMI HAIR 이용 현황 및 즐겨찾기 서비스를 확인해보세요.</h4>
+			<div id="info">
 			<ul>
 				<li><h4>${m2.name}
 						<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if>
@@ -35,7 +35,8 @@ $(function(){
 				<li><h4>${m2.birth}</h4></li>
 				<li><h4>${m2.phone}</h4></li>
 			</ul>
-				<p><a href="./memberUpdate.member?id=${sessionScope.member.id}">정보수정</a></p>
+			</div>
+				<p><a href="./memberUpdate2.member?id=${sessionScope.member.id}">정보수정</a></p>
 		</div>
 <!-- =====================box1============================= -->
 		<article>

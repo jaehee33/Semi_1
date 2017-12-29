@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>About</title>
 <link href="<%=request.getContextPath()%>/css/about/about.css" rel="stylesheet">
+<!-- ================== TOP ==================== -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
         $(document).ready(function(){
@@ -23,7 +24,7 @@
             });
         });
 </script> 
-
+<!-- ================== TOP ==================== -->
 </head>
 <body>
 <%@ include file="WEB-INF/view/temp/header.jsp" %>

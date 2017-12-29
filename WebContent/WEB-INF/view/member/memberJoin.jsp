@@ -71,14 +71,30 @@
 		id.addEventListener("change", function() {
 			document.frm.idCheck.value="0";
 		});
+
 	}
+	
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            if($(this).scrollTop()>0){
+                $('.top').fadeIn();
+            } else {
+                $('.top').fadeOut();
+            }
+        });
+        
+        $('.top').click(function(){
+            $('html,body').animate({scrollTop:0},450);
+            return false;                
+        });
+    });
 </script>
 
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-	<section id="main">
-	<h1>회원가입</h1>
+	<section id="">
+	<h1>JOIN US</h1>
 <h6>세미헤어샵에 가입하면 회원만을 위한 다양한 혜택과 서비스를 누리실 수 있습니다.  24시간 쉽고 편리하게 예약하세요!</h6>
 	<form name="frm" action="./memberJoin.member" method="post">
 		<input type="hidden" name="idCheck" value="0">
@@ -123,9 +139,7 @@
 		</table>
 		
 		<table id="infotable1">
-		<tr>
-		<td><p class="total1"><input type="checkbox" class="r" checked="checked"> 전체동의</p></td>
-		</tr>
+
 		<tr>
 		<td><p class="total2"><input type="checkbox" class="r" checked="checked"> 이용약관
 		<textarea  placeholder="인터넷 쇼핑몰 『(주)세미헤어샵』회원 약관
@@ -374,6 +388,7 @@
 	</form>
 		<p><input type="button" value="가입하기" id="check" class="btn2"></p>
 	</section>
+		<a href="#" class="top">TOP</a>
 		<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

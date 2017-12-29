@@ -138,6 +138,7 @@ section.head a:hover:after {
 	from {background-image: url('/Semi_1/img/about/hair2.jpg');}
 	to {background-image: url('/Semi_1/img/about/hair1.jpg');}
 }
+/* <!-- ================== TOP ==================== --> */
 .top{
     display: none;
     position: fixed;
@@ -152,7 +153,7 @@ section.head a:hover:after {
     background: #000;
     z-index: 1;
 }
-
+/* <!-- ================== TOP ==================== --> */
 
 
 

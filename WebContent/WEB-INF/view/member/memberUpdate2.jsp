@@ -13,7 +13,7 @@
 		<h1>회원정보 수정</h1>
 		<h5>회원님의 소중한 정보를 안전하게 관리하세요.</h5>
 
-		<form action="memberUpdate.member" method="post">
+		<form action="memberUpdate2.member" method="post">
 			<input type="hidden" name="id" value="${m2.id}">
 
 		<h2>기본정보</h2>
