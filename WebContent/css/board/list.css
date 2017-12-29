@@ -1,17 +1,11 @@
 @charset "UTF-8";
 
-/* body {
+body {
 	background-image: url("/Semi_1/img/background/cream_pixels.png");
 	background-repeat: repeat;
 }
- */
+
 section {
-	width: 54%;
-	height: 1000px;
-	background-color: white;
-	margin-top: 98px;
-	margin-left: 23%;
-	margin-right: 23%;
 	vertical-align: middle;
 	height: auto;
 	background-color: white;
@@ -43,7 +37,7 @@ table.list_table{
 
 .list_table td{
 	font-size: 12px;
-	padding: 10px;
+	padding: 5px;
 	vertical-align: top;
 	text-align: center;
 	border-bottom: 1px solid #ccc;
@@ -54,7 +48,20 @@ table.list_table{
 
 #title{
 	text-align: left;
+	font-size: 12px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
+
+.div_view{
+	width: auto;
+	height: auto;
+	margin: 10px 10px;
+	border-top: solid 1px #c3c3c3;
+	display: none;
+}
+
 
 .list_table #num{
 	width: 3%;
@@ -81,6 +88,7 @@ div h2{
 }
 
 h2{
+	text-transform: capitalize;
 	text-align: center;
 }
 
@@ -109,7 +117,7 @@ td a:hover {
 	margin-bottom: 15px; */
 	font-size: 12px;
 	float: right;
-	
+	padding-right: 20px;
 }
 
 #div_page{
@@ -130,7 +138,7 @@ td a:hover {
 	background-color: white;
 	color: black;
 	text-decoration: none;
-	border: 1px solid gray;
+	border: 1px solid silver;
 }
 
 .list:hover{
@@ -142,7 +150,7 @@ td a:hover {
 	padding: 0.2em 0.2em;
 	background-color: white;
 	text-decoration: none;
-	border: 0.5px solid gray;
+	border: 0.5px solid silver;
 	border-radius: 0.35em;
 }
 
@@ -166,5 +174,16 @@ td a:hover {
 	background-color: silver;
 	color: white;
 }
+
+input[type=text]{
+	width: 150px;
+	-webkit-transition: width .35s ease-in-out;
+	transition: width .35s ease-in-out;
+}
+
+input[type=text]:focus{
+	width: 200px;
+}
+
 
 }
