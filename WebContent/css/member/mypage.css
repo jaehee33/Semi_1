@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* ===================마이페이지==================================== */
 @import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
+@import url('https://fonts.googleapis.com/css?family=Anton|Barlow+Semi+Condensed:300');
 figure.snip1432 {
   font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
@@ -105,11 +106,11 @@ body {
 	background-image: url('/Semi_1/img/member/hd.png');
 	margin-top: 100px;
 	margin-bottom: 50px;
-	display: block;
+	display: inline-block;
 	
 }
 #hd h2{
-	margin-top: 100px;
+	margin-top: 60px;
 	text-align: center;
 	padding: 10px;
 	font-size: xx-large;
@@ -118,18 +119,21 @@ body {
 	text-align: center;
 }
 #info{
-	margin-left: 50px;
+	width: 940px;
+	height: 50px;
+	/* border: 1px solid lightgray; */
+	margin: auto;
 }
 
-li{
+#info li{
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	width: 200px;
 	list-style-type: none;
-}
-#hd li{
-	margin-left: 20px;
-	margin-top: 30px;
+	margin: auto;
+	float: left;
 	font-size:large;
-	line-height: 10px;
 }
+
 article{
 	width:1700px;
 	margin: auto;
@@ -140,7 +144,35 @@ article{
 	height: 300px;
 	display: inline-block;
 }
-	
-	
+.btn{
+	width: 100px;
+	height: 20px;
+	background-color: #004080;
+}
+.btn a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+}
+#del{
 
+}
+#home{
+	float: right;
+	margin: 20px;
+}
+#home a{
+	margin-top: 50px;
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	text-align: center;
+}
+#mod{
+float: right;
+}
+.acc{
+	font-size: 12px;
+}
 	

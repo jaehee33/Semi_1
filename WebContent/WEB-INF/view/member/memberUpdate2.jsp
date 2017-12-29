@@ -35,37 +35,39 @@
 					<td><input type="text" name="phone" value="${m2.phone}" class="n box"></td>
 				</tr>
 			</table>
-			<div id="btn">
+			<div id="btntotal">
 			<button class="btn" id="cancel"><a href="./memberMyPage.member">취소</a></button>
 			<button class="btn" id="modify">수정</button>
 			</div>
 		</form>
-
+<div id="ysl">
 		<div class="info">
-			<a href="#">
-				<dl id="q">
+				<dl>
 					<dt>자주찾는 질문</dt>
 					<dd>
+					<br>
 						<p>
-							SEMI HAIR에 관한 궁금하신 사항을 확인하세요. <br>질문에 빠르고 정확한 답변을 제공합니다.
-						</p>
+							SEMI HAIR에 관한 궁금하신 사항을 확인하세요. 
+							<br>질문에 빠르고 정확한 답변을 제공합니다.</p>
 					</dd>
 				</dl> 
+			<a href="<%=request.getContextPath()%>/faq/faqList.faq">
 			</a>
-				<span id="line"></span>
 		</div>
-		<div class="info">
-			<a href="#">
+		<span>
+		<div class="info" id="info2">
 				<dl>
-					<dt>1:1 상담</dt>
+					<dt>1:1 상담 (대표전화: 1588-2580)</dt>
 					<dd>
-						<ul>
-							<li>평일: 다음 날 답변 완료</li>
-							<li>토·일 공휴일: 휴일 이후 답변 완료</li>
-						</ul>
+					<br>
+						<p>
+							평일: 다음 날 답변 완료
+							<br>토·일 공휴일: 휴일 이후 답변 완료
+						</p>
 					</dd>
-				</dl> <span></span>
-			</a>
+				</dl>
+		</div>
+		</span>
 		</div>
 	</section>
 <%@ include file="../temp/footer.jsp"%>

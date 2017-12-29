@@ -24,20 +24,27 @@ $(function(){
 <%@ include file="../temp/header.jsp" %>
 	<section id="">
 		<div id="hd">
+			<div id="home">
+			<p><a href="../index.jsp"><img src="<%=request.getContextPath()%>/img/member/home.png" style="width:15px; height:15px;"></a>
+			<span><a href="./memberMyPage.member">> 마이페이지</a></span></p>
+			</div>
 			<h2>나의 상세 정보</h2>
 			<h4>SEMI HAIR 이용 현황 및 즐겨찾기 서비스를 확인해보세요.</h4>
+				
+		</div>
 			<div id="info">
 			<ul>
 				<li><h4>${m2.name}
-						<span><c:if test="${m2.job eq 'B' }"> [고객] </c:if>
-							<c:if test="${m2.job eq 'S' }"> [가맹주]</c:if></span>
+						<span><c:if test="${m2.job eq 'B' }"> [고객]<span class="acc"> 님 접속중<img src="<%=request.getContextPath()%>/img/member/access.png" style="width:15px; height:15px;"></span> </c:if>
+							<c:if test="${m2.job eq 'S' }"> [가맹주]<span class="acc"> 님 접속중<img src="<%=request.getContextPath()%>/img/member/access.png" style="width:15px; height:15px;"></span></c:if></span>
 					</h4></li>
-				<li><h4>${m2.birth}</h4></li>
-				<li><h4>${m2.phone}</h4></li>
+			
+				<li><h4>연락처: ${m2.phone}</h4></li>
+
+				<a href="./memberUpdate2.member?id=${sessionScope.member.id}">
+				<img src="<%=request.getContextPath()%>/img/member/modify.png" style="width:24px; height:24px;"></a>
 			</ul>
 			</div>
-				<p><a href="./memberUpdate2.member?id=${sessionScope.member.id}">정보수정</a></p>
-		</div>
 <!-- =====================box1============================= -->
 		<article>
 			<div id="box1" class="box">
@@ -123,14 +130,14 @@ $(function(){
 					</c:if>
 				</figure>
 			</div>
-		</article>
+		
 		<!-- =====================box3============================= -->
 	
+	<p class="btn" id="del"><a href="./memberDelete.member">회원탈퇴</a></p>
+</article>
+		
 
-	
-		<p><a href="../index.jsp">처음으로</a></p>
-
-			<p><a href="./memberDelete.member">회원탈퇴</a></p>
+			
 
 
 </section>
