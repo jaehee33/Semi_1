@@ -27,6 +27,7 @@ public class CouponListService implements Action {
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/coupon/couponList.jsp");
 		
+		
 		return actionForward;
 	}
 

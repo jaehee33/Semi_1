@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+body{
+	background-image: url("/Semi_1/img/background/cream_pixels.png");
+	background-repeat: repeat;
+}
+
+section{
+	height: auto;
+	background-color: white;
+	margin-top: 98px;
+	margin-left: 20%;
+	margin-right: 20%; 
+}
+
+div h1{
+	padding-bottom:50px;
+	padding-top: 50px;
+	font-weight: lighter;
+	font-size: xx-large;
+}
+
+.coupon_1{
+	height: 100px;
+}
+
+div_coupon{
+	display: inline;
+	padding: 30px;
+}
+
+div a{
+	text-decoration: none;
+}
