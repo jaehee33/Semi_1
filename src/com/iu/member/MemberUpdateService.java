@@ -53,7 +53,7 @@ public class MemberUpdateService implements Action {
 			}
 			if(memberDTO != null) {
 				request.setAttribute("m2", memberDTO);
-				actionForward.setPath("../WEB-INF/view/member/memberUpdate.jsp");
+				actionForward.setPath("../WEB-INF/view/member/memberUpdate2.jsp");
 			}else {
 				request.setAttribute("message", "update fail");
 				request.setAttribute("path", "./memberMyPage.member");

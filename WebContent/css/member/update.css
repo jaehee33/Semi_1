@@ -30,11 +30,12 @@ form{
 #jointable th, #jointable td{
 	font-size: 12px;
 	border-bottom: 1px solid lightgray;
-	padding: 10px;
+	padding: 20px;
 }
 #jointable th{
 	text-align: left;
-	width: 120px;
+	width: 200px;
+	background-color: #f8f8f8;
 }
 #jointable td{
 	width: 680px;
@@ -42,46 +43,62 @@ form{
 
 .box{
 	width: 200px;
-	height: 20px;
+	height: 40px;
 	border: 1px solid lightgray;
 }
 /* =========테이블 부분============ */
+#btntotal{
+	margin:auto;
+	margin-left: 25%;
+	display: block;
+}
 .btn{
 	width: 200px;
 	height: 40px;
 	text-align: center;
 	font-size: 12px;
-	display: inline-block;
-	margin-left: 10px;
+	margin: 10px;
 	margin-bottom: 50px;
 	border-radius: 5px;
+}
+.btn a{
+	text-decoration: none;
 }
 #cancel{
 	border: 1px solid #5f4b8b;
 	color: #5f4b8b;
 	background-color: white;
 }
-.btn a{
-	text-decoration: none;
-}
 #modify{
 	background-color: #5f4b8b;
 	color: white;
 	border: none;
 }
-#btn{
+/* =========버튼 부분============ */
+#ysl{
+	padding: 0;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 100px;
+	border-radius: 5px;
 	width: 800px;
-	margin: auto 0;	
 }
 .info{
-	width: 400px;
-	height: 200px;
-	background-color: #ffffdf;
-	border-radius: 5px;
+	width: 395px;
+	height: 150px;
+	background-color: #f8f8f8;
+	display: inline-block;
 }
-#q{
-	border-right: 1px solid lightgray;
+.info a{
+	text-decoration: none;
+	color: black;
 }
+.info dt{
+	font-size: large;
+	font-weight: bold;
+}
+.info dl{
+	padding: 20px;
 
 
 

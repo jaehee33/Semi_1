@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* ===================마이페이지==================================== */
 @import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
+@import url('https://fonts.googleapis.com/css?family=Anton|Barlow+Semi+Condensed:300');
 figure.snip1432 {
   font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
@@ -103,31 +104,34 @@ body {
 	width: 100%;
 	height: 339px;
 	background-image: url('/Semi_1/img/member/hd.png');
+	margin-top: 100px;
 	margin-bottom: 50px;
+	display: inline-block;
 	
 }
-#hd img{
-	width: 90px;
-	height: 110px;
-	float: left;
-	padding: 20px;
-}
 #hd h2{
-	margin-top: 100px;
+	margin-top: 60px;
 	text-align: center;
-	color: gray;
 	padding: 10px;
 	font-size: xx-large;
 }
-li{
-	list-style-type: none;
+#hd h4{
+	text-align: center;
 }
-#hd li{
-	margin-left: 20px;
-	margin-top: 30px;
+#info{
+	width: 940px;
+	height: 50px;
+	/* border: 1px solid lightgray; */
+	margin: auto;
+}
+
+#info li{
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	width: 200px;
+	list-style-type: none;
+	margin: auto;
+	float: left;
 	font-size:large;
-	line-height: 10px;
-	font-family:  "Malgun Gothic", "맑은 고딕", Gulim, Verdana;
 }
 
 article{
@@ -140,7 +144,35 @@ article{
 	height: 300px;
 	display: inline-block;
 }
-	
-	
+.btn{
+	width: 100px;
+	height: 20px;
+	background-color: #004080;
+}
+.btn a{
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+}
+#del{
 
+}
+#home{
+	float: right;
+	margin: 20px;
+}
+#home a{
+	margin-top: 50px;
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	text-align: center;
+}
+#mod{
+float: right;
+}
+.acc{
+	font-size: 12px;
+}
 	

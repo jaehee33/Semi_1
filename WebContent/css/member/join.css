@@ -3,10 +3,13 @@
 	margin:  0;
 	padding: 0;
 }
+body{
+	background-color: #f6f6f6;
+}
 h1{
 	margin-top: 100px;
 	text-align: center;
-	color: gray;
+	color: #000000;
 	padding: 10px;
 	font-size: xx-large;
 }
@@ -24,13 +27,14 @@ form{
 	display: block;
 }
 #jointable{
-	border-top: 2px solid black;
-	margin-bottom: 50px;
+	border-top: 2px solid #5f4b8b;
+	margin-bottom: 10px;
+	margin-top: 20px;
 }
 #jointable th, #jointable td{
 	font-size: 12px;
 	border-bottom: 1px solid lightgray;
-	padding: 10px;
+	padding: 20px;
 }
 #jointable th{
 	text-align: left;
@@ -42,18 +46,18 @@ form{
 
 .box{
 	width: 200px;
-	height: 20px;
+	height: 30px;
 	border: 1px solid lightgray;
 }
 /* ========================첫번째테이블↑====================== */
 #infotable1{
-	border: 1px solid lightgray;
+	/* border: 1px solid lightgray; */
 }
 /* ========================두번째테이블↑====================== */
 .total1{
 	font-weight: bolder;
 	font-size: 15px;
-	border-bottom: 1px solid lightgray;
+	/* border-bottom: 1px solid lightgray; */
 	padding: 10px;
 	
 }
@@ -61,6 +65,7 @@ form{
 	font-weight: bolder;
 	font-size: 15px;
 	padding: 10px;
+	margin-top: 20px;
 	
 }
 textarea{
@@ -73,16 +78,16 @@ textarea{
 }
 /* ====================전체동의/이용약관↑======================= */
 #infotable2{
-	border: 1px solid lightgray;
+	/* border: 1px solid lightgray; */
 	margin-bottom: 30px;
 	padding: 0px;
 }
 #infotable2 td, #infotable2 th{
-		height: 80px;
+		height: 50px;
 		width:800px;
 		font-size: 12px;
 		text-align: center;
-		border: 1px solid lightgray;
+		border-top: 1px solid lightgray;
 		border-collapse: collapse;
 		padding: 0px;
 			
@@ -90,7 +95,7 @@ textarea{
 /* ========================세번째테이블↑====================== */
 #overlap, .btn2{
 	width: 90px;
-	height: 22px;
+	height: 32px;
 	background-color: #5f4b8b;
 	color: white;
 	border: none;
@@ -101,15 +106,31 @@ textarea{
 	margin-left: 10px;
 }
 #check{
-	width: 200px;
+	width: 300px;
 	height: 40px;
 	margin: auto;
 	display: block;
 	font-weight: bolder;
 	margin-bottom: 200px;
+	border-radius: 5px;
 }
 /* ========================버튼류↑======================= */
-
+/* <!-- ================== TOP ==================== --> */
+.top{
+    display: none;
+    position: fixed;
+    bottom: 5%;
+    right: 30px;
+    width: 45px;
+    height: 35px;
+    padding: 8px;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    z-index: 1;
+}
+/* <!-- ================== TOP ==================== --> */
 
 
 
