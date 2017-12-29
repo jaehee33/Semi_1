@@ -27,6 +27,7 @@
 <body>
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
+<div id="posBackground">
 <%@ include file="./posHeader.jsp" %>
 <div>
 		<form name="frm" action="./posList.pos">
@@ -68,6 +69,7 @@
 	<c:if test="${page.curBlock lt page.totalBlock}">
 	<input type="button" value="[다음]" title="${page.lastNum+1}" class="list">
 	</c:if>
+	</div>
 	</section>
 </body>
 </html>
