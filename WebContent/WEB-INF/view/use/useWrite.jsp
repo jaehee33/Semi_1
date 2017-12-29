@@ -22,17 +22,17 @@
 
 		$("#finish").click(function(){
 			var IMP=window.IMP;
-			IMP.init('imp78791768');
+			IMP.init(imp78791768);
 
 			IMP.request_pay({
 			    pg : 'uplus', // version 1.1.0부터 지원.
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name : '${style}',
-			    amount : '${price}',
+			    amount : ${price},
 			    buyer_name : '${member.name}',
 			    buyer_tel : '${member.phone}',
-			    m_redirect_url : '<%=request.getContextPath()%>/WEB-INF/view/use/useList.use'
+			    m_redirect_url : '<%=request.getContextPath()%>/WEB-INF/view/use/usePay.use'
 			}, function(rsp) {
 			    if ( rsp.success ) {
 			        var msg = '결제가 완료되었습니다.';
@@ -75,15 +75,15 @@
 									<td></td>
 								</c:forEach>
 								<c:forEach begin="1" end="${end}" var="i">
-									<c:if test="">
+
 										<td class="day">
 											<c:if test="${date==i}">
 												<div id="today">${i}</div>
 											</c:if> <c:if test="${date != i}">
-												<div class="date" id="day&${i}">${i}</div>
+												<div class="date" id="day${i}">${i}</div>
 											</c:if>
 										</td>
-									</c:if>
+
 								</c:forEach>
 							</tr>
 						</table>
@@ -92,8 +92,8 @@
 
 					<!-- 선택한 날짜 나오게 하는것 -->
 					<div id="bk_date" class="wrap">
-						<hr>${year}년${month}월${date}일
-						<hr>
+						<input type="hidden" value="${year}-${month}-${date}">
+						${year}년${month}월${date}일
 					</div>
 
 					<!-- 시간선택 -->
