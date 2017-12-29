@@ -95,24 +95,15 @@ body {
 
 /* ===================마이페이지==================================== */
 
-
 *{
 	margin:  0;
 	padding: 0;
 }
 #hd{
 	width: 100%;
-<<<<<<< HEAD
-	height: 300px;
-	background-image: url("/Semi_1/img/member/hd.PNG");
-	display: block;
-}
-=======
 	height: 339px;
 	background-image: url('/Semi_1/img/member/hd.png');
 	margin-bottom: 50px;
->>>>>>> jjj
-
 	
 }
 #hd img{
@@ -152,26 +143,4 @@ article{
 	
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
