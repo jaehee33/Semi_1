@@ -10,9 +10,9 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="">
-
 		<h1>회원정보 수정</h1>
 		<h5>회원님의 소중한 정보를 안전하게 관리하세요.</h5>
+
 		<form action="memberUpdate.member" method="post">
 			<input type="hidden" name="id" value="${m2.id}">
 
@@ -35,43 +35,38 @@
 					<td><input type="text" name="phone" value="${m2.phone}" class="n box"></td>
 				</tr>
 			</table>
-			<div id="btntotal">
-			<button class="btn" id="cancel"><a href="./memberMyPage.member">취소<span></a></button>
-			<button class="btn" id="modify">수정</button></span>
+			<div id="btn">
+			<button class="btn" id="cancel"><a href="./memberMyPage.member">취소</a></button>
+			<button class="btn" id="modify">수정</button>
 			</div>
 		</form>
-<div id="ysl">
+
 		<div class="info">
-			<a href="<%=request.getContextPath()%>/faq/faqList.faq">
+			<a href="#">
 				<dl id="q">
 					<dt>자주찾는 질문</dt>
-					<br>
 					<dd>
 						<p>
-							SEMI HAIR에 관한 궁금하신 사항을 확인하세요. 
-							<br>질문에 빠르고 정확한 답변을 제공합니다.
+							SEMI HAIR에 관한 궁금하신 사항을 확인하세요. <br>질문에 빠르고 정확한 답변을 제공합니다.
 						</p>
 					</dd>
 				</dl> 
 			</a>
+				<span id="line"></span>
 		</div>
-				<span>
-		<div class="info" id="info2">
+		<div class="info">
 			<a href="#">
 				<dl>
-					<dt>1:1 상담 (대표전화: 1588-2580)</dt>
-					<br>
+					<dt>1:1 상담</dt>
 					<dd>
-						<p>
-							평일: 다음 날 답변 완료
-							<br>토·일 공휴일: 휴일 이후 답변 완료
-						</p>
+						<ul>
+							<li>평일: 다음 날 답변 완료</li>
+							<li>토·일 공휴일: 휴일 이후 답변 완료</li>
+						</ul>
 					</dd>
-				</dl>
+				</dl> <span></span>
 			</a>
 		</div>
-				</span>
-</div>
 	</section>
 <%@ include file="../temp/footer.jsp"%>
 </body>

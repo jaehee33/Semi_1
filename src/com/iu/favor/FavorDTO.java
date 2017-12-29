@@ -1,10 +1,16 @@
 package com.iu.favor;
 
 public class FavorDTO {
+	private int num;
 	private String id;
 	private String store;
-	private String store_id;
-
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getId() {
 		return id;
 	}
@@ -16,12 +22,6 @@ public class FavorDTO {
 	}
 	public void setStore(String store) {
 		this.store = store;
-	}
-	public String getStore_id() {
-		return store_id;
-	}
-	public void setStore_id(String store_id) {
-		this.store_id = store_id;
 	}
 
 

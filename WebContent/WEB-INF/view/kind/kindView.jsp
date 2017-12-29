@@ -10,16 +10,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
+		$.get('../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&page="view"', function(data) {
 			$("#favor").html(data);
 		});
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
-			if (favor == "off") {
-				$("#btn").attr("class", "on");
+			if (favor == "btn btn-default") {
+				$("#btn").attr("class", "btn btn-danger");
 			} else {
-				$("#btn").attr("class", "off");
+				$("#btn").attr("class", "btn btn-default");
 			}
 		});
 	});
@@ -29,8 +29,8 @@
 	font-weight: bold;
 }
 </style>
-<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/kind/kindView.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/kind/kindView.css"
+	rel="stylesheet">
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
@@ -44,7 +44,7 @@
 							<strong>매장명 </strong> ${kind.store} <strong>가격</strong>
 							${kind.price }
 						</p>
-						<div id="favor"></div>
+						<div id=favor></div>
 
 					</div>
 					<div class="buy">
