@@ -1,5 +1,8 @@
 package com.iu.coupon;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,16 +26,18 @@ public class CouponInsertService implements Action {
 			couponDTO.setId(id);
 			couponDTO.setCoupon(request.getParameter("coupon"));
 			couponDTO.setDiscount(Integer.parseInt(request.getParameter("count")));
-	
+			
 			int result = 0;
 			try {
 				result = couponDAO.insert(couponDTO);
 			} catch (Exception e) {
 			}
+			
 			System.out.println(result);
+			
 			if(result>0) {
 				actionForward.setCheck(false); //redirect. request 죽음 바로 보내니까.
-				actionForward.setPath("../index.jsp");
+				actionForward.setPath("../coupon/couponList.coupon");
 			}else {
 				request.setAttribute("message", "coupon fail");
 				request.setAttribute("path", "../coupon/couponInsert.coupon");

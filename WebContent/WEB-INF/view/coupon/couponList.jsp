@@ -6,19 +6,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="/Semi_1/css/coupon.css" rel="stylesheet">
+<link href="/Semi_1/css/coupon/coupon.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	
+		
+		
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section>
+		<div>
 			<h1>COUPON</h1>
+		</div>
+		
+		<p>member: ${member.id}</p>
 		<c:forEach items="${ar}" var="a">
 			<c:if test="${a.id eq sessionScope.member.id}">
 				<div>${a.coupon}</div>
 			</c:if>
 			<c:if test="${a.id ne sessionScope.member.id}">
 				<p></p>
-				<div>
+				<div class="div_coupon">
 					<a
 						href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
 						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg">${a.coupon}</a>
@@ -30,5 +43,6 @@
 			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">coupon</a>
 		</c:if>
 	</section>
+	<%@ include file="../temp/footer.jsp" %>
 </body>
 </html>
