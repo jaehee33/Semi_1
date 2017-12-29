@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+body {
+	background-image: url("/Semi_1/img/background/cream_pixels.png");
+	background-repeat: repeat;
+}
+
+section {
+	vertical-align: middle;
+	height: auto;
+	background-color: white;
+	margin-top: 98px;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding: 50px 30px;
+}
+
+form{
+	vertical-align: middle;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#savebutton{
+	margin-top: 30px;
+	padding: 0.5em 1em;
+	background-color: white;
+	color: #5F4B8B;
+	border: 0.5px solid silver;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+	display: inline-block;
+}

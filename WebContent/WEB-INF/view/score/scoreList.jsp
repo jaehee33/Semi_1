@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link href="/Semi_1/css/score/list.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
 <script
@@ -167,8 +168,8 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
-<section id="main">
 <div id="storeheader"></div>
+<section id="main">
 	<h2>${store}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">

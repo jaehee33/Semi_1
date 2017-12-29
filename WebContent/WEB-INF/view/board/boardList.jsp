@@ -32,8 +32,7 @@
 		$("#write").click(function(){
 			window.location.href="./${board}Write.${board}";
 		});
-		
-		
+
 		var curPage=Number(${curPage});		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
