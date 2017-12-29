@@ -57,7 +57,7 @@ public class ScoreDAO {
 			scoreDTO.setId(rs.getString("id"));
 			scoreDTO.setContents(rs.getString("contents"));
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
-			scoreDTO.setHit(rs.getInt("hit"));
+			scoreDTO.setRec(rs.getInt("rec"));
 			scoreDTO.setPoint(rs.getDouble("point"));
 			scoreDTO.setStore(rs.getString("store"));
 			}
@@ -68,15 +68,15 @@ public class ScoreDAO {
 	}
 	
 	
-	public List<ScoreDTO> selectList(MakeRow makeRow) throws Exception{
+	public List<ScoreDTO> selectList(MakeRow makeRow,String store) throws Exception{
 		Connection con = DBConnector.getConnect();
 		List<ScoreDTO> ar = new ArrayList<ScoreDTO>();
 		String sql ="select * from "
 				+ "(select rownum R, N.* from "
-				+ "(select * from score where "+makeRow.getKind()+" like ? order by num desc) N) "
+				+ "(select * from score where store=? order by num desc) N) "
 				+ "where R between ? and ?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+makeRow.getSearch()+"%");
+		st.setString(1, store);
 		st.setInt(2, makeRow.getStartRow());
 		st.setInt(3, makeRow.getLastRow());
 		ResultSet rs = st.executeQuery();
@@ -87,7 +87,7 @@ public class ScoreDAO {
 			scoreDTO.setId(rs.getString("Id"));
 			scoreDTO.setContents(rs.getString("contents"));
 			scoreDTO.setReg_date(rs.getDate("reg_date"));
-			scoreDTO.setHit(rs.getInt("hit"));
+			scoreDTO.setRec(rs.getInt("rec"));
 			scoreDTO.setPoint(rs.getDouble("point"));
 			scoreDTO.setStore(rs.getString("store"));
 			ar.add(scoreDTO);
@@ -119,14 +119,16 @@ public class ScoreDAO {
 	}
 	
 	
-	public int getTotalCount(MakeRow makeRow) throws Exception {
+	public int getTotalCount(String store) throws Exception {
 		Connection con = DBConnector.getConnect();
-		String sql ="select nvl(count(num), 0) from score where "+makeRow.getKind()+ " like ?";
+		String sql ="select nvl(count(num), 0) from score where store=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setString(1, "%"+makeRow.getSearch()+"%");
+		st.setString(1, store);
 		ResultSet rs = st.executeQuery();
-		rs.next();
-		int totalCount=rs.getInt(1);
+		int totalCount=0;
+		if(rs.next()) {
+			totalCount=rs.getInt(1);
+		}
 		DBConnector.disConnect(rs, st, con);
 
 		return totalCount;

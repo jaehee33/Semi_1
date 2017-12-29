@@ -14,9 +14,9 @@ margin-top: 100px;
 * {
 	margin: 0;
 	padding: 0;
-
 }
 #hdtop {
+	font-family: 'Poppins','Nanum Gothic', sans-serif;
 	background-color: white;
 	top:0px;
 	height: 98px;

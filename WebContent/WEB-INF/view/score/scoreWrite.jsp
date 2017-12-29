@@ -46,11 +46,9 @@
 		};
 		starRating();
 	
-		$("#savebutton").click(
-				function() {
-			
-					$("#frm").submit();
-				})
+		$("#savebutton").click(function() {
+			document.fim.submit();
+				});
 		
 		
 	});
@@ -58,7 +56,7 @@
 </head>
 <body>
 	<h1>${store}</h1>
-	<form id="frm" action="./scoreWrite.score" method="post">
+	<form name="fim" action="./scoreWrite.score" method="post">
 		<p>
 			ID : ${member.id} <input type="hidden" name="id" value="${member.id}">
 		</p>
@@ -81,6 +79,7 @@
 				<b>0</b>점
 			</output>
 		</span> <input type="hidden" name="store" value="${store}">
+		<input type="hidden" name="storeid" value="${storeid}">
 		<textarea rows="" cols="" name="contents"></textarea>
 			<input type="button" value="SUBMIT" id="savebutton">
 	</form>
