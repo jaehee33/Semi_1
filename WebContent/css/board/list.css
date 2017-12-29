@@ -142,7 +142,7 @@ td a:hover {
 	padding: 0.2em 0.2em;
 	background-color: white;
 	text-decoration: none;
-	border: 0.5px solid gray;
+	border: 0.5px solid silver;
 	border-radius: 0.35em;
 }
 
@@ -166,5 +166,16 @@ td a:hover {
 	background-color: silver;
 	color: white;
 }
+
+input[type=text]{
+	width: 150px;
+	-webkit-transition: width .35s ease-in-out;
+	transition: width .35s ease-in-out;
+}
+
+input[type=text]:focus{
+	width: 200px;
+}
+
 
 }
