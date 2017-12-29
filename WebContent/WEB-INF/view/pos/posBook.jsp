@@ -12,6 +12,7 @@
 <body>
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
+<div id="posBackground">
 <%@ include file="./posHeader.jsp" %>
 <table>
 		<tr>
@@ -23,6 +24,7 @@
 			<td>PRICE</td>
 			<td>TIME</td>
 			<td>COUPON</td>
+			<td>완료여부</td>
 		</tr>
 		<c:forEach items="${posbook}" var="a">
 		<tr>
@@ -38,6 +40,7 @@
 		</tr>
 		</c:forEach>
 	</table>
+	</div>
 	</section>
 </body>
 </html>

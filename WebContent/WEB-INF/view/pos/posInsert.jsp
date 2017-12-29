@@ -17,5 +17,5 @@
 <input type="number" name="pos_import" value="" class="imoney insertmoney">
 <input type="hidden" name="expend" value="0">
 </p>
-<input type="button" value="btn" id="btn">
+<input type="button" value="INPUT" id="btn" class="btn">
 </form>

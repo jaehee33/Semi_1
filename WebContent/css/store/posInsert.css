@@ -26,17 +26,16 @@
 }
 
 .insertt input{
-	height: 30px;
+	height: 40px;
 	border: none;
 	text-align: center;
-	padding: 0 10px;
 }
+
 
 
 .insertt select{
 	text-align: center;
-	height: 30px;
-	padding: 0 10px;
+	height: 40px;
 	border: none;
 }
 
@@ -72,19 +71,68 @@ li > a{
 }
 
 .storename{
-	width: 200px;
+	width: 20%;
 	line-height: 50px;
+	border-right: #BDBDBD 1px dotted;
 }
 
 .kind{
-	width: 400px;
+	width: 40%;
 	line-height: 50px;
+	border-right: #BDBDBD 1px dotted;
 }
 
 .imoney{
-	width: 400px;
+	width: 37%;
 	line-height: 50px;
+	border-right: #BDBDBD 1px dotted;
 }
 
+
+.btn{
+	width: 80px;
+	height: 50px;
+	float: right;
+	color: #6baed6;
+	border:#E1E1E1 1px solid;
+	border-radius:9px;
+	 -webkit-transition:background-color 1s;
+    transition:background-color 1s;
+    background-color: white;
+}
+
+.btn:hover{
+	color:#6baed6;
+	background-color: #E1E1E1;
+}
+
+.btn2{
+	width: 60px;
+	height: 40px;
+	color: #6baed6;
+	border:#E1E1E1 1px solid;
+	border-radius:9px;
+	 -webkit-transition:background-color 1s;
+    transition:background-color 1s;
+    background-color: white;
+}
+
+.btn2:hover{
+	color:#6baed6;
+	background-color: #E1E1E1;
+}
+#insertTotal{
+	height: 80px;
+	line-height: 80px;
+}
+
+#insertTotal span{
+	font-size: 22px;
+}
+
+#instotal{
+	font-size: 38px;
+	font-weight: bold;
+}
 
 
