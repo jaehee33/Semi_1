@@ -10,14 +10,44 @@
 <link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript">
 	$(function(){
 		$("#time").click(function(){
 			$(this).attr("selected", true, function(){
 				$("#tbody").append();
 			});
-			
 		});
+
+		$("#finish").click(function(){
+			var IMP=window.IMP;
+			IMP.init('imp78791768');
+
+			IMP.request_pay({
+			    pg : 'uplus', // version 1.1.0부터 지원.
+			    pay_method : 'card',
+			    merchant_uid : 'merchant_' + new Date().getTime(),
+			    name : '${style}',
+			    amount : '${price}',
+			    buyer_name : '${member.name}',
+			    buyer_tel : '${member.phone}',
+			    m_redirect_url : '<%=request.getContextPath()%>/WEB-INF/view/use/useList.use'
+			}, function(rsp) {
+			    if ( rsp.success ) {
+			        var msg = '결제가 완료되었습니다.';
+			        msg += '고유ID : ' + rsp.imp_uid;
+			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+			        msg += '결제 금액 : ' + rsp.paid_amount;
+			        msg += '카드 승인번호 : ' + rsp.apply_num;
+			    } else {
+			        var msg = '결제에 실패하였습니다.';
+			        msg += '에러내용 : ' + rsp.error_msg;
+			    }
+			    alert(msg);
+			});
+		});
+
 	});
 </script>
 <link href="<%=request.getContextPath()%>/css/use/useWrite.css" rel="stylesheet">
@@ -40,20 +70,19 @@
 								<th>금</th>
 								<th>토</th>
 							</tr>
-
 							<tr class="days">
 								<c:forEach begin="1" end="${week-1}" var="i">
 									<td></td>
 								</c:forEach>
 								<c:forEach begin="1" end="${end}" var="i">
 									<c:if test="">
-									<td class="day">
-										<c:if test="${date==i}">
-											<div id="today">${i}</div>
-										</c:if> <c:if test="${date != i}">
-											<div class="date" id="day&${i}">${i}</div>
-										</c:if>
-									</td>
+										<td class="day">
+											<c:if test="${date==i}">
+												<div id="today">${i}</div>
+											</c:if> <c:if test="${date != i}">
+												<div class="date" id="day&${i}">${i}</div>
+											</c:if>
+										</td>
 									</c:if>
 								</c:forEach>
 							</tr>

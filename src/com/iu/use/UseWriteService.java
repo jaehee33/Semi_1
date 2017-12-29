@@ -97,6 +97,7 @@ public class UseWriteService implements Action {
 				int date=cal.get(Calendar.DATE);
 				int hour=cal.get(Calendar.HOUR_OF_DAY);
 				int min=cal.get(Calendar.MINUTE);
+				int sec=cal.get(Calendar.SECOND);
 				
 				cal.set(year, month-1, 1); //시작일
 				int start=1;
@@ -113,10 +114,9 @@ public class UseWriteService implements Action {
 				request.setAttribute("weeks", weeks);
 				request.setAttribute("hour", hour);
 				request.setAttribute("min", min);
+				request.setAttribute("sec", sec);			
 				
-				
-				
-				
+				request.setAttribute("member", memberDTO);
 				request.setAttribute("store", store);
 				request.setAttribute("style", style);
 				request.setAttribute("price", price);

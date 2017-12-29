@@ -19,10 +19,13 @@ public class StyleDeleteService implements Action {
 		StyleDTO styleDTO=null;
 		try {
 			num=Integer.parseInt(request.getParameter("num"));
-			System.out.println("파라미터로 받아온 num : "+num);
 			StyleDAO styleDAO = new StyleDAO();
 			result=styleDAO.delete(num);
 			styleDTO=styleDAO.selectOne(num);
+			System.out.println(styleDTO.getNum());
+			System.out.println(styleDTO.getStore());
+			System.out.println(styleDTO.getStyle());
+			System.out.println(styleDTO.getPrice());
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

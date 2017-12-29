@@ -44,12 +44,9 @@ public class StyleInsertService implements Action {
 					styleDTO.setPrice(Integer.parseInt(request.getParameter("price")));
 					styleDTO.setStore(request.getParameter("store"));
 					result=styleDAO.insert(styleDTO);
-					
-					
-					StyleDTO styleDTO2=styleDAO.selectOne(num);
 
 					if(result>0) {
-						request.setAttribute("style", styleDTO2);
+						request.setAttribute("style", styleDTO);
 						actionForward.setCheck(true);
 						actionForward.setPath("../kind/kindView.kind?num="+num+"&style="+style);
 					}else {

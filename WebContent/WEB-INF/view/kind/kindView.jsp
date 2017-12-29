@@ -10,9 +10,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {		
-		if(${style != null}) { //insert
+		if(${style == null}) { //insert
 			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 				$("#favor").html(data);
+				alert("aa");
 			});
 		}else {//delete
 			$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
