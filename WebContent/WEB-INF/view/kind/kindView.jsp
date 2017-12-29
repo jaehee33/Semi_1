@@ -70,7 +70,7 @@
 		</div>
 
 		<article class="view_flavor consist">
-			<h2>추천 스타일</h2>
+			<h2>추천 스타일///</h2>
 			<div class="list_product">
 				<ul class="list">
 					<c:forEach items="${list}" var="i">
