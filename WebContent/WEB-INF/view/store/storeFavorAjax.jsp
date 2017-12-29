@@ -2,12 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form action="../style/styleInsert.style" method="post" name="frm" id="frm">
-	<input type="hidden" name="num" value="${num}">
-	<input type="hidden" name="style" value="${style}">
-	<input type="hidden" name="price" value="${price}">
+<form action="../favor/favorInsert.favor" method="post" name="frm" id="frm">
+	<input type="hidden" name="store_id" value="${store_id}">
 	<input type="hidden" name="store" value="${store}">
-	<c:if test="">
+		<c:if test="">
 		<button type="button" id="btn" class="off">즐겨찾기</button>
 	</c:if>
 	<c:if test="">
