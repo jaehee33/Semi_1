@@ -27,7 +27,7 @@ $(function(){
 	var o=0;
 	var i=0;
 	$("#itemplus").click(function(){
-		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select title="'+i+'" name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="price${j.index}" id="'+i+'" class="op">${a.style}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O" style="color: red;"> X</span></p>')
+		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select title="'+i+'" name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="price${j.index}" id="${j.index}" class="op">${a.style}</option></c:forEach></select><c:forEach items="${kindlist}" var="b" varStatus="i"><input type="hidden" id="price${i.index}" value="${b.price}" class="e"></c:forEach><input type="number" name="pos_import" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O" style="color: red;"> X</span></p>')
 	i++;
 		o++;
 	});
@@ -103,14 +103,16 @@ $(function(){
 	$("#insert").on("click","#btn",function(){
 		var result=true;
 		$(".imoney").each(function(){
-			alert($(this).val());
-			alert(result);
+			alert($(this).val()=="");
 			if($(this).val() == ""){
+				alert("dddd");
 				result=false;
 			}
+			/* alert(result); */
 		});
 		
-		if(result==true){
+		
+		if(result){
 		document.frm.submit();
 		}else{
 			alert("가격을 모두 입력해주세요");
@@ -129,7 +131,7 @@ $(function(){
 <div id="posBackground">
 <%@ include file="./posHeader.jsp" %>
 
-<div id="postitle"><ul><li class="storename">가게명</li><li class="kind">종류</li><li class="imoney" value="0">가격</li></ul></div>
+<div id="postitle"><ul><li class="storename">가게명</li><li class="kind">종류</li><li>가격</li></ul></div>
 <div id="insert"></div>
 
 <div id="insertTotal"><span>Total : </span><span id="instotal"></span></div>
