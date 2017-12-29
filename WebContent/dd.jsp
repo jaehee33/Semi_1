@@ -9,7 +9,14 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function(){
-	
+//<!-- =====================마이페이지============================= -->
+	$(".hover").mouseleave(
+			  function () {
+			    $(this).removeClass("hover");
+			  }
+			);
+//<!-- =====================마이페이지============================= -->
+//<!-- =====================버블버블============================= -->
 function initparticles() {
 	   bubbles();
 	   hearts();
@@ -86,12 +93,29 @@ function initparticles() {
 
 	initparticles();
 });
-
+//<!-- =====================버블버블============================= -->
 </script>
+<!-- =====================마이페이지============================= -->
+<figure class="snip1432">
+  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample45.jpg" alt="sample36" />
+  <figcaption>
+    <div>
+      <h3>In teaching others</h3>
+      <h3>We teach ourselves</h3>
+    </div>
+    <div>
+      <h2>Ingredia Nutrisha</h2>
+    </div>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<!-- =====================마이페이지============================= -->
+<!-- =====================어바웃============================= -->
 <section class="head">
 		<a href="" data-bf="10 Stunning" data-af="with scss">for your <br> sustainable <br> growth</a>
 	</section>
-
+<!-- =====================어바웃============================= -->
+<!-- =====================버블버블============================= -->
 <div class="textcontainer">
    <span class="particletext bubbles">Bubbles</span>
 </div>
@@ -112,7 +136,7 @@ function initparticles() {
 <div class="textcontainer">
    <span class="particletext lines">Lines</span>
 </div>
-
+<!-- =====================버블버블============================= -->
 
 </body>
 </html>

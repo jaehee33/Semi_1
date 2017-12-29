@@ -1,102 +1,177 @@
 @charset "UTF-8";
+/* ===================마이페이지==================================== */
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,900);
+figure.snip1432 {
+  font-family: 'Raleway', Arial, sans-serif;
+  color: #fff;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: left;
+}
+figure.snip1432 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+figure.snip1432 img {
+  opacity: 0.8;
+  width: 100%;
+  vertical-align: top;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+figure.snip1432 figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+figure.snip1432 figcaption > div {
+  height: 50%;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+figure.snip1432 h2,
+figure.snip1432 h3 {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  padding: 0 30px;
+  text-transform: uppercase;
+}
+figure.snip1432 h2 {
+  font-weight: 900;
+  top: 0;
+}
+figure.snip1432 h3 {
+  font-size: 1em;
+  bottom: 0;
+  font-weight: 500;
+}
+figure.snip1432 h3:nth-of-type(2) {
+  opacity: 0;
+  -webkit-transform: translateY(150%);
+  transform: translateY(150%);
+}
+figure.snip1432 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+figure.snip1432:hover img,
+figure.snip1432.hover img {
+  opacity: 0.3;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+figure.snip1432:hover figcaption h3:first-of-type,
+figure.snip1432.hover figcaption h3:first-of-type {
+  -webkit-transform: translateY(150%);
+  transform: translateY(150%);
+  opacity: 0;
+}
+figure.snip1432:hover figcaption h3:nth-of-type(2),
+figure.snip1432.hover figcaption h3:nth-of-type(2) {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+/* Demo purposes only */
+body {
+  background-color: #ffffff;
+}
+
+/* ===================마이페이지==================================== */
+
+
 *{
 	margin:  0;
 	padding: 0;
 }
 #hd{
 	width: 100%;
+<<<<<<< HEAD
 	height: 300px;
 	background-image: url("/Semi_1/img/member/hd.PNG");
 	display: block;
 }
+=======
+	height: 339px;
+	background-image: url('/Semi_1/img/member/hd.png');
+	margin-bottom: 50px;
+>>>>>>> jjj
 
-h2{
+	
+}
+#hd img{
+	width: 90px;
+	height: 110px;
+	float: left;
+	padding: 20px;
+}
+#hd h2{
 	margin-top: 100px;
 	text-align: center;
 	color: gray;
 	padding: 10px;
 	font-size: xx-large;
 }
-#content{
-	width: 35%;
-	height: ;
-	z-index: 20;
-	margin: 0 auto;
-	display: block;
-}
-.col{
-	display: block;
-}
-.box{
-	width: 300px;
-	height: 150px;
-	border: 1px solid lightgray;
-	border-radius: 0px;
-	margin: 0 auto;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	background-color: white;
-}
-
 li{
 	list-style-type: none;
 }
-#box1 li{
+#hd li{
 	margin-left: 20px;
 	margin-top: 30px;
 	font-size:large;
 	line-height: 10px;
 	font-family:  "Malgun Gothic", "맑은 고딕", Gulim, Verdana;
 }
-#box1 img{
-	width: 90px;
-	height: 110px;
-	float: left;
-	padding: 20px;
+
+article{
+	width:1700px;
+	margin: auto;
+	margin-left: 480px;
 }
-#col1{
-	float: left;
-}
-.box a{
-	text-decoration: none;
-	color: black;
-	margin-top: 65px;
+.box{
+	width:20%;
+	height: 300px;
 	display: inline-block;
+}
 	
-}
-.box p{
-	text-align: center;
-}
-.box a:hover{
-	color: #ff8080;
-	font-weight: bolder;
-}
-#box7 a{
-	color: #5f4b8b;
-	text-decoration: none;
-	font-size: 12px;
-	font-weight: bold;
+	
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
