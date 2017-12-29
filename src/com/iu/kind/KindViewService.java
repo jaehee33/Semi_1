@@ -9,6 +9,8 @@ import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.files.FilesDAO;
 import com.iu.files.FilesDTO;
+import com.iu.style.StyleDAO;
+import com.iu.style.StyleDTO;
 
 public class KindViewService implements Action {
 
@@ -27,7 +29,11 @@ public class KindViewService implements Action {
 			FilesDAO filesDAO = new FilesDAO();			
 			FilesDTO filesDTO = filesDAO.selectOne(num);
 			
-			if(kindDTO != null && list != null) {
+			StyleDAO styleDAO = new StyleDAO();
+			StyleDTO styleDTO=styleDAO.selectOne(num);
+			
+			if(kindDTO != null && list != null && styleDTO != null) {
+				request.setAttribute("style", styleDTO);
 				request.setAttribute("list", list);
 				request.setAttribute("kind", kindDTO);
 				request.setAttribute("file", filesDTO);
