@@ -31,6 +31,19 @@
 		$("#write").click(function(){
 			window.location.href="./${board}Write.${board}";
 		});
+		var curPage=Number(${curPage});		
+		$(".button_now").each(function(){
+			if(Number($(this).attr("title"))==curPage){
+				$(this).css("background-color","silver");
+			}
+		});
+		
+		$(".g").each(function(){
+			var num=$(this).attr("title");
+			$("#title"+num).click(function(){
+				$("#contents_view"+num).slideToggle("slow");
+			});
+		});
 		
 		/* 
 		$("#backpage").click(function() {

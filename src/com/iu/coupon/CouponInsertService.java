@@ -1,8 +1,5 @@
 package com.iu.coupon;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,8 +33,10 @@ public class CouponInsertService implements Action {
 			System.out.println(result);
 			
 			if(result>0) {
+				request.setAttribute("message", "coupon inserted");
 				actionForward.setCheck(false); //redirect. request 죽음 바로 보내니까.
 				actionForward.setPath("../coupon/couponList.coupon");
+				
 			}else {
 				request.setAttribute("message", "coupon fail");
 				request.setAttribute("path", "../coupon/couponInsert.coupon");

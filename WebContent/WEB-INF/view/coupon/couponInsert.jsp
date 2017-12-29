@@ -6,14 +6,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="/Semi_1/css/coupon/couponInsert.css" rel="stylesheet">
+<script type="text/javascript">
+	$(function(){
+		$(".button_save").click(
+				function() {
+					$("#frm").submit();
+				});
+});
+</script>
 </head>
 <body>
 <%@ include file="../temp/header.jsp"%>
 <section>
-<form action="couponInsert.coupon" method="POST">
+<form id="frm" action="couponInsert.coupon" method="POST">
 이름: <input type="text" name="coupon">
 할인율: <input type="number" name="count">%
-<button>저장</button>
+<button class="button_save">저장</button>
 </form>
 </section>
 <%@ include file="../temp/footer.jsp" %>

@@ -12,6 +12,13 @@ section {
 	margin-top: 98px;
 	margin-left: 23%;
 	margin-right: 23%;
+	vertical-align: middle;
+	height: auto;
+	background-color: white;
+	margin-top: 98px;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-bottom: 100px;
 }
 
 table.list_table{
@@ -144,6 +151,7 @@ td a:hover {
 }
 
 .buttonWrite{
+	margin: 5px;
 	padding: 0.5em 1em;
 	background-color: white;
 	color: #5F4B8B;
