@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 #storeheader{
+font-family: 'Poppins','Nanum Gothic', sans-serif;
 width: 70px;
 height: 100%;	
 position: fixed;
@@ -61,6 +62,7 @@ margin: 100px auto;
 }
 
 #storeView{
+	font-family: 'Poppins','Nanum Gothic', sans-serif;
 	margin-left: 70px;
 }
 

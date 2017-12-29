@@ -145,7 +145,7 @@
 			document.frm.submit();
 		});
 		
-		$.get("./scoreWrite.score?store=${store}", function(callback) {
+		$.get("./scoreWrite.score?id=${storeid}&store=${store}", function(callback) {
 			$("#score").html(callback);
 		});
 
@@ -169,6 +169,7 @@
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
 <div id="storeheader"></div>
+<div id="storeView">
 	<h2>${store}</h2>
 	<div>
 		<form name="frm" action="./${board}List.${board}">
@@ -181,6 +182,8 @@
 				<option class="kind" value="clinic">CLINIC</option>
 				<option class="kind" value="styling">STYLE</option>
 			</select>
+			<input type="hidden" name="id" value="${storeid}">
+			<input type="hidden" name="store" value="${store}">
 			<input type="text" name="search" value="${make.search}">
 			<button>Search</button>
 		</form>
@@ -236,6 +239,7 @@
 	</c:if>
 
 	<button type="button" class="btn" id="backpage">BackPage</button>
+	</div>
 	</section>
 </body>
 </html>

@@ -17,14 +17,14 @@ public class ScoreListService implements Action {
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
 		String store = request.getParameter("store");
-		String id= request.getParameter("id");
+		String id=request.getParameter("id");
 		
 		int curPage=1;
 		try {
 			curPage= Integer.parseInt(request.getParameter("curPage"));
 		}catch (Exception e) {
 		}
-		MakeRow makeRow = new MakeRow();
+		ScoreMakeRow makeRow = new ScoreMakeRow();
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
 		ScoreDAO scoreDAO = new ScoreDAO();
@@ -34,23 +34,22 @@ public class ScoreListService implements Action {
 		Pageing pageing=null;
 		
 		try {
-			totalCount = scoreDAO.getTotalCount(makeRow);
+			totalCount = scoreDAO.getTotalCount(store);
 			MakePage makePage = new MakePage(curPage, totalCount);
-			makeRow=makePage.getMakeRow(makeRow);
-			ar=scoreDAO.selectList(makeRow);
+			makeRow=(ScoreMakeRow)makePage.getMakeRow(makeRow);
+			ar=scoreDAO.selectList(makeRow,store);
 			
 			pageing = makePage.pageing();
 			
-			request.setAttribute("store", store);
-			request.setAttribute("board", "score");
-			request.setAttribute("list", ar);
-			request.setAttribute("page", pageing);
-			request.setAttribute("make", makeRow);
 		} catch (Exception e) {
-			e.printStackTrace();
 		
 		}
 		request.setAttribute("storeid", id);
+		request.setAttribute("store", store);
+		request.setAttribute("board", "score");
+		request.setAttribute("list", ar);
+		request.setAttribute("page", pageing);
+		request.setAttribute("make", makeRow);
 		actionForward.setCheck(true);
 		actionForward.setPath("../WEB-INF/view/score/scoreList.jsp");
 		

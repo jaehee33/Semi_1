@@ -10,5 +10,5 @@
 	<ul id="storeMenu">
 	<li class="menuli"><a href="../kind/kindCList.kind?id=${store.id}">STYLE</a></li>
 	<li class="menuli"><a href="<%=request.getContextPath()%>/store/storeView.store?id=${store.id}">INFO</a></li>
-	<li class="menuli"><a href="../score/scoreList.score?id=${store.id}">REVIEW</a></li>
+	<li class="menuli"><a href="../score/scoreList.score?id=${store.id}&store=${store.store}">REVIEW</a></li>
 	</ul>
