@@ -75,15 +75,13 @@
 									<td></td>
 								</c:forEach>
 								<c:forEach begin="1" end="${end}" var="i">
-
-										<td class="day">
-											<c:if test="${date==i}">
-												<div id="today">${i}</div>
-											</c:if> <c:if test="${date != i}">
-												<div class="date" id="day${i}">${i}</div>
-											</c:if>
-										</td>
-
+									<td class="day">
+										<c:if test="${date==i}">
+											<div id="today">${i}</div>
+										</c:if> <c:if test="${date != i}">
+											<div class="date" id="day${i}">${i}</div>
+										</c:if>
+									</td>
 								</c:forEach>
 							</tr>
 						</table>
