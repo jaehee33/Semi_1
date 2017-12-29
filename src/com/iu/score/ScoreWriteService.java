@@ -28,25 +28,8 @@ public class ScoreWriteService implements Action {
 
 
 		if(method.equals("POST")) {
-			boolean check=false;
 			String storeid=request.getParameter("storeid");
 			String store=request.getParameter("store");
-			StoreDTO storeDTO = new StoreDTO();
-			UseDAO useDAO = new UseDAO();
-			storeDTO.setStore(store);
-			List<UseDTO> ar=null;
-			try {
-				ar=useDAO.selectList(storeDTO);
-			} catch (Exception e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-			for(UseDTO useDTO: ar) {
-				if(useDTO.getId().equals(memberDTO.getId())) {
-					check=true;
-					break;
-				}
-			}
 			
 			if(memberDTO==null) {
 				request.setAttribute("message", "로그인이 필요합니다.");
@@ -54,7 +37,7 @@ public class ScoreWriteService implements Action {
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			} else {
-				if(check) {
+				
 					ScoreDAO scoreDAO = new ScoreDAO();
 					ScoreDTO scoreDTO = new ScoreDTO();
 					String id = ((MemberDTO)request.getSession().getAttribute("member")).getId();
@@ -71,7 +54,6 @@ public class ScoreWriteService implements Action {
 					scoreDTO.setContents(request.getParameter("contents"));
 					scoreDTO.setPoint(Double.valueOf(request.getParameter("star-input")));
 					scoreDTO.setStore(store);
-					System.out.println(scoreDTO.getStore());
 					int result=0;
 					try {
 						result=scoreDAO.insert(scoreDTO);
@@ -84,21 +66,16 @@ public class ScoreWriteService implements Action {
 						request.setAttribute("storeid", storeid);
 						request.setAttribute("store", store );
 						actionForward.setCheck(true);
-						actionForward.setPath("../index.jsp");
-						/*actionForward.setPath("./scoreList.score?id=\""+storeid+"\"&store=\""+store+"\"");*/
+						/*actionForward.setPath("../index.jsp");*/
+						actionForward.setPath("./scoreList.score?id="+storeid+"&store="+store);
 					}else {
 						request.setAttribute("message", "Fail");
 						request.setAttribute("path", "../index.jsp");
 						actionForward.setCheck(true);
 						actionForward.setPath("../WEB-INF/view/common/result.jsp");
 					}
-				}else {
-					request.setAttribute("message", "이용기록이 없습니다.");
-					request.setAttribute("path", "../index.jsp");
-					actionForward.setCheck(true);
-					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}
-			}
+			
 
 		}else {
 			String store= request.getParameter("store");
