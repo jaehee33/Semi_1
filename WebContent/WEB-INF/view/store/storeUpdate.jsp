@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
 <div id="storeView">
 <form action="storeUpdate.store" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="${store.id}" >
@@ -21,5 +22,6 @@
 <button>Write</button>
 </form>
 </div>
+</section>
 </body>
 </html>

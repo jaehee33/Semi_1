@@ -20,6 +20,7 @@ $(function(){
 </head>
 <body>
 <%@ include file="../temp/header.jsp" %>
+<section id="main">
 <div id="storeView">
 <form action="storeWrite.store" method="post" name="frm" enctype="multipart/form-data">
 <p>StoreName : <input type="text" name="store" placeholder="검색어를 입력해주세요"><input type="button" name="btn" id="btn" value="search"></p>
@@ -30,5 +31,6 @@ $(function(){
 <button>Write</button>
 </form>
 </div>
+</section>
 </body>
 </html>
