@@ -28,11 +28,13 @@ public class KindViewService implements Action {
 
 			FilesDAO filesDAO = new FilesDAO();			
 			FilesDTO filesDTO = filesDAO.selectOne(num);
+			ArrayList<FilesDTO> ar= filesDAO.selectList();
 			
 			StyleDAO styleDAO = new StyleDAO();
 			StyleDTO styleDTO=styleDAO.selectOne(num);
 			
 			if(kindDTO != null && list != null) {
+				request.setAttribute("fileList", ar);
 				request.setAttribute("style", styleDTO);
 				request.setAttribute("list", list);
 				request.setAttribute("kind", kindDTO);

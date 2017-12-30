@@ -67,11 +67,21 @@
 			<div class="list_product">
 				<ul class="list">
 					<c:forEach items="${list}" var="i">
-						<li><a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}<img src="../upload/${file.fname}"></a></li>
+						<li>
+							<a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}
+								<c:forEach items="${filelist}" var="f">
+									<c:if test="${i.num eq f.num}">
+										<img class="photo" src="../upload/${f.fname}">
+									</c:if>
+								</c:forEach>
+							</a>
+						</li>
 					</c:forEach>
 				</ul>
 			</div>
 		</article>
 	</section>
+	
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>
