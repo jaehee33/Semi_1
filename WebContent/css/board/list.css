@@ -132,7 +132,7 @@ td a:hover {
 	float: left;
 }
 
-.list{
+.list_button{
 	padding: 0.2em 0.2em;
 	width: 20px;
 	background-color: white;
@@ -141,7 +141,7 @@ td a:hover {
 	border: 1px solid silver;
 }
 
-.list:hover{
+.list_button:hover{
 	background-color: whiteSmoke;
 	color: black;
 }
@@ -150,7 +150,7 @@ td a:hover {
 	padding: 0.2em 0.2em;
 	background-color: white;
 	text-decoration: none;
-	border: 0.5px solid silver;
+	border: 0.5px solid gray;
 	border-radius: 0.35em;
 }
 
@@ -183,6 +183,10 @@ input[type=text]{
 
 input[type=text]:focus{
 	width: 200px;
+}
+
+.table_title{
+	text-align: left;
 }
 
 

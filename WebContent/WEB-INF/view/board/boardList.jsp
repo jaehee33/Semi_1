@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
+<title>${board}</title>
 <link rel="stylesheet" href="/Semi_1/css/board/list.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,7 +18,7 @@
 			}
 		});
 
-		$(".list").click(function() {
+		$(".list_button").click(function() {
 			var cur = $(this).attr("title");
 			document.frm.curPage.value = cur;
 			document.frm.submit();
@@ -31,12 +29,15 @@
 		});
 		
 		
+		
+		
 		var curPage=Number(${curPage});		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
 				$(this).css("background-color","silver");
 			}
 		});
+		
 		
 		$(".g").each(function(){
 			var num=$(this).attr("title");
@@ -78,7 +79,6 @@
 				<c:forEach items="${list}" var="i" varStatus="j">
 					<tr>
 						<td>${i.num}</td>
-
 						<td id="title${j.index}" class="g" title="${j.index}"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
 							</c:catch><p class="table_title">${i.title}</p>
@@ -86,16 +86,11 @@
 								<h2>HELLO</h2>
 							</div>
 						</td>
-
-
 						<c:if test="${member.id eq 'admin'}">
 							<td>${i.id}</td>
 						</c:if>
-
 						<td>${i.reg_date}</td>
 						<td>${i.hit}</td>
-
-
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -107,21 +102,19 @@
 				<button type="button" class="buttonWrite" id="write">글쓰기</button>
 			</c:if>
 
-
-
 			<c:if test="${not empty make}">
-				<input type="button" class="list" title="${page.startNum}"
+				<input type="button" class="list_button" title="${page.startNum}"
 					value="<<">
 			</c:if>
 
 			<c:if test="${not empty make}">
 				<c:choose>
 					<c:when test="${page.curBlock gt 1}">
-						<input type="button" class="list" title="${page.curBlock-1}"
+						<input type="button" class="list_button" title="${page.curBlock-1}"
 							value="<">
 					</c:when>
 					<c:otherwise>
-						<input type="button" class="list" title="${page.curBlock}"
+						<input type="button" class="list_button" title="${page.curBlock}"
 							value="<">
 					</c:otherwise>
 				</c:choose>
@@ -134,7 +127,7 @@
 		</c:if> --%>
 
 			<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-				<input type="button" class="list button_now" title="${i}"
+				<input type="button" class="list_button button_now" title="${i}"
 					value="${i}">
 			</c:forEach>
 			<%-- 	<c:if test="${page.curBlock lt page.totalBlock}">
@@ -144,12 +137,12 @@
 
 
 			<c:if test="${not empty make}">
-				<input type="button" class="list" title="${page.curBlock+1}"
+				<input type="button" class="list_button" title="${page.curBlock+1}"
 					value=">">
 			</c:if>
 
 			<c:if test="${not empty make}">
-				<input type="button" class="list" title="${page.lastNum}" value=">>">
+				<input type="button" class="list_button" title="${page.lastNum}" value=">>">
 			</c:if>
 		</div>
 
