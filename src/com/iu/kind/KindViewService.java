@@ -35,7 +35,7 @@ public class KindViewService implements Action {
 			
 			if(kindDTO != null && list != null) {
 				request.setAttribute("fileList", ar);
-				request.setAttribute("style", styleDTO);
+				request.setAttribute("styleDTO", styleDTO);
 				request.setAttribute("list", list);
 				request.setAttribute("kind", kindDTO);
 				request.setAttribute("file", filesDTO);

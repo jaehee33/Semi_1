@@ -10,16 +10,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {		
-		if(${style == null}) { //insert
+		if(${styleDTO}) { //insert
 			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 				$("#favor").html(data);
-				alert("aa");
 			});
 		}else {//delete
 			$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
 				$("#favor").html(data);
 			});
 		}
+		
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
@@ -29,15 +29,11 @@
 				$("#btn").attr("class", "off");
 			}
 		});
+		
+		
 	});
 </script>
-<style type="text/css">
-#font {
-	font-weight: bold;
-}
-</style>
-<link href="<%=request.getContextPath()%>/css/kind/kindView.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/kind/kindView.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
