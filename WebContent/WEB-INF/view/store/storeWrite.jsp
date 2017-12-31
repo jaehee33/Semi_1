@@ -46,7 +46,7 @@
 			<form action="storeWrite.store" method="post" name="frm"
 				enctype="multipart/form-data">
 				<table id="semistore">
-					<tr>
+					<tr id="start">
 						<td class="first"> StoreName</td>
 						<td><input type="text" class="emp" name="store"
 							placeholder="검색어를 입력해주세요"> <input type="button"
@@ -69,10 +69,8 @@
 						<td class="first"> Store image</td>
 						<td><input type="file" name="file" class="emp" id="file"></td>
 					</tr>
-					<tr>
-						<td colspan="2"><input type="button" name="btn" id="btn" value="SUBMIT"></td>
-					</tr>
 				</table>
+				<input type="button" name="btn" id="btn" value="SUBMIT">
 			</form>
 		</div>
 	</section>
