@@ -28,14 +28,8 @@
 			window.location.href="./${board}Write.${board}";
 		});
 		
-		
-<<<<<<< HEAD
-		
-		
+
 		var curPage=Number(${curPage});		
-=======
-		var curPage=Number( ${curPage} );		
->>>>>>> yj_home_1
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
 				$(this).css("background-color","silver");
