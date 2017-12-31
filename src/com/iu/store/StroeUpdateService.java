@@ -42,7 +42,7 @@ public class StroeUpdateService implements Action {
 		}else {
 			FilesDTO filesDTO=null;
 			FilesDAO filesDAO=new FilesDAO();
-
+			String storeid="";
 			String filePath=request.getServletContext().getRealPath("upload");
 			File file=new File(filePath);
 			if(!file.exists()) {
@@ -54,11 +54,12 @@ public class StroeUpdateService implements Action {
 			try {
 				MultipartRequest multi = new MultipartRequest(request, filePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 				StoreDTO storeDTO=new StoreDTO();
+				storeid=multi.getParameter("id");
 				storeDTO.setArea(multi.getParameter("area"));
 				storeDTO.setHoliday(multi.getParameter("holiday"));
 				storeDTO.setStore(multi.getParameter("store"));
 				storeDTO.setStoretel(multi.getParameter("storetel"));
-				storeDTO.setId(multi.getParameter("id"));
+				storeDTO.setId(storeid);
 				result2=filesDAO.storedelete(storeDTO.getStore());
 				
 				filesDTO=new FilesDTO();
@@ -73,7 +74,7 @@ public class StroeUpdateService implements Action {
 			
 			if(result>0 && result2>0) {
 				actionForward.setCheck(false);
-				actionForward.setPath("./storeIndex.store");
+				actionForward.setPath("./storeView.store?id="+storeid);
 			}else {
 				request.setAttribute("message", "update Fail");
 				request.setAttribute("path", "../index.jsp");
