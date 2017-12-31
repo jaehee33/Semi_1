@@ -1,0 +1,16 @@
+@charset "UTF-8";
+#list{
+	width: 60%;
+	background-color: white;
+	margin: 0 auto;
+}
+
+#search{
+	float: right;
+	margin: 20px 0;
+}
+
+#first{
+	font-size: 15px;
+	font-weight: bold;
+}

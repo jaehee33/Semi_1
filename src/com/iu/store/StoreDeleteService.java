@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.files.FilesDAO;
 import com.iu.member.MemberDTO;
 
 public class StoreDeleteService implements Action {
@@ -16,11 +17,15 @@ public class StoreDeleteService implements Action {
 		MemberDTO memberDTO=(MemberDTO)(request.getSession().getAttribute("member"));
 		if(memberDTO!=null) {
 		StoreDAO storeDAO=new StoreDAO();
+		FilesDAO filesDAO=new FilesDAO();
 		String id=request.getParameter("id");
-		
+		StoreDTO storeDTO=null;
 		int result=0;
+		int result2=0;
 		try {
+			storeDTO=storeDAO.selectOne(id);
 			result=storeDAO.delete(id);
+			result2=filesDAO.storedelete(storeDTO.getStore());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
