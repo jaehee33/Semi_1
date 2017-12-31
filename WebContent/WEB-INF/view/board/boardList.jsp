@@ -31,7 +31,7 @@
 		});
 		
 		
-		var curPage=Number(${curPage});		
+		var curPage=Number( ${curPage} );		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
 				$(this).css("background-color","silver");
