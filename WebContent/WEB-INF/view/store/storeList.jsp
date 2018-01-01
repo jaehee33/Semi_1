@@ -7,6 +7,7 @@
 <html>
 <head>
 <link href="<%=request.getContextPath()%>/css/store/storeList.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/particleEffects.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,6 +35,24 @@
 				$(this).css("background-color","silver");
 			}
 		});
+		function initparticles() {
+			   lines();
+			}
+		function lines() {
+			   $.each($(".particletext.lines"), function(){
+			      var linecount = ($(this).width()/50)*10;
+			      for(var i = 0; i <= linecount; i++) {
+			         $(this).append('<span class="particle" style="top:' + $.rnd(-30,30) + '%; left:' + $.rnd(-10,110) + '%;width:' + $.rnd(1,3) + 'px; height:' + $.rnd(20,80) + '%;animation-delay: -' + ($.rnd(0,30)/10) + 's;"></span>');
+			      }
+			   });
+			}
+		jQuery.rnd = function(m,n) {
+		      m = parseInt(m);
+		      n = parseInt(n);
+		      return Math.floor( Math.random() * (n - m + 1) ) + m;
+		}
+
+		initparticles();
 		
 	});
 	
@@ -43,11 +62,14 @@
 <%@ include file="../temp/header.jsp" %>
 <section id="main">
 <div id="list">
+<div class="textcontainer">
+   <span class="particletext lines">Store List</span>
+</div>
 <div id="search">
 		<form name="frm" action="./storeList.store">
 			<input type="hidden" name="curPage">
-			<input type="text" name="search" value="${make.search}">
-			<button>Search</button>
+			<input type="text" name="search" value="${make.search}" placeholder="Search...">
+			<button><img id="icon" src="../img/store/magnifying-glass.png" style="height: 15px; width: 15px;"></button>
 		</form>
 	</div>
 <table class="table table-hover">
