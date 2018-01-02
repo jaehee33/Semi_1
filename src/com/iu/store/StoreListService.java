@@ -46,6 +46,7 @@ public class StoreListService implements Action {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		request.setAttribute("curPage", curPage);
 		request.setAttribute("storelist", ar);
 		request.setAttribute("page", pageing);
 		request.setAttribute("make", storeMakeRow);

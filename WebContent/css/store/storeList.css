@@ -43,3 +43,17 @@
 #search button:hover {
 	background-color: white;
 }
+
+.pageing{
+	border: none;
+	background-color: white;
+	color: #5F4B8B;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+}
+
+.pageing:hover{
+	background-color: #E1E1E1;
+}
+

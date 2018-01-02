@@ -29,10 +29,12 @@
 			document.frm.submit();
 		});
 		
-		var curPage=Number( ${curPage} );		
+		var curPage=Number(${curPage});
 		$(".btn_now").each(function(){
+			alert(curPage);
 			if(Number($(this).attr("title"))==curPage){
-				$(this).css("background-color","silver");
+				$(this).css("background-color","#5F4B8B");
+				$(this).css("color","white");
 			}
 		});
 		function initparticles() {
@@ -84,15 +86,17 @@
 		</tr>
 	</c:forEach>
 </table>
+<input type="button" value="<<" title="${page.startNum}" class="list pageing">
 <c:if test="${page.curBlock gt 1}">
-	<input type="button" value="[이전]" title="${page.startNum-1}" class="list">
+	<input type="button" value="<" title="${page.startNum-1}" class="list pageing">
 	</c:if>
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-	<input type="button" value="${i}" title="${i}" class="list btn_now">
+	<input type="button" value="${i}" title="${i}" class="list btn_now pageing">
 	</c:forEach>
 	<c:if test="${page.curBlock lt page.totalBlock}">
-	<input type="button" value="[다음]" title="${page.lastNum+1}" class="list">
+	<input type="button" value=">" title="${page.lastNum+1}" class="list pageing">
 	</c:if>
+	<input type="button" value=">>" title="${page.lastNum}" class="list pageing">
 	</div>
 	</section>
 	
