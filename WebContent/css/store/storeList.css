@@ -57,3 +57,8 @@
 	background-color: #E1E1E1;
 }
 
+#pagination{
+	width: 300px;
+	margin:10px auto;
+	text-align: center;
+}

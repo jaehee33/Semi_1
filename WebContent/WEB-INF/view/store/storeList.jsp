@@ -31,7 +31,6 @@
 		
 		var curPage=Number(${curPage});
 		$(".btn_now").each(function(){
-			alert(curPage);
 			if(Number($(this).attr("title"))==curPage){
 				$(this).css("background-color","#5F4B8B");
 				$(this).css("color","white");
@@ -86,7 +85,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<input type="button" value="<<" title="${page.startNum}" class="list pageing">
+<div id="pagination">
 <c:if test="${page.curBlock gt 1}">
 	<input type="button" value="<" title="${page.startNum-1}" class="list pageing">
 	</c:if>
@@ -96,7 +95,7 @@
 	<c:if test="${page.curBlock lt page.totalBlock}">
 	<input type="button" value=">" title="${page.lastNum+1}" class="list pageing">
 	</c:if>
-	<input type="button" value=">>" title="${page.lastNum}" class="list pageing">
+	</div>
 	</div>
 	</section>
 	
