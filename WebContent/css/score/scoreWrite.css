@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+textarea{
+	width: 500px;
+	height: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+input{
+	vertical-align: top;
+}
+
+
+output{
+	vertical-align: top;
+	padding-top: 40px;
+	padding-left: 10px;
+	padding-right: 50px;
+}
+
+#savebutton{
+	padding: 7px 5px;
+}
+
+#star_star{
+	vertical-align: top;
+}
+
+#savebutton_div{
+	display: inline;
+	position:relative;
+	padding-bottom: 100px;
+}

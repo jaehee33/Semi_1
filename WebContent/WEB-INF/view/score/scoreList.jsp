@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link href="/Semi_1/css/score/list.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>${store}</title>
+<link href="/Semi_1/css/score/scoreList.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css"
@@ -172,9 +172,9 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<div id="storeheader"></div>
+	
 	<div id="storeView" class="div_page">
-		<h2>${store}</h2>
-		<div>
+		<%-- <div>
 			<form name="frm" action="./${board}List.${board}">
 				<input type="hidden" name="curPage"> <select name="kind">
 					<option class="kind" value="all">All</option>
@@ -188,9 +188,10 @@
 					type="text" name="search" value="${make.search}">
 				<button>Search</button>
 			</form>
-		</div>
-
-		<h3>한줄평()</h3>
+		</div> --%>
+		
+		<section>
+		<h3 id="comment">한줄평(${count})</h3>
 		<div id="score"></div>
 		<table class="table">
 			<thead>
@@ -267,6 +268,8 @@
 
 
 		<button type="button" class="btn" id="backpage">BackPage</button>
+	</section>
 	</div>
+	
 </body>
 </html>

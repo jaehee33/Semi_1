@@ -20,6 +20,7 @@ public class ScoreListService implements Action {
 		String id=request.getParameter("id");
 		
 		int curPage=1;
+		int totalCount;
 		try {
 			curPage= Integer.parseInt(request.getParameter("curPage"));
 		}catch (Exception e) {
@@ -28,7 +29,7 @@ public class ScoreListService implements Action {
 		makeRow.setKind(request.getParameter("kind"));
 		makeRow.setSearch(request.getParameter("search"));
 		ScoreDAO scoreDAO = new ScoreDAO();
-		int totalCount;
+		
 		
 		List<ScoreDTO> ar=null;
 		Pageing pageing=null;
@@ -40,10 +41,12 @@ public class ScoreListService implements Action {
 			ar=scoreDAO.selectList(makeRow,store);
 			
 			pageing = makePage.pageing();
+			request.setAttribute("count", totalCount);
 			
 		} catch (Exception e) {
 		
 		}
+		
 		request.setAttribute("storeid", id);
 		request.setAttribute("store", store);
 		request.setAttribute("board", "score");
