@@ -76,13 +76,11 @@
 	<tr id="first">
 		<td>store</td>
 		<td>location</td>
-		<td>즐겨찾기</td>
 	</tr>
 	<c:forEach items="${requestScope.storelist}" var="s">
 		<tr>
 			<td><a href="./storeView.store?id=${s.id}">${s.store}</a></td>
 			<td>${s.area}</td>
-			<td><a href="../favorite/favoriteList.favor">저장</a></td>
 		</tr>
 	</c:forEach>
 </table>
