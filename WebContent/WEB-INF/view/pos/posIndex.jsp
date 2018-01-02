@@ -26,11 +26,11 @@ $(function(){
 	
 	var o=1;
 	var i=0;
-	$("#itemplus").click(function(){
-		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select title="'+i+'" name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="${a.price}" id="'+o+'" class="op">${a.style}</option></c:forEach></select><input type="number" name="pos_import" title="'+o+'" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O" style="color: red;"> X</span></p>')
+	 $("#itemplus").click(function(){
+		$("#frm").prepend('<p class="insertt" id="ins'+i+'"><input type="text" class="storename" name="store" value="${store}" readonly="readonly"><select name="kind" class="g kind"><option value="other">기타</option><c:forEach items="${kindlist}" var="a" varStatus="j"><option value="${a.style}" title="${a.price}" id="o'+o+'" class="op">${a.style}</option></c:forEach></select><input type="number" name="pos_import" title="o'+o+'" class="imoney insertmoney" id="i'+i+'"><input type="hidden" name="expend" value="0" id="price"><span id="'+i+'" class="O" style="color:red;"> X</span></p>');
 	i++;
 	o++;
-	});
+	}); 
 	
 	$("#insert").on("click",".O",function(){
 		var i=$(this).attr("id");
