@@ -18,6 +18,15 @@ $(function(){
 				);
 	//<!-- =====================마이페이지============================= -->
 });
+function myFunction() {
+    var txt;
+    if (confirm("정말 탈퇴하시겠습니까?") == true) {
+        window.location.assign("http://localhost/Semi_1/member/memberDelete.member")
+    } else {
+    	window.location.assign("http://localhost/Semi_1/member/memberMyPage.member")
+    }
+    
+}
 </script>
 
 <body>
@@ -134,7 +143,7 @@ $(function(){
 		</div>
 		<!-- =====================box3============================= -->
 <div id="del">
-	<p class="btn"><a href="./memberDelete.member">회원탈퇴</a></p>
+	<button id="button" onclick="myFunction()">회원탈퇴</button>
 </div>
 </article>
 		

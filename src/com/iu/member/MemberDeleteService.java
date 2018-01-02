@@ -28,17 +28,12 @@ public class MemberDeleteService implements Action {
 			}
 			
 			if(result>0 || result2>0) {
-				request.setAttribute("check", "정말 탈퇴하시겠습니까?");
-				request.setAttribute("pass", "../index.jsp");
-				actionForward.setCheck(true);
-				actionForward.setPath("../WEB-INF/view/member/memberDelete.jsp");
-				
-/*				request.getSession().invalidate();
+				request.getSession().invalidate();
 				actionForward.setCheck(false);
-				actionForward.setPath("../index.jsp");*/
+				actionForward.setPath("../index.jsp");
 				
 			}else {
-				request.setAttribute("message", "fail");
+				request.setAttribute("message", "탈퇴 실패");
 				request.setAttribute("path", "../index.jsp");
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");

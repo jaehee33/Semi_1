@@ -163,15 +163,16 @@ body {
 	height:100px;
 	margin: auto;
 }
-#del a{
-	width: 100px;
+#button{
+	width: 90px;
 	height: 20px;
 	background-color: gray;
+	color: white;
+	border:none;
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
 	margin-bottom: 50px;
 	float: right;
-	text-align: center;
-	text-decoration: none;
-	color: white;
-	font-size: 15px;
 }
 	
