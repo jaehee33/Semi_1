@@ -6,10 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	alert('${check}');
+var a= confirm('${check}');
+if(a == true){
 	location.href="${pass}";
-</script>
+	
+}else{
+	
+}
 
+
+	
+</script>
 </head>
 <body>
 
