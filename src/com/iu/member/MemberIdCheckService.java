@@ -20,7 +20,6 @@ public class MemberIdCheckService implements Action {
 			
 			try {
 				check = memberDAO.idCheck(id);
-				System.out.println(check);
 			} catch (Exception e1) {
 			}
 			

@@ -6,7 +6,7 @@ figure.snip1432 {
   font-family: 'Raleway', Arial, sans-serif;
   color: #fff;
   position: relative;
-  float: left;
+ /*  float: left; */
   overflow: hidden;
   margin: 10px 1%;
   min-width: 230px;
@@ -92,6 +92,7 @@ figure.snip1432.hover figcaption h3:nth-of-type(2) {
 /* Demo purposes only */
 body {
   background-color: #ffffff;
+  margin: auto;
 }
 
 /* ===================마이페이지==================================== */
@@ -133,9 +134,8 @@ body {
 	float: left;
 	font-size:large;
 }
-
-article{
-	width:1700px;
+.mid{
+	width: 1700px;
 	margin: auto;
 	margin-left: 480px;
 }
@@ -143,20 +143,6 @@ article{
 	width:20%;
 	height: 300px;
 	display: inline-block;
-}
-.btn{
-	width: 100px;
-	height: 20px;
-	background-color: #004080;
-}
-.btn a{
-	text-decoration: none;
-	color: white;
-	font-size: 15px;
-	text-align: center;
-}
-#del{
-
 }
 #home{
 	float: right;
@@ -169,10 +155,23 @@ article{
 	font-size: 15px;
 	text-align: center;
 }
-#mod{
-float: right;
-}
 .acc{
 	font-size: 12px;
+}
+#del{
+	width: 1050px;
+	height:100px;
+	margin: auto;
+}
+#del a{
+	width: 100px;
+	height: 20px;
+	background-color: gray;
+	margin-bottom: 50px;
+	float: right;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
 }
 	

@@ -50,7 +50,7 @@ public class MemberLoginService implements Action {
 				actionForward.setCheck(false); //실패하나 성공하나 인덱스로 고고 
 				actionForward.setPath("../index.jsp");
 			}else {
-				request.setAttribute("message", "fail");
+				request.setAttribute("message", "ID나 비밀번호를 잘못 입력하셨습니다.");
 				request.setAttribute("path", "./memberLogin.member");
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");

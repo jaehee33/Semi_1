@@ -47,6 +47,7 @@ $(function(){
 			</div>
 <!-- =====================box1============================= -->
 		<article>
+		<div class="mid">
 			<div id="box1" class="box">
 				<figure class="snip1432">
 					<img
@@ -130,10 +131,11 @@ $(function(){
 					</c:if>
 				</figure>
 			</div>
-		
+		</div>
 		<!-- =====================box3============================= -->
-	
-	<p class="btn" id="del"><a href="./memberDelete.member">회원탈퇴</a></p>
+<div id="del">
+	<p class="btn"><a href="./memberDelete.member">회원탈퇴</a></p>
+</div>
 </article>
 		
 
