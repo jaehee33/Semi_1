@@ -28,14 +28,7 @@
 								<a href="./kindView.kind?num=${k.num}&style=${k.style}"><img src="../upload/${f.fname}" onclick="onClick(this)" class="photo w3-hover-opacity" style="width: 100%"></a>
 							</c:if>
 						</c:forEach>
-
 						<h3><a href="./kindView.kind?num=${k.num}&style=${k.style}">${k.style}</a></h3>
-
-						<c:forEach items="${storelist}" var="s">
-							<c:if test="${k.store eq s.store}">
-									<h4>${k.store}</h4>
-							</c:if>
-						</c:forEach>
 					</div>
 				</c:forEach>
 			</div>
