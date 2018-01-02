@@ -17,22 +17,66 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="">
-
 		<!-- !PAGE CONTENT! -->
-		<div class="w3-main w3-content w3-padding" style="max-width: 1200px; margin-top: 100px">			
+		<div class="w3-main w3-content w3-padding" style="max-width: 1200px; margin-top: 100px">
+			<hr>
+			<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+					스타일 선택 <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li class="dropdown-header">여자스타일</li>
+					<li><a href="./kindFList.kind?kind=커트" class="style">커트</a></li>
+					<li><a href="./kindFList.kind?kind=펌" class="style">펌</a></li>
+					<li><a href="./kindFList.kind?kind=염색" class="style">염색</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header">남자스타일</li>
+					<li><a href="#" class="style">커트</a></li>
+					<li><a href="#" class="style">펌</a></li>
+					<li><a href="#" class="style">염색</a></li>
+				</ul>
+			</div>
+			<hr>
 			<div class="w3-row-padding w3-padding-16 w3-center" id="food">
-				<c:forEach items="${kindlist}" var="k" varStatus="status">
+				<c:if test="${kind == null}">
+					<c:forEach items="${kindlist}" var="k" varStatus="status">
 					<div class="w3-quarter">
 						<c:forEach items="${filelist}" var="f">
 							<c:if test="${k.num eq f.num}">
-								<a href="./kindView.kind?num=${k.num}&style=${k.style}"><img src="../upload/${f.fname}" onclick="onClick(this)" class="photo w3-hover-opacity" style="width: 100%"></a>
+								<a href="./kindView.kind?num=${k.num}&style=${k.style}">
+									<img src="../upload/${f.fname}" onclick="onClick(this)" class="photo w3-hover-opacity" style="width: 100%">
+								</a>
 							</c:if>
 						</c:forEach>
-						<h3><a href="./kindView.kind?num=${k.num}&style=${k.style}">${k.style}</a></h3>
+						<h4>
+							<a href="./kindView.kind?num=${k.num}&style=${k.style}" class="style">${k.style}</a>
+						</h4>
 					</div>
 				</c:forEach>
+				</c:if>
+				<c:if test="${kind != null}">
+					<c:forEach items="${kindarr}" var="k" varStatus="status">
+					<div class="w3-quarter">
+						<c:forEach items="${filelist}" var="f">
+							<c:if test="${k.num eq f.num}">
+								<a href="./kindView.kind?num=${k.num}&style=${k.style}">
+									<img src="../upload/${f.fname}" onclick="onClick(this)" class="photo w3-hover-opacity" style="width: 100%">
+								</a>
+							</c:if>
+						</c:forEach>
+						<h4>
+							<a href="./kindView.kind?num=${k.num}&style=${k.style}" class="style">${k.style}</a>
+						</h4>
+					</div>
+				</c:forEach>
+				</c:if>
 			</div>
-			<button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
+
+			<div class="more_img">
+				<a href="#" class="btn_more _more" onclick="tCR('a=img_noc.more');" style="display: none;"><span class="spimg ico_arr">스타일 더보기</span></a>
+			</div>
+
+
 			<!-- Pagination 
 			<div class="w3-center w3-padding-32">
 				<div class="w3-bar">
@@ -44,7 +88,7 @@
 			</div>-->
 		</div>
 	</section>
-	
+
 	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>
