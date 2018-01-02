@@ -56,9 +56,9 @@
 	<%@ include file="../temp/header.jsp"%>
 	<section>
 		<div>
-			<h2>
-				<a href="./${board}List.${board}">${board}</a>
-			</h2>
+			<h1>
+				<a href="./${board}List.${board}">${board}(${count})</a>
+			</h1>
 		</div>
 
 		<table class="list_table">
@@ -100,6 +100,9 @@
 				<button type="button" class="buttonWrite" id="write">글쓰기</button>
 			</c:if>
 
+
+
+
 			<c:if test="${not empty make}">
 				<input type="button" class="list_button" title="${page.startNum}"
 					value="<<">
@@ -128,6 +131,7 @@
 				<input type="button" class="list_button button_now" title="${i}"
 					value="${i}">
 			</c:forEach>
+			
 			<%-- 	<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">

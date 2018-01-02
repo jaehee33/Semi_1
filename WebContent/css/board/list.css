@@ -83,21 +83,23 @@ table.list_table{
 	width: 3%;
 }
 
-div h2{
-	padding-top: 50px;
+div h1{
+	padding-top: 100px;
+	padding-bottom: 60px;
 }
 
-h2{
+h1{
 	text-transform: uppercase;
 	text-align: center;
+	font-weight: lighter;
 }
 
-h2 a{
+h1 a{
 	color: black;
 	font-weight: border;
 }
 
-h2 a:hover {
+h1 a:hover {
 	color: gray; text-decoration: none;
 }
 

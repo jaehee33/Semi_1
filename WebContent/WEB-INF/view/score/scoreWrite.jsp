@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="/Semi_1/css/score/scoreWrite.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="../SE2/js/HuskyEZCreator.js"
@@ -55,13 +56,15 @@
 </script>
 </head>
 <body>
-	<h1>${store}</h1>
+	
 	<form name="fim" action="./scoreWrite.score" method="post">
 		<p>
 			ID : ${member.id} <input type="hidden" name="id" value="${member.id}">
 		</p>
-		<span class="star-input"> <span class="input"> <input
-				type="radio" name="star-input" id="p1" value="0.5"><label
+		<p id="star_star">
+		<span class="star-input">
+		<span class="input"> 
+				<input type="radio" name="star-input" id="p1" value="0.5"><label
 				for="p1">0.5</label> <input type="radio" name="star-input" id="p2"
 				value="1.0"><label for="p2">1.0</label> <input type="radio"
 				name="star-input" id="p3" value="1.5"><label for="p3">1.5</label>
@@ -75,13 +78,16 @@
 				name="star-input" id="p9" value="4.5"><label for="p9">4.5</label>
 				<input type="radio" name="star-input" id="p10" value="5.0"><label
 				for="p10">5.0</label>
-		</span> <output for="star-input">
+		</span> 
+			<output for="star-input">
 				<b>0</b>점
 			</output>
-		</span> <input type="hidden" name="store" value="${store}">
+		</span> 
+		</p>
+		<input type="hidden" name="store" value="${store}">
 		<input type="hidden" name="storeid" value="${storeid}">
 		<textarea rows="" cols="" name="contents"></textarea>
-			<input type="button" value="SUBMIT" id="savebutton">
+			<div id="savebutton_div"><input type="button" value="등록하기" id="savebutton"></div>
 	</form>
 </body>
 </html>

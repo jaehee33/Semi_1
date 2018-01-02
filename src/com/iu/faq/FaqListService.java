@@ -36,6 +36,7 @@ public class FaqListService implements Action {
 			List<BoardDTO> ar=faqDAO.selectList(makeRow);
 			Pageing pageing = makePage.pageing();
 			
+			request.setAttribute("count", totalCount);
 			request.setAttribute("board", "faq");
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
