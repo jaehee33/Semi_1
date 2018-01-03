@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>semi hair shop</title>
 <link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {		
-		if(${styleDTO}) { //insert
+		if(${styleDTO == null}){
 			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
 				$("#favor").html(data);
 			});
-		}else {//delete
+		}
+		
+		if(${styleDTO != null}) {
 			$.get("../style/styleDelete.style?num=${kind.num}&style=${kind.style}", function(data) {
 				$("#favor").html(data);
 			});
@@ -43,43 +45,35 @@
 				<header class="header">
 					<div class="photo">
 						<img src="../upload/${file.fname}">
-						<p class="date">
-							<strong>${kind.style}</strong><br>
-							<strong>매장명 </strong> ${kind.store}
-							<strong>가격</strong> ${kind.price}
-						</p>
-						<div id=favor></div>
-
+					</div>
+					<div id="Contents">
+						<div id="info">
+							<h3>Style</h3>
+							<h1>${kind.style}</h1>
+							<p>
+								<img src="<%=request.getContextPath()%>/img/store/scissors.png"
+									style="width: 16px; height: 16px;"> <b>매장명</b> <br>${kind.store}
+							</p>
+							<p>
+								<img src="<%=request.getContextPath()%>/img/store/scissors.png"
+									style="width: 16px; height: 16px;"> <b>가격</b> <br>${kind.price}
+							</p>
+							<br>
+							<c:if test="${not empty member}">
+								<div id="favor"></div>
+							</c:if>
+						</div>
 					</div>
 					<div class="buy">
-						<a href="../use/useWrite.use?store=${kind.store}&style=${kind.style}&price=${kind.price}" target="_self">예약하기</a>
+						<a
+							href="../use/useWrite.use?store=${kind.store}&style=${kind.style}&price=${kind.price}"
+							target="_self">예약하기</a>
 					</div>
 				</header>
 			</article>
 		</div>
-
-		<!-- 
-		<article class="view_flavor consist">
-			<h2>추천 스타일</h2>
-			<div class="list_product">
-				<ul class="list">
-					<c:forEach items="${list}" var="i">
-						<li>
-							<a href="./kindView.kind?num=${i.num}&style=${i.style}">${i.style}
-								<c:forEach items="${filelist}" var="f">
-									<c:if test="${i.num eq f.num}">
-										<img class="photo" src="../upload/${f.fname}">
-									</c:if>
-								</c:forEach>
-							</a>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-		</article>
-		 -->
 	</section>
-	
+
 	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

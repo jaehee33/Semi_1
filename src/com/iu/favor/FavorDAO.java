@@ -10,6 +10,26 @@ import com.iu.util.DBConnector;
 
 public class FavorDAO {
 	
+	public FavorDTO selectOne(String store_id) throws Exception{
+		Connection con = DBConnector.getConnect();
+		
+		String sql="select * from favor where store_id=?";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, store_id);
+		ResultSet rs = st.executeQuery();
+		
+		FavorDTO favorDTO=null;
+		
+		if(rs.next()) {
+			favorDTO=new FavorDTO();
+			favorDTO.setId(rs.getString("id"));
+			favorDTO.setStore(rs.getString("store"));
+			favorDTO.setStore_id(rs.getString("store_id"));
+		}
+		
+		return favorDTO;
+	}
+	
 	public List<FavorDTO> selectList() throws Exception {
 		Connection con= DBConnector.getConnect();
 		

@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
+import com.iu.favor.FavorDAO;
+import com.iu.favor.FavorDTO;
 import com.iu.files.FilesDAO;
 import com.iu.files.FilesDTO;
-import com.iu.member.MemberDTO;
 
 public class StoreViewService implements Action {
 
@@ -25,22 +26,26 @@ public class StoreViewService implements Action {
 			id=request.getParameter("id");
 			storeDTO=storeDAO.selectOne(id);
 			ar=filesDAO.selectList();
+			FavorDAO favorDAO = new FavorDAO();
+			FavorDTO favorDTO=favorDAO.selectOne(id);
+			
+			if(storeDTO==null) {
+				request.setAttribute("message", "정보가 없습니다.");
+				request.setAttribute("path", "../index.jsp");
+				actionForward.setCheck(true);
+				actionForward.setPath("../WEB-INF/view/common/result.jsp");
+			}else {
+				request.setAttribute("favorDTO", favorDTO);
+				request.setAttribute("filelist", ar);
+				request.setAttribute("store", storeDTO);
+				actionForward.setCheck(true);
+				actionForward.setPath("../WEB-INF/view/store/storeView.jsp");
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(storeDTO==null) {
-			request.setAttribute("message", "정보가 없습니다.");
-			request.setAttribute("path", "../index.jsp");
-			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/common/result.jsp");
-		}else {
-			request.setAttribute("filelist", ar);
-			request.setAttribute("store", storeDTO);
-			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/store/storeView.jsp");
-		}
-		
 		
 		return actionForward;
 	}

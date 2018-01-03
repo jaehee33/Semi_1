@@ -129,6 +129,7 @@ input[type=checkbox], input[type=radio] {
 	text-align: center;
 	border-bottom: 2px solid #5F4B8B;
 	height: 700px;
+	margin-bottom: 200px;
 }
 
 .view_product.icecream .photo {
@@ -151,7 +152,6 @@ input[type=checkbox], input[type=radio] {
 	bottom: -23px;
 	width: 100%;
 	z-index: 9;
-	padding-bottom: 100px;
 }
 
 .view_product .buy a {
@@ -385,10 +385,11 @@ input[type=checkbox], input[type=radio] {
 
 .off:hover{
 	background-color: #5F4B8B;
-	color: white;
+	color: #fff;
 }
 
 .on{
+    color: #fff;
 	background-color: #5F4B8B;
 	font-size: 12px;
 	margin: 10px 0px;
@@ -404,7 +405,7 @@ input[type=checkbox], input[type=radio] {
 
 .on:hover{
 	background-color: #fff;
-	color: #000;
+	color: #5F4B8B;
 }
 
 #font {

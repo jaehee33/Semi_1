@@ -4,15 +4,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>semi hair shop</title>
 </head>
 <body>
-<%@ include file="../temp/header.jsp" %>
-	<h1>관심</h1>
-	<table>
-		<tr>
-			<td>${favor.fav_store}</td>
-		</tr>
-	</table>
+<%@ include file="../temp/header.jsp"%>
+	<section id="main">
+		<div class="container">
+			<h1>스타일 즐겨찾기 보기</h1>
+			<table class="table table-hover">
+				<c:forEach items="${list}" var="i">
+					<tr>
+						<td  rowspan="3"><c:forEach items="${files}" var="j">
+								<c:if test="${i.num eq j.num}">
+									<td><img class="photo" src="../upload/${j.fname}"></td>
+								</c:if>
+							</c:forEach>
+						</td>
+					</tr>
+					<tr>
+						<th>${i.store}</th>
+					</tr>
+					<tr>
+						<th>${i.style}</th>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</section>
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>
