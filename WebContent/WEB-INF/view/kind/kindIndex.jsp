@@ -86,10 +86,11 @@ color: red;
 	<div id="storeheader"></div>
 	<div id="storeView">
 	<div id="listbtn">
-		<button id="plus" class="plus">+</button>
-		<button id="btn" class="plus">List</button>
+	<input type="button" id="plus" class="plus" value="+">
+	<input type="button" id="btn" class="plus" value="List">
 		<input type="hidden" class="form plus" id="formplus" value="item +">
 		<input type="hidden" class="form plus" value="item -" id="formdelete">
+		<div class="listbtn-underline"></div>
 		</div>
 		<div id="kindinsert">
 			
