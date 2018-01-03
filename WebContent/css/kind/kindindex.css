@@ -1,8 +1,14 @@
 @charset "UTF-8";
-#storeView{
+#storeoiew{
 	background-color: white;
+	height: 100%;
+	margin-left: 70px;
 }
 
+#kindlist{
+	width: 70%;
+	margin: 0 auto;
+}
 
 #kindoo{
 	width: 100%;
@@ -18,11 +24,15 @@
 }
 
 #kindinsert{
-	width:50%;
+	width:60%;
 	height:100%;
 	display: block;
-	margin: 50px auto;
+	margin: 100px auto;
 }
+#kindinsert form{
+	width: 100%;
+	margin: 0 auto;
+	}
 
 #kindinsert ul li{
 	border-right: 1px #E1E1E1 solid;
@@ -42,21 +52,21 @@
 	text-decoration: none;
 	color:red;
 }
-#listbtn{
-	border: #6baed6 solid 2px;
+#listbtnt{
+	border: #6baed6 dashed 1px;
 	width: 50%;
 	height: 70px;
 	margin: 0px auto;
 	text-align: center;
 }
-#postitle{
+#postitl{
 	margin: 20px 0;
 	background-color: white;
 	width:100%;
 	height: 40px;
 }
 
-#postitle ul li{
+#postitl ul li{
 	font-weight: bold;
 	float:left;
 	line-height:40px;
@@ -66,16 +76,16 @@
 }
 
 .style{
-	width: 200px;
+	width: 250px;
 	height: 40px;
 	border: none;
 }
 .price{
-	width: 150px;border: none;
+	width: 100px;border: none;
 	height: 40px;
 }
 .gender{
-	width: 100px;
+	width: 150px;
 	height: 40px;
 	border: none;
 }
@@ -85,7 +95,7 @@
 	border: none;
 }
 .file{
-	width: 200px;
+	width: 250px;
 	height: 40px;
 	border: none;
 }
@@ -94,74 +104,30 @@
 }
 .plus{
 	background-color:white;
-	width: 60px;
-	height: 69px;
+	width: 100px;
+	height: 67px;
 	font-size: 20px;
 	font-weight: bold;
 	color: #6baed6;
 	text-align: center;
-	line-height: 69px;
+	line-height: 70px;
 	border:none;
 	 -webkit-transition:background-color 2s;
     transition:background-color 2s;
     margin-right: 30px;
 }
 
+#kindbtn{
+	float: right;
+	width: 150px;
+	height: 70px;
+	border: #E1E1E1 solid 1px;
+	background: white;
+	color:#6baed6;
+}
+
 .plus:hover{
 	background-color: #6baed6;
 	color: white;
 	border:none;
-}
-#listbtn {
-  position: relative;
-  display: flex;
-  width: 640px;
-  margin: 4em auto;
-}
-#listbtn input {
-  display: block;
-  width: 20%;
-  padding: .75em 0;
-  text-decoration: none;
-  line-height:70px;
-  text-align: center;
-}
-.listbtn-underline {
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 20%;
-  height: 2px;
-  background: #333;
-  transition: all .3s ease-in-out;
-}
-#listbtn input:nth-child(1).is-current ~ .listbtn-underline {
-  left: 0;
-}
-#listbtn input:nth-child(2).is-current ~ .listbtn-underline {
-  left: 20%;
-}
-#listbtn input:nth-child(3).is-current ~ .listbtn-underline {
-  left: 40%;
-}
-#listbtn input:nth-child(4).is-current ~ .listbtn-underline {
-  left: 60%;
-}
-#listbtn input:nth-child(5).is-current ~ .listbtn-underline {
-  left: 80%;
-}
-#listbtn input:nth-child(1):hover ~ .listbtn-underline {
-  left: 0;
-}
-#listbtn input:nth-child(2):hover ~ .listbtn-underline {
-  left: 20%;
-}
-#listbtn input:nth-child(3):hover ~ .listbtn-underline {
-  left: 40%;
-}
-#listbtn input:nth-child(4):hover ~ .listbtn-underline {
-  left: 60%;
-}
-#listbtn input:nth-child(5):hover ~ .listbtn-underline {
-  left: 80%;
 }

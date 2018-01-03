@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<div id="postitle"><ul><li class="style">Style</li><li class="price">Price</li><li class="gender">Gender</li><li class="kind">Kind</li><li class="file">File</li></ul></div>
+	<div id="postitl"><ul><li class="style">Style</li><li class="price">Price</li><li class="gender">Gender</li><li class="kind">Kind</li><li class="file">File</li></ul></div>
 	<form action="kindInsert.kind" method="post" id="frm" name="frm" enctype="multipart/form-data">
 				<p>
 					<input type="text" class="emptykind style" name="style" placeholder="종류를 입력해주세요">
