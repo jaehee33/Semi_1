@@ -7,7 +7,14 @@
 
 #kindlist{
 	width: 70%;
-	margin: 0 auto;
+	margin: 70px auto;
+	height: 100%;
+}
+
+#oooo{
+	display: block;
+	height: 90px;
+	width: 100%;
 }
 
 #kindoo{
@@ -24,10 +31,10 @@
 }
 
 #kindinsert{
-	width:60%;
+	width:100%;
 	height:100%;
 	display: block;
-	margin: 100px auto;
+	margin: 50px auto;
 }
 #kindinsert form{
 	width: 100%;
@@ -56,7 +63,7 @@
 	border: #6baed6 dashed 1px;
 	width: 50%;
 	height: 70px;
-	margin: 0px auto;
+	margin: 70px auto;
 	text-align: center;
 }
 #postitl{

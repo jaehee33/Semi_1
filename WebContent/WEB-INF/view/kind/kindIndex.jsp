@@ -94,8 +94,8 @@
 					type="hidden" class="form plus" id="formplus" value="item +">
 				<input type="hidden" class="form plus" value="item -"
 					id="formdelete">
-			</div>
 				<div id="kindinsert"></div>
+			</div>
 				<div id="kindlist"></div>
 		</div>
 	</section>

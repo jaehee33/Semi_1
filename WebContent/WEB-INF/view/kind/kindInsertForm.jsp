@@ -18,5 +18,5 @@
 					</select>
 					<input type="file" name="f0" class="emptykind file">
 				</p>
-				<p><input type="button" id="kindbtn" value="INSERT"></p>
+				<p id="oooo"><input type="button" id="kindbtn" value="INSERT"></p>
 			</form>
