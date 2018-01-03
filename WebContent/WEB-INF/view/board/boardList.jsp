@@ -41,6 +41,7 @@
 			var num=$(this).attr("title");
 			$("#title"+num).click(function(){
 				$("#contents_view"+num).slideToggle("slow");
+				
 			});
 		});
 		
@@ -49,7 +50,7 @@
 			window.location.href = "../index.jsp"
 		}); */
 
-	});
+});
 </script>
 </head>
 <body>
@@ -57,7 +58,7 @@
 	<section>
 		<div>
 			<h1>
-				<a href="./${board}List.${board}">${board}(${count})</a>
+				${board}(${count})
 			</h1>
 		</div>
 
@@ -79,9 +80,12 @@
 						<td>${i.num}</td>
 						<td id="title${j.index}" class="g" title="${j.index}"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch><p class="table_title">${i.title}</p>
+							</c:catch><p class="table_title">${i.title}<img class="img_up" src="/Semi_1/img/board/up_arrow.png"><img class="img_down" src="/Semi_1/img/board/down_arrow.png"></p>
+							
 							<div id="contents_view${j.index}" class="div_view" >
-								<h2>HELLO</h2>
+								<p class="toggle_contents">${i.contents}</p>
+								
+								
 							</div>
 						</td>
 						<c:if test="${member.id eq 'admin'}">

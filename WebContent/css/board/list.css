@@ -12,7 +12,7 @@ section {
 	margin-top: 98px;
 	margin-left: 20%;
 	margin-right: 20%;
-	padding-bottom: 100px;
+	padding-bottom: 150px;
 }
 
 table.list_table{
@@ -91,17 +91,17 @@ div h1{
 h1{
 	text-transform: uppercase;
 	text-align: center;
-	font-weight: lighter;
+	font-weight: 100;
 }
 
-h1 a{
+/* h1 a{
 	color: black;
 	font-weight: border;
 }
 
 h1 a:hover {
 	color: gray; text-decoration: none;
-}
+} */
 
 td a{
 	color: black;
@@ -190,6 +190,29 @@ input[type=text]:focus{
 .table_title{
 	text-align: left;
 }
+
+.toggle_contents{
+	width: auto;
+	height: auto;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	text-align: left;
+	word-wrap: break-word;
+}
+
+img{
+	width: 20px;
+}
+
+.img_up{
+	float: right;
+}
+
+.img_down{
+	float: right;
+}
+	
+
 
 
 }
