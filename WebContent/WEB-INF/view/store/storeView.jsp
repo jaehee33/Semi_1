@@ -59,7 +59,7 @@
 		}
 		
 		if(${favorDTO != null}){
-			$.get('../favor/favorDelete.favor?store_id=${store.id}&store=${store.store}', function(data) {
+			$.get('../favor/favorDelete.favor?store_id=${store.id}', function(data) {
 				$("#favor").html(data);
 			});
 		}

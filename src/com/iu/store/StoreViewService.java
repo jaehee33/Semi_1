@@ -17,35 +17,34 @@ public class StoreViewService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward=new ActionForward();
-		StoreDAO storeDAO=new StoreDAO();
-		ArrayList<FilesDTO> ar=null;
-		FilesDAO filesDAO=new FilesDAO();
-		String id="";
-		StoreDTO storeDTO=null;
+			
+		
 		try {
-			id=request.getParameter("id");
-			storeDTO=storeDAO.selectOne(id);
-			ar=filesDAO.selectList();
+			String id=request.getParameter("id");
+			StoreDAO storeDAO=new StoreDAO();
+			StoreDTO storeDTO=storeDAO.selectOne(id);
+			
+			FilesDAO filesDAO=new FilesDAO();
+			ArrayList<FilesDTO> ar=filesDAO.selectList();
+			
 			FavorDAO favorDAO = new FavorDAO();
 			FavorDTO favorDTO=favorDAO.selectOne(id);
 			
-			if(storeDTO==null) {
-				request.setAttribute("message", "정보가 없습니다.");
-				request.setAttribute("path", "../index.jsp");
-				actionForward.setCheck(true);
-				actionForward.setPath("../WEB-INF/view/common/result.jsp");
-			}else {
+			if(storeDTO != null) {
 				request.setAttribute("favorDTO", favorDTO);
 				request.setAttribute("filelist", ar);
 				request.setAttribute("store", storeDTO);
-				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/store/storeView.jsp");
-			}
-			
+			}else {
+				request.setAttribute("message", "정보가 없습니다.");
+				request.setAttribute("path", "../index.jsp");
+				actionForward.setPath("../WEB-INF/view/common/result.jsp");
+			}			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		actionForward.setCheck(true);
 		
 		return actionForward;
 	}

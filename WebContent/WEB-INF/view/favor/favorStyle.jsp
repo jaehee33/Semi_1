@@ -21,7 +21,7 @@
 	<%@ include file="../temp/header.jsp"%>
 	<section id="main">
 		<div class="container">
-			<h1>스타일 즐겨찾기 보기</h1>
+			<h1>스타일 즐겨찾기</h1>
 			<table class="table table-hover">
 				<c:forEach items="${list}" var="i">
 					<tr>

@@ -28,7 +28,6 @@ public class StyleListService implements Action {
 			// TODO: handle exception
 		}
 		
-		
 		if(list != null && ar != null) {
 			request.setAttribute("files", ar);
 			request.setAttribute("list", list);

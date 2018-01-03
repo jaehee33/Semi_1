@@ -39,9 +39,8 @@ public class FavorDeleteService implements Action {
 			}
 		}else {
 			request.setAttribute("store_id", store_id);
-			request.setAttribute("store", request.getParameter("store"));
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/store/storeStyleDelete.jsp");
+			actionForward.setPath("../WEB-INF/view/store/storeFavorDelete.jsp");
 		}
 
 		return actionForward;

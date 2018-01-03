@@ -26,7 +26,7 @@ public class FavorDAO {
 			favorDTO.setStore(rs.getString("store"));
 			favorDTO.setStore_id(rs.getString("store_id"));
 		}
-		
+		DBConnector.disConnect(rs, st, con);
 		return favorDTO;
 	}
 	
@@ -70,8 +70,8 @@ public class FavorDAO {
 		String sql="insert into favor values(?,?,?)";
 		PreparedStatement pre = con.prepareStatement(sql);
 		pre.setString(1, favorDTO.getId());
-		pre.setString(2, favorDTO.getStore());
-		pre.setString(3, favorDTO.getStore_id());
+		pre.setString(2, favorDTO.getStore_id());
+		pre.setString(3, favorDTO.getStore());
 		
 		int result=pre.executeUpdate();
 		DBConnector.disConnect(pre, con);

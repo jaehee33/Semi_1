@@ -12,9 +12,9 @@ public class FavorInsertService implements Action {
 	@Override
 	public ActionForward doProcess(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward actionForward = new ActionForward();
+		
 		String id=((MemberDTO)request.getSession().getAttribute("member")).getId();
 		String method=request.getMethod();
-		
 		String store_id=request.getParameter("store_id");
 
 		if(method.equals("POST")) {
@@ -23,7 +23,6 @@ public class FavorInsertService implements Action {
 			int result=0;
 			try {
 				count=favorDAO.TotalCount();
-				System.out.println(count);
 
 				if(count>2) {
 					request.setAttribute("message", "즐겨찾기는 최대 3개까지 가능합니다");

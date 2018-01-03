@@ -4,6 +4,5 @@
 
 <form action="../favor/favorDelete.favor" method="post" name="frm" id="frm">
 	<input type="hidden" name="store_id" value="${store_id}">
-	<input type="hidden" name="store" value="${store}">
 	<button type="button" id="btn" class="on">즐겨찾기</button>
 </form>
