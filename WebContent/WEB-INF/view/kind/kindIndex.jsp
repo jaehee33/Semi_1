@@ -61,7 +61,6 @@
 		$("#kindinsert").on("click", "#kindbtn", function() {
 			var result = true;
 			$(".emptykind").each(function() {
-				alert($(this).val() == "");
 				if ($(this).val() == "") {
 					result = false;
 				}
