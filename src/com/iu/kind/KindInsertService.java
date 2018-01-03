@@ -52,6 +52,7 @@ public class KindInsertService implements Action {
 				String[] style=multi.getParameterValues("style");
 				String[] price=multi.getParameterValues("price");
 				String[] kind=multi.getParameterValues("kind");
+				String[] gender=multi.getParameterValues("gender");
 				
 				for(int i=0;i<style.length;i++) {
 					KindDTO kindDTO=new KindDTO();
@@ -67,6 +68,7 @@ public class KindInsertService implements Action {
 					kindDTO.setPrice(Integer.parseInt(price[i]));
 					kindDTO.setStore(storeDTO.getStore());
 					kindDTO.setKind(kind[i]);
+					kindDTO.setGender(gender[i]);
 					FilesDTO filesDTO=new FilesDTO();
 					filesDTO.setFname(multi.getFilesystemName("f"+i));
 					filesDTO.setOname(multi.getOriginalFileName("f"+i));

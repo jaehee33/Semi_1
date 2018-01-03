@@ -7,6 +7,13 @@ public class KindDTO {
 	private String store;
 	private int num;
 	private String kind;
+	private String gender;
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getStyle() {
 		return style;
 	}
