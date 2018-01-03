@@ -43,7 +43,7 @@
 	color:red;
 }
 #listbtn{
-	border: #6baed6 solid 2px;
+	border: #6baed6 dashed 1px;
 	width: 50%;
 	height: 70px;
 	margin: 0px auto;
@@ -94,8 +94,8 @@
 }
 .plus{
 	background-color:white;
-	width: 60px;
-	height: 69px;
+	width: 100px;
+	height: 67px;
 	font-size: 20px;
 	font-weight: bold;
 	color: #6baed6;
@@ -108,7 +108,7 @@
 }
 
 .plus:hover{
-	background-color: #6baed6;
+	background-color:#6baed6;
 	color: white;
 	border:none;
 }
