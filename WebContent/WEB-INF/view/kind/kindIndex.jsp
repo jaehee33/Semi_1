@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../slider/slick/slick.css">
+<link rel="stylesheet" type="text/css"
+	href="../slider/slick/slick-theme.css">
+<link rel="stylesheet" href="../css/kind/kindstoreListflugin.css">
 <link href="<%=request.getContextPath()%>/css/kind/kindindex.css" rel="stylesheet">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,6 +54,49 @@
 #X{
 color: red;
 }
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.slider {
+	width: 80%;
+	margin: 100px auto;
+}
+
+.slick-slide {
+	margin: 0px 20px;
+}
+
+.slick-slide img {
+	width: 100%;
+}
+
+.slick-slide img:hover {
+	width: 100%;
+	border: 5px solid #5F4B8B;
+}
+
+.slick-prev:before, .slick-next:before {
+	color: black;
+}
+
+.slick-slide {
+	transition: all ease-in-out .3s;
+	opacity: .2;
+}
+
+.slick-active {
+	opacity: .5;
+}
+
+.slick-current {
+	opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -62,6 +111,68 @@ color: red;
 		<div id="kindlist">
 		
 		</div>
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"
+			type="text/javascript"></script>
+		<script src="../slider/slick/slick.js" type="text/javascript"
+			charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).on('ready', function() {
+				$(".vertical-center-4").slick({
+					dots : true,
+					vertical : true,
+					centerMode : true,
+					slidesToShow : 4,
+					slidesToScroll : 2
+				});
+				$(".vertical-center-3").slick({
+					dots : true,
+					vertical : true,
+					centerMode : true,
+					slidesToShow : 3,
+					slidesToScroll : 3
+				});
+				$(".vertical-center-2").slick({
+					dots : true,
+					vertical : true,
+					centerMode : true,
+					slidesToShow : 2,
+					slidesToScroll : 2
+				});
+				$(".vertical-center").slick({
+					dots : true,
+					vertical : true,
+					centerMode : true,
+				});
+				$(".vertical").slick({
+					dots : true,
+					vertical : true,
+					slidesToShow : 3,
+					slidesToScroll : 3
+				});
+				$(".regular").slick({
+					dots : true,
+					infinite : true,
+					slidesToShow : 3,
+					slidesToScroll : 3
+				});
+				$(".center").slick({
+					dots : true,
+					infinite : true,
+					centerMode : true,
+					slidesToShow : 5,
+					slidesToScroll : 3
+				});
+				$(".variable").slick({
+					dots : true,
+					infinite : true,
+					variableWidth : true
+				});
+				$(".lazy").slick({
+					lazyLoad : 'ondemand', // ondemand progressive anticipated
+					infinite : true
+				});
+			});
+		</script>
 		<div id="kindinsert">
 			
 		</div>
