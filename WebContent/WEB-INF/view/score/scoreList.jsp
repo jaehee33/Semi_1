@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${store}</title>
+<title>${store} 리뷰페이지</title>
+
 <link href="/Semi_1/css/score/scoreList.css" rel="stylesheet">
+<link href="/Semi_1/css/store/storeheader.css" rel="stylesheet">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="<%=request.getContextPath()%>/css/store/storeheader.css"
-	rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -141,27 +142,35 @@
 				$(this).attr("selected", true);
 			}
 		});
-
+		
 		$(".list").click(function() {
 			var cur = $(this).attr("title");
 			document.frm.curPage.value = cur;
 			document.frm.submit();
 		});
 
+		
 		$.get("./scoreWrite.score?id=${storeid}&store=${store}", function(
 				callback) {
 			$("#score").html(callback);
 		});
 
+		
+		
 		$("#delete").click(function() {
 			window.location.href = "${board}Delete.${board}?num=${view.num}";
 		});
+		
 		$("#update").click(function() {
 			window.location.href = "${board}Update.${board}?num=${view.num}"
 		});
+		
 		$("#backpage").click(function() {
 			window.location.href = "../index.jsp"
 		});
+		
+		
+		
 		$.get("../store/storeIndex.store?id=${storeid}", function(index) {
 			$("#storeheader").html(index);
 		});
@@ -193,7 +202,8 @@
 		<section>
 		<h3 id="comment">한줄평(${count})</h3>
 		<div id="score"></div>
-		<table class="table">
+		
+		<table class="score_table">
 			<thead>
 				<tr>
 					<th>NUM</th>
@@ -216,16 +226,19 @@
 				</tbody>
 			</c:forEach>
 		</table>
-
-
+<%-- 
 		<c:if test="${member.id eq 'admin'}">
 			<button id="delete" type="button">Delete</button>
 		</c:if>
+		
 		<c:if test="${member.id}">
 			<button id="update" type="button">Update</button>
 		</c:if>
 
-
+ --%>
+ 	
+ 	<div>
+ 	
 		<c:if test="${not empty make}">
 			<input type="button" class="list" title="${page.startNum}" value="<<">
 		</c:if>
@@ -266,8 +279,15 @@
 			<input type="button" class="list" title="${page.lastNum}" value=">>">
 		</c:if>
 
+	</div>
+			
+			<form name="frm" action="./scoreList.score">
+				<input type="hidden" name="curPage"> <input type="hidden" name="id" value="${storeid}"><input type="hidden" name="store" value="${store}">
+			</form>
 
-		<button type="button" class="btn" id="backpage">BackPage</button>
+		<div id="div_buttonList">
+		<button type="button" class="buttonList" id="backpage">BackPage</button>
+		</div>
 	</section>
 	</div>
 	
