@@ -10,6 +10,11 @@
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/kind/kindstoreList.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/font-awesome.css">
+	<link rel="stylesheet" href="../css/ospb.css">
+	<link rel="stylesheet" href="css/horizontal.css">
+	<script src="../js/vendor/modernizr.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <title>Insert title here</title>
@@ -86,6 +91,41 @@ html, body {
 						style="width: 30px; height: 30px;">
 				</h1>
 				<div id="stylelist">
+				<div class="wrap">
+			<h2>Centered <small>- activated or middle item is centered when possible</small></h2>
+
+			<div class="scrollbar">
+				<div class="handle">
+					<div class="mousearea"></div>
+				</div>
+			</div>
+
+			<div class="frame" id="centered">
+				<ul class="clearfix">
+				<c:forEach items="${kindlist}" var="k">
+					<li><c:forEach items="${filelist}" var="f">
+									<c:if test="${k.num eq f.num}">
+										<img src="../upload/${f.fname}"
+											style="width: 370px; height: 450px;">
+									</c:if>
+								</c:forEach><div id="col2">
+									<div class="col">
+										<a href="../use/useWrite.use?store=${store.store}&style=${k.kind}&price=${k.price}" class="btn btn-1 btn--cw"> <code
+												class="btn--inner">${k.style}(${k.kind})<br>
+												<b style="font-size: 27px;">${k.price}</b> WON
+											</code>
+										</a>
+									</div>
+								</div></li>
+					</c:forEach>
+				</ul>
+			</div>
+
+			<div class="controls center">
+				<button class="btn prev"><i class="icon-chevron-left"></i> prev</button>
+				<button class="btn next">next <i class="icon-chevron-right"></i></button>
+			</div>
+		</div>
 					<div class="variable slider">
 						<c:forEach items="${kindlist}" var="k">
 							<div id="kindlist">
