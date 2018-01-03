@@ -37,7 +37,7 @@ public class MemberJoinService implements Action {
 				if(result>0) {
 					request.setAttribute("m2", memberDTO);
 					actionForward.setCheck(false);
-					actionForward.setPath("../index.jsp");		
+					actionForward.setPath("./memberLogin.member");		
 				}else {
 					request.setAttribute("message", "fail");
 					request.setAttribute("path", "../index.jsp");

@@ -6,7 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#first{
+font-weight: bold;
+font-size: 15px;
+}
+td a{
+text-decoration: none;
+}
+
+td a:hover{
+color: red;
+text-decoration: none;
+}
+</style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript">
 	$(function(){
 		$(".list").click(function(){
@@ -35,8 +52,8 @@
 			<input type="hidden" name="store" value="${store}">
 		</form>
 	</div>
-<table>
-		<tr>
+<table class="table table-hover">
+		<tr id="first">
 			<td>date</td>
 			<td>import</td>
 			<td>expend</td>

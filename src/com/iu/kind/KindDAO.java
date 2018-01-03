@@ -80,11 +80,33 @@ public class KindDAO {
 		return result;
 	}
 	
+	//store로 검색
 	public ArrayList<KindDTO> selectList(String store) throws Exception{
 		Connection con=DBConnector.getConnect();
 		String sql="select * from kind where store=?";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setString(1, store);
+		ResultSet rs=st.executeQuery();
+		ArrayList<KindDTO> ar=new ArrayList<>();
+		while(rs.next()) {
+			KindDTO kindDTO=new KindDTO();
+			kindDTO.setKind(rs.getString("kind"));
+			kindDTO.setPrice(rs.getInt("price"));
+			kindDTO.setStore(rs.getString("store"));
+			kindDTO.setNum(rs.getInt("num"));
+			kindDTO.setStyle(rs.getString("style"));
+			ar.add(kindDTO);
+		}
+		DBConnector.disConnect(rs, st, con);
+		return ar;
+	}
+	
+	//kind로 검색
+	public ArrayList<KindDTO> selectKindList(String kind) throws Exception{
+		Connection con=DBConnector.getConnect();
+		String sql="select * from kind where kind=?";
+		PreparedStatement st=con.prepareStatement(sql);
+		st.setString(1, kind);
 		ResultSet rs=st.executeQuery();
 		ArrayList<KindDTO> ar=new ArrayList<>();
 		while(rs.next()) {

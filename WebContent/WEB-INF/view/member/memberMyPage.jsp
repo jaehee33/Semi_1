@@ -18,6 +18,15 @@ $(function(){
 				);
 	//<!-- =====================마이페이지============================= -->
 });
+function myFunction() {
+    var txt;
+    if (confirm("정말 탈퇴하시겠습니까?") == true) {
+        window.location.assign("http://localhost/Semi_1/member/memberDelete.member")
+    } else {
+    	window.location.assign("http://localhost/Semi_1/member/memberMyPage.member")
+    }
+    
+}
 </script>
 
 <body>
@@ -47,6 +56,7 @@ $(function(){
 			</div>
 <!-- =====================box1============================= -->
 		<article>
+		<div class="mid">
 			<div id="box1" class="box">
 				<figure class="snip1432">
 					<img
@@ -130,10 +140,11 @@ $(function(){
 					</c:if>
 				</figure>
 			</div>
-		
+		</div>
 		<!-- =====================box3============================= -->
-	
-	<p class="btn" id="del"><a href="./memberDelete.member">회원탈퇴</a></p>
+<div id="del">
+	<button id="button" onclick="myFunction()">회원탈퇴</button>
+</div>
 </article>
 		
 

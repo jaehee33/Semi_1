@@ -4,14 +4,31 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-family: "Karma", sans-serif
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 .w3-bar-block .w3-bar-item {
 	padding: 20px
 }
 
 .photo {
-	weight: 270px;
-	height: 400px;
+	weight: 220px;
+	height: 350px;
 }
 
+.w3-hover-opacity {
+	cursor: pointer;
+}
 
-.w3-hover-opacity {cursor: pointer;}
+.dropdown{
+	padding-left: 15px;
+}
+
+.dropdown-menu>li>a{
+	color: #918EDB;
+}
+
+.style{
+	color: #5F4B8B;
+}

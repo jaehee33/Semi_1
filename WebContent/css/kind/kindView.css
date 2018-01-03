@@ -17,6 +17,10 @@ a {
 	text-decoration: none
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 img {
 	border: 0;
 	vertical-align: top
