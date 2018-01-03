@@ -4,6 +4,12 @@ body{
 	background-repeat: repeat;
 }
 
+.div_page{
+	font-size: 12px;
+	margin: auto;
+	text-align:center; 
+}
+
 section{
 	width: 65%;
 	height: auto;
@@ -12,7 +18,7 @@ section{
 	margin-left: 20%;
 	margin-right: 20%;
 	margin: 0 auto;
-	padding-top: 200px;
+	padding-top: 100px;
 	padding-bottom: 100px;
 }
 
@@ -30,17 +36,15 @@ section{
 	color: black;
 }
 
-.div_page{
-	font-size: 12px;
-	margin: auto;
-	vertical-align:middle;
-	text-align:center; 
+
+#comment{
+	float: left;
+	padding-left: 20px;
+	font-weight: bolder;
 }
 
-
-
-#score{
-	padding: 100px auto;
+.score{
+	padding-top: 100px;
 }
 
 #storeheader{
@@ -50,12 +54,22 @@ section{
   	text-align: center;
 }
 
+.score_list{
+	vertical-align: middle;
+	border: 1px solid black;
+	width: 500px;
+	height: 200px;
+	margin-bottom: 20px;
+	margin-left: 300px;
+}
+
+
 .score_table{
 	margin-top: 100px;
 	margin-bottom: 30px;
-	margin-left:120px;
+	margin-left:50px;
 	vertical-align: middle;
-	width: 80%;
+	width: 90%;
 	border-collapse: seperate;
 	border-spacing: 1px;
     line-height: 1.5;
@@ -79,14 +93,13 @@ section{
 	margin: 5px;
 	padding: 0.5em 1em;
 	background-color: white;
-	color: #5F4B8B;
 	border: 0.5px solid silver;
 	text-decoration: none;
 	text-align: center;
 	font-size: 12px;
 	display: inline-block;
 	position: relative;
-	right: 450px;
+	right: 500px;
 	bottom:30px;
 }
 
@@ -95,9 +108,20 @@ section{
 	color: white;
 }
 
+#table_point{
+	text-align: left;
+	padding-left: 10px;
+}
 
+#table_date{
+	text-align: right; 
+	padding-right: 10px;
+}
 
-
+.table_contents{
+	text-align: left;
+	padding-left: 10px;
+}
 
 
 

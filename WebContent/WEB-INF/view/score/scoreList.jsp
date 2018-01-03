@@ -152,9 +152,9 @@
 		
 		$.get("./scoreWrite.score?id=${storeid}&store=${store}", function(
 				callback) {
-			$("#score").html(callback);
+			$(".score").html(callback);
 		});
-
+		
 		
 		
 		$("#delete").click(function() {
@@ -165,8 +165,8 @@
 			window.location.href = "${board}Update.${board}?num=${view.num}"
 		});
 		
-		$("#backpage").click(function() {
-			window.location.href = "../index.jsp"
+		$("#list").click(function() {
+			window.location.href = "/Semi_1/store/storeList.store"
 		});
 		
 		
@@ -180,8 +180,7 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-	<div id="storeheader"></div>
-	
+	<div id="storeheader">	</div>
 	<div id="storeView" class="div_page">
 		<%-- <div>
 			<form name="frm" action="./${board}List.${board}">
@@ -201,12 +200,25 @@
 		
 		<section>
 		<h3 id="comment">한줄평(${count})</h3>
-		<div id="score"></div>
+		<div class="score"></div>
+
+	<c:forEach items="${list}" var="i">
+		<table class="score_list">
+		<tr>
+		<td id="table_point" colspan="2"> ${i.point}점/ ${i.id}</td> 
+		<td id="table_date"> ${i.reg_date}</td>
+		</tr>
 		
-		<table class="score_table">
+		<tr>
+		<td  class="table_contents" colspan="3">${i.contents}</td>
+		</tr>
+		</table>
+		</c:forEach>
+
+
+<%-- 	<table class="score_table">
 			<thead>
 				<tr>
-					<th>NUM</th>
 					<th>ID</th>
 					<th>CONTENTS</th>
 					<th>POINT</th>
@@ -217,7 +229,6 @@
 			<c:forEach items="${list}" var="i">
 				<tbody>
 					<tr>
-						<td>${i.num}</td>
 						<td>${i.id}</td>
 						<td>${i.contents}</td>
 						<td>${i.point}</td>
@@ -226,6 +237,9 @@
 				</tbody>
 			</c:forEach>
 		</table>
+--%>
+		
+		
 <%-- 
 		<c:if test="${member.id eq 'admin'}">
 			<button id="delete" type="button">Delete</button>
@@ -234,8 +248,8 @@
 		<c:if test="${member.id}">
 			<button id="update" type="button">Update</button>
 		</c:if>
-
  --%>
+ 	
  	
  	<div>
  	
@@ -285,9 +299,7 @@
 				<input type="hidden" name="curPage"> <input type="hidden" name="id" value="${storeid}"><input type="hidden" name="store" value="${store}">
 			</form>
 
-		<div id="div_buttonList">
-		<button type="button" class="buttonList" id="backpage">BackPage</button>
-		</div>
+		<button type="button" class="buttonList" id="list">목록으로 가기</button>
 	</section>
 	</div>
 	
