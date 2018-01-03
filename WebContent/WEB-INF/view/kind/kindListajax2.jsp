@@ -1,22 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<table>
-	<tr>
-		<td>kind</td>
-		<td>price</td>
-	</tr>
+
+		<ul id="kindoo">
 	<c:forEach items="${kindlist}" var="k">
-		<tr>
+		<li>
 			<c:forEach items="${filelist}" var="f">
 				<c:if test="${k.num eq f.num}">
-					<td><img src="../upload/${f.fname}"></td>
+					<p><img src="../upload/${f.fname}" style="width: 150px; height: 200px;"></p>
 				</c:if>
 			</c:forEach>
-			<td>${k.style}</td>
-			<td>${k.price}</td>
-			<td id="X"><a href="kindDelete.kind?num=${k.num}">X</a></td>
-		</tr>
+			<p>${k.style}</p>
+			<p>${k.price}</p>
+			<p id="X"><a href="kindDelete.kind?num=${k.num}">삭제</a></p>
+			</li>
 	</c:forEach>
-</table>
+		</ul>
 

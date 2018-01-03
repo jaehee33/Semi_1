@@ -6,7 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/kind/kindindex.css" rel="stylesheet">
-
+<link href="<%=request.getContextPath()%>/css/store/storeheader.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/kind/kindstoreList.css"
+	rel="stylesheet">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../slider/slick/slick.css">
+<link rel="stylesheet" type="text/css"
+	href="../slider/slick/slick-theme.css">
+<link rel="stylesheet" href="../css/kind/kindstoreListflugin.css">
 
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,7 +37,7 @@
 		$("#plus").click(function() {
 			$(".form").attr("type","button");
 			$.get("./kindInsert.kind", function(data) {
-				$("#kindinsert").append($("#kindinsert").html(data));
+				$("#kindinsert").html(data);
 			});
 		});
 		
@@ -62,12 +73,13 @@ color: red;
 		<button id="btn">List 새로고침</button>
 		<input type="hidden" class="form" id="formplus" value="item +">
 		<input type="hidden" class="form" value="item -" id="formdelete">
-		<div id="kindlist">
-		
-		</div>
 		<div id="kindinsert">
 			
 		</div>
+		<div id="kindlist">
+		
+		</div>
+		
 		</div>
 	</section>
 </body>
