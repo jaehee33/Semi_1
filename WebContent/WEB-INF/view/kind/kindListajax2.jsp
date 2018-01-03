@@ -19,27 +19,3 @@
 		</tr>
 	</c:forEach>
 </table>
-<div id="stylelist">
-					<div class="variable slider">
-						<c:forEach items="${kindlist}" var="k">
-							<div id="kindlist">
-								<c:forEach items="${filelist}" var="f">
-									<c:if test="${k.num eq f.num}">
-										<img src="../upload/${f.fname}"
-											style="width: 370px; height: 450px;">
-									</c:if>
-								</c:forEach>
-								<div id="col2">
-									<div class="col">
-										<p class="btn btn-1 btn--cw"> <code
-												class="btn--inner">${k.style}(${k.kind})<br>
-												<b style="font-size: 27px;">${k.price}</b> WON
-											</code>
-										</p>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-				
