@@ -106,11 +106,12 @@ public class KindDAO {
 	}
 	
 	//kind로 검색
-	public ArrayList<KindDTO> selectKindList(String kind) throws Exception{
+	public ArrayList<KindDTO> selectKindList(String kind, String gender) throws Exception{
 		Connection con=DBConnector.getConnect();
-		String sql="select * from kind where kind=?";
+		String sql="select * from kind where kind=? and gender=?";
 		PreparedStatement st=con.prepareStatement(sql);
 		st.setString(1, kind);
+		st.setString(2, gender);
 		ResultSet rs=st.executeQuery();
 		ArrayList<KindDTO> ar=new ArrayList<>();
 		while(rs.next()) {

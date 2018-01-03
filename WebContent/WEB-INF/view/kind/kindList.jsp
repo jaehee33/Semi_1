@@ -26,14 +26,14 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li class="dropdown-header">여자스타일</li>
-					<li><a href="./kindFList.kind?kind=커트" class="style">커트</a></li>
-					<li><a href="./kindFList.kind?kind=펌" class="style">펌</a></li>
-					<li><a href="./kindFList.kind?kind=염색" class="style">염색</a></li>
+					<li><a href="./kindFList.kind?kind=커트&gender=W" class="style">커트</a></li>
+					<li><a href="./kindFList.kind?kind=펌&gender=W" class="style">펌</a></li>
+					<li><a href="./kindFList.kind?kind=염색&gender=W" class="style">염색</a></li>
 					<li class="divider"></li>
 					<li class="dropdown-header">남자스타일</li>
-					<li><a href="#" class="style">커트</a></li>
-					<li><a href="#" class="style">펌</a></li>
-					<li><a href="#" class="style">염색</a></li>
+					<li><a href="./kindFList.kind?kind=커트&gender=M" class="style">커트</a></li>
+					<li><a href="./kindFList.kind?kind=펌&gender=M" class="style">펌</a></li>
+					<li><a href="./kindFList.kind?kind=염색&gender=M" class="style">염색</a></li>
 				</ul>
 			</div>
 			<hr>
@@ -71,11 +71,6 @@
 				</c:forEach>
 				</c:if>
 			</div>
-
-			<div class="more_img">
-				<a href="#" class="btn_more _more" onclick="tCR('a=img_noc.more');" style="display: none;"><span class="spimg ico_arr">스타일 더보기</span></a>
-			</div>
-
 
 			<!-- Pagination 
 			<div class="w3-center w3-padding-32">

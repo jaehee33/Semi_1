@@ -27,10 +27,12 @@ public class KindFListService implements Action {
 		ArrayList<KindDTO> kindlist= new ArrayList<>();
 		StoreMakeRow storeMakeRow=new StoreMakeRow();
 		String kind=request.getParameter("kind");
+		String gender=request.getParameter("gender");
+		
 		try {
 			filear=filesDAO.selectList();
 			kindar=kindDAO.allselectList();
-			kindlist=kindDAO.selectKindList(kind);
+			kindlist=kindDAO.selectKindList(kind,gender);
 			storeMakeRow.setKind("store");
 			storeMakeRow.setSearch("");
 			storeMakeRow.setLastRow(storeDAO.getTotalCount(storeMakeRow));
