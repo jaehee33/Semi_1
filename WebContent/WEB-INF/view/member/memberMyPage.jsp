@@ -51,7 +51,7 @@ function myFunction() {
 				<li><h4>연락처: ${m2.phone}</h4></li>
 
 				<a href="./memberUpdate2.member?id=${sessionScope.member.id}">
-				<img src="<%=request.getContextPath()%>/img/member/modify.png" style="width:24px; height:24px;"></a>
+				<img src="<%=request.getContextPath()%>/img/member/modify4.png" style="width:32px; height:32px;"></a>
 			</ul>
 			</div>
 <!-- =====================box1============================= -->

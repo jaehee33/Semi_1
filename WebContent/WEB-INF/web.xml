@@ -4,7 +4,6 @@
   <session-config>
     <session-timeout>50</session-timeout>
   </session-config>
- 
   <servlet>
     <servlet-name>style</servlet-name>
     <servlet-class>com.iu.control.StyleController</servlet-class>
@@ -17,7 +16,7 @@
     <servlet-name>style</servlet-name>
     <url-pattern>*.style</url-pattern>
   </servlet-mapping>
-<servlet>
+  <servlet>
     <servlet-name>coupon</servlet-name>
     <servlet-class>com.iu.control.CouponController</servlet-class>
     <init-param>
