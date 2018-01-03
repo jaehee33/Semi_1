@@ -37,7 +37,6 @@ public class FavorInsertService implements Action {
 					favorDTO.setStore_id(store_id);
 					result=favorDAO.insert(favorDTO);
 
-
 					if(result>0) {
 						actionForward.setCheck(false);
 						actionForward.setPath("../store/storeView.store?id="+store_id);
@@ -57,7 +56,7 @@ public class FavorInsertService implements Action {
 			request.setAttribute("store_id", store_id);
 			request.setAttribute("store", request.getParameter("store"));
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/store/storeFavorAjax.jsp");
+			actionForward.setPath("../WEB-INF/view/store/storeFavorInsert.jsp");
 		}
 
 		return actionForward;

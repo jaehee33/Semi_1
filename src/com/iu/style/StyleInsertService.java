@@ -24,6 +24,7 @@ public class StyleInsertService implements Action {
 		}catch (Exception e) {
 		}
 
+		
 		if(method.equals("POST")) {
 			StyleDAO styleDAO=new StyleDAO();
 			int count=0;
@@ -46,8 +47,7 @@ public class StyleInsertService implements Action {
 					result=styleDAO.insert(styleDTO);
 
 					if(result>0) {
-						request.setAttribute("style", styleDTO);
-						actionForward.setCheck(true);
+						actionForward.setCheck(false);
 						actionForward.setPath("../kind/kindView.kind?num="+num+"&style="+style);
 					}else {
 						request.setAttribute("message", "추가 실패");
@@ -67,7 +67,7 @@ public class StyleInsertService implements Action {
 			request.setAttribute("price",price);
 			request.setAttribute("store", request.getParameter("store"));
 			actionForward.setCheck(true);
-			actionForward.setPath("../WEB-INF/view/kind/kindFavorAjax.jsp");
+			actionForward.setPath("../WEB-INF/view/kind/kindStyleInsert.jsp");
 		}
 
 		return actionForward;

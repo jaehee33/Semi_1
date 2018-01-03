@@ -50,10 +50,20 @@
 				map.setCenter(coords);
 			}
 		});
-
-		$.get('../favor/favorInsert.favor?store_id=${store.id}&store=${store.store}', function(data) {
-			$("#favor").html(data);
-		});
+		
+		//==================즐겨찾기======================
+		if(${favorDTO == null}){
+			$.get('../favor/favorInsert.favor?store_id=${store.id}&store=${store.store}', function(data) {
+				$("#favor").html(data);
+			});
+		}
+		
+		if(${favorDTO != null}){
+			$.get('../favor/favorDelete.favor?store_id=${store.id}&store=${store.store}', function(data) {
+				$("#favor").html(data);
+			});
+		}
+		
 		$("#favor").on("click", "#btn", function() {
 			var favor = $(this).attr("class");
 			document.frm.submit();
@@ -63,6 +73,8 @@
 				$("#btn").attr("class", "off");
 			}
 		});
+		//즐겨찾기 끝
+		
 		
 		$("#pos").click(function(){
 			location.href="../pos/posIndex.pos?store=${store.store}";
@@ -116,7 +128,9 @@
 							<img src="<%=request.getContextPath()%>/img/store/scissors.png"
 								style="width: 16px; height: 16px;"><b>storetel</b> <br>${store.storetel}</p>
 						<br>
-						<div id="favor"></div>
+						<c:if test="${not empty member}">
+							<div id="favor"></div>
+						</c:if>
 						<c:if test="${sessionScope.member.id eq store.id}">
 							<div id="ownerMenu">
 								OwnerMenu

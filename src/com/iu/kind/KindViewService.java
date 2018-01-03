@@ -24,7 +24,6 @@ public class KindViewService implements Action {
 			num=Integer.parseInt(request.getParameter("num"));
 			KindDAO kindDAO = new KindDAO();
 			KindDTO kindDTO = kindDAO.selectone(num);
-			ArrayList<KindDTO> list=kindDAO.selectList(kindDTO);
 
 			FilesDAO filesDAO = new FilesDAO();			
 			FilesDTO filesDTO = filesDAO.selectOne(num);
@@ -33,10 +32,9 @@ public class KindViewService implements Action {
 			StyleDAO styleDAO = new StyleDAO();
 			StyleDTO styleDTO=styleDAO.selectOne(num);
 			
-			if(kindDTO != null && list != null) {
+			if(kindDTO != null) {
 				request.setAttribute("fileList", ar);
 				request.setAttribute("styleDTO", styleDTO);
-				request.setAttribute("list", list);
 				request.setAttribute("kind", kindDTO);
 				request.setAttribute("file", filesDTO);
 				actionForward.setPath("../WEB-INF/view/kind/kindView.jsp");

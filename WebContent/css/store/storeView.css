@@ -93,10 +93,11 @@
 
 .off:hover{
 	background-color: #5F4B8B;
-	color: white;
+	color: #fff;
 }
 
 .on{
+	color: #fff;
 	background-color: #5F4B8B;
 	font-size: 12px;
 	margin: 10px 0px;
@@ -112,7 +113,7 @@
 
 .on:hover{
 	background-color: #fff;
-	color: #000;
+	color: #5F4B8B;
 }
 
 #ownerMenu{

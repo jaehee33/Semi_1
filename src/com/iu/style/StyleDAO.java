@@ -19,6 +19,16 @@ public class StyleDAO {
 		ResultSet rs = st.executeQuery();
 		
 		StyleDTO styleDTO=null;
+		
+		if(rs.next()) {
+			styleDTO=new StyleDTO();
+			styleDTO.setId(rs.getString("id"));
+			styleDTO.setNum(rs.getInt("num"));
+			styleDTO.setPrice(rs.getInt("price"));
+			styleDTO.setStore(rs.getString("store"));
+			styleDTO.setStyle(rs.getString("style"));
+		}
+		DBConnector.disConnect(rs, st, con);
 		return styleDTO;
 	}
 	
