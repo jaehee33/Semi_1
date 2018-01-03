@@ -80,7 +80,7 @@
 						<td>${i.num}</td>
 						<td id="title${j.index}" class="g" title="${j.index}"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch><p class="table_title">${i.title}<img class="img_up" src="/Semi_1/img/board/up_arrow.png"><img class="img_down" src="/Semi_1/img/board/down_arrow.png"></p>
+							</c:catch><p class="table_title">${i.title}<!-- <img class="img_up" src="/Semi_1/img/board/up_arrow.png"><img class="img_down" src="/Semi_1/img/board/down_arrow.png"> --></p>
 							
 							<div id="contents_view${j.index}" class="div_view" >
 								<p class="toggle_contents">${i.contents}</p>

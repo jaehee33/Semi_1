@@ -46,22 +46,21 @@
 		  });
 		};
 		starRating();
-	
 		$("#savebutton").click(function() {
 			document.fim.submit();
 				});
-		
-		
 	});
+	
 </script>
 </head>
 <body>
-	
 	<form name="fim" action="./scoreWrite.score" method="post">
-		<p>
-			ID : ${member.id} <input type="hidden" name="id" value="${member.id}">
+		<c:if test="${not empty member}" >
+		
+		<p id="id_input">
+			 ${member.id} 님 <input type="hidden" name="id" value="${member.id}">
 		</p>
-		<p id="star_star">
+		</c:if>
 		<span class="star-input">
 		<span class="input"> 
 				<input type="radio" name="star-input" id="p1" value="0.5"><label
@@ -79,14 +78,16 @@
 				<input type="radio" name="star-input" id="p10" value="5.0"><label
 				for="p10">5.0</label>
 		</span> 
+		<span class="output">
 			<output for="star-input">
 				<b>0</b>점
 			</output>
+			</span>
 		</span> 
-		</p>
 		<input type="hidden" name="store" value="${store}">
 		<input type="hidden" name="storeid" value="${storeid}">
-		<textarea rows="" cols="" name="contents"></textarea>
+		<div id="score_div">
+		<textarea class="score_text" rows="" cols="" name="contents" style="resize:none"></textarea></div>
 			<div id="savebutton_div"><input type="button" value="등록하기" id="savebutton"></div>
 	</form>
 </body>

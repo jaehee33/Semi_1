@@ -1,34 +1,63 @@
 @charset "UTF-8";
 
 textarea{
-	width: 500px;
-	height: 100px;
+	width: 900px;
+	height: 200px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-input{
-	vertical-align: top;
+.star-input{
+	position: relative;
+	right: 450px;
+	top: 70px;
 }
 
-
-output{
-	vertical-align: top;
-	padding-top: 40px;
-	padding-left: 10px;
-	padding-right: 50px;
+.output{
+	position: relative;
+	left: 75px;
+	bottom: 25px;
 }
 
 #savebutton{
 	padding: 7px 5px;
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	border: 1px solid silver;
 }
 
-#star_star{
-	vertical-align: top;
+#savebutton:hover{
+	background-color: whiteSmoke;
 }
 
 #savebutton_div{
-	display: inline;
-	position:relative;
-	padding-bottom: 100px;
+	position: relative;
+	right:400px;
+	bottom: 40px;
 }
+
+#id_input{
+	position: relative;
+	right: 390px;
+	top: 75px;
+}
+
+#score_div{
+	position: relative;
+	left: 100px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
