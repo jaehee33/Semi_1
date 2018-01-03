@@ -18,7 +18,98 @@
 }
 
 #kindinsert{
-	width:100%;
+	width:50%;
 	height:100%;
 	display: block;
+	margin: 50px auto;
 }
+
+#kindinsert ul li{
+	border-right: 1px #E1E1E1 solid;
+}
+
+#sty{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#oo{
+	text-decoration: none;
+	color:#5F4B8B;
+}
+
+#oo:hover{
+	text-decoration: none;
+	color:red;
+}
+#listbtn{
+	border: #6baed6 solid 2px;
+	width: 50%;
+	height: 70px;
+	margin: 0px auto;
+	text-align: center;
+}
+#postitle{
+	margin: 20px 0;
+	background-color: white;
+	width:100%;
+	height: 40px;
+}
+
+#postitle ul li{
+	font-weight: bold;
+	float:left;
+	line-height:40px;
+	list-style-type: none;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.style{
+	width: 200px;
+	height: 40px;
+	border: none;
+}
+.price{
+	width: 150px;border: none;
+	height: 40px;
+}
+.gender{
+	width: 100px;
+	height: 40px;
+	border: none;
+}
+.kind{
+	width: 100px;
+	height: 40px;
+	border: none;
+}
+.file{
+	width: 200px;
+	height: 40px;
+	border: none;
+}
+.tt{
+	border-bottom: #E1E1E1 solid 1px;
+}
+.plus{
+	background-color:white;
+	width: 60px;
+	height: 69px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #6baed6;
+	text-align: center;
+	line-height: 69px;
+	border:none;
+	 -webkit-transition:background-color 2s;
+    transition:background-color 2s;
+    margin-right: 30px;
+}
+
+.plus:hover{
+	background-color: #6baed6;
+	color: white;
+	border:none;
+}
+

@@ -28,7 +28,7 @@ public class KindDeleteService implements Action {
 			
 		}
 		if(result>0 && result2>0) {
-			actionForward.setPath("./kindIndex.kind");
+			actionForward.setPath("./kindIndex.kind?id="+memberDTO.getId());
 		}else {
 			request.setAttribute("message", "delete fail");
 			request.setAttribute("path", "./kindIndex.kind");

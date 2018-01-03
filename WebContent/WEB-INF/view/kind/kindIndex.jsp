@@ -42,7 +42,7 @@
 		});
 		
 		$("#formplus").click(function(){
-			$("#frm").prepend('<p id="o'+i+'"> '+i+' STYLE : <input type="text" placeholder="종류를 입력해주세요" name="style">PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요"><select name="gender"><option value="W">Woman</option><option value="M">Man</option></select><select name="kind"><option value="펌">펌</option><option value="염색">염색</option><option value="컷">컷</option><option value="매직">매직</option><option value="기타">기타</option></select><input type="file" name="f'+i+'"></p>');
+			$("#frm").prepend('<p id="o'+i+'" class="tt"><input type="text" placeholder="종류를 입력해주세요" class="emptykind style" name="style"><input type="number" class="emptykind price" name="price" placeholder="가격을 입력해주세요"><select name="gender" class="gender"><option value="W">Woman</option><option value="M">Man</option></select><select class="kind" name="kind"><option value="펌">펌</option><option value="염색">염색</option><option value="컷">컷</option><option value="매직">매직</option><option value="기타">기타</option></select><input type="file" class="emptykind file" name="f'+i+'"></p>');
 		i++;
 		});
 		$.get("../store/storeIndex.store?id=${storeid}",function(index){
@@ -53,6 +53,22 @@
 			$("#o"+i).remove();
 			if(i>1){
 			i--;
+			}
+		});
+		$("#kindinsert").on("click","#kindbtn",function(){
+			var result=true;
+			$(".emptykind").each(function(){
+				alert($(this).val() == "");
+				if($(this).val() == ""){
+					result=false;
+				}
+			});
+			
+			
+			if(result){
+			document.frm.submit();
+			}else{
+				alert("내용을 모두 입력해주세요.");
 			}
 		});
 		
@@ -69,10 +85,12 @@ color: red;
 	<section id="main">
 	<div id="storeheader"></div>
 	<div id="storeView">
-		<button id="plus">+</button>
-		<button id="btn">List 새로고침</button>
-		<input type="hidden" class="form" id="formplus" value="item +">
-		<input type="hidden" class="form" value="item -" id="formdelete">
+	<div id="listbtn">
+		<button id="plus" class="plus">+</button>
+		<button id="btn" class="plus">List</button>
+		<input type="hidden" class="form plus" id="formplus" value="item +">
+		<input type="hidden" class="form plus" value="item -" id="formdelete">
+		</div>
 		<div id="kindinsert">
 			
 		</div>
