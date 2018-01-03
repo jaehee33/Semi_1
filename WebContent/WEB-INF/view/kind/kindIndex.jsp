@@ -6,6 +6,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/kind/kindindex.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../slider-pro-master/dist/css/slider-pro.min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="../slider-pro-master/examples/css/examples.css" media="screen"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="../slider-pro-master/libs/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../slider-pro-master/dist/js/jquery.sliderPro.min.js"></script>
+
+<script type="text/javascript">
+	$( document ).ready(function( $ ) {
+		$( '#example5' ).sliderPro({
+			width: 670,
+			height: 500,
+			orientation: 'vertical',
+			loop: false,
+			arrows: true,
+			buttons: false,
+			thumbnailsPosition: 'right',
+			thumbnailPointer: true,
+			thumbnailWidth: 290,
+			breakpoints: {
+				800: {
+					thumbnailsPosition: 'bottom',
+					thumbnailWidth: 270,
+					thumbnailHeight: 100
+				},
+				500: {
+					thumbnailsPosition: 'bottom',
+					thumbnailWidth: 120,
+					thumbnailHeight: 50
+				}
+			}
+		});
+	});
+</script>
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
