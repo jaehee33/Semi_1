@@ -49,6 +49,7 @@ public class PosListService implements Action {
 					request.setAttribute("page", pageing);
 					request.setAttribute("make", posMakeRow);
 					request.setAttribute("store", store);
+					request.setAttribute("curPage", curPage);
 					
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

@@ -19,6 +19,25 @@ td a:hover{
 color: red;
 text-decoration: none;
 }
+.pageing{
+	border: none;
+	background-color: white;
+	color: #5F4B8B;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+}
+
+.pageing:hover{
+	background-color: #E1E1E1;
+}
+
+#pagination{
+	width: 300px;
+	margin:10px auto;
+	text-align: center;
+}
+
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,6 +49,13 @@ text-decoration: none;
 			var cur = $(this).attr("title");
 			document.frm.curPage.value=cur;
 			document.frm.submit();
+		});
+		var curPage=Number(${curPage});
+		$(".btn_now").each(function(){
+			if(Number($(this).attr("title"))==curPage){
+				$(this).css("background-color","#5F4B8B");
+				$(this).css("color","white");
+			}
 		});
 		$("#type").change(function(){
 			var cur = $(".list").attr("title");
@@ -77,15 +103,17 @@ text-decoration: none;
 		</tr>
 		</c:forEach>
 	</table>
+	<div id="pagination">
 	<c:if test="${page.curBlock gt 1}">
-	<input type="button" value="[이전]" title="${page.startNum-1}" class="list">
+	<input type="button" value="[이전]" title="${page.startNum-1}" class="list pageing">
 	</c:if>
 	<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-	<input type="button" value="${i}" title="${i}" class="list">
+	<input type="button" value="${i}" title="${i}" class="list btn_now pageing">
 	</c:forEach>
 	<c:if test="${page.curBlock lt page.totalBlock}">
-	<input type="button" value="[다음]" title="${page.lastNum+1}" class="list">
+	<input type="button" value="[다음]" title="${page.lastNum+1}" class="list pageing">
 	</c:if>
+	</div>
 	</div>
 	</section>
 </body>

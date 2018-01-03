@@ -69,7 +69,7 @@
 		});
 		
 		$("#kind").click(function(){
-			location.href="../kind/kindIndex.kind";
+			location.href="../kind/kindIndex.kind?id=${store.id}";
 		});
 		
 		$("#delete").click(function(){

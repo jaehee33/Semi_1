@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="<%=request.getContextPath()%>/css/store/storeheader.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/kind/kindindex.css" rel="stylesheet">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -26,8 +28,11 @@
 		});
 		
 		$("#formplus").click(function(){
-			$("#frm").prepend('<p id="o'+i+'"> '+i+' STYLE : <input type="text" placeholder="종류를 입력해주세요" name="style">PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요"><select name="kind"><option value="펌">펌</option><option value="염색">염색</option><option value="컷">컷</option><option value="매직">매직</option><option value="기타">기타</option></select><input type="file" name="f'+i+'"></p>');
+			$("#frm").prepend('<p id="o'+i+'"> '+i+' STYLE : <input type="text" placeholder="종류를 입력해주세요" name="style">PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요"><select name="gender"><option value="W">Woman</option><option value="M">Man</option></select><select name="kind"><option value="펌">펌</option><option value="염색">염색</option><option value="컷">컷</option><option value="매직">매직</option><option value="기타">기타</option></select><input type="file" name="f'+i+'"></p>');
 		i++;
+		});
+		$.get("../store/storeIndex.store?id=${storeid}",function(index){
+			$("#storeheader").html(index);
 		});
 		
 		$("#formdelete").click(function(){
@@ -48,6 +53,8 @@ color: red;
 <body>
 <%@ include file="../temp/header.jsp" %>
 	<section id="main">
+	<div id="storeheader"></div>
+	<div id="storeView">
 		<button id="plus">+</button>
 		<button id="btn">List 새로고침</button>
 		<input type="hidden" class="form" id="formplus" value="item +">
@@ -57,6 +64,7 @@ color: red;
 		</div>
 		<div id="kindinsert">
 			
+		</div>
 		</div>
 	</section>
 </body>

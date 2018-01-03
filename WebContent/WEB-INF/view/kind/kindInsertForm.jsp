@@ -4,6 +4,10 @@
 				<p>0
 					KIND : <input type="text" name="style" placeholder="종류를 입력해주세요">
 					PRICE : <input type="number" name="price" placeholder="가격을 입력해주세요">
+					<select name="gender">
+					<option value="W">Woman</option>
+					<option value="M">Man</option>
+					</select>
 					<select name="kind">
 					<option value="펌">펌</option>
 					<option value="염색">염색</option>
