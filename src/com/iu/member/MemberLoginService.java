@@ -45,7 +45,7 @@ public class MemberLoginService implements Action {
 			}
 			
 			if(memberDTO !=null) {
-				
+		
 				request.getSession().setAttribute("member", memberDTO);
 				actionForward.setCheck(false); //실패하나 성공하나 인덱스로 고고 
 				actionForward.setPath("../index.jsp");
