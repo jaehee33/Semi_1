@@ -17,10 +17,6 @@
 
 <title>semi hair shop</title>
 <style type="text/css">
-h3 {
-	font-weight: bold;
-	padding-bottom: 50px;
-}
 
 select {
 	height: 26px;
@@ -28,11 +24,11 @@ select {
 
 .container {
 	height: 600px;
-	weight: 750px;
+	weight: 800px;
 }
 
 #box{
-	height: 90%;
+	height: 75%;
 	background-color: #fff;
 	padding: 30px;
 	margin-top: 30px;
@@ -40,6 +36,21 @@ select {
 
 .style{
 	float: left;
+	padding-right: 10px;
+	
+}
+
+h1{
+	margin-top: 10px;
+	text-align: center;
+	color: #5f4b8b;
+	padding: 10px;
+	font-size: xx-large;
+}
+
+h6{
+	text-align: center;
+	margin-bottom: 60px;
 }
 </style>
 </head>
@@ -48,13 +59,14 @@ select {
 	<section id="main">
 		<div class="container">
 			<div id="box">
-			<h3><img src="../img/kind/scissors-of-modern-design.png" style="width: 30px; height: 30px;">스타일 즐겨찾기</h3>
+				<h1>스타일 즐겨찾기</h1>
+				<h6>즐겨찾기한 스타일을 한 눈에 볼 수 있습니다</h6>
 				<c:forEach items="${list}" var="i">
 				<div class="style">
 					<c:forEach items="${files}" var="j">
 						<c:if test="${i.num eq j.num}">
 							<a href="../kind/kindView.kind?num=${i.num}&style=${i.style}"><img
-								src="../upload/${j.fname}" width="220" height="270"></a>
+								src="../upload/${j.fname}" width="200" height="250"></a>
 						</c:if>
 					</c:forEach>
 					<br>
