@@ -29,6 +29,7 @@
 			}, function(rsp) {
 			    if ( rsp.success ) {
 			        var msg = '결제가 완료되었습니다.';
+				    document.frm.submit();
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
@@ -46,9 +47,9 @@
 	<section id="main">
 		<div class="container">
 		<div id="box">
-		<form action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
+		<form id="frm" action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
 			<h1>예약하기</h1>
-			<p id="info1">예약과 결제를 한 번에!</p>
+			<p id="info1">예약과 결제까지 한 번에!</p>
 				
 			<div class="form-group">
 				<div class="rsv_l">
