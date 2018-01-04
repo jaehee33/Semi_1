@@ -45,8 +45,12 @@
 		});
 
 		$("#formplus").click(function() {
+			if(i<10){
 			$("#frm").prepend('<p id="o' + i + '" class="tt"><input type="text" placeholder="종류를 입력해주세요" class="emptykind style" name="style"><input type="number" class="emptykind price" name="price" placeholder="가격을 입력해주세요"><select name="gender" class="gender"><option value="W">Woman</option><option value="M">Man</option></select><select class="kind" name="kind"><option value="펌">펌</option><option value="염색">염색</option><option value="컷">컷</option><option value="매직">매직</option><option value="기타">기타</option></select><input type="file" class="emptykind file" name="f' + i + '"></p>');
-			i++;
+			i++;				
+			}else{
+				alert("10개까지만 추가 가능합니다.");
+			}
 		});
 		$.get("../store/storeIndex.store?id=${storeid}", function(index) {
 			$("#storeheader").html(index);

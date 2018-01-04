@@ -6,9 +6,10 @@
 }
 
 #kindlist{
-	width: 70%;
+	width: 66%;
 	margin: 70px auto;
 	height: 100%;
+	display: block;
 }
 
 #oooo{
@@ -125,12 +126,22 @@
 }
 
 #kindbtn{
+	margin-bottom: 50px;
 	float: right;
-	width: 150px;
+	width: 100%;
 	height: 70px;
 	border: #E1E1E1 solid 1px;
 	background: white;
 	color:#6baed6;
+	 -webkit-transition:background-color 1s;
+    transition:background-color 1s;
+    font-size: 17px;
+    font-weight: bold;
+}
+#kindbtn:hover{
+	background-color: #6baed6;
+	color: white;
+	border:none;
 }
 
 .plus:hover{
