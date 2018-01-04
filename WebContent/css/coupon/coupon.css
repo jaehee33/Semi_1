@@ -33,3 +33,13 @@ div_coupon{
 div a{
 	text-decoration: none;
 }
+#admin a{
+	text-decoration: none;
+	text-align:center;
+	font-size: 50px;
+	color:black;
+}
+#admin a:hover{
+	color: #5f4b8b;
+}	
+	

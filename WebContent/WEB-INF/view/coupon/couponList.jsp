@@ -37,10 +37,11 @@
 				</div>
 			</c:if>
 		</c:forEach>
-
+		<div id="admin">
 		<c:if test="${member.id eq 'admin'}">
-			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">coupon</a>
+			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">쿠폰 등록하기 +</a>
 		</c:if>
+		</div>
 	</section>
 	<%@ include file="../temp/footer.jsp" %>
 </body>

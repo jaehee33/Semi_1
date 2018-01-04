@@ -17,22 +17,24 @@ h1{
 #back{
 	width: 800px;
 	background-color: white;
-	margin: auto; 	
+	margin: auto;
 }
 #se{
 	margin-top:50px;
+	margin-left: 30px;
 }
-#se p{
+#se input{
 	width: 200px;
-	height: 60px;
+	height: 30px;
+	margin: 10px;
 }
-#th button{
-	width: 200px;
-	height: 40px;
-	text-align: center;
-	font-size: 18px;
-	font-weight:bold;
+#se button{
+	width: 100px;
+	height: 30px;
 	margin: auto;
+	text-align: center;
+	font-size: 15px;
+	font-weight:bold;
 	margin-bottom: 50px;
 	border-radius: 5px;
 	background-color: #5f4b8b;

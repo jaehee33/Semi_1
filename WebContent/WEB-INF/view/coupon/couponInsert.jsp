@@ -26,15 +26,12 @@
 				</div>
 				<br>
 				<div id="se">
-					<p>
-						쿠폰명: <input type="text" name="coupon">
-					</p>
-					<p>
-						할인율: <input type="number" name="count"> %
-					</p>
+					쿠폰명: <input type="text" name="coupon">
+					할인율: <input type="number" name="count">%
+					<span><button class="button_save">저장</button>
+					</span>
 				</div>
 				<div id="th">
-					<button class="button_save">저장</button>
 				</div>
 			</div>
 		</form>
