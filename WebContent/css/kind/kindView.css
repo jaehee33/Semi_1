@@ -44,7 +44,7 @@ a:hover {
 
 .view_product .buy {
 	position: absolute;
-	left: 210px;
+	left: 250px;
 	bottom: 120px;
 	width: 100%;
 	z-index: 9;
@@ -64,7 +64,7 @@ a:hover {
 
 .favor{
 	position: absolute;
-	left: 210px;
+	left: 250px;
 	bottom: 180px;
 	width: 100%;
 }
@@ -123,18 +123,17 @@ a:hover {
 	border-top: 2px solid #5F4B8B;
 	border-bottom: 2px solid #5F4B8B; 
 	height: 90%;
-	width: 1000px;
+	width: 900px;
 	background-color: #fff;
 	padding: 30px;
 	margin-top:7px;
-	margin-left: 80px;
+	margin-left: 100px;
 }
 
 #imagesize{
-	padding-top: 15px;
-	padding-left: 100px;
+	padding-top:5px;
+	padding-left: 50px;
 	float:left;
-	height: 400px;
 }
 
 #info{
@@ -143,32 +142,30 @@ a:hover {
 }
 
 #h3stylename{
-	padding-right:150px; 
+	padding-right:20px; 
 	padding-bottom: 15px;
 }
 
-#h3style{
-	padding-right:135px; 
+#h3style{ 
+	padding-right:10px;
 	padding-bottom: 30px;
 }
 
 #h3storename{
-	padding-right:140px;
+	padding-right:10px;
 	padding-bottom: 15px;
 }
 
 #h3store{
-	padding-right:120px;
+	padding-left:15px;
 	padding-bottom: 30px;
 }
 
 #h3pricename{
-	padding-right:165px;
+	padding-right:35px;
 	padding-bottom: 15px;
 }
 
-#h3price{
-	padding-right:115px;
-}
+
 
 

@@ -50,7 +50,7 @@
 					<div class="container">
 						<div id="box">
 							<div id="imagesize">
-								<img src="../upload/${file.fname}" width="380" height="530">
+								<img src="../upload/${file.fname}" width="450" height="560">
 							</div>
 							<div id="info">
 								<h2 id="h3stylename">
