@@ -55,6 +55,7 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="main">
+		<div class="box container">
 		<form action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
 			<h3>예약하기</h3>
 			<div class="form-group">
@@ -147,6 +148,9 @@
 			</div>
 
 		</form>
+		</div>
 	</section>
+	
+	<%@ include file="../temp/footer.jsp"%>
 </body>
 </html>

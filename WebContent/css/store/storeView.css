@@ -67,7 +67,7 @@
 	text-align:center;
 	width: 90px;
 	height:50px;
-	border:#E1E1E1 1px solid;
+	border:#5F4B8B 1px solid;
 	 -webkit-transition:background-color 0.5s;
     transition:background-color 0.5s;
 }
@@ -84,9 +84,9 @@
 	display:table-cell;
 	vertical-align:middle;
 	text-align:center;
-	width: 90px;
+	width: 100px;
 	height:50px;
-	border:#E1E1E1 1px solid;
+	border:#5F4B8B 1px solid;
 	 -webkit-transition:background-color 0.5s;
     transition:background-color 0.5s;
 }
@@ -104,9 +104,9 @@
 	display:table-cell;
 	vertical-align:middle;
 	text-align:center;
-	width: 90px;
+	width: 100px;
 	height:50px;
-	border:#E1E1E1 1px solid;
+	border:#5F4B8B 1px solid;
 	 -webkit-transition:background-color 0.5s;
     transition:background-color 0.5s;
 }
