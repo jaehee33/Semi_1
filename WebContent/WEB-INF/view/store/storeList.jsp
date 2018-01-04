@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/store/storeList.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/particleEffects.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

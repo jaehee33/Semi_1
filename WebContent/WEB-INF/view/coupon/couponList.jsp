@@ -18,7 +18,7 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-	<section>
+	<section id="main">
 		<div>
 			<h1>COUPON</h1>
 		</div>

@@ -7,7 +7,7 @@
 <header>
 	<div id="hdtop">
 		<div id="logo">
-			<a href="<%=request.getContextPath()%>/index.jsp"> <img src="<%=request.getContextPath()%>/img/logo/logo230.png">
+			<a href="<%=request.getContextPath()%>/index.jsp"> <img src="<%=request.getContextPath()%>/img/logo/2.png" style="width:10%;height: 100%;">
 			</a>
 			<!-- <p>SEMI HAIR</p> -->
 		</div>
