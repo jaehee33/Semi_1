@@ -1,6 +1,7 @@
 package com.iu.member;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ public class MemberMyPageService implements Action {
 		ActionForward actionForward = new ActionForward();
 		
 		MemberDTO memberDTO = (MemberDTO)request.getSession().getAttribute("member");
-		List<CouponDTO> ar=null;
+		ArrayList<CouponDTO> ar=null;
 		CouponDAO couponDAO=new CouponDAO();
 		MemberDAO memberDAO = new MemberDAO();
 		MemberDTO m2 = null;
@@ -34,7 +35,7 @@ public class MemberMyPageService implements Action {
 			StoreDAO storeDAO=new StoreDAO();
 			StoreDTO storeDTO=null;
 			try {
-				ar=couponDAO.selectList(m2.getId());
+				ar=(ArrayList<CouponDTO>)couponDAO.selectList(m2.getId());
 				storeDTO=storeDAO.selectOne(m2.getId());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

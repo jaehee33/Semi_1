@@ -30,7 +30,6 @@ public class CouponInsertService implements Action {
 			} catch (Exception e) {
 			}
 			
-			System.out.println(result);
 			
 			if(result>0) {
 				request.setAttribute("message", "coupon inserted");
