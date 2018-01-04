@@ -93,7 +93,7 @@ public class KindInsertService implements Action {
 			
 			if(result>0 && result2>0) {
 				actionForward.setCheck(true);
-				actionForward.setPath("../WEB-INF/view/kind/kindIndex.jsp");
+				actionForward.setPath("./kindIndex.kind?id="+storeDTO.getId());
 			}else {
 				request.setAttribute("message", "kind fail");
 				request.setAttribute("path", "../index.jsp");

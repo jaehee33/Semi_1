@@ -10,9 +10,9 @@
 					<p><img src="../upload/${f.fname}" style="width: 150px; height: 200px;"></p>
 				</c:if>
 			</c:forEach>
-			<p>${k.style}</p>
-			<p>${k.price}</p>
-			<p id="X"><a href="kindDelete.kind?num=${k.num}">삭제</a></p>
+			<p id="sty">${k.style}</p>
+			<p id="pri">${k.price}</p>
+			<p id="X"><a id="oo" href="kindDelete.kind?num=${k.num}">삭제</a></p>
 			</li>
 	</c:forEach>
 		</ul>
