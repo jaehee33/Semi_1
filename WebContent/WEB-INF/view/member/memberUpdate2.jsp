@@ -34,6 +34,11 @@
 					<th>휴대전화:</th>
 					<td><input type="text" name="phone" value="${m2.phone}" class="n box"></td>
 				</tr>
+			<tr>
+				<th>회원구분:</th> 
+				<td>고객용 <input type="radio" name=job id="j1" value="B" checked="checked">
+				가맹점용 <input type="radio" name=job id="j2" value="S"></td>
+			</tr>
 			</table>
 			<div id="btntotal">
 			<button class="btn" id="cancel"><a href="./memberMyPage.member">취소</a></button>

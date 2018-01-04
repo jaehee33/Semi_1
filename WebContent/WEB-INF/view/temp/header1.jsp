@@ -32,7 +32,7 @@
         </li>
   <!-- ============================================================================================= -->
         <li><a href="<%=request.getContextPath()%>/kind/kindFList.kind">STYLE</a></li>
-        <li><a href="%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a></li>
+        <li><a href="<%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a></li>
   <!-- ============================================================================================== -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">NOTICE
@@ -48,7 +48,7 @@
  		 <li><a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a></li>
  		 </c:if>
 			<c:if test="${not empty member}">
-				<li><a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a></li>
+				<li><a href="<%=request.getContextPath()%>/member/kakaoLogout.member">Logout</a></li>
 				<li><a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a></li>
 			</c:if>
 			<c:if test="${member.job eq 'B'}">

@@ -38,6 +38,15 @@ h1{
 	font-size: 12px;
 	display: inline-block;
 }
+#kakao{
+	width: 230px;
+	margin: auto;
+}
+#cau p{
+	color: #5f4b8b;
+	font-size: 12px;
+	text-align: center;
+}
 body .textcontainer {
   padding: 40px 0;
   text-align: center;
