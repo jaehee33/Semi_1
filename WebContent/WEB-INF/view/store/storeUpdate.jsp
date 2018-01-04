@@ -37,9 +37,10 @@
 				enctype="multipart/form-data">
 				<table id="semistore">
 					<tr id="start">
+					
 						<td class="first">* StoreName</td>
 						<td><input type="text" class="emp" name="store"
-						value="${store.store}" readonly="readonly"></td>
+						value="${store.store}" readonly="readonly"><input type="hidden" name="id" value="${store.id}"></td>
 					</tr>
 					<tr>
 						<td class="first">* Area</td>
