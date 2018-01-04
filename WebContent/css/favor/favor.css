@@ -39,3 +39,29 @@ h1{
     border-bottom: #D8D8D8 solid 1px;
     margin-bottom: 50px;
 }
+
+#stylename{
+	color:#000;
+	font-size: 20px;
+}
+
+#favorname{
+	color: #000;
+}
+
+#storename{
+	color:#000;
+	font-size: 20px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.w3-hover-opacity {
+	cursor: pointer;
+}
+
+.text-center {
+	margin-top: 15px;
+}
