@@ -103,7 +103,7 @@ text-decoration: none;
 			<td>${a.store}</td>
 			<td>${a.pos_coupon}</td>
 			<c:if test="${a.state eq null}">
-			<td><a href="posDelete.pos?num=?${a.num}">X</a></td>
+			<td><a href="posDelete.pos?num=${a.num}&store=${a.store}">X</a></td>
 			</c:if>
 		</tr>
 		</c:forEach>

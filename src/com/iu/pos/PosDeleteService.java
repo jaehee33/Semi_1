@@ -17,18 +17,20 @@ public class PosDeleteService implements Action {
 		if(memberDTO!=null) {
 		int num=0;
 		int result=0;
+		String store="";
 		PosDAO posDAO=new PosDAO();
 		try {
+			store=request.getParameter("store");
 			num=Integer.parseInt(request.getParameter("num"));
 			result=posDAO.delete(num);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		if(result>0) {
-			actionForward.setPath("./posIndex.pos");
+			actionForward.setPath("./posIndex.pos?store="+store);
 		}else {
 			request.setAttribute("message", "delete fail");
-			request.setAttribute("path", "./posIndex.pos");
+			request.setAttribute("path", "./posIndex.pos?store="+store);
 			actionForward.setPath("../WEB-INF/view/common/result.jsp");
 			
 		}
