@@ -21,7 +21,7 @@
 	href="../slider/slick/slick-theme.css">
 <link rel="stylesheet" href="../css/kind/kindstoreListflugin.css">
 
-<title>Insert title here</title>
+<title>SemiHairShop</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

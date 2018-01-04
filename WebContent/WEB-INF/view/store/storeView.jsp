@@ -96,7 +96,7 @@
 		
 	});
 </script>
-<title>Insert title here</title>
+<title>SemiHairShop - StoreView</title>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>

@@ -125,7 +125,7 @@ $(function(){
 });
 
 </script>
-<title>Insert title here</title>
+<title>SemiHairShop - PosIndex</title>
 </head>
 <body>
 <section id="main">

@@ -6,7 +6,7 @@
 <head>
 <link href="<%=request.getContextPath()%>/css/store/storeWrite.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>SemiHairShop - StoreUpdate</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
