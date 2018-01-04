@@ -26,12 +26,12 @@
 					<div class="style">
 						<c:forEach items="${files}" var="j">
 							<c:if test="${i.store eq j.store}">
-								<a href="../store/storeView.store?id=${i.store_id}"><img src="../upload/${j.fname}" width="200" height="250"></a>
+								<a href="../store/storeView.store?id=${i.store_id}"><img src="../upload/${j.fname}" width="200" height="250" onclick="onClick(this)" class="photo w3-hover-opacity"></a>
 							</c:if>
 						</c:forEach>
 						<br>
 						<p class="text-center">
-							<a href="../store/storeView.store?id=${i.store_id}"><strong>${i.store}</strong></a>
+							<a id="storename" href="../store/storeView.store?id=${i.store_id}">${i.store}</a>
 						</p>
 					</div>
 				</c:forEach>

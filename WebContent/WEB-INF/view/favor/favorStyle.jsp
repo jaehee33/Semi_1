@@ -9,8 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="../SE2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="<%=request.getContextPath()%>/css/favor/style.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/favor/favor.css" rel="stylesheet">
 <title>semi hair shop</title>
 </head>
 <body>
@@ -21,16 +22,16 @@
 				<h1>스타일 즐겨찾기</h1>
 				<p id="info1">즐겨찾기한 스타일을 한 눈에 볼 수 있습니다</p>
 				<c:forEach items="${list}" var="i">
-				<div class="style">
+				<div class="style" >
 					<c:forEach items="${files}" var="j">
 						<c:if test="${i.num eq j.num}">
-							<a href="../kind/kindView.kind?num=${i.num}&style=${i.style}"><img src="../upload/${j.fname}" width="200" height="250"></a>
+							<a href="../kind/kindView.kind?num=${i.num}&style=${i.style}"><img src="../upload/${j.fname}" width="200" height="250" onclick="onClick(this)" class="photo w3-hover-opacity" ></a>
 						</c:if>
 					</c:forEach>
 					<br>
 					<p class="text-center">
-						<a href="../kind/kindView.kind?num=${i.num}&style=${i.style}"><strong>${i.style}</strong><br></a>
-						<a href="../store/storeView.store?id=${i.store_id}"><strong>${i.store}</strong></a>
+						<a id="stylename" href="../kind/kindView.kind?num=${i.num}&style=${i.style}">${i.style}<br></a>
+						<a id="favorname" href="../store/storeView.store?id=${i.store_id}">${i.store}</a>
 					</p>
 				</div>
 				</c:forEach>
