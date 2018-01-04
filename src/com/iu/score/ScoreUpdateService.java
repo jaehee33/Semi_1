@@ -49,7 +49,7 @@ public class ScoreUpdateService implements Action {
 			if(scoreDTO != null) {
 				request.setAttribute("view", scoreDTO);
 				actionForward.setPath("../WEB-INF/view/board/boardUpdate.jsp");
-				request.setAttribute("board", "score");
+				request.setAttribute("score", scoreDAO);
 			}else {
 				request.setAttribute("message", "Fail");
 				request.setAttribute("path", "./scoreList.score");

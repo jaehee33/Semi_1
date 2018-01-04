@@ -18,7 +18,6 @@ public class ScoreListService implements Action {
 		ActionForward actionForward = new ActionForward();
 		String store = request.getParameter("store");
 		String id=request.getParameter("id");
-		
 		int curPage=1;
 		int totalCount;
 		try {
@@ -49,7 +48,7 @@ public class ScoreListService implements Action {
 		
 		request.setAttribute("storeid", id);
 		request.setAttribute("store", store);
-		request.setAttribute("board", "score");
+		request.setAttribute("score", "score");
 		request.setAttribute("list", ar);
 		request.setAttribute("page", pageing);
 		request.setAttribute("make", makeRow);

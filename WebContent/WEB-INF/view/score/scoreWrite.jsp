@@ -84,10 +84,10 @@
 			</output>
 			</span>
 		</span> 
-		<input type="hidden" name="store" value="${store}">
-		<input type="hidden" name="storeid" value="${storeid}">
+			<input type="hidden" name="store" value="${store}">
+			<input type="hidden" name="storeid" value="${storeid}">
 		<div id="score_div">
-		<textarea class="score_text" rows="" cols="" name="contents" style="resize:none"></textarea></div>
+		<textarea class="score_text" rows="" cols="" name="contents" style="resize:none" placeholder="후기를 남겨주세요!"></textarea></div>
 			<div id="savebutton_div"><input type="button" value="등록하기" id="savebutton"></div>
 	</form>
 </body>

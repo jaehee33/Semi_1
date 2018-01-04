@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 textarea{
-	width: 900px;
+	width: 700px;
 	height: 200px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 10px 10px;
+	
 }
 
 .star-input{
@@ -20,22 +20,23 @@ textarea{
 }
 
 #savebutton{
-	padding: 7px 5px;
-	background-color: white;
-	color: black;
+	padding: 30px 20px;
+	background-color: #5F4B8B;
+	color: white;
 	text-decoration: none;
-	border: 1px solid silver;
+	border: 0.5px solid #5F4B8B;
 }
 
 #savebutton:hover{
-	background-color: whiteSmoke;
+	background-color: white;
+	color: #5F4B8B;
 }
 
 #savebutton_div{
 	position: relative;
-	right:400px;
-	bottom: 40px;
-}
+	left:420px;
+	bottom: 205px;
+} 
 
 #id_input{
 	position: relative;
@@ -45,18 +46,9 @@ textarea{
 
 #score_div{
 	position: relative;
-	left: 100px;
+	left: 8px;
 	
 }
-
-
-
-
-
-
-
-
-
 
 
 

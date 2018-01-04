@@ -198,6 +198,7 @@ input[type=text]:focus{
 	padding-bottom: 50px;
 	text-align: left;
 	word-wrap: break-word;
+	overflow: auto;
 }
 
 img{
