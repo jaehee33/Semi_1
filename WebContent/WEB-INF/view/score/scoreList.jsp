@@ -174,7 +174,6 @@
 		$.get("../store/storeIndex.store?id=${storeid}", function(index) {
 			$("#storeheader").html(index);
 		});
-
 	});
 </script>
 </head>
@@ -248,9 +247,10 @@
 		</tr>
 
 		<tr>
-		<td class="table_contents" colspan="2">
-			답글 0개   |  답글쓰기
-		</td>
+		<td class="table_contents table_reply" colspan="2">
+			답글 0개   | 
+			<a href="#"> 답글쓰기</a>
+ 		</td>
 		<td>
 			<button class="update button_td" type="button" id="delete">수정</button>
 				
@@ -262,30 +262,6 @@
 		</c:forEach>
 
 
-<%-- 	<table class="score_table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>CONTENTS</th>
-					<th>POINT</th>
-					<th>DATE</th>
-				</tr>
-			</thead>
-
-			<c:forEach items="${list}" var="i">
-				<tbody>
-					<tr>
-						<td>${i.id}</td>
-						<td>${i.contents}</td>
-						<td>${i.point}</td>
-						<td>${i.reg_date}</td>
-					</tr>
-				</tbody>
-			</c:forEach>
-		</table>
---%>
-		
-		
 <%-- 
 		<c:if test="${member.id eq 'admin'}">
 			<button id="delete" type="button">Delete</button>
