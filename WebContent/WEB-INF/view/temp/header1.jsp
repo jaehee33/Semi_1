@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>                        
       </button>
       <div id="logo">
-      <a href="<%=request.getContextPath()%>/index.jsp"><img src="<%=request.getContextPath()%>/img/logo/biglogob180.png"></a>
+      <a href="<%=request.getContextPath()%>/index.jsp"><img src="<%=request.getContextPath()%>/img/logo/2w.png" style="width:180px;, height:24px;"></a>
       </div>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
