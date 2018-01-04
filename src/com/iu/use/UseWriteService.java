@@ -58,7 +58,6 @@ public class UseWriteService implements Action {
 				posDTO.setStore(store);
 				posDTO.setState("예약");
 
-
 				int useresult=0;
 				int posresult=0;
 
@@ -71,7 +70,7 @@ public class UseWriteService implements Action {
 				}
 				if(useresult>0 && posresult>0) {
 					actionForward.setCheck(false);
-					actionForward.setPath("./useList.use");		
+					actionForward.setPath("../WEB-INF/view/use/usePay.jsp");		
 				}else {
 					request.setAttribute("message", "fail");
 					request.setAttribute("path", "../store/storeList.store");
@@ -92,26 +91,9 @@ public class UseWriteService implements Action {
 				}
 				
 				Calendar cal=Calendar.getInstance();
-				int year=cal.get(Calendar.YEAR);
-				int month=cal.get(Calendar.MONTH)+1;
-				int date=cal.get(Calendar.DATE);
 				int hour=cal.get(Calendar.HOUR_OF_DAY);
 				int min=cal.get(Calendar.MINUTE);
 				int sec=cal.get(Calendar.SECOND);
-				
-				cal.set(year, month-1, 1); //시작일
-				int start=1;
-				int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-				int week=cal.get(Calendar.DAY_OF_WEEK);//1일이 무슨요일인지 알아냄
-				int weeks=cal.get(Calendar.WEEK_OF_MONTH);
-				
-				request.setAttribute("year", year); //년
-				request.setAttribute("month", month); //월
-				request.setAttribute("date", date);
-				request.setAttribute("start", start); 
-				request.setAttribute("end", end); //해당 월에 끝나는 날짜
-				request.setAttribute("week",week);
-				request.setAttribute("weeks", weeks);
 				request.setAttribute("hour", hour);
 				request.setAttribute("min", min);
 				request.setAttribute("sec", sec);			
