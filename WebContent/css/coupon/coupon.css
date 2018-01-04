@@ -33,8 +33,8 @@ h1{
 	height: 100px;
 }
 
-div_coupon{
-	display: inline;
+.div_coupon{
+	display: block;
 	padding: 30px;
 }
 

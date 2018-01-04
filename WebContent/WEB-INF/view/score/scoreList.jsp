@@ -162,11 +162,11 @@
 		});
 		
 		$(".update").click(function() {
-			window.location.href = "${score}Update.${score}?num=${num}"
+			window.location.href = "${score}Update.${score}?num=${num}";
 		});
 		
 		$("#list").click(function() {
-			window.location.href = "/Semi_1/store/storeList.store"
+			window.location.href = "/Semi_1/store/storeList.store";
 		});
 		
 		
