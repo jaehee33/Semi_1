@@ -1,8 +1,16 @@
 @charset "UTF-8";
 
-h3 {
-	font-weight: bold;
-	padding-bottom: 30px;
+h1{
+	margin-top: 20px;
+	text-align: center;
+	color: #5f4b8b;
+	padding: 10px;
+	font-size: xx-large;
+}
+
+h6{
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 #mypage {
@@ -26,5 +34,19 @@ select {
 }
 
 .table{
-	margin-top: 30px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+
+.table>thead>tr>th{
+	border-top: 2px solid #5f4b8b;
+	border-bottom: 2px solid #5f4b8b;
+	padding: 20px;
+}
+
+
+.table td{
+	border-bottom: 1px solid #5f4b8b;
+	padding: 20px;
 }

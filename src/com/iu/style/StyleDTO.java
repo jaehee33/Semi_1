@@ -6,7 +6,14 @@ public class StyleDTO {
 	private String style;
 	private int price;
 	private String store;
+	private String store_id;
 	
+	public String getStore_id() {
+		return store_id;
+	}
+	public void setStore_id(String store_id) {
+		this.store_id = store_id;
+	}
 	public int getPrice() {
 		return price;
 	}

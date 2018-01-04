@@ -7,5 +7,6 @@
 	<input type="hidden" name="style" value="${style}">
 	<input type="hidden" name="price" value="${price}">
 	<input type="hidden" name="store" value="${store}">
+	<input type="hidden" name="store_id" value="${store_id}">
 	<button type="button" id="btn" class="off">즐겨찾기</button>
 </form>

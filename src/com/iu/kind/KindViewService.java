@@ -9,6 +9,8 @@ import com.iu.action.Action;
 import com.iu.action.ActionForward;
 import com.iu.files.FilesDAO;
 import com.iu.files.FilesDTO;
+import com.iu.store.StoreDAO;
+import com.iu.store.StoreDTO;
 import com.iu.style.StyleDAO;
 import com.iu.style.StyleDTO;
 
@@ -32,7 +34,12 @@ public class KindViewService implements Action {
 			StyleDAO styleDAO = new StyleDAO();
 			StyleDTO styleDTO=styleDAO.selectOne(num);
 			
+			
 			if(kindDTO != null) {
+				StoreDAO storeDAO = new StoreDAO();
+				StoreDTO storeDTO= storeDAO.selectOnd(kindDTO.getStore());
+				
+				request.setAttribute("store", storeDTO);
 				request.setAttribute("fileList", ar);
 				request.setAttribute("styleDTO", styleDTO);
 				request.setAttribute("kind", kindDTO);
