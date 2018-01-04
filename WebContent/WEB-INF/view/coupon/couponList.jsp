@@ -9,10 +9,16 @@
 <link href="/Semi_1/css/coupon/coupon.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+	
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-	<section id="main">
+	<section>
 		<div>
 			<h1>COUPON</h1>
 		</div>

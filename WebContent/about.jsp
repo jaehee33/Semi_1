@@ -28,7 +28,7 @@
 </head>
 <body>
 <%@ include file="WEB-INF/view/temp/header.jsp" %>
-<section id="main">
+<section id="">
 <div id="content">
 <div id="company">
 <p>COMPANY</p>
@@ -49,7 +49,7 @@ Learn about the philosophy, corporate identity, and leadership that drive </p>
 </div>
 
 <section class="head" id="gold">
-<p><a href="">for your <br> sustainable <br> growth</a></p>
+<a href=""""><p>for your <br> sustainable <br> growth</p></a>
 </section>
 <div id="text">
 <p>세미헤어샵은 업계 리더로써 
