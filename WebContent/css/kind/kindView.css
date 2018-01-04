@@ -129,7 +129,7 @@ input[type=checkbox], input[type=radio] {
 	text-align: center;
 	border-bottom: 2px solid #5F4B8B;
 	height: 700px;
-	margin-bottom: 200px;
+	margin-bottom: 100px;
 }
 
 .view_product.icecream .photo {
@@ -143,7 +143,7 @@ input[type=checkbox], input[type=radio] {
 
 .view_product .photo img {
 	margin-top: 5px;
-	height:500px;
+	height:100px;
 }
 
 .view_product .buy {
@@ -412,6 +412,22 @@ input[type=checkbox], input[type=radio] {
 	font-weight: bold;
 }
 
+.container {
+	height: 600px;
+	weight: 800px;
+}
+
+#box{
+	height: 90%;
+	background-color: #fff;
+	padding: 30px;
+	margin-top: 30px;
+}
+
+#imagesize{
+	float:left;
+	height: 200px;
+}
 
 
 
