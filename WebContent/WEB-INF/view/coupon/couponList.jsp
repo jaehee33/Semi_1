@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#write").click(function(){
-			window.location.href= "/Semi_1/coupon/couponInsert.coupon";
+			location.href= "/Semi_1/coupon/couponInsert.coupon";
 		});
 	});
 </script>
@@ -27,7 +27,10 @@
 		<%-- <p>member: ${member.id}</p> --%>
 		<c:forEach items="${ar}" var="a">
 			<c:if test="${a.id eq sessionScope.member.id}">
-				<div>${a.coupon}<a href="./couponDelete.coupon?num=${a.num}">X</a></div>
+				<div class="adminlist">
+				<div class="acoupon">${a.coupon}</div>
+				<div class="dcoupon"><a href="./couponDelete.coupon?num=${a.num}">DELETE</a></div>
+				</div>
 			</c:if>
 			<c:if test="${a.id ne sessionScope.member.id}">
 				<div class="div_coupon">
@@ -38,7 +41,7 @@
 		</c:forEach>
 		<div id="admin">
 		<c:if test="${member.id eq 'admin'}">
-			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">쿠폰 등록하기 +</a>
+			<div id="write">쿠폰 등록하기 +</div>
 		</c:if>
 		</div>
 

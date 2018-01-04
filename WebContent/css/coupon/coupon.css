@@ -41,21 +41,12 @@ h1{
 div a{
 	text-decoration: none;
 }
-<<<<<<< HEAD
 
 #write{
 	padding: 5px 10px;
 }
 
 
-
-
-
-
-
-
-
-=======
 #admin a{
 	text-decoration: none;
 	text-align:center;
@@ -66,4 +57,48 @@ div a{
 	color: #5f4b8b;
 }	
 	
->>>>>>> jae
+.adminlist{
+	width: 50%;
+	height: 70px;
+	line-height: 70px;
+	text-align:center;
+	margin: 0 auto;
+	color:#5f4b8b;
+	border-bottom: 1px #E1E1E1 solid;
+}
+	
+	.acoupon{
+	font-size: 25px;
+	display: inline-block;
+	}
+	.dcoupon{
+	display: inline-block;
+	}
+	.dcoupon a{
+	text-decoration: none;
+	color:#d1d1d1;
+	font-weight: bold;
+	}
+	.dcoupon a:hover{
+	text-decoration: none;
+	color:red;
+	}
+	
+	#write{
+	border: 1px #E1E1E1 solid;
+	text-align: center;
+	line-height: 100px;
+	color: #5f4b8b;
+	font-size: 20px;
+	font-weight: bold;
+	width: 300px;
+	height: 100px;
+	margin: 30px auto;
+	cursor: pointer;
+	 -webkit-transition:background-color 1s;
+    transition:background-color 1s;
+	}
+	#write:hover{
+	color: white;
+	background-color: #5f4b8b;
+	}
