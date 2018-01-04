@@ -44,9 +44,6 @@
 				<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a>
 				<a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a>
 			</c:if>
-			<c:if test="${member.job eq 'B'}">
-				<a href="<%=request.getContextPath()%>/use/useList.use">예약/취소</a>
-			</c:if>
 		</div>
 		
 	</div>
