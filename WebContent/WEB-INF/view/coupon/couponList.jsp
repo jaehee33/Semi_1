@@ -26,7 +26,7 @@
 		<p>member: ${member.id}</p>
 		<c:forEach items="${ar}" var="a">
 			<c:if test="${a.id eq sessionScope.member.id}">
-				<div>${a.coupon}</div>
+				<div>${a.coupon}<a href="./couponDelete.coupon?num=${a.num}">X</a></div>
 			</c:if>
 			<c:if test="${a.id ne sessionScope.member.id}">
 				<p></p>
@@ -34,6 +34,9 @@
 					<a
 						href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
 						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg">${a.coupon}</a>
+						
+			
+	
 				</div>
 			</c:if>
 		</c:forEach>
