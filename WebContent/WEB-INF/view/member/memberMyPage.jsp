@@ -10,6 +10,7 @@
 </head>
 <script type="text/javascript">
 $(function(){
+	
 	//<!-- =====================마이페이지============================= -->
 		$(".hover").mouseleave(
 				  function () {
@@ -56,7 +57,17 @@ function myFunction() {
 				<c:if test="${empty m2.job}">
 					<span><p>*카카오 로그인시 예약을 원하시면 정보수정을 해주세요.*</p></span>
 				</c:if>
-				
+
+				<c:if test="${empty ar}">
+				<p>coupon X</p>
+				</c:if>
+				<c:if test="${not empty ar}">
+				<p id="coupon">coupon : </p>
+				<c:forEach items="${ar}" var="i">
+				<span>${i.coupon} </span>
+				</c:forEach>
+				</c:if>
+
 			</ul>
 			</div>
 <!-- =====================box1============================= -->
@@ -150,6 +161,7 @@ function myFunction() {
 <div id="del">
 	<button id="button" onclick="myFunction()">회원탈퇴</button>
 </div>
+
 </article>
 		
 

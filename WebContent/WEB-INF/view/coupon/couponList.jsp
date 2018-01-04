@@ -12,9 +12,8 @@
 <script type="text/javascript">
 	$(function(){
 		$("#write").click(function(){
-			window.location.href="<%=request.getContextPath()%>/coupon/couponInsert.coupon";
+			window.location.href= "/Semi_1/coupon/couponInsert.coupon";
 		});
-	
 	});
 </script>
 </head>
@@ -32,24 +31,17 @@
 			</c:if>
 			<c:if test="${a.id ne sessionScope.member.id}">
 				<div class="div_coupon">
-					<a
-						href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
-						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg"><p>${a.coupon}</p></a>
+						<a href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
+						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg"><span class="coupon_span">${a.coupon}</span></a><span>${a.discount}% 쿠폰</span>
 				</div>
 			</c:if>
 		</c:forEach>
 		<div id="admin">
 		<c:if test="${member.id eq 'admin'}">
-<<<<<<< HEAD
-			<button type="button" class="buttonCoupon" id="write">쿠폰 생성</button>
-		</c:if>
-		
-		
-=======
 			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">쿠폰 등록하기 +</a>
 		</c:if>
 		</div>
->>>>>>> jae
+
 	</section>
 	
 	<%@ include file="../temp/footer.jsp" %>
