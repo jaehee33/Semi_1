@@ -43,25 +43,28 @@
 		<div class="view_wrap">
 			<article class="view_product">
 				<header class="header">
-					<div class="photo">
-						<img src="../upload/${file.fname}">
-					</div>
-					<div id="Contents">
-						<div id="info">
-							<h3>Style</h3>
-							<h1>${kind.style}</h1>
-							<p>
-								<img src="<%=request.getContextPath()%>/img/store/scissors.png"
-									style="width: 16px; height: 16px;"> <b>매장명</b> <br>${kind.store}
-							</p>
-							<p>
-								<img src="<%=request.getContextPath()%>/img/store/scissors.png"
-									style="width: 16px; height: 16px;"> <b>가격</b> <br>${kind.price}
-							</p>
-							<br>
-							<c:if test="${not empty member}">
-								<div id="favor"></div>
-							</c:if>
+					<div class="container">
+						<div id="box">
+							<div id="imagesize">
+								<img src="../upload/${file.fname}" width="300" height="450">
+							</div>
+							<div id="info">
+								<h3>Style</h3>
+								<h1>${kind.style}</h1>
+								<p>
+									<img src="<%=request.getContextPath()%>/img/store/scissors.png"
+										style="width: 16px; height: 16px;"> <b>매장명</b> <br>${kind.store}
+								</p>
+								<p>
+									<img src="<%=request.getContextPath()%>/img/store/scissors.png"
+										style="width: 16px; height: 16px;"> <b>가격</b> <br>${kind.price}
+								</p>
+								<br>
+								<c:if test="${not empty member}">
+									<div id="favor"></div>
+								</c:if>
+
+							</div>
 						</div>
 					</div>
 					<div class="buy">
