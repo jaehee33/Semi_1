@@ -14,15 +14,9 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript">
 	$(function(){
-		$("#time").click(function(){
-			$(this).attr("selected", true, function(){
-				$("#tbody").append();
-			});
-		});
-
 		$("#finish").click(function(){
 			var IMP=window.IMP;
-			IMP.init(imp78791768);
+			IMP.init("imp78791768");
 
 			IMP.request_pay({
 			    pg : 'uplus', // version 1.1.0부터 지원.
@@ -44,7 +38,6 @@
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
 			    }
-			    alert(msg);
 			});
 		});
 
@@ -55,45 +48,19 @@
 <body>
 	<%@ include file="../temp/header.jsp"%>
 	<section id="main">
-		<div class="box container">
+		<div class="container">
+		<div id="box">
 		<form action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
-			<h3>예약하기</h3>
+			<h1>예약하기</h1>
+			<p id="info1">예약과 결제를 한 번에!</p>
+				
 			<div class="form-group">
 				<div class="rsv_l">
-					<div id="calendar">
-						<table>
-							<tr>
-								<th>일</th>
-								<th>월</th>
-								<th>화</th>
-								<th>수</th>
-								<th>목</th>
-								<th>금</th>
-								<th>토</th>
-							</tr>
-							<tr class="days">
-								<c:forEach begin="1" end="${week-1}" var="i">
-									<td></td>
-								</c:forEach>
-								<c:forEach begin="1" end="${end}" var="i">
-									<td class="day">
-										<c:if test="${date==i}">
-											<div id="today">${i}</div>
-										</c:if> <c:if test="${date != i}">
-											<div class="date" id="day${i}">${i}</div>
-										</c:if>
-									</td>
-								</c:forEach>
-							</tr>
-						</table>
-					</div>
-					<!-- calendar 끝 -->
-
-					<!-- 선택한 날짜 나오게 하는것 -->
-					<div id="bk_date" class="wrap">
-						<input type="hidden" value="${year}-${month}-${date}" name="bk_date">
-						${year}년${month}월${date}일
-					</div>
+					<!-- 날짜선택 -->
+					<div class="wrap">
+						<label class="title" for="sel1">날짜 선택</label><br>
+						<input type="date" class="form-control">
+					</div>		
 
 					<!-- 시간선택 -->
 					<div class="wrap">
@@ -141,13 +108,11 @@
 					</table>
 
 					<h3>총 결제금액 : ${price}원</h3>
-					<button class="btn btn-default wrap" id="finish">예약하기</button>
+					<input type="button" id="finish" value="예약하기">
 				</div>
-
-
 			</div>
-
 		</form>
+		</div>
 		</div>
 	</section>
 	
