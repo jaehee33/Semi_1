@@ -32,7 +32,7 @@
         </li>
   <!-- ============================================================================================= -->
         <li><a href="<%=request.getContextPath()%>/kind/kindFList.kind">STYLE</a></li>
-        <li><a href="%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a></li>
+        <li><a href="<%=request.getContextPath()%>/coupon/couponList.coupon">EVENT</a></li>
   <!-- ============================================================================================== -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">NOTICE
