@@ -16,7 +16,7 @@ public class CouponDAO {
 	
 	public int insert(CouponDTO couponDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="insert into coupon values(?,?,?)";
+		String sql="insert into coupon values(?,?,?,coupon_seq.nextval)";
 		PreparedStatement pre = con.prepareStatement(sql);
 		pre.setString(1, couponDTO.getId());
 		pre.setString(2, couponDTO.getCoupon());
@@ -26,15 +26,16 @@ public class CouponDAO {
 		return result;
 	}
 	
-	public int delete(MemberDTO memberDTO) throws Exception{
+	public int delete(int num) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="delete coupon where id=?";
+		String sql="delete coupon where num=?";
 		PreparedStatement pre = con.prepareStatement(sql);
-		pre.setString(1, memberDTO.getId());
+		pre.setInt(1, num);
 		int result = pre.executeUpdate();
 		DBConnector.disConnect(pre, con);
 		return result;
 	}
+	
 	public List<CouponDTO> selectList(String id) throws Exception {
 		List<CouponDTO> ar = new ArrayList<CouponDTO>();
 		Connection con = DBConnector.getConnect();
@@ -47,6 +48,7 @@ public class CouponDAO {
 			couponDTO.setId(rs.getString("id"));
 			couponDTO.setCoupon(rs.getString("coupon"));
 			couponDTO.setDiscount(rs.getInt("discount"));
+			couponDTO.setNum(rs.getInt("num"));
 			ar.add(couponDTO);
 		}
 		
