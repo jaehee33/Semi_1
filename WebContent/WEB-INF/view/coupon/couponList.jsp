@@ -38,12 +38,18 @@
 				</div>
 			</c:if>
 		</c:forEach>
-
+		<div id="admin">
 		<c:if test="${member.id eq 'admin'}">
+<<<<<<< HEAD
 			<button type="button" class="buttonCoupon" id="write">쿠폰 생성</button>
 		</c:if>
 		
 		
+=======
+			<a href="<%=request.getContextPath()%>/coupon/couponInsert.coupon">쿠폰 등록하기 +</a>
+		</c:if>
+		</div>
+>>>>>>> jae
 	</section>
 	
 	<%@ include file="../temp/footer.jsp" %>

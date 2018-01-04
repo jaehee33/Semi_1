@@ -41,6 +41,7 @@ div_coupon{
 div a{
 	text-decoration: none;
 }
+<<<<<<< HEAD
 
 #write{
 	padding: 5px 10px;
@@ -54,3 +55,15 @@ div a{
 
 
 
+=======
+#admin a{
+	text-decoration: none;
+	text-align:center;
+	font-size: 50px;
+	color:black;
+}
+#admin a:hover{
+	color: #5f4b8b;
+}	
+	
+>>>>>>> jae
