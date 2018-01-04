@@ -16,8 +16,10 @@ public class KakaoLogoutService implements Action {
 		
 		session.invalidate();
 		request.getSession().invalidate();
-		actionForward.setCheck(false);
-		actionForward.setPath("../index.jsp");
+		request.setAttribute("message", "로그아웃되었습니다.");
+		request.setAttribute("path", "../index.jsp");
+		actionForward.setCheck(true);
+		actionForward.setPath("../WEB-INF/view/common/result.jsp");
 		
 		return actionForward;
 	}
