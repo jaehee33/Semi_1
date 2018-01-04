@@ -45,6 +45,10 @@ text-decoration: none;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript">
 	$(function(){
+		
+			$.get("./posTotal.pos?store=${store}",function(total){
+				$("#total").html(total);
+			});
 		$(".list").click(function(){
 			var cur = $(this).attr("title");
 			document.frm.curPage.value=cur;
@@ -78,6 +82,7 @@ text-decoration: none;
 			<input type="hidden" name="store" value="${store}">
 		</form>
 	</div>
+	<p id="total"></p>
 <table class="table table-hover">
 		<tr id="first">
 			<td>date</td>
