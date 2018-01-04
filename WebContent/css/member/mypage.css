@@ -104,20 +104,23 @@ body {
 #hd{
 	width: 100%;
 	height: 339px;
-	background-image: url('/Semi_1/img/member/hd.png');
+	/* background-image: url('/Semi_1/img/member/hd.png'); */
 	margin-top: 100px;
 	margin-bottom: 50px;
 	display: inline-block;
+	z-index: -999;
 	
 }
 #hd h2{
-	margin-top: 60px;
+	margin-top: -300px;
 	text-align: center;
 	padding: 10px;
 	font-size: xx-large;
+	
 }
 #hd h4{
 	text-align: center;
+	
 }
 #info{
 	width: 940px;

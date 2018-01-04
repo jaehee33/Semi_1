@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 import com.iu.util.DBConnector;
 
-public class KindDAO {
-	
+public class KindDAO {	
 	//============================KindView selectOne============================
 	public KindDTO selectone(int num) throws Exception{
 		Connection con = DBConnector.getConnect();

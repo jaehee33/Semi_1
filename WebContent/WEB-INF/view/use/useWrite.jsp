@@ -90,7 +90,7 @@
 
 					<!-- 선택한 날짜 나오게 하는것 -->
 					<div id="bk_date" class="wrap">
-						<input type="hidden" value="${year}-${month}-${date}">
+						<input type="hidden" value="${year}-${month}-${date}" name="bk_date">
 						${year}년${month}월${date}일
 					</div>
 

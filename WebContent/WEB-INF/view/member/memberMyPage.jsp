@@ -33,6 +33,7 @@ function myFunction() {
 <%@ include file="../temp/header.jsp" %>
 	<section id="">
 		<div id="hd">
+		<img src="<%=request.getContextPath()%>/img/member/hd.png" style="width:100%; height:339px;">
 			<div id="home">
 			<p><a href="../index.jsp"><img src="<%=request.getContextPath()%>/img/member/home.png" style="width:15px; height:15px;"></a>
 			<span><a href="./memberMyPage.member">> 마이페이지</a></span></p>
@@ -49,9 +50,16 @@ function myFunction() {
 					</h4></li>
 			
 				<li><h4>연락처: ${m2.phone}</h4></li>
-
 				<a href="./memberUpdate2.member?id=${sessionScope.member.id}">
 				<img src="<%=request.getContextPath()%>/img/member/modify4.png" style="width:32px; height:32px;"></a>
+				
+				<c:if test="${empty m2.job}">
+					<span><p>*카카오 로그인시 예약을 원하시면 정보수정을 해주세요.*</p></span>
+				</c:if>
+				<c:if test="${not empty m2.job}">
+					<span><p>*환영합니다.*</p></span>
+				</c:if>
+				
 			</ul>
 			</div>
 <!-- =====================box1============================= -->

@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iu.action.Action;
 import com.iu.action.ActionForward;
-import com.iu.board.BoardDTO;
-import com.iu.notice.NoticeDAO;
 
 public class ScoreUpdateService implements Action {
 

@@ -59,25 +59,28 @@ for(int i=0;i<ar.length;i++){
 				<p><button id="button">Login</button></p>
 				</div>
 				<!---------------------------- 카카오로그인 시작 ---------------------------->
-
-	<!-- 	<a id="kakao-login-btn"></a>
+				<div id="cau">
+				<br>
+<p>*카카오톡 로그인시 예약을 원하시면 마이페이지에서 정보수정을 해주세요.*</p>
+</div>
+<div id="kakao">
+	<a id="kakao-login-btn"></a>
 		<a href="http://developers.kakao.com/logout"></a>
 		<script type='text/javascript'>
 			//<![CDATA[
 			// 사용할 앱의 JavaScript 키를 설정해 주세요.
 			Kakao.init('44dc488bb7ee1b14cd2765f0530ea05b');
-			  // 카카오 로그인 버튼을 생성합니다.
+			// 카카오 로그인 버튼을 생성합니다.
 		    Kakao.Auth.createLoginButton({
 		      	container: '#kakao-login-btn',
 		      	success: function(authObj) {
 		      		Kakao.API.request({
 		      			url:'/v1/user/me',
 		      			success:function(res){
-		      				var info=[
-		      					JSON.stringify(res.id)
-		      					
-		      				];
-		      				console.log(info);
+		      				/* alert(res.id+'님 카카오톡 로그인 완료.'); */
+							
+		      				location.href="./kakao.member?id="+res.id;
+
 		      			},
 		      			fail:function(error){
 		      				alert(JSON.stringify(error));
@@ -88,8 +91,8 @@ for(int i=0;i<ar.length;i++){
 		      		alert(JSON.stringify(err));
 		      	}
 		    });
-		</script> -->
-
+		</script>
+</div>
 				<!----------------------------카카오로그인 끝 ------------------------------->
 			</form>
 		</section>

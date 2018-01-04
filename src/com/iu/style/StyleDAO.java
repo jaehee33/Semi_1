@@ -27,6 +27,7 @@ public class StyleDAO {
 			styleDTO.setPrice(rs.getInt("price"));
 			styleDTO.setStore(rs.getString("store"));
 			styleDTO.setStyle(rs.getString("style"));
+			styleDTO.setStore_id(rs.getString("store_id"));
 		}
 		DBConnector.disConnect(rs, st, con);
 		return styleDTO;
@@ -48,6 +49,7 @@ public class StyleDAO {
 			styleDTO.setPrice(rs.getInt("price"));
 			styleDTO.setStore(rs.getString("store"));
 			styleDTO.setStyle(rs.getString("style"));
+			styleDTO.setStore_id(rs.getString("store_id"));
 			
 			list.add(styleDTO);
 		}
@@ -71,13 +73,14 @@ public class StyleDAO {
 
 	public int insert(StyleDTO styleDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
-		String sql="insert into style values(?,?,?,?,?)";
+		String sql="insert into style values(?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, styleDTO.getId());
 		st.setString(2, styleDTO.getStyle());
 		st.setInt(3, styleDTO.getNum());
 		st.setInt(4, styleDTO.getPrice());
 		st.setString(5, styleDTO.getStore());
+		st.setString(6, styleDTO.getStore_id());
 		int result=st.executeUpdate();
 
 		DBConnector.disConnect(st, con);

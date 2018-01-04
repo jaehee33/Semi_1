@@ -48,7 +48,7 @@
  		 <li><a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a></li>
  		 </c:if>
 			<c:if test="${not empty member}">
-				<li><a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a></li>
+				<li><a href="<%=request.getContextPath()%>/member/kakaoLogout.member">Logout</a></li>
 				<li><a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a></li>
 			</c:if>
 			<c:if test="${member.job eq 'B'}">

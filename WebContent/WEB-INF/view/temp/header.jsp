@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link href="<%=request.getContextPath()%>/css/header.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
+<%-- <link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet"> --%>
 
 <header>
 	<div id="hdtop">
@@ -41,8 +41,10 @@
 				<a href="<%=request.getContextPath()%>/member/memberLogin.member">Login</a>
 			</c:if>
 			<c:if test="${not empty member}">
-				<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a>
+			<%-- 	<a href="<%=request.getContextPath()%>/member/memberLogout.member">Logout</a> --%>
+				<a href="<%=request.getContextPath()%>/member/kakaoLogout.member">Logout</a>
 				<a href="<%=request.getContextPath()%>/member/memberMyPage.member">MyPage</a>
+				
 			</c:if>
 		</div>
 		

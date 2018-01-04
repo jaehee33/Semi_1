@@ -31,6 +31,7 @@ public class MemberUpdateService implements Action {
 				memberDTO.setName(request.getParameter("name"));
 				memberDTO.setBirth(Date.valueOf(request.getParameter("birth")));
 				memberDTO.setPhone(request.getParameter("phone"));
+				memberDTO.setJob(request.getParameter("job"));
 				result = memberDAO.update(memberDTO);
 			} catch (Exception e) {
 			}
@@ -38,7 +39,7 @@ public class MemberUpdateService implements Action {
 				actionForward.setCheck(true);
 				actionForward.setPath("./memberMyPage.member");		
 			}else {
-				request.setAttribute("message", "fail");
+				request.setAttribute("message", "모두 작성해주시기 바랍니다.");
 				request.setAttribute("path", "./memberMyPage.member");
 				actionForward.setCheck(true);
 				actionForward.setPath("../WEB-INF/view/common/result.jsp");

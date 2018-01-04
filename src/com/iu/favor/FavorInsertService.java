@@ -24,8 +24,8 @@ public class FavorInsertService implements Action {
 			try {
 				count=favorDAO.TotalCount();
 
-				if(count>2) {
-					request.setAttribute("message", "즐겨찾기는 최대 3개까지 가능합니다");
+				if(count>4) {
+					request.setAttribute("message", "즐겨찾기는 최대 5개까지 가능합니다");
 					request.setAttribute("path", "../store/storeView.store?id="+store_id);
 					actionForward.setCheck(true);
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
