@@ -34,14 +34,7 @@
 				<div class="div_coupon">
 					<a
 						href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
-<<<<<<< HEAD
-						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg">${a.coupon}</a>
-						
-			
-	
-=======
 						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg"><p>${a.coupon}</p></a>
->>>>>>> 4_euny_2
 				</div>
 			</c:if>
 		</c:forEach>
