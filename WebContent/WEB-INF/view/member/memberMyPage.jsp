@@ -56,9 +56,6 @@ function myFunction() {
 				<c:if test="${empty m2.job}">
 					<span><p>*카카오 로그인시 예약을 원하시면 정보수정을 해주세요.*</p></span>
 				</c:if>
-				<c:if test="${not empty m2.job}">
-					<span><p>*환영합니다.*</p></span>
-				</c:if>
 				
 			</ul>
 			</div>
