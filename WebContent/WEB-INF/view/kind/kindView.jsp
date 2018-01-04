@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {		
 		if(${styleDTO == null}){
-			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}", function(data) {
+			$.get("../style/styleInsert.style?num=${kind.num}&style=${kind.style}&price=${kind.price}&store=${kind.store}&store_id=${store.id}", function(data) {
 				$("#favor").html(data);
 			});
 		}

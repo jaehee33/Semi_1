@@ -40,7 +40,9 @@
 	<section id="main">
 		<div class="container">
 			<div id="list">
-				<h3>｜ 예약/취소내역</h3>
+				<h1>예약/취소내역</h1>
+				<h6>예약/취소한 헤어샵의 내역을 알 수 있습니다</h6>
+
 				<form name="frm" action="./useList.use">
 					<input type="hidden" name="curPage"> <select name="kind">
 						<option class="kind" value="store">store</option>

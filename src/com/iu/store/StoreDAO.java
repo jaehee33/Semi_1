@@ -119,4 +119,26 @@ public class StoreDAO{
 				return list;
 			}
 
+			
+			//===============style에서 store로 갈때 style의 store로 store검색==============
+			public StoreDTO selectOnd(String store) throws Exception{
+				Connection con=DBConnector.getConnect();
+				String sql="select * from store where store=?";
+				PreparedStatement st=con.prepareStatement(sql);
+				st.setString(1, store);
+				ResultSet rs=st.executeQuery();
+				
+				StoreDTO storeDTO = new StoreDTO();
+				
+				if(rs.next()) {
+					storeDTO=new StoreDTO();
+					storeDTO.setId(rs.getString("id"));
+					storeDTO.setStore(rs.getString("store"));
+					storeDTO.setArea(rs.getString("area"));
+					storeDTO.setStoretel(rs.getString("storetel"));
+					storeDTO.setHoliday(rs.getString("holiday"));
+				}
+				DBConnector.disConnect(rs, st, con);
+				return storeDTO;
+			}
 }
