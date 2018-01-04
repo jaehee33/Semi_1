@@ -197,7 +197,8 @@ input[type=text]:focus{
 	padding-top: 30px;
 	padding-bottom: 50px;
 	text-align: left;
-	word-wrap: break-word;
+	word-wrap: break-all;
+	table-layout: fixed;
 	overflow: auto;
 }
 

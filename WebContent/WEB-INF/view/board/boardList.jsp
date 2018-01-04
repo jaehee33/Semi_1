@@ -84,8 +84,6 @@
 							
 							<div id="contents_view${j.index}" class="div_view" >
 								<p class="toggle_contents">${i.contents}</p>
-								
-								
 							</div>
 						</td>
 						<c:if test="${member.id eq 'admin'}">
@@ -169,6 +167,5 @@
 		<!-- <button type="button" class="btn" id="backpage">BackPage</button> -->
 	</section>
 	<%@ include file="../temp/footer.jsp"%>
-
 </body>
 </html>

@@ -135,7 +135,7 @@ section{
 	vertical-align: top;
 	text-align: left;
 	padding-left: 10px;
-	overflow: auto;
+	overflow-x: auto;
 	word-break: break-all;
 }
 

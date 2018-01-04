@@ -6,19 +6,27 @@ body{
 }
 
 section{
-	height: auto;
+	height: 1000px;
 	background-color: white;
 	margin-top: 98px;
 	margin-left: 20%;
 	margin-right: 20%; 
+	padding: 10px 30px;
 }
 
+div h1{
+	vertical-align: middle;
+	margin-top: 80px;
+	padding-bottom: 80px;
+	text-align: center;
+	font-weight: 100;
+}
+
+
 h1{
-	margin-top: 100px;
 	text-align: center;
 	color: #000000;
-	padding: 10px;
-	font-size: xx-large;
+	font-size: 40px;
 }
 
 .coupon_1{
@@ -33,3 +41,16 @@ div_coupon{
 div a{
 	text-decoration: none;
 }
+
+#write{
+	padding: 5px 10px;
+}
+
+
+
+
+
+
+
+
+
