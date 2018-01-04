@@ -56,7 +56,7 @@ pauseButton.addEventListener("click", function() {
 <%@ include file="WEB-INF/view/temp/header1.jsp" %>
 
 <div id="ho">
-<img alt="" src="<%=request.getContextPath()%>/img/logo/biglogob.png">
+<img alt="" src="<%=request.getContextPath()%>/img/logo/2.png">
 </div>
 <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
   <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
