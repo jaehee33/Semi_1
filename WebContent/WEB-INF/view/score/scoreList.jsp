@@ -157,12 +157,12 @@
 		
 		
 		
-		$("#delete").click(function() {
-			window.location.href = "${board}Delete.${board}?num=${view.num}";
+		$(".delete").click(function() {
+			window.location.href = "${score}Delete.${score}?num=${num}";
 		});
 		
-		$("#update").click(function() {
-			window.location.href = "${board}Update.${board}?num=${view.num}"
+		$(".update").click(function() {
+			window.location.href = "${score}Update.${score}?num=${num}"
 		});
 		
 		$("#list").click(function() {
@@ -205,13 +205,59 @@
 	<c:forEach items="${list}" var="i">
 		<table class="score_list">
 		<tr>
-		<td id="table_point" colspan="2"> ${i.point}점/ ${i.id}</td> 
+		<td id="table_id">${i.id}</td> 
+		<td id="table_point"> 
+		<c:if test="${i.point==0.5}">
+			<img class="img_score" src="/Semi_1/img/score/score_0.5.PNG">
+		</c:if>
+		<c:if test="${i.point==1.0}">
+			<img class="img_score" src="/Semi_1/img/score/score_1.0.PNG">
+		</c:if>
+		<c:if test="${i.point==1.5}">
+			<img class="img_score" src="/Semi_1/img/score/score_1.5.PNG">
+		</c:if>
+		<c:if test="${i.point==2.0}">
+			<img class="img_score" src="/Semi_1/img/score/score_2.0.PNG">
+		</c:if>
+		<c:if test="${i.point==2.5}">
+			<img class="img_score" src="/Semi_1/img/score/score_2.5.PNG">
+		</c:if>
+		<c:if test="${i.point==3.0}">
+			<img class="img_score" src="/Semi_1/img/score/score_3.0.PNG">
+		</c:if>
+		<c:if test="${i.point==3.5}">
+			<img class="img_score" src="/Semi_1/img/score/score_3.5.PNG">
+		</c:if>
+		<c:if test="${i.point==4.0}">
+			<img class="img_score" src="/Semi_1/img/score/score_4.0.PNG">
+		</c:if>
+		<c:if test="${i.point==4.5}">
+			<img class="img_score" src="/Semi_1/img/score/score_4.5.PNG">
+		</c:if>
+		<c:if test="${i.point==5.0}">
+			<img class="img_score" src="/Semi_1/img/score/score_5.0.PNG">
+		</c:if>
+		<span class="point_span">${i.point}점</span>
+		</td>
 		<td id="table_date"> ${i.reg_date}</td>
 		</tr>
 		
 		<tr>
 		<td  class="table_contents" colspan="3">${i.contents}</td>
+		
 		</tr>
+
+		<tr>
+		<td class="table_contents" colspan="2">
+			답글 0개   |  답글쓰기
+		</td>
+		<td>
+			<button class="update button_td" type="button" id="delete">수정</button>
+				
+			<button class="delete button_td" type="button" id="update">삭제</button>
+		</td>
+		</tr>
+
 		</table>
 		</c:forEach>
 
@@ -251,8 +297,7 @@
  --%>
  	
  	
- 	<div>
- 	
+ 	<div class="div_page">
 		<c:if test="${not empty make}">
 			<input type="button" class="list" title="${page.startNum}" value="<<">
 		</c:if>

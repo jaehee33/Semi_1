@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Update ${board}</h1>
-	<form action="./${board}Update.${board}" method="post">
+<h1>Update ${score}</h1>
+	<form action="./${score}Update.${score}" method="post">
 		<input type="hidden" name="num" value="${view.num}">
 		<h3>ID: </h3><input type="text" name="id" readonly="readonly" value="${view.id}">
 		<h3>TITLE: </h3><input type="text" name="title" value="${view.title}">
