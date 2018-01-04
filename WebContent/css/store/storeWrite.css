@@ -72,6 +72,29 @@ tr input{
 	color: white;	
 }
 
+.btn{
+	width: 150px;
+	height: 70px;
+	line-height: 70px;
+	color: #6baed6;
+	border:#E1E1E1 1px solid;
+	border-radius:9px;
+	 -webkit-transition:background-color 1s;
+    transition:background-color 1s;
+    background-color: white;
+}
+
+#booklist{
+	width: 320px;
+	margin: 20px auto;
+	
+	}
+
+.btn:hover{
+	color:white;
+	background-color: #6baed6;
+}
+
 #file{
 	border: none;
 }
