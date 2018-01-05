@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<div id="postitl"><ul><li class="style">Style</li><li class="price">Price</li><li class="gender">Gender</li><li class="kind">Kind</li><li class="file">File</li></ul></div>
 	<form action="kindInsert.kind" method="post" id="frm" name="frm" enctype="multipart/form-data">
-				<p>
+				<p id="frm-item">
 					<input type="text" class="emptykind style" name="style" placeholder="종류를 입력해주세요">
 					<input type="number" class="emptykind price" name="price" placeholder="가격을 입력해주세요">
 					<select name="gender" class="gender">
