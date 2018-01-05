@@ -37,8 +37,9 @@
 	<%@ include file="../temp/header.jsp"%>
 	<section id="">
 		<div id="hd">
-			<img src="<%=request.getContextPath()%>/img/member/hd.PNG"
-				style="width: 100%; height: 339px;">
+
+		<img src="<%=request.getContextPath()%>/img/member/hd.PNG" style="width:100%; height:339px;">
+
 			<div id="home">
 				<p>
 					<a href="../index.jsp"><img
