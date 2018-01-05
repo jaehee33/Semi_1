@@ -47,21 +47,23 @@
 <%@ include file="../temp/header.jsp"%>
 	<section>
 	<div id="div_h1">
-	<h1 id="h1">포스팅 하기</h1>
+	<h1 id="h1">Posting</h1>
 	</div>
-	<form id="frm" action="./${board}Write.${board}" method="post" enctype="multipart/form-data">
-		<p class="frm_p" >ID : ${member.id} <input id="frm_id" type="hidden" name="id" value="${member.id}" ></p>
-		<p class="frm_p">TITLE: <input id="frm_title" type="text" name="title"></p>
-		<p class="frm_p">CONTEXT:<textarea id="frm_context" style="resize:none" name="contents" id="contents"></textarea></p>
+	
+	<form id="frm" action="./${board}Write.${board}" method="post">
+		<div class="frm_p"><div class="p">ID</div><p id="frm_idp">${member.id}<p> <input id="frm_id" type="hidden" name="id" value="${member.id}">
+		</div>
+		<div class="frm_p"><div class="p">TITLE</div> <input id="frm_title" type="text" name="title"></div>
+		<div class="frm_p"><div class="p">CONTEXT</div><textarea id="frm_context" style="resize:none" name="contents" id="contents"></textarea></div>
 		<!-- 	<div id="files">
 		<input type="file" name="f1">
 		</div>
 		<input type="button" id="btn" value="Add File"> -->
-	
+	<p>
+		<input type="button" value="글 등록하기" id="savebutton">
+	</p>
 	</form>
-		<p>
-			<input type="button" value="글 등록하기" id="savebutton">
-		</p>
+	
 	</section>
 	<%@ include file="../temp/footer.jsp"%>
 </body>

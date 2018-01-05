@@ -36,7 +36,7 @@
 		var curPage=Number(${curPage});		
 		$(".button_now").each(function(){
 			if(Number($(this).attr("title"))==curPage){
-				$(this).css("background-color","silver");
+				$(this).css("background-color","Gainsboro");
 			}
 		});
 		
@@ -88,8 +88,12 @@
 
 							<div id="contents_view${j.index}" class="div_view">
 								<p class="toggle_contents">${i.contents}
-									<a href="${board}Delete.${board}?num=${i.num}">DELETE</a>
-									<a href="${board}Update.${board}?num=${i.num}">UPDATE</a>
+								<div class="div_deletebutton">
+								<c:if test="${member.id eq 'admin'}">
+									<a class="buttona" href="${board}Delete.${board}?num=${i.num}">DELETE</a>
+									<a class="buttona" href="${board}Update.${board}?num=${i.num}">UPDATE</a>
+								</c:if>
+								</div>
 								</p>
 							</div></td>
 						<c:if test="${member.id eq 'admin'}">
