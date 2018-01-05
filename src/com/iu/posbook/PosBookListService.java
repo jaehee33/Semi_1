@@ -18,23 +18,20 @@ public class PosBookListService implements Action {
 		ActionForward actionForward=new ActionForward();
 		
 		String store="";
-		StoreDTO storeDTO=new StoreDTO();
-		
-		UseDAO useDAO=new UseDAO();
-		ArrayList<UseDTO> ar2=null;
+
+
 		PosBookDAO posBookDAO=new PosBookDAO();
 		ArrayList<PosBookDTO> ar=null;
 		
 		try {
 			store=request.getParameter("store");
-			storeDTO.setStore(store);
-			ar2=(ArrayList<UseDTO>)useDAO.selectList(storeDTO);
+
 			ar=(ArrayList<PosBookDTO>) posBookDAO.selectList(store);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("use", ar2);
+
 		request.setAttribute("store", store);
 		request.setAttribute("posbook", ar);
 		actionForward.setCheck(true);

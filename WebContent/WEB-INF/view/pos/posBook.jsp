@@ -57,32 +57,6 @@ text-decoration: none;
 		</tr>
 		</c:forEach>
 	</table>
-	<br>
-	<h1>Customer List</h1>
-	<table class="table table-hover">
-		<tr id="first">
-			<td>ID</td>
-			<td>NAME</td>
-			<td>Phone</td>
-			<td>BK_DATE</td>
-			<td>STYLE</td>
-			<td>PRICE</td>
-			<td>TIME</td>
-			<td>COUPON</td>
-		</tr>
-		<c:forEach items="${use}" var="b">
-		<tr>
-			<td>${b.id}</td>
-			<td>${b.name}</td>
-			<td>${b.phone}</td>
-			<td>${b.bk_date}</td>
-			<td>${b.style}</td>
-			<td>${b.price}</td>
-			<td>${b.time}</td>
-			<td>${b.coupon}</td>
-		</tr>
-		</c:forEach>
-	</table>
 	</div>
 	</section>
 </body>
