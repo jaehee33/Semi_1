@@ -17,12 +17,14 @@ public class PosBookDeleteService implements Action {
 		String store="";
 		try {
 			store=request.getParameter("store");
+			System.out.println(store);
 			num=Integer.parseInt(request.getParameter("num"));
 			result=posBookDAO.success(num);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		
+		request.setAttribute("store", store);
 		actionForward.setCheck(false);
 		actionForward.setPath("./posbook.pos?store="+store);
 		
