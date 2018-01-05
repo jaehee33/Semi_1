@@ -14,7 +14,9 @@ public class PosBookDeleteService implements Action {
 		PosBookDAO posBookDAO= new PosBookDAO();
 		int num=0;
 		int result=0;
+		String store="";
 		try {
+			store=request.getParameter("store");
 			num=Integer.parseInt(request.getParameter("num"));
 			result=posBookDAO.success(num);
 		}catch (Exception e) {
@@ -22,7 +24,7 @@ public class PosBookDeleteService implements Action {
 		}
 		
 		actionForward.setCheck(false);
-		actionForward.setPath("./posbook.pos");
+		actionForward.setPath("./posbook.pos?store="+store);
 		
 		return actionForward;
 	}

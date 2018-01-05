@@ -53,7 +53,7 @@ text-decoration: none;
 			<td>${a.price}</td>
 			<td>${a.time}</td>
 			<td>${a.coupon}</td>
-			<td><a href="posbookDelete.pos?num=${a.num}">완료</a></td>
+			<td><a href="posbookDelete.pos?num=${a.num}&store=${store}">완료</a></td>
 		</tr>
 		</c:forEach>
 	</table>
