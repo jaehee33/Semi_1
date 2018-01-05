@@ -99,6 +99,6 @@
 	</div>
 	</div>
 	</section>
-	
+	<%@ include file="../temp/footer.jsp" %>
 </body>
 </html>
