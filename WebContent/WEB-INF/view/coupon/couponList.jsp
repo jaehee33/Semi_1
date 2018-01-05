@@ -36,7 +36,7 @@
 						<a class="coupona" href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}">
 						<span class="span">
 						<span class="couponame"><font class="fontspan">Coupon</font></span>
-						<span class="coupon_span">${a.coupon} <span class="off">OFF</span></span></a>
+						<span class="coupon_span">${a.discount} <span class="off">%OFF</span></span></a>
 				</div>
 			</c:if>
 		</c:forEach>
