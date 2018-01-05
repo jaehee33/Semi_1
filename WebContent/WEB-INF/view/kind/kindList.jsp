@@ -26,12 +26,12 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li class="dropdown-header">여자스타일</li>
-					<li><a href="./kindFList.kind?kind=커트&gender=W" class="style">커트</a></li>
+					<li><a href="./kindFList.kind?kind=컷&gender=W" class="style">커트</a></li>
 					<li><a href="./kindFList.kind?kind=펌&gender=W" class="style">펌</a></li>
 					<li><a href="./kindFList.kind?kind=염색&gender=W" class="style">염색</a></li>
 					<li class="divider"></li>
 					<li class="dropdown-header">남자스타일</li>
-					<li><a href="./kindFList.kind?kind=커트&gender=M" class="style">커트</a></li>
+					<li><a href="./kindFList.kind?kind=컷&gender=M" class="style">커트</a></li>
 					<li><a href="./kindFList.kind?kind=펌&gender=M" class="style">펌</a></li>
 					<li><a href="./kindFList.kind?kind=염색&gender=M" class="style">염색</a></li>
 				</ul>
