@@ -29,8 +29,10 @@ public class UseWriteService implements Action {
 			String style=request.getParameter("style");
 			int price=0;
 			int num=0;
+			int discount=0;
 			PosDAO posDAO=new PosDAO();
 			UseDAO useDAO = new UseDAO();
+			CouponDAO couponDAO = new CouponDAO();
 			try {
 				price=Integer.parseInt(request.getParameter("price"));	
 				num=useDAO.getNum();
@@ -47,10 +49,26 @@ public class UseWriteService implements Action {
 				useDTO.setBk_date(Date.valueOf(request.getParameter("bk_date")));
 				useDTO.setStore(store);
 				useDTO.setStyle(style);
-				useDTO.setPrice(price);
 				useDTO.setCoupon(request.getParameter("coupon"));
+				ArrayList<CouponDTO> list;
+				try {
+					list = (ArrayList<CouponDTO>)couponDAO.selectList(memberDTO.getId());
+					for(CouponDTO couponDTO:list) {
+						if(couponDTO.getCoupon().equals(useDTO.getCoupon())) {
+							discount=couponDTO.getDiscount();
+							System.out.println("for문"+discount);
+							break;
+						}
+					}
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println(discount);
+				useDTO.setPrice(price-(price*discount/100));
 				useDTO.setTime(request.getParameter("time"));
-
+				
+				
 				PosDTO posDTO = new PosDTO();
 				posDTO.setNum(num);
 				posDTO.setPos_import(price);
@@ -70,7 +88,7 @@ public class UseWriteService implements Action {
 				}
 				if(useresult>0 && posresult>0) {
 					actionForward.setCheck(false);
-					actionForward.setPath("../WEB-INF/view/use/usePay.jsp");		
+					actionForward.setPath("./useList.use");		
 				}else {
 					request.setAttribute("message", "fail");
 					request.setAttribute("path", "../store/storeList.store");
@@ -78,7 +96,6 @@ public class UseWriteService implements Action {
 					actionForward.setPath("../WEB-INF/view/common/result.jsp");
 				}
 			}else {
-				CouponDAO couponDAO = new CouponDAO();
 				ArrayList<CouponDTO> ar = null;
 				
 				try {

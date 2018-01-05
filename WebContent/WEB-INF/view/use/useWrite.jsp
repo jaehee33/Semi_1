@@ -14,6 +14,23 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript">
 	$(function(){
+		
+		var total=Number(${price});
+		$("#total").html(total);
+		
+		$(".wrap").on("change","#coupon",function(){
+			var title=0;
+			total=Number(${price});
+			$(".select_coupon",this).each(function(){
+				if($(this).prop("selected")){
+					title=Number($(this).attr("title"));
+				}
+			});
+			
+			total=Number(total-(total*title/100));
+			$("#total").html(total);
+		});
+		
 		$("#finish").click(function(){
 			var IMP=window.IMP;
 			IMP.init("imp78791768");
@@ -37,6 +54,7 @@
 			    alert(msg);
 			});
 		});
+		
 
 	});
 </script>
@@ -56,7 +74,7 @@
 					<!-- 날짜선택 -->
 					<div class="wrap">
 						<label class="title" for="sel1">날짜 선택</label><br>
-						<input type="date" class="form-control">
+						<input type="date" class="form-control" name="bk_date">
 					</div>		
 
 					<!-- 시간선택 -->
@@ -73,11 +91,11 @@
 
 					<!-- 쿠폰선택 -->
 					<div class="wrap">
-						<label class="title" for="sel1">할인 쿠폰</label> <select
-							class="form-control" id="coupon" name="coupon">
+						<label class="title" for="sel1">할인 쿠폰</label>
+						<select class="form-control" id="coupon" name="coupon">
 							<option>쿠폰을 선택해주세요</option>
-							<c:forEach items="${list}" var="i">
-								<option class="select_coupon" value="${i.coupon}">${i.coupon}</option>
+							<c:forEach items="${list}" var="i" varStatus="o">
+								<option class="select_coupon" title="${i.discount}" value="${i.coupon}">${i.coupon}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -104,7 +122,8 @@
 						</tbody>
 					</table>
 
-					<h3>총 결제금액 : ${price}원</h3>
+					<h3>총 결제금액 :</h3>
+					<h3 id="total"></h3>
 					<button type="button" id="finish">결제하기</button>
 				</div>
 			</div>
