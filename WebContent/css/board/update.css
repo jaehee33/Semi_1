@@ -12,34 +12,36 @@ section {
 	margin-top: 98px;
 	margin-left: 20%;
 	margin-right: 20%;
-	padding: 50px 30px;
-}
-
-#div_h1{
-	vertical-align: middle;
-	padding-top: 40px;
-	padding-bottom: 100px;
+	padding-bottom: 150px;
 }
 
 #h1{
-	text-align: center;
-	font-weight: 200;
-	font-size: 40px;
+	vertical-align: middle;
+	padding-top: 100px;
+	padding-bottom: 90px; 	
 }
 
+#h1_h1{
+	text-align: center;
+	font-size: 40px;
+	text-transform: capitalize;
+	font-weight: 200;
+}
 
-#frm{
-	padding-left: 40px;
+#form{
 	border: 1px solid silver;
 	width: 1000px;
-	vertical-align: middle;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	margin-left: 30px;
+	padding-left: 20px;
+	padding-top: 30px;
+	margin-left: 50px;
 }
 
-#savebutton{
-	margin-top: 20px;
+.frm_section{
+	padding-bottom: 20px;
+}
+
+#button{
+	margin-top: 30px;
 	padding: 0.5em 1em;
 	background-color: white;
 	color: black;
@@ -48,37 +50,22 @@ section {
 	text-align: center;
 	font-size: 12px;
 	display: inline-block;
+	margin-bottom: 20px;
 }
 
-#savebutton:hover{
-	background: silver;
-	color: white;
-	
-}
-
-.frm_p{
-	padding-bottom: 20px;
-	
-}
-
-#frm_title{
+.input{
 	width: 900px;
 	height: 20px;
 }
 
-#frm_context{
-	width: 900px;
+#textarea{
 	height: 300px;
 }
 
-.p{
-	font-weight: bolder;
-	color: #5f4b8b;
-}
 
-#frm_idp{
-	border: 1px solid silver;
-	width: 900px;
-}
+
+
+
+
 
 
