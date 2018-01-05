@@ -47,7 +47,7 @@
 	<section id="main">
 		<div class="container">
 		<div id="box">
-		<form id="frm" action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
+		<form name="frm" action="./useWrite.use?store=${store}&style=${style}&price=${price}" method="post" class="container">
 			<h1>예약하기</h1>
 			<p id="info1">예약과 결제까지 한 번에!</p>
 				
