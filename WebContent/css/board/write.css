@@ -15,7 +15,23 @@ section {
 	padding: 50px 30px;
 }
 
-#form{
+#div_h1{
+	vertical-align: middle;
+	padding-bottom: 70px;
+	padding-top: 30px;
+}
+
+#h1{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+
+#frm{
+	padding-left: 20px;
+	border: 1px solid black;
+	width: 900px;
 	vertical-align: middle;
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -38,4 +54,18 @@ section {
 	
 }
 
+.frm_p{
+	padding-bottom: 10px;
+}
+
+#frm_title{
+	width: 500px;
+	height: 30px;
+}
+
+#frm_context{
+	width: 500px;
+	height: 300px;
+	
+}
 
