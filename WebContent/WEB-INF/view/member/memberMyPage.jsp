@@ -34,7 +34,7 @@ function myFunction() {
 <%@ include file="../temp/header.jsp" %>
 	<section id="">
 		<div id="hd">
-		<img src="<%=request.getContextPath()%>/img/member/hd.PNG" style="width:100%; height:339px;">
+		<img src="<%=request.getContextPath()%>/img/member/hd.png" style="width:100%; height:339px;">
 			<div id="home">
 			<p><a href="../index.jsp"><img src="<%=request.getContextPath()%>/img/member/home.png" style="width:15px; height:15px;"></a>
 			<span><a href="./memberMyPage.member">> 마이페이지</a></span></p>
