@@ -164,12 +164,13 @@ td a:hover {
 	margin: 5px;
 	padding: 0.5em 1em;
 	background-color: white;
-	color: #5F4B8B;
+	color: black;
 	border: 0.5px solid silver;
 	text-decoration: none;
 	text-align: center;
 	font-size: 12px;
 	display: inline-block;
+	margin-left: 10px;
 }
 
 .buttonWrite:hover{
@@ -214,6 +215,16 @@ img{
 	float: right;
 }
 	
+.div_deletebutton{
+	float: right;
+	}
+
+.buttona{
+	border: 0.5px solid silver;
+	padding: 2px 3px;
+}
+
+
 
 
 
