@@ -24,7 +24,6 @@
 		<div>
 			<h1>COUPON</h1>
 		</div>
-		<%-- <p>member: ${member.id}</p> --%>
 		<c:forEach items="${ar}" var="a">
 			<c:if test="${a.id eq sessionScope.member.id}">
 				<div class="adminlist">
@@ -34,8 +33,10 @@
 			</c:if>
 			<c:if test="${a.id ne sessionScope.member.id}">
 				<div class="div_coupon">
-						<a href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}"><img
-						class="coupon_1" src="/Semi_1/img/coupon/coupon.jpg"><span class="coupon_span">${a.coupon}</span></a><span>${a.discount}% 쿠폰</span>
+						<a class="coupona" href="./couponCome.coupon?coupon=${a.coupon}&count=${a.discount}">
+						<span class="span">
+						<span class="couponame"><font class="fontspan">Coupon</font></span>
+						<span class="coupon_span">${a.discount} <span class="off">%OFF</span></span></a>
 				</div>
 			</c:if>
 		</c:forEach>
