@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -6,9 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${board}</title>
 <link rel="stylesheet" href="/Semi_1/css/board/list.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var kind = '${make.kind}';
@@ -17,7 +21,7 @@
 				$(this).attr("selected", true);
 			}
 		});
-
+		
 		$(".list_button").click(function() {
 			var cur = $(this).attr("title");
 			document.frm.curPage.value = cur;
@@ -57,9 +61,7 @@
 	<%@ include file="../temp/header.jsp"%>
 	<section>
 		<div>
-			<h1>
-				${board}(${count})
-			</h1>
+			<h1>${board}(${count})</h1>
 		</div>
 
 		<table class="list_table">
@@ -80,12 +82,16 @@
 						<td>${i.num}</td>
 						<td id="title${j.index}" class="g" title="${j.index}"><c:catch>
 								<c:forEach begin="1" end="${i.depth}">--</c:forEach>
-							</c:catch><p class="table_title">${i.title}<!-- <img class="img_up" src="/Semi_1/img/board/up_arrow.png"><img class="img_down" src="/Semi_1/img/board/down_arrow.png"> --></p>
-							
-							<div id="contents_view${j.index}" class="div_view" >
-								<p class="toggle_contents">${i.contents}</p>
-							</div>
-						</td>
+							</c:catch>
+							<p class="table_title">${i.title}<!-- <img class="img_up" src="/Semi_1/img/board/up_arrow.png"><img class="img_down" src="/Semi_1/img/board/down_arrow.png"> -->
+							</p>
+
+							<div id="contents_view${j.index}" class="div_view">
+								<p class="toggle_contents">${i.contents}
+									<a href="${board}Delete.${board}?num=${i.num}">DELETE</a>
+									<a href="${board}Update.${board}?num=${i.num}">UPDATE</a>
+								</p>
+							</div></td>
 						<c:if test="${member.id eq 'admin'}">
 							<td>${i.id}</td>
 						</c:if>
@@ -113,8 +119,8 @@
 			<c:if test="${not empty make}">
 				<c:choose>
 					<c:when test="${page.curBlock gt 1}">
-						<input type="button" class="list_button" title="${page.curBlock-1}"
-							value="<">
+						<input type="button" class="list_button"
+							title="${page.curBlock-1}" value="<">
 					</c:when>
 					<c:otherwise>
 						<input type="button" class="list_button" title="${page.curBlock}"
@@ -133,7 +139,7 @@
 				<input type="button" class="list_button button_now" title="${i}"
 					value="${i}">
 			</c:forEach>
-			
+
 			<%-- 	<c:if test="${page.curBlock lt page.totalBlock}">
 			<input type="button" class="list" title="${page.lastNum+1}"
 				value="[다음]">
@@ -146,7 +152,8 @@
 			</c:if>
 
 			<c:if test="${not empty make}">
-				<input type="button" class="list_button" title="${page.lastNum}" value=">>">
+				<input type="button" class="list_button" title="${page.lastNum}"
+					value=">>">
 			</c:if>
 		</div>
 

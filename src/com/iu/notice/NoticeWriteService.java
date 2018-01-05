@@ -27,6 +27,9 @@ public class NoticeWriteService implements Action {
 			
 			int result=0;
 			try {
+				noticeDTO.setId(request.getParameter("id"));
+				noticeDTO.setContents(request.getParameter("contents"));
+				noticeDTO.setTitle(request.getParameter("title"));
 				result=noticeDAO.insert(noticeDTO);
 			} catch (Exception e) {
 				e.printStackTrace();

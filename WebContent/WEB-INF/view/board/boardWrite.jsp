@@ -47,7 +47,7 @@
 <%@ include file="../temp/header.jsp"%>
 	<section>
 	<h3>글쓰기</h3>
-	<form id="frm" action="./${board}Write.${board}" method="post" enctype="multipart/form-data">
+	<form id="frm" action="./${board}Write.${board}" method="post">
 		<p>ID : ${member.id} <input type="hidden" name="id" value="${member.id}" ></p>
 		<p>TITLE: <input type="text" name="title"></p>
 		<p>CONTEXT:<textarea rows="" cols="" name="contents" id="contents"></textarea></p>
