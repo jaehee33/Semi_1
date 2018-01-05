@@ -53,21 +53,21 @@
 								<img src="../upload/${file.fname}" width="450" height="560">
 							</div>
 							<div id="info">
-								<h2 id="h3stylename">
+								<h3 id="h3stylename">
 									<img src="<%=request.getContextPath()%>/img/store/scissors.png" style="width: 25px; height: 25px;"> <b>Style</b>
-								</h2>
-								<h2 id="h3style">${kind.style}</h2>
-								<h2 id="h3storename">
+								</h3>
+								<h3 id="h3style">${kind.style}</h3>
+								<h3 id="h3storename">
 									<img src="<%=request.getContextPath()%>/img/store/scissors.png" style="width: 22px; height: 22px;">
 									<b>매장명</b>
-								</h2>
-								<h2 id="h3store">${kind.store}</h2>
+								</h3>
+								<h3 id="h3store">${kind.store}</h3>
 
-								<h2 id="h3pricename">
+								<h3 id="h3pricename">
 									<img src="<%=request.getContextPath()%>/img/store/scissors.png" style="width: 22px; height: 22px;">
 									<b>가격</b>
-								</h2>
-								<h2 id="h3price">${kind.price}원</h2>
+								</h3>
+								<h3 id="h3price">${kind.price}원</h3>
 							</div>
 						</div>
 						<c:if test="${not empty member}">

@@ -34,9 +34,9 @@ public class UseListService implements Action {
 		try {
 			totalCount=useDAO.getTotalCount(useMakeRow);
 			MakePage makePage = new MakePage(curPage, totalCount);
-			useMakeRow = (UseMakeRow) makePage.getMakeRow(useMakeRow);
+			useMakeRow = (UseMakeRow) makePage.getMakeRowUse(useMakeRow);
 			List<UseDTO> ar = useDAO.selectList(useMakeRow,memberDTO.getId());
-			Pageing pageing = makePage.pageing();
+			Pageing pageing = makePage.pageingUse();
 			
 			request.setAttribute("list", ar);
 			request.setAttribute("page", pageing);
