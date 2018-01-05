@@ -64,7 +64,7 @@
 					<tbody>
 						<c:forEach items="${list}" var="b">
 							<tr>
-								<td>${b.num}</td>
+								<td><a href="./useView.use?num=${b.num}">${b.num}</a></td>
 								<td><a href="./useView.use?num=${b.num}">${b.store}</a></td>
 								<td>${b.bk_date}</td>
 								<td>${b.time}</td>
