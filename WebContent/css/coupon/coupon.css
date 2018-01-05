@@ -6,12 +6,13 @@ body{
 }
 
 section{
-	height: 1000px;
+	height: auto;
 	background-color: white;
 	margin-top: 98px;
 	margin-left: 20%;
 	margin-right: 20%; 
-	padding: 10px 30px;
+	padding-top: 20px;
+	padding-bottom: 100px;
 }
 
 div h1{
@@ -67,24 +68,24 @@ div a{
 	border-bottom: 1px #E1E1E1 solid;
 }
 	
-	.acoupon{
+.acoupon{
 	font-size: 25px;
 	display: inline-block;
 	}
-	.dcoupon{
+.dcoupon{
 	display: inline-block;
 	}
-	.dcoupon a{
+.dcoupon a{
 	text-decoration: none;
 	color:#d1d1d1;
 	font-weight: bold;
 	}
-	.dcoupon a:hover{
+.dcoupon a:hover{
 	text-decoration: none;
 	color:red;
 	}
 	
-	#write{
+#write{
 	border: 1px #E1E1E1 solid;
 	text-align: center;
 	line-height: 100px;
@@ -98,7 +99,72 @@ div a{
 	 -webkit-transition:background-color 1s;
     transition:background-color 1s;
 	}
-	#write:hover{
+#write:hover{
 	color: white;
 	background-color: #5f4b8b;
 	}
+
+.span{
+	display: inline-block;
+	margin-left: 70px;
+	background-color: whiteSmoke ;
+	width: 800px;
+	height: 200px;
+	border: 5px solid black;
+
+}
+	
+.div_coupon{
+	width: auto;
+	height: auto;
+	padding-left: 100px;
+}
+	
+.coupona{
+	text-decoration: none;
+	color: black;
+}
+
+.coupona:hover{
+	color: black;
+}
+	
+.fontspan{
+	padding-left: 30px;
+	font-size: 120px;
+	font-stretch: extra-expanded;
+	font-weight: 300;
+	font-family: fantasy;
+	text-shadow: 5px 5px 1px white;
+	/* -moz-text-shadow: 0 0 5px blue;
+	-webkit-text-shadow: 0 0 5px blue; */
+	
+}
+
+.coupon_span{
+	border-left: 4px dashed black;
+	padding-left: 10px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	margin-left: 80px;
+	font-size: 90px;
+	font-weight: 300;
+	color: red;
+	font-family: fantasy;
+}
+
+.couponame{
+	padding-top: 20px;
+}
+
+.off{
+	font-size: 50px;
+	font-weight: 900;
+	font-family: sans-serif;
+	color: red;
+	
+}
+	
+	
+	
+	
