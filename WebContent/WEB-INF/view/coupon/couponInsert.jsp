@@ -18,7 +18,7 @@
 </head>
 <body>
 	<%@ include file="../temp/header.jsp"%>
-	<section id="">
+	<section>
 		<form id="frm" action="couponInsert.coupon" method="POST">
 			<div id="back">
 				<div id="fi">
