@@ -56,7 +56,6 @@ public class UseWriteService implements Action {
 					for(CouponDTO couponDTO:list) {
 						if(couponDTO.getCoupon().equals(useDTO.getCoupon())) {
 							discount=couponDTO.getDiscount();
-							System.out.println("for문"+discount);
 							break;
 						}
 					}
@@ -64,7 +63,6 @@ public class UseWriteService implements Action {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				System.out.println(discount);
 				useDTO.setPrice(price-(price*discount/100));
 				useDTO.setTime(request.getParameter("time"));
 				
